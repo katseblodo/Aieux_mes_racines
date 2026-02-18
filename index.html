@@ -6,12 +6,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/vis-network.min.js"></script>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #f0f2f5; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #f0f2f5; }
         .header { padding: 15px; background: #2c3e50; color: white; display: flex; gap: 15px; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         .controls { display: flex; gap: 10px; flex-wrap: wrap; }
         input, select { padding: 8px; border-radius: 4px; border: none; }
-        #mynetwork { flex-grow: 1; background: white; margin: 10px; border-radius: 8px; border: 1px solid #ddd; }
-        .info-panel { position: absolute; right: 20px; top: 80px; width: 250px; background: rgba(255,255,255,0.9); padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: none; z-index: 10; }
+        #mynetwork { flex-grow: 1; background: white; margin: 10px; border-radius: 8px; border: 1px solid #ddd; position: relative; }
+        .info-panel { position: absolute; right: 20px; top: 20px; width: 280px; background: rgba(255,255,255,0.95); padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: none; z-index: 10; border: 1px solid #ccc; max-height: 80vh; overflow-y: auto; }
+        #status { position: absolute; bottom: 10px; left: 10px; font-size: 12px; color: #666; }
     </style>
 </head>
 <body>
@@ -19,28 +20,40 @@
 <div class="header">
     <strong>Généalogie</strong>
     <div class="controls">
-        <input type="number" id="searchSosa" placeholder="N° Sosa...">
+        <input type="number" id="searchSosa" placeholder="Rechercher Sosa...">
         <select id="filterFamily"><option value="">Toutes les familles</option></select>
         <button onclick="resetView()">Vue globale</button>
     </div>
 </div>
 
-<div id="infoBox" class="info-panel"></div>
-<div id="mynetwork"></div>
+<div id="mynetwork">
+    <div id="infoBox" class="info-panel"></div>
+    <div id="status">Chargement du fichier...</div>
+</div>
 
 <script>
     let network;
     let allNodes = new vis.DataSet();
     let allEdges = new vis.DataSet();
 
-    // 1. Chargement du CSV nettoyé
+    // 1. Chargement du CSV
     Papa.parse("individus_nettoye.csv", {
         download: true,
         header: true,
         skipEmptyLines: true,
         delimiter: ";",
         complete: function(results) {
+            console.log("Données chargées:", results.data);
+            if (results.data.length === 0) {
+                document.getElementById('status').innerHTML = "⚠️ Le fichier CSV est vide.";
+                return;
+            }
             processData(results.data);
+            document.getElementById('status').innerHTML = results.data.length + " individus chargés.";
+        },
+        error: function(err) {
+            console.error(err);
+            document.getElementById('status').innerHTML = "❌ Erreur de chargement. Vérifiez que vous utilisez un serveur local (Live Server).";
         }
     });
 
@@ -48,23 +61,21 @@
         const families = new Set();
         const sosaMap = new Map();
 
-        // Création des nœuds
         data.forEach(row => {
             if (!row.sosa) return;
             const sosaNum = parseInt(row.sosa);
-            families.add(row.id_famille);
+            if (row.id_famille) families.add(row.id_famille);
             sosaMap.set(sosaNum, row);
 
             allNodes.add({
                 id: sosaNum,
-                label: `${row.nom_prenom}\n(${sosaNum})`,
-                title: `Profession: ${row.profession || 'N/A'}`,
+                label: `${row.nom_prenom}\n[${sosaNum}]`,
                 group: row.id_famille,
                 details: row
             });
         });
 
-        // Calcul automatique des liens Sosa (Père = 2n, Mère = 2n+1)
+        // Calcul des liens (Père = 2n, Mère = 2n+1)
         sosaMap.forEach((person, sosa) => {
             const fatherSosa = sosa * 2;
             const motherSosa = sosa * 2 + 1;
@@ -77,14 +88,11 @@
             }
         });
 
-        // Remplir le filtre famille
         const select = document.getElementById('filterFamily');
         Array.from(families).sort().forEach(f => {
-            if(f) {
-                let opt = document.createElement('option');
-                opt.value = f; opt.innerText = f;
-                select.appendChild(opt);
-            }
+            let opt = document.createElement('option');
+            opt.value = f; opt.innerText = f;
+            select.appendChild(opt);
         });
 
         drawNetwork();
@@ -93,34 +101,52 @@
     function drawNetwork() {
         const container = document.getElementById('mynetwork');
         const options = {
-            nodes: { shape: 'box', margin: 10, font: { size: 14 } },
-            edges: { smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 } },
-            layout: { hierarchical: { direction: 'DU', sortMethod: 'directed', nodeSpacing: 150 } },
-            physics: false
+            nodes: { 
+                shape: 'box', 
+                margin: 10,
+                color: { background: '#ffffff', border: '#2c3e50' },
+                font: { size: 14, multi: true }
+            },
+            edges: { 
+                smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 },
+                font: { align: 'top', size: 10 }
+            },
+            layout: { 
+                hierarchical: { 
+                    direction: 'DU', // De bas en haut (enfants en bas)
+                    sortMethod: 'directed',
+                    nodeSpacing: 200,
+                    levelSeparation: 150
+                } 
+            },
+            physics: { enabled: false }
         };
+        
         network = new vis.Network(container, { nodes: allNodes, edges: allEdges }, options);
 
-        // Affichage des détails au clic
         network.on("click", function (params) {
+            const infoBox = document.getElementById('infoBox');
             if (params.nodes.length > 0) {
                 const nodeData = allNodes.get(params.nodes[0]);
                 const d = nodeData.details;
-                const infoBox = document.getElementById('infoBox');
                 infoBox.style.display = 'block';
                 infoBox.innerHTML = `
-                    <h3>${d.nom_prenom}</h3>
-                    <p><b>Sosa:</b> ${d.sosa}</p>
-                    <p><b>Né le:</b> ${d.date_naissance} à ${d.lieu_naissance}</p>
-                    <p><b>Décès:</b> ${d.date_deces} à ${d.lieu_deces}</p>
-                    <p><b>Profession:</b> ${d.profession}</p>
+                    <button style="float:right" onclick="this.parentElement.style.display='none'">X</button>
+                    <h3 style="margin-top:0">${d.nom_prenom}</h3>
+                    <p><b>Sosa :</b> ${d.sosa}</p>
+                    <p><b>Naissance :</b> ${d.date_naissance} à ${d.lieu_naissance}</p>
+                    <p><b>Décès :</b> ${d.date_deces} à ${d.lieu_deces}</p>
+                    <p><b>Profession :</b> ${d.profession}</p>
+                    <p><b>Mariage :</b> ${d.date_mariage} ${d.lieu_mariage}</p>
                     <hr>
-                    <small>${d.infos_complementaires}</small>
+                    <p><small>${d.infos_complementaires || ''}</small></p>
                 `;
+            } else {
+                infoBox.style.display = 'none';
             }
         });
     }
 
-    // Filtres
     document.getElementById('searchSosa').addEventListener('input', e => {
         const val = parseInt(e.target.value);
         if (allNodes.get(val)) {
