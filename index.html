@@ -2,127 +2,123 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Généalogie - Focus Sosa 32</title>
-    
+    <title>Généalogie - Correctif Affichage</title>
     <script src="js/papaparse.min.js"></script>
     <script src="js/vis-network.min.js"></script>
-
     <style>
-        body { font-family: sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #f0f2f5; }
+        body { font-family: sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #e9ecef; }
         .header { padding: 10px; background: #2c3e50; color: white; display: flex; gap: 10px; align-items: center; }
-        #mynetwork { flex-grow: 1; background: white; margin: 5px; border: 1px solid #ccc; }
+        /* On force le conteneur à être bien visible */
+        #mynetwork { flex-grow: 1; background: #ffffff; margin: 10px; border: 2px solid #34495e; border-radius: 5px; }
+        #debug-log { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); color: #0f0; padding: 10px; font-size: 10px; max-height: 100px; overflow: auto; pointer-events: none; z-index: 1000; }
         .info-panel { position: absolute; right: 20px; top: 70px; width: 250px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.3); display: none; z-index: 10; }
-        #debug-log { position: absolute; bottom: 30px; left: 10px; background: rgba(0,0,0,0.8); color: #0f0; padding: 10px; font-family: monospace; font-size: 11px; max-height: 150px; overflow-y: auto; width: 300px; pointer-events: none; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <input type="number" id="searchSosa" placeholder="N° Sosa..." value="32">
-    <button onclick="focusOnSosa(document.getElementById('searchSosa').value)">Aller au Sosa</button>
-    <button onclick="resetView()">Vue d'ensemble</button>
-    <span id="load-status">Initialisation...</span>
+    <strong>Sosa 32 Explorer</strong>
+    <input type="number" id="searchSosa" placeholder="Sosa..." value="32" style="width:80px">
+    <button onclick="focusOnSosa(document.getElementById('searchSosa').value)">Focus</button>
+    <button onclick="network.fit()">Tout voir</button>
+    <span id="status">Vérification...</span>
 </div>
 
 <div id="mynetwork"></div>
 <div id="infoBox" class="info-panel"></div>
-<div id="debug-log">Log système :<br></div>
+<div id="debug-log"></div>
 
 <script>
     let network = null;
     let nodes = new vis.DataSet();
     let edges = new vis.DataSet();
 
-    function log(msg) {
-        console.log(msg);
-        document.getElementById('debug-log').innerHTML += "> " + msg + "<br>";
-    }
+    function log(m) { document.getElementById('debug-log').innerHTML += m + "<br>"; }
 
     window.onload = function() {
-        log("Fenêtre chargée");
-        if (typeof vis === 'undefined') return log("ERREUR : vis.js absent");
-        if (typeof Papa === 'undefined') return log("ERREUR : papaparse.js absent");
+        if (typeof vis === 'undefined') return alert("Fichier vis-network.min.js manquant dans /js");
         loadData();
     };
 
     function loadData() {
-        log("Chargement du CSV...");
         Papa.parse("individus_nettoye.csv", {
-            download: true,
-            header: true,
-            delimiter: ";",
-            skipEmptyLines: true,
-            complete: function(results) {
-                log(results.data.length + " lignes lues");
-                buildGraph(results.data);
-            },
-            error: function(err) {
-                log("ERREUR PapaParse : " + err);
+            download: true, header: true, delimiter: ";", skipEmptyLines: true,
+            complete: function(res) {
+                log("Data: " + res.data.length + " lignes");
+                build(res.data);
             }
         });
     }
 
-    function buildGraph(data) {
-        let sosaInFile = new Set();
-
-        // 1. Création des nœuds
-        data.forEach(row => {
-            let id = parseInt(row.sosa);
+    function build(data) {
+        let items = [];
+        data.forEach(r => {
+            let id = parseInt(r.sosa);
             if (isNaN(id)) return;
-            if (sosaInFile.has(id)) return; // Ignorer doublons
-
-            sosaInFile.add(id);
-            nodes.add({
+            items.push({
                 id: id,
-                label: row.nom_prenom + "\n[" + id + "]",
-                title: row.profession,
-                group: row.id_famille,
-                details: row
+                label: r.nom_prenom + "\n[" + id + "]",
+                shape: 'box',
+                color: { background: '#3498db', border: '#2980b9' },
+                font: { color: '#ffffff', size: 16 }, // Texte blanc sur fond bleu pour être sûr de voir
+                details: r
             });
         });
+        nodes.add(items);
 
-        log("Nœuds créés : " + sosaInFile.size);
-
-        // 2. Création des liens
-        sosaInFile.forEach(id => {
-            let pere = id * 2;
-            let mere = id * 2 + 1;
-            if (sosaInFile.has(pere)) edges.add({ from: pere, to: id, arrows: 'to', label: 'P' });
-            if (sosaInFile.has(mere)) edges.add({ from: mere, to: id, arrows: 'to', label: 'M' });
+        items.forEach(node => {
+            let p = node.id * 2;
+            let m = node.id * 2 + 1;
+            if (nodes.get(p)) edges.add({ from: p, to: node.id, arrows: 'to', color: '#2c3e50' });
+            if (nodes.get(m)) edges.add({ from: m, to: node.id, arrows: 'to', color: '#e74c3c' });
         });
 
-        log("Liens créés");
-        initNetwork();
+        init();
     }
 
-    function initNetwork() {
+    function init() {
         const container = document.getElementById('mynetwork');
         const options = {
+            // Désactivation de la hiérarchie stricte qui peut causer des bugs de placement
             layout: {
+                improvedLayout: true,
                 hierarchical: {
+                    enabled: true,
                     direction: "DU",
                     sortMethod: "directed",
-                    nodeSpacing: 150
+                    nodeSpacing: 200,
+                    levelSeparation: 150
                 }
             },
-            physics: false
+            physics: {
+                enabled: false // On bloque tout mouvement pour éviter que ça s'envole
+            },
+            nodes: {
+                widthConstraint: { minimum: 100, maximum: 200 }
+            }
         };
 
-        log("Initialisation du graphique...");
-        network = new vis.Network(container, { nodes: nodes, edges: edges }, options);
+        network = new vis.Network(container, { nodes, edges }, options);
 
-        network.once("afterDrawing", function() {
-            log("Dessin terminé");
-            document.getElementById('load-status').innerText = "Prêt";
+        network.once("stabilized", function() {
+            log("Stabilisé. Tentative Focus 32...");
             focusOnSosa(32);
         });
+
+        // Sécurité si afterDrawing ne montre rien
+        setTimeout(() => {
+            if (network) {
+                network.fit(); 
+                log("Fit automatique de secours exécuté.");
+            }
+        }, 2000);
 
         network.on("click", function(p) {
             if (p.nodes.length > 0) {
                 let d = nodes.get(p.nodes[0]).details;
                 let box = document.getElementById('infoBox');
                 box.style.display = 'block';
-                box.innerHTML = "<b>" + d.nom_prenom + "</b><br>Sosa: " + d.sosa + "<br>Né: " + d.date_naissance + "<br>Lieu: " + d.lieu_naissance;
+                box.innerHTML = `<b>${d.nom_prenom}</b><br>Sosa: ${d.sosa}<br>${d.profession || ''}`;
             }
         });
     }
@@ -130,16 +126,13 @@
     function focusOnSosa(id) {
         id = parseInt(id);
         if (nodes.get(id)) {
-            log("Focus sur " + id);
             network.focus(id, { scale: 1, animation: true });
             network.selectNodes([id]);
+            document.getElementById('status').innerText = "Focus sur " + id;
         } else {
-            log("Sosa " + id + " introuvable dans l'arbre");
+            network.fit();
+            document.getElementById('status').innerText = "Sosa " + id + " non trouvé, vue globale.";
         }
-    }
-
-    function resetView() {
-        network.fit({ animation: true });
     }
 </script>
 </body>
