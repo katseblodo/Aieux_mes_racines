@@ -163,34 +163,19 @@
                 afficherIndividu('mere-box', mere, sosaMere, "Mère");
 
                 
-const mariageDiv = document.getElementById('mariage-box');
-// On cherche l'info de mariage (priorité au père, sinon la mère)
-const dMar = (pere && pere.date_mariage) ? pere.date_mariage : (mere ? mere.date_mariage : "");
-const lMar = (pere && pere.lieu_mariage) ? pere.lieu_mariage : (mere ? mere.lieu_mariage : "");
+                const mariageDiv = document.getElementById('mariage-box');
+                // On cherche l'info de mariage (priorité au père, sinon la mère)
+                const dMar = (pere && pere.date_mariage) ? pere.date_mariage : (mere ? mere.date_mariage : "");
+                const lMar = (pere && pere.lieu_mariage) ? pere.lieu_mariage : (mere ? mere.lieu_mariage : "");
 
-if (dMar || lMar) {
-    document.getElementById('mariage-date').innerText = dMar || "Date inconnue";
-    document.getElementById('mariage-lieu-txt').innerText = lMar ? " à " + lMar : "";
-    mariageDiv.style.display = "block";
-} else {
-    mariageDiv.style.display = "none";
-}
+                if (dMar || lMar) {
+                    document.getElementById('mariage-date').innerText = dMar || "Date inconnue";
+                    document.getElementById('mariage-lieu-txt').innerText = lMar ? " à " + lMar : "";
+                    mariageDiv.style.display = "block";
+                } else {
+                    mariageDiv.style.display = "none";
+                }
 
-// --- Ajout du lieu de mariage sur la carte ---
-if (lMar && lMar !== "-") {
-    const coordsM = await geocode(lMar);
-    if (coordsM) {
-        L.marker(coordsM, {
-            icon: L.icon({
-                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png',
-                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
-            })
-        }).addTo(map).bindPopup(`<b>💍 Mariage</b><br>${pere.nom_prenom} & ${mere.nom_prenom}<br>${lMar} (${dMar})`);
-        bounds.push(coordsM);
-    }
-}
-// ... reste du code fitBounds ...
 
                 // Navigation
                 document.getElementById('btn-enfant').onclick = () => { document.getElementById('sosaInput').value = Math.floor(sosaPere/2); chargerCouple(); };
@@ -224,6 +209,21 @@ if (lMar && lMar !== "-") {
             }
         });
     }
+    // --- Ajout du lieu de mariage sur la carte ---
+if (lMar && lMar !== "-") {
+    const coordsM = await geocode(lMar);
+    if (coordsM) {
+        L.marker(coordsM, {
+            icon: L.icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+            })
+        }).addTo(map).bindPopup(`<b>💍 Mariage</b><br>${pere.nom_prenom} & ${mere.nom_prenom}<br>${lMar} (${dMar})`);
+        bounds.push(coordsM);
+    }
+}
+
 
     function afficherIndividu(divId, d, sosa, titre) {
         const box = document.getElementById(divId);
