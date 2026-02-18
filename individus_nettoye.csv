@@ -1,4 +1,4 @@
-sosa;id_generation;id_famille;prenom_nom;profession;date_naissance;date_deces;lieu_naissance;lieu_deces;date_mariage;lieu_mariage;infos_complementaires;[MILITAIRE] Classe: | Bureau: | Matricule: | Détails:;
+sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;lieu_naissance;lieu_deces;date_mariage;lieu_mariage;infos_complementaires;[MILITAIRE] Classe: | Bureau: | Matricule: | Détails:;
 2;G0;TT;dominique TANGUY;Pharmacien;15/08/1948;19/07/2024;Pont-l_Abbe;Quimper;;;
 3;G0;QQ;helene QUILLEC;;26/06/1949;dans trï¿½s longtemps;Vannes;;;;
 4;G1;TT;louis charles yves TANGUY;Veterinaire;14/12/1917;22/04/1997;Morlaix;Pont-l_Abbe;24/05/1945;Pontivy;;[MILITAIRE] Classe : 1937| Bureau :Brest | Matricule : | Détails :;
@@ -1952,6 +1952,7 @@ G385;G11;QQ;heldrede TREFFRY;;;;;;;;
 126674;G15;PM;philippe castille le LARDIC;notaire de la rue Obscure;;Sieur de Kerguestin, Pluguffan... Notaire. Apothicaire, gouverneur de l'Hï¿½pital de Sainte Catherine. Procureur, syndic de Quimper en 1587-1588. Dï¿½putï¿½ du Tiers-Etat pour Quimper-Corentin aux Etats de Bretagne de 1587 et 1588. Reprï¿½sentant de la Bretagne aux Etats-Gï¿½nï¿½raux ï¿½ Blois en 1588.;;;;;
 AAAA1;G-2;Lucas, Pierre-Billig, Dominique TANGUY;;;;;Fils de Sï¿½bastion dixit son choix du 11/10/2022 et revue le 03/14/2023;;;;
 AAAA2;G-2;Marie, Jeanne-Perrine ,Helene TANGUY;;;;;Fils de Sï¿½bastion dixit son choix du 11/10/2022 et revue le 03/14/2023;;;;
+
 
 
 
