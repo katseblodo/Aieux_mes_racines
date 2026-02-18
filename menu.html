@@ -1,0 +1,42 @@
+<style>
+    .main-nav {
+        background: #2c3e50;
+        color: white;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+        font-family: 'Segoe UI', sans-serif;
+    }
+    .nav-brand h1 { margin: 0; font-size: 22px; color: #3498db; }
+    .nav-brand span { font-size: 13px; font-style: italic; opacity: 0.8; }
+    .nav-links { display: flex; gap: 15px; }
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+    .nav-links a:hover { background: #34495e; color: #3498db; }
+    @media (max-width: 768px) {
+        .main-nav { flex-direction: column; text-align: center; gap: 10px; padding: 10px; }
+    }
+</style>
+
+<div class="main-nav">
+    <div class="nav-brand">
+        <h1>Aïeux, mes racines</h1>
+        <span>Site de généalogie de Catherine Tanguy</span>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">🌳 L'Arbre</a>
+        <a href="fiche_couple.html">👥 Fiche Couple</a>
+        <a href="manquants.html">🔍 Manquants</a>
+        <a href="doublons.html">🚫 Doublons</a>
+    </div>
+</div>
