@@ -2,36 +2,33 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Généalogie - 3 Générations Sosa 32</title>
+    <title>Généalogie - Stable</title>
     <script src="js/papaparse.min.js"></script>
     <script src="js/vis-network.min.js"></script>
     <style>
-        body { font-family: sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #f8f9fa; }
-        .header { padding: 15px; background: #2c3e50; color: white; display: flex; justify-content: space-between; align-items: center; }
-        #mynetwork { flex-grow: 1; background: white; margin: 10px; border-radius: 8px; border: 1px solid #ccc; }
-        .legend { font-size: 12px; color: #666; padding: 5px 20px; }
+        body { font-family: sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; }
+        .header { padding: 10px; background: #2c3e50; color: white; display: flex; gap: 10px; align-items: center; }
+        #mynetwork { flex-grow: 1; background: white; border: 1px solid #ccc; }
+        #status { font-size: 12px; color: #666; padding: 5px; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <strong>Focus : 3 Générations Ascendantes</strong>
-    <div>
-        Sosa Racine : <input type="number" id="rootSosa" value="32" style="width: 60px;">
-        <button onclick="loadData()">Actualiser</button>
-    </div>
+    <strong>Focus 3 Générations</strong>
+    <input type="number" id="rootSosa" value="32" style="width: 60px;">
+    <button onclick="startVisualisation()">Lancer</button>
 </div>
 
 <div id="mynetwork"></div>
-<div class="legend" id="status">Chargement...</div>
+<div id="status">En attente...</div>
 
 <script>
     let network = null;
 
-    window.onload = loadData;
-
-    function loadData() {
+    function startVisualisation() {
         const rootId = parseInt(document.getElementById('rootSosa').value);
+        document.getElementById('status').innerText = "Lecture du fichier...";
         
         Papa.parse("individus_nettoye.csv", {
             download: true,
@@ -39,74 +36,90 @@
             delimiter: ";",
             skipEmptyLines: true,
             complete: function(results) {
-                generateTree(results.data, rootId);
+                renderTree(results.data, rootId);
             }
         });
     }
 
-    function generateTree(data, rootId) {
-        const nodes = new vis.DataSet();
-        const edges = new vis.DataSet();
-        
-        // On définit les Sosa cibles pour 3 générations
-        // G1: 32 | G2: 64,65 | G3: 128,129,130,131
-        const targetSosas = new Set();
-        targetSosas.add(rootId);           // G1
-        targetSosas.add(rootId * 2);       // G2 (Père)
-        targetSosas.add(rootId * 2 + 1);   // G2 (Mère)
-        targetSosas.add(rootId * 4);       // G3 (Grand-père P)
-        targetSosas.add(rootId * 4 + 1);   // G3 (Grand-mère P)
-        targetSosas.add(rootId * 4 + 2);   // G3 (Grand-père M)
-        targetSosas.add(rootId * 4 + 3);   // G3 (Grand-mère M)
+    function renderTree(data, rootId) {
+        // 1. Définition des cibles (3 générations)
+        const targetIds = [
+            rootId, 
+            rootId*2, rootId*2+1, 
+            rootId*4, rootId*4+1, rootId*4+2, rootId*4+3
+        ];
 
-        // On filtre les données du CSV
-        const mapData = new Map();
+        const nodes = [];
+        const edges = [];
+        const foundSosas = new Set();
+
+        // 2. Filtrage des données
         data.forEach(row => {
-            let sosa = parseInt(row.sosa);
-            if (targetSosas.has(sosa)) {
-                mapData.set(sosa, row);
-                nodes.add({
+            const sosa = parseInt(row.sosa);
+            if (targetIds.includes(sosa)) {
+                foundSosas.add(sosa);
+                nodes.push({
                     id: sosa,
                     label: row.nom_prenom + "\n[" + sosa + "]",
                     shape: 'box',
-                    color: { background: sosa === rootId ? '#e67e22' : '#3498db', border: '#2c3e50' },
-                    font: { color: '#fff', size: 14 },
-                    level: sosa >= rootId * 4 ? 0 : (sosa >= rootId * 2 ? 1 : 2)
+                    color: { background: sosa === rootId ? '#e67e22' : '#3498db' },
+                    font: { color: 'white' },
+                    // On définit manuellement les niveaux pour éviter que VisJS ne boucle
+                    level: sosa >= rootId*4 ? 0 : (sosa >= rootId*2 ? 1 : 2)
                 });
             }
         });
 
-        // On crée les liens uniquement entre les personnes présentes
-        targetSosas.forEach(s => {
-            let p = s * 2;
-            let m = s * 2 + 1;
-            if (mapData.has(s) && mapData.has(p)) 
-                edges.add({ from: p, to: s, arrows: 'to', label: 'P', color: '#3498db' });
-            if (mapData.has(s) && mapData.has(m)) 
-                edges.add({ from: m, to: s, arrows: 'to', label: 'M', color: '#e74c3c' });
+        // 3. Création des liens
+        foundSosas.forEach(id => {
+            const p = id * 2;
+            const m = id * 2 + 1;
+            if (foundSosas.has(p)) edges.push({ from: p, to: id, arrows: 'to' });
+            if (foundSosas.has(m)) edges.push({ from: m, to: id, arrows: 'to' });
         });
 
         const container = document.getElementById('mynetwork');
+        
         const options = {
             layout: {
                 hierarchical: {
+                    enabled: true,
                     direction: "DU",
                     sortMethod: "directed",
                     levelSeparation: 150,
-                    nodeSpacing: 250
+                    nodeSpacing: 200
                 }
             },
-            physics: false
+            // --- PROTECTION ANTI-BOUCLE ---
+            physics: {
+                enabled: false, // On désactive totalement la physique
+                stabilization: {
+                    enabled: true,
+                    iterations: 100 // On limite le calcul à 100 essais maximum
+                }
+            },
+            interaction: {
+                dragNodes: true,
+                zoomView: true
+            }
         };
 
         if (network) network.destroy();
+        
+        // Création du réseau
         network = new vis.Network(container, { nodes, edges }, options);
         
-        document.getElementById('status').innerText = nodes.length + " personnes affichées pour l'arbre du Sosa " + rootId;
+        document.getElementById('status').innerText = nodes.length + " individus affichés.";
         
-        // Forcer le centrage
-        network.once("afterDrawing", () => network.fit());
+        // Forcer l'arrêt de tout calcul après 500ms
+        setTimeout(() => {
+            network.stopSimulation();
+            network.fit();
+        }, 500);
     }
+
+    // Lancer au démarrage
+    window.onload = startVisualisation;
 </script>
 </body>
 </html>
