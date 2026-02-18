@@ -2,150 +2,145 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Généalogie - Visualisation des Individus</title>
-    
+    <title>Généalogie - Visualisation Sosa</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/vis-network.min.js"></script>
-
     <style>
-        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f9; }
-        .controls { 
-            display: flex; gap: 10px; margin-bottom: 20px; padding: 15px; 
-            background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        input, select { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
-        #mynetwork {
-            width: 100%; height: 600px; border: 1px solid lightgray;
-            background-color: white; border-radius: 8px;
-        }
-        .legend { font-size: 0.9em; color: #666; margin-top: 5px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #f0f2f5; }
+        .header { padding: 15px; background: #2c3e50; color: white; display: flex; gap: 15px; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .controls { display: flex; gap: 10px; flex-wrap: wrap; }
+        input, select { padding: 8px; border-radius: 4px; border: none; }
+        #mynetwork { flex-grow: 1; background: white; margin: 10px; border-radius: 8px; border: 1px solid #ddd; }
+        .info-panel { position: absolute; right: 20px; top: 80px; width: 250px; background: rgba(255,255,255,0.9); padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: none; z-index: 10; }
     </style>
 </head>
 <body>
 
-    <h2>Arbre des liens : Individus & Familles</h2>
-
+<div class="header">
+    <strong>Généalogie</strong>
     <div class="controls">
-        <input type="text" id="searchSosa" placeholder="Rechercher un n° Sosa...">
-        
-        <select id="filterFamily">
-            <option value="">Toutes les familles</option>
-        </select>
-
-        <button onclick="resetView()">Réinitialiser la vue</button>
+        <input type="number" id="searchSosa" placeholder="N° Sosa...">
+        <select id="filterFamily"><option value="">Toutes les familles</option></select>
+        <button onclick="resetView()">Vue globale</button>
     </div>
+</div>
 
-    <div id="mynetwork"></div>
-    <p class="legend">Astuce : Utilisez la molette pour zoomer et glissez les cercles pour organiser la vue.</p>
+<div id="infoBox" class="info-panel"></div>
+<div id="mynetwork"></div>
 
-    <script>
-        let network;
-        let allNodes = [];
-        let allEdges = [];
+<script>
+    let network;
+    let allNodes = new vis.DataSet();
+    let allEdges = new vis.DataSet();
 
-        // 1. Chargement du fichier CSV
-        Papa.parse("individus.csv", {
-            download: true,
-            header: true,
-            skipEmptyLines: true,
-            complete: function(results) {
-                processData(results.data);
-            },
-            error: function(err) {
-                console.error("Erreur lors de la lecture du CSV:", err);
-                alert("Impossible de lire le fichier 'individus.csv'. Vérifiez qu'il est au même endroit que l'index.html.");
+    // 1. Chargement du CSV nettoyé
+    Papa.parse("individus_nettoye.csv", {
+        download: true,
+        header: true,
+        skipEmptyLines: true,
+        delimiter: ";",
+        complete: function(results) {
+            processData(results.data);
+        }
+    });
+
+    function processData(data) {
+        const families = new Set();
+        const sosaMap = new Map();
+
+        // Création des nœuds
+        data.forEach(row => {
+            if (!row.sosa) return;
+            const sosaNum = parseInt(row.sosa);
+            families.add(row.id_famille);
+            sosaMap.set(sosaNum, row);
+
+            allNodes.add({
+                id: sosaNum,
+                label: `${row.nom_prenom}\n(${sosaNum})`,
+                title: `Profession: ${row.profession || 'N/A'}`,
+                group: row.id_famille,
+                details: row
+            });
+        });
+
+        // Calcul automatique des liens Sosa (Père = 2n, Mère = 2n+1)
+        sosaMap.forEach((person, sosa) => {
+            const fatherSosa = sosa * 2;
+            const motherSosa = sosa * 2 + 1;
+
+            if (sosaMap.has(fatherSosa)) {
+                allEdges.add({ from: fatherSosa, to: sosa, arrows: 'to', color: '#3498db', label: 'Père' });
+            }
+            if (sosaMap.has(motherSosa)) {
+                allEdges.add({ from: motherSosa, to: sosa, arrows: 'to', color: '#e74c3c', label: 'Mère' });
             }
         });
 
-        function processData(data) {
-            const nodes = [];
-            const edges = [];
-            const families = new Set();
-
-            data.forEach(person => {
-                if (!person.id) return;
-
-                // Ajout à la liste des familles pour le filtre
-                if (person.famille) families.add(person.famille);
-
-                // Création du nœud (individu)
-                nodes.push({
-                    id: person.id,
-                    label: `${person.prenom} ${person.nom}\n(Sosa: ${person.sosa || 'N/A'})`,
-                    title: `Famille: ${person.famille}`,
-                    group: person.famille,
-                    sosa: person.sosa
-                });
-
-                // Création des liens (Père / Mère)
-                if (person.pere_id) {
-                    edges.push({ from: person.pere_id, to: person.id, arrows: 'to', label: 'Père' });
-                }
-                if (person.mere_id) {
-                    edges.push({ from: person.mere_id, to: person.id, arrows: 'to', label: 'Mère' });
-                }
-            });
-
-            allNodes = new vis.DataSet(nodes);
-            allEdges = new vis.DataSet(edges);
-
-            // Remplir le menu déroulant des familles
-            const select = document.getElementById('filterFamily');
-            Array.from(families).sort().forEach(f => {
+        // Remplir le filtre famille
+        const select = document.getElementById('filterFamily');
+        Array.from(families).sort().forEach(f => {
+            if(f) {
                 let opt = document.createElement('option');
-                opt.value = f;
-                opt.innerHTML = f;
+                opt.value = f; opt.innerText = f;
                 select.appendChild(opt);
-            });
-
-            drawNetwork();
-        }
-
-        function drawNetwork() {
-            const container = document.getElementById('mynetwork');
-            const data = { nodes: allNodes, edges: allEdges };
-            const options = {
-                nodes: { shape: 'dot', size: 16 },
-                physics: { enabled: true, barnesHut: { gravitationalConstant: -2000 } }
-            };
-            network = new vis.Network(container, data, options);
-        }
-
-        // --- Fonctions de Recherche et Filtre ---
-
-        // Recherche par Sosa
-        document.getElementById('searchSosa').addEventListener('input', function(e) {
-            const sosaValue = e.target.value;
-            const found = allNodes.get({
-                filter: function (item) { return item.sosa == sosaValue; }
-            });
-
-            if (found.length > 0) {
-                network.focus(found[0].id, { scale: 1.5, animation: true });
-                network.selectNodes([found[0].id]);
             }
         });
 
-        // Filtre par Famille
-        document.getElementById('filterFamily').addEventListener('change', function(e) {
-            const fam = e.target.value;
-            if (fam === "") {
-                network.setData({ nodes: allNodes, edges: allEdges });
-            } else {
-                const filteredNodes = allNodes.get({
-                    filter: function(n) { return n.group === fam; }
-                });
-                // On ne montre que les nœuds de la famille
-                network.setData({ nodes: new vis.DataSet(filteredNodes), edges: allEdges });
+        drawNetwork();
+    }
+
+    function drawNetwork() {
+        const container = document.getElementById('mynetwork');
+        const options = {
+            nodes: { shape: 'box', margin: 10, font: { size: 14 } },
+            edges: { smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 } },
+            layout: { hierarchical: { direction: 'DU', sortMethod: 'directed', nodeSpacing: 150 } },
+            physics: false
+        };
+        network = new vis.Network(container, { nodes: allNodes, edges: allEdges }, options);
+
+        // Affichage des détails au clic
+        network.on("click", function (params) {
+            if (params.nodes.length > 0) {
+                const nodeData = allNodes.get(params.nodes[0]);
+                const d = nodeData.details;
+                const infoBox = document.getElementById('infoBox');
+                infoBox.style.display = 'block';
+                infoBox.innerHTML = `
+                    <h3>${d.nom_prenom}</h3>
+                    <p><b>Sosa:</b> ${d.sosa}</p>
+                    <p><b>Né le:</b> ${d.date_naissance} à ${d.lieu_naissance}</p>
+                    <p><b>Décès:</b> ${d.date_deces} à ${d.lieu_deces}</p>
+                    <p><b>Profession:</b> ${d.profession}</p>
+                    <hr>
+                    <small>${d.infos_complementaires}</small>
+                `;
             }
         });
+    }
 
-        function resetView() {
-            network.fit({ animation: true });
-            document.getElementById('searchSosa').value = "";
-            document.getElementById('filterFamily').value = "";
+    // Filtres
+    document.getElementById('searchSosa').addEventListener('input', e => {
+        const val = parseInt(e.target.value);
+        if (allNodes.get(val)) {
+            network.focus(val, { scale: 1.2, animation: true });
+            network.selectNodes([val]);
         }
-    </script>
+    });
+
+    document.getElementById('filterFamily').addEventListener('change', e => {
+        const fam = e.target.value;
+        const view = new vis.DataView(allNodes, {
+            filter: (n) => fam === "" || n.group === fam
+        });
+        network.setData({ nodes: view, edges: allEdges });
+    });
+
+    function resetView() {
+        network.fit({ animation: true });
+        document.getElementById('infoBox').style.display = 'none';
+    }
+</script>
 </body>
 </html>
