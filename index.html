@@ -2,50 +2,48 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Généalogie - Visualisation Sosa</title>
+    <title>Généalogie - Focus Sosa 32</title>
     
     <script src="js/papaparse.min.js"></script>
     <script src="js/vis-network.min.js"></script>
 
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #f4f7f6; }
-        .header { padding: 15px; background: #2c3e50; color: white; display: flex; gap: 15px; align-items: center; z-index: 100; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #f0f2f5; }
+        .header { padding: 10px 20px; background: #2c3e50; color: white; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
         .controls { display: flex; gap: 10px; }
         input, select, button { padding: 8px; border-radius: 4px; border: 1px solid #ccc; }
-        #mynetwork { flex-grow: 1; background: white; margin: 10px; border-radius: 8px; border: 1px solid #ddd; position: relative; }
-        .info-panel { position: absolute; right: 20px; top: 20px; width: 280px; background: rgba(255,255,255,0.95); padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: none; z-index: 10; border: 1px solid #ccc; max-height: 80vh; overflow-y: auto; }
-        #status-bar { padding: 5px 15px; font-size: 12px; background: #ddd; color: #333; }
+        #mynetwork { flex-grow: 1; background: white; margin: 10px; border-radius: 8px; border: 1px solid #ddd; }
+        .info-panel { position: absolute; right: 25px; top: 80px; width: 280px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: none; z-index: 10; border-top: 5px solid #3498db; }
+        #status-bar { padding: 5px 20px; font-size: 11px; background: #eee; border-top: 1px solid #ccc; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <strong>Ma Généalogie</strong>
+    <strong>Généalogie : Focus Sosa 32</strong>
     <div class="controls">
-        <input type="number" id="searchSosa" placeholder="N° Sosa...">
+        <input type="number" id="searchSosa" placeholder="Aller au Sosa...">
         <select id="filterFamily"><option value="">Toutes les familles</option></select>
-        <button onclick="resetView()">Vue globale</button>
+        <button onclick="focusOnSosa(32)" style="background:#e67e22; color:white; border:none; cursor:pointer;">🏠 Retour au 32</button>
+        <button onclick="resetView()">Vue Globale</button>
     </div>
 </div>
 
-<div id="mynetwork">
-    <div id="infoBox" class="info-panel"></div>
-</div>
-
-<div id="status-bar">Initialisation...</div>
+<div id="mynetwork"></div>
+<div id="infoBox" class="info-panel"></div>
+<div id="status-bar">Chargement des données...</div>
 
 <script>
     let network = null;
-    let allNodes = null;
-    let allEdges = null;
+    let allNodes = new vis.DataSet();
+    let allEdges = new vis.DataSet();
+    let sosaMap = new Map();
 
     window.onload = function() {
-        if (typeof Papa === 'undefined' || typeof vis === 'undefined') {
-            document.getElementById('status-bar').innerHTML = "❌ Erreur : Fichiers dans /js non trouvés.";
+        if (typeof vis === 'undefined' || typeof Papa === 'undefined') {
+            document.getElementById('status-bar').innerHTML = "❌ Erreur : Fichiers dans /js manquants.";
             return;
         }
-        allNodes = new vis.DataSet();
-        allEdges = new vis.DataSet();
         loadCSV();
     };
 
@@ -56,29 +54,24 @@
             skipEmptyLines: true,
             delimiter: ";",
             complete: function(results) {
-                if (results.data && results.data.length > 0) {
+                if (results.data.length > 0) {
                     processData(results.data);
-                    document.getElementById('status-bar').innerText = results.data.length + " individus chargés.";
                 } else {
-                    document.getElementById('status-bar').innerText = "⚠️ CSV vide.";
+                    document.getElementById('status-bar').innerText = "⚠️ Fichier CSV vide.";
                 }
-            },
-            error: function() {
-                document.getElementById('status-bar').innerText = "❌ Erreur de lecture du CSV.";
             }
         });
     }
 
     function processData(data) {
         const families = new Set();
-        const sosaMap = new Map();
 
         data.forEach(row => {
-            if (!row.sosa) return;
             const sosaNum = parseInt(row.sosa);
+            if (isNaN(sosaNum)) return;
             
-            // Protection contre les doublons (Erreur 1616)
-            if (allNodes.get(sosaNum)) return;
+            // Éviter les doublons
+            if (sosaMap.has(sosaNum)) return;
 
             if (row.id_famille) families.add(row.id_famille);
             sosaMap.set(sosaNum, row);
@@ -87,10 +80,12 @@
                 id: sosaNum,
                 label: `${row.nom_prenom}\n[${sosaNum}]`,
                 group: row.id_famille,
+                level: Math.floor(Math.log2(sosaNum)), // Calcule la génération automatiquement
                 details: row
             });
         });
 
+        // Créer les liens P/M
         sosaMap.forEach((person, sosa) => {
             const pere = sosa * 2;
             const mere = sosa * 2 + 1;
@@ -98,6 +93,7 @@
             if (sosaMap.has(mere)) allEdges.add({ from: mere, to: sosa, arrows: 'to', color: '#e74c3c', label: 'M' });
         });
 
+        // Remplir le filtre famille
         const select = document.getElementById('filterFamily');
         Array.from(families).sort().forEach(f => {
             if(f) {
@@ -107,47 +103,83 @@
             }
         });
 
+        document.getElementById('status-bar').innerText = data.length + " individus chargés.";
         drawNetwork();
     }
 
     function drawNetwork() {
         const container = document.getElementById('mynetwork');
         const options = {
-            nodes: { shape: 'box', margin: 10, font: { multi: true } },
-            layout: { hierarchical: { direction: 'DU', sortMethod: 'directed', nodeSpacing: 200 } },
-            physics: false
+            nodes: { 
+                shape: 'box', 
+                margin: 10,
+                font: { size: 14, multi: true },
+                borderWidth: 2
+            },
+            edges: { 
+                smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.5 },
+                color: '#999'
+            },
+            layout: { 
+                hierarchical: { 
+                    direction: 'DU', 
+                    sortMethod: 'directed',
+                    nodeSpacing: 200,
+                    levelSeparation: 150
+                } 
+            },
+            physics: { enabled: false }
         };
+
         network = new vis.Network(container, { nodes: allNodes, edges: allEdges }, options);
 
-        network.on("click", function (params) {
+        // Au démarrage, on centre sur le Sosa 32
+        network.once("afterDrawing", function() {
+            focusOnSosa(32);
+        });
+
+        // Gestion du clic
+        network.on("click", function(params) {
             const infoBox = document.getElementById('infoBox');
             if (params.nodes.length > 0) {
                 const d = allNodes.get(params.nodes[0]).details;
                 infoBox.style.display = 'block';
-                infoBox.innerHTML = `<h3>${d.nom_prenom}</h3>
+                infoBox.innerHTML = `
+                    <h3 style="margin:0 0 10px 0">${d.nom_prenom}</h3>
                     <p><b>Sosa :</b> ${d.sosa}</p>
-                    <p><b>Né :</b> ${d.date_naissance} à ${d.lieu_naissance}</p>
-                    <hr><small>${d.infos_complementaires || ''}</small>`;
+                    <p><b>Famille :</b> ${d.id_famille}</p>
+                    <p><b>Profession :</b> ${d.profession || '-'}</p>
+                    <p><b>Naissance :</b> ${d.date_naissance || '-'} à ${d.lieu_naissance || '-'}</p>
+                    <p><b>Décès :</b> ${d.date_deces || '-'} à ${d.lieu_deces || '-'}</p>
+                    <hr><small>${d.infos_complementaires || ''}</small>
+                `;
             } else {
                 infoBox.style.display = 'none';
             }
         });
     }
 
+    function focusOnSosa(sosaId) {
+        if (network && allNodes.get(sosaId)) {
+            network.focus(sosaId, {
+                scale: 1,
+                animation: { duration: 1000, easingFunction: "easeInOutQuad" }
+            });
+            network.selectNodes([sosaId]);
+        } else {
+            alert("Le Sosa " + sosaId + " n'existe pas dans le fichier.");
+        }
+    }
+
     function resetView() {
         if (network) network.fit({ animation: true });
     }
 
-    document.getElementById('searchSosa').addEventListener('input', e => {
-        const val = parseInt(e.target.value);
-        if (network && allNodes.get(val)) {
-            network.focus(val, { scale: 1.2, animation: true });
-            network.selectNodes([val]);
-        }
+    document.getElementById('searchSosa').addEventListener('change', e => {
+        focusOnSosa(parseInt(e.target.value));
     });
 
     document.getElementById('filterFamily').addEventListener('change', e => {
-        if (!network) return;
         const fam = e.target.value;
         const view = new vis.DataView(allNodes, {
             filter: (n) => fam === "" || n.group === fam
@@ -155,5 +187,6 @@
         network.setData({ nodes: view, edges: allEdges });
     });
 </script>
+
 </body>
 </html>
