@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Aïeux, mes racines - Édition</title>
+    <script src="js/papaparse.min.js"></script>
+    <style>
+        :root { --blue: #3498db; --dark: #2c3e50; --bg: #f4f7f6; --green: #27ae60; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding: 0; }
+        .container { max-width: 800px; margin: 20px auto; padding: 0 20px; }
+        
+        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: var(--dark); border-bottom: 2px solid var(--blue); padding-bottom: 10px; margin-top: 0; }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full { grid-column: span 2; }
+        
+        label { font-weight: bold; font-size: 13px; color: #666; margin-bottom: 5px; }
+        input, textarea { padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+        textarea { height: 80px; resize: vertical; }
+
+        .actions { margin-top: 25px; display: flex; gap: 10px; }
+        button { padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .btn-load { background: var(--dark); color: white; }
+        .btn-save { background: var(--green); color: white; flex-grow: 1; }
+        button:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        #output-zone { margin-top: 30px; display: none; }
+        .csv-result { background: #2c3e50; color: #bdc3c7; padding: 15px; border-radius: 4px; font-family: monospace; font-size: 12px; word-break: break-all; position: relative; }
+        .copy-hint { font-size: 12px; color: var(--green); font-weight: bold; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <div class="container">
+        <div class="card">
+            <h2>📝 Éditer une fiche individu</h2>
+            
+            <div style="background: #e1f5fe; padding: 15px; border-radius: 4px; margin-bottom: 20px; font-size: 14px; color: #0277bd;">
+                Entrez un numéro Sosa pour charger les données existantes, modifiez-les, puis générez la ligne CSV.
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px; flex-direction: row; gap: 10px;">
+                <input type="number" id="searchSosa" placeholder="N° Sosa" style="width: 100px;">
+                <button class="btn-load" onclick="chargerIndividu()">Charger les données</button>
+            </div>
+
+            <hr>
+
+            <form id="editForm" class="form-grid">
+                <div class="form-group">
+                    <label>N° Sosa</label>
+                    <input type="text" id="f_sosa" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Code Famille</label>
+                    <input type="text" id="f_famille" placeholder="ex: TT">
+                </div>
+                <div class="form-group full">
+                    <label>Nom et Prénoms</label>
+                    <input type="text" id="f_nom" placeholder="NOM Prénom">
+                </div>
+                <div class="form-group">
+                    <label>Date de Naissance</label>
+                    <input type="text" id="f_date_n" placeholder="jj/mm/aaaa">
+                </div>
+                <div class="form-group">
+                    <label>Lieu de Naissance</label>
+                    <input type="text" id="f_lieu_n">
+                </div>
+                <div class="form-group">
+                    <label>Date de Décès</label>
+                    <input type="text" id="f_date_d" placeholder="jj/mm/aaaa">
+                </div>
+                <div class="form-group">
+                    <label>Lieu de Décès</label>
+                    <input type="text" id="f_lieu_d">
+                </div>
+                <div class="form-group full">
+                    <label>Profession</label>
+                    <input type="text" id="f_profession">
+                </div>
+                <div class="form-group full">
+                    <label>Infos complémentaires</label>
+                    <textarea id="f_infos"></textarea>
+                </div>
+            </form>
+
+            <div class="actions">
+                <button class="btn-save" onclick="genererCSV()">Générer la ligne CSV mise à jour</button>
+            </div>
+
+            <div id="output-zone">
+                <p class="copy-hint">✅ Ligne générée ! Copiez cette ligne et remplacez l'ancienne dans votre fichier CSV :</p>
+                <div class="csv-result" id="csvResult"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Chargement du menu
+        fetch('menu.html').then(r => r.text()).then(d => document.getElementById('menu-container').innerHTML = d);
+
+        let dataComplete = [];
+
+        // Charger le fichier au démarrage pour pouvoir chercher
+        Papa.parse("individus_nettoye.csv", {
+            download: true, header: true, delimiter: ";", skipEmptyLines: true,
+            complete: function(results) { dataComplete = results.data; }
+        });
+
+        function chargerIndividu() {
+            const sosa = document.getElementById('searchSosa').value;
+            const individu = dataComplete.find(r => r.sosa == sosa);
+
+            if (individu) {
+                document.getElementById('f_sosa').value = individu.sosa;
+                document.getElementById('f_famille').value = individu.id_famille || "";
+                document.getElementById('f_nom').value = individu.nom_prenom || "";
+                document.getElementById('f_date_n').value = individu.date_naissance || "";
+                document.getElementById('f_lieu_n').value = individu.lieu_naissance || "";
+                document.getElementById('f_date_d').value = individu.date_deces || "";
+                document.getElementById('f_lieu_d').value = individu.lieu_deces || "";
+                document.getElementById('f_profession').value = individu.profession || "";
+                document.getElementById('f_infos').value = individu.infos_complementaires || "";
+                document.getElementById('output-zone').style.display = "none";
+            } else {
+                alert("Individu non trouvé. Vous pouvez remplir les champs pour créer une nouvelle fiche.");
+                document.getElementById('editForm').reset();
+                document.getElementById('f_sosa').value = sosa;
+            }
+        }
+
+        function genererCSV() {
+            const fields = [
+                document.getElementById('f_sosa').value,
+                document.getElementById('f_nom').value,
+                document.getElementById('f_date_n').value,
+                document.getElementById('f_lieu_n').value,
+                document.getElementById('f_date_d').value,
+                document.getElementById('f_lieu_d').value,
+                document.getElementById('f_profession').value,
+                document.getElementById('f_infos').value,
+                document.getElementById('f_famille').value
+            ];
+            
+            // On joint avec des points-virgules
+            const csvLine = fields.join(';');
+            document.getElementById('csvResult').innerText = csvLine;
+            document.getElementById('output-zone').style.display = "block";
+        }
+    </script>
+</body>
+</html>
