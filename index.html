@@ -2,19 +2,21 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Généalogie - Visualisation Sosa</title>
+    <title>Généalogie - Visualisation Locale</title>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/vis-network.min.js"></script>
+    <script src="js/papaparse.min.js"></script>
+    <script src="js/vis-network.min.js"></script>
 
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #f0f2f5; }
-        .header { padding: 15px; background: #2c3e50; color: white; display: flex; gap: 15px; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .controls { display: flex; gap: 10px; flex-wrap: wrap; }
-        input, select { padding: 8px; border-radius: 4px; border: 1px solid #ccc; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #f4f7f6; }
+        .header { padding: 15px; background: #2c3e50; color: white; display: flex; gap: 15px; align-items: center; z-index: 100; }
+        .controls { display: flex; gap: 10px; }
+        input, select, button { padding: 8px; border-radius: 4px; border: 1px solid #ccc; }
+        button { background: #3498db; color: white; border: none; cursor: pointer; }
+        button:hover { background: #2980b9; }
         #mynetwork { flex-grow: 1; background: white; margin: 10px; border-radius: 8px; border: 1px solid #ddd; position: relative; }
         .info-panel { position: absolute; right: 20px; top: 20px; width: 280px; background: rgba(255,255,255,0.95); padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: none; z-index: 10; border: 1px solid #ccc; max-height: 80vh; overflow-y: auto; }
-        #status { position: absolute; bottom: 10px; left: 10px; font-size: 12px; color: #666; font-style: italic; background: rgba(255,255,255,0.7); padding: 2px 5px; }
+        #status-bar { padding: 5px 15px; font-size: 12px; background: #ddd; color: #333; }
     </style>
 </head>
 <body>
@@ -30,28 +32,34 @@
 
 <div id="mynetwork">
     <div id="infoBox" class="info-panel"></div>
-    <div id="status">Vérification des bibliothèques...</div>
 </div>
 
+<div id="status-bar">Vérification du système...</div>
+
 <script>
-    // Variables globales (on ne les initialise pas tout de suite avec vis.DataSet)
-    let network = null; 
+    let network = null;
     let allNodes = null;
     let allEdges = null;
 
-    // 1. On vérifie si les bibliothèques sont chargées
+    // 1. Vérification que les fichiers JS sont bien chargés
     window.onload = function() {
-        if (typeof vis === 'undefined') {
-            document.getElementById('status').innerHTML = "❌ Erreur : La bibliothèque Vis.js n'a pas pu être chargée. Vérifiez votre connexion internet.";
+        const statusBar = document.getElementById('status-bar');
+        
+        if (typeof Papa === 'undefined' || (typeof vis === 'undefined')) {
+            statusBar.innerHTML = "❌ Erreur : Fichiers JS introuvables dans le dossier /js";
+            statusBar.style.color = "red";
             return;
         }
+
+        // Initialisation des DataSets
+        allNodes = new vis.DataSet();
+        allEdges = new vis.DataSet();
         
-        // Si OK, on charge le CSV
         loadCSV();
     };
 
     function loadCSV() {
-        document.getElementById('status').innerHTML = "Chargement du fichier CSV...";
+        document.getElementById('status-bar').innerText = "Lecture du fichier CSV...";
         
         Papa.parse("individus_nettoye.csv", {
             download: true,
@@ -61,21 +69,18 @@
             complete: function(results) {
                 if (results.data && results.data.length > 0) {
                     processData(results.data);
+                    document.getElementById('status-bar').innerText = results.data.length + " individus chargés avec succès.";
                 } else {
-                    document.getElementById('status').innerHTML = "⚠️ Fichier CSV vide ou introuvable.";
+                    document.getElementById('status-bar').innerText = "⚠️ Le fichier CSV semble vide.";
                 }
             },
             error: function() {
-                document.getElementById('status').innerHTML = "❌ Erreur : Impossible de lire 'individus_nettoye.csv'. Utilisez 'Live Server'.";
+                document.getElementById('status-bar').innerText = "❌ Erreur : Impossible de lire 'individus_nettoye.csv'. Lancez 'Live Server'.";
             }
         });
     }
 
     function processData(data) {
-        // C'est ici qu'on initialise les DataSets maintenant que vis est garanti présent
-        allNodes = new vis.DataSet();
-        allEdges = new vis.DataSet();
-
         const families = new Set();
         const sosaMap = new Map();
 
@@ -93,15 +98,15 @@
             });
         });
 
-        // Liens Sosa automatiques
+        // Génération automatique des liens Sosa
         sosaMap.forEach((person, sosa) => {
-            const fatherSosa = sosa * 2;
-            const motherSosa = sosa * 2 + 1;
-            if (sosaMap.has(fatherSosa)) allEdges.add({ from: fatherSosa, to: sosa, arrows: 'to', color: '#3498db', label: 'P' });
-            if (sosaMap.has(motherSosa)) allEdges.add({ from: motherSosa, to: sosa, arrows: 'to', color: '#e74c3c', label: 'M' });
+            const pere = sosa * 2;
+            const mere = sosa * 2 + 1;
+            if (sosaMap.has(pere)) allEdges.add({ from: pere, to: sosa, arrows: 'to', color: '#3498db', label: 'P' });
+            if (sosaMap.has(mere)) allEdges.add({ from: mere, to: sosa, arrows: 'to', color: '#e74c3c', label: 'M' });
         });
 
-        // Menu filtres
+        // Remplissage du filtre famille
         const select = document.getElementById('filterFamily');
         Array.from(families).sort().forEach(f => {
             if(f) {
@@ -111,17 +116,32 @@
             }
         });
 
-        document.getElementById('status').innerHTML = data.length + " individus chargés.";
         drawNetwork();
     }
 
     function drawNetwork() {
         const container = document.getElementById('mynetwork');
         const options = {
-            nodes: { shape: 'box', margin: 10, font: { multi: true } },
-            layout: { hierarchical: { direction: 'DU', sortMethod: 'directed', nodeSpacing: 180 } },
+            nodes: { 
+                shape: 'box', 
+                margin: 10, 
+                font: { multi: true },
+                color: { background: '#fff', border: '#2c3e50' }
+            },
+            edges: { 
+                smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 } 
+            },
+            layout: { 
+                hierarchical: { 
+                    direction: 'DU', 
+                    sortMethod: 'directed', 
+                    nodeSpacing: 200,
+                    levelSeparation: 150 
+                } 
+            },
             physics: false
         };
+
         network = new vis.Network(container, { nodes: allNodes, edges: allEdges }, options);
 
         network.on("click", function (params) {
@@ -130,21 +150,21 @@
                 const d = allNodes.get(params.nodes[0]).details;
                 infoBox.style.display = 'block';
                 infoBox.innerHTML = `
-                    <button style="float:right" onclick="this.parentElement.style.display='none'">x</button>
-                    <h3>${d.nom_prenom}</h3>
+                    <button style="float:right; background:none; color:black; border:1px solid #ccc; padding:2px 5px" onclick="this.parentElement.style.display='none'">X</button>
+                    <h3 style="margin-top:0">${d.nom_prenom}</h3>
                     <p><b>Sosa :</b> ${d.sosa}</p>
-                    <p><b>Naissance :</b> ${d.date_naissance} à ${d.lieu_naissance}</p>
+                    <p><b>Né :</b> ${d.date_naissance} à ${d.lieu_naissance}</p>
                     <p><b>Décès :</b> ${d.date_deces} à ${d.lieu_deces}</p>
-                    <hr><small>${d.infos_complementaires || ''}</small>`;
+                    <p><b>Profession :</b> ${d.profession}</p>
+                    <hr><p><small>${d.infos_complementaires || ''}</small></p>`;
+            } else {
+                infoBox.style.display = 'none';
             }
         });
     }
 
     function resetView() {
-        if (network) {
-            network.fit({ animation: true });
-            document.getElementById('infoBox').style.display = 'none';
-        }
+        if (network) network.fit({ animation: true });
     }
 
     document.getElementById('searchSosa').addEventListener('input', e => {
