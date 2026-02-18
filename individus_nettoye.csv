@@ -3,12 +3,12 @@ sosa;id_generation;id_famille;prenom_nom;profession;date_naissance;date_deces;li
 3;G0;QQ;helene QUILLEC;;26/06/1949;dans trï¿½s longtemps;Vannes;;;;
 4;G1;TT;louis charles yves TANGUY;Veterinaire;14/12/1917;22/04/1997;Morlaix;Pont-l_Abbe;24/05/1945;Pontivy;recensements:
 5;G1;LL;marie philomene LEAUTE;Assitante Sociale;04/05/1918;14/01/1991;Saint-Aignan;Pont-l_Abbe;24/05/1945;Pontivy;Diabetique
-6;G1;QQ;pierre, marie QUILLEC;Medecin;13/03/1912;08/03/2015;Penmarch;Quimper;31/05/1946;Concarneau;Dossier militaire AC 21 P 139683
+6;G1;QQ;pierre marie QUILLEC;Medecin;13/03/1912;08/03/2015;Penmarch;Quimper;31/05/1946;Concarneau;Dossier militaire AC 21 P 139683
 7;G1;PP;paule le PAJOLLEC;;20/05/1920;07/06/2005;Beuzec-Conq;Quimper;31/05/1946;Concarneau;
 8;G2;TT;louis TANGUY;Relieur;20/06/1874;07/03/1932;Kerprigent, Sainte-Seve;Morlaix;06/08/1899;Saint-Martin-des-Champs;mort d'une crise d'asthme
 9;G2;TL;marie louise LAUTROU;Commercante Mercerie;30/01/1878;01/10/1938;Spezet;Morlaix;06/08/1899;Saint-Martin-des-Champs;morte d'un cancer de la peau
-10;G2;LL;pierre, marie LEAUTE;Laboureur Negociant en produits agricoles;07/03/1886;20/12/1974;Pontivy;Pontivy;27/04/1914;St-Aignan;
-11;G2;LP;anne, marie, mathurine PERZO;Menagere bar-hotel-restaurant La Martyre Pontivy;19/11/1889;12/01/1963;Saint-Aignan;;27/04/1914;St-Aignan;Morte du Diabete
+10;G2;LL;pierre marie LEAUTE;Laboureur Negociant en produits agricoles;07/03/1886;20/12/1974;Pontivy;Pontivy;27/04/1914;St-Aignan;
+11;G2;LP;anne marie, mathurine PERZO;Menagere bar-hotel-restaurant La Martyre Pontivy;19/11/1889;12/01/1963;Saint-Aignan;;27/04/1914;St-Aignan;Morte du Diabete
 12;G2;QQ;sebastien quillec (LE);Boulanger;06/04/1869;21/01/1926;Tregonda, Ploneour;Penmarch;18/11/1896 Plobannalec;;
 13;G2;QP;marie anne le PEMP;Commercante,Menagere;31/03/1872;18/10/1926;Plobannalec;Penmarch;18/11/1896 Plobannalec;;
 14;G2;PP;antoine marie le PAJOLLEC;Chef d_entreprise, Maitre platrier;10/07/1884;20/01/1970;St Nazaire lieu dit toutes-aides;Concarneau;29/03/1913;Beuzec-Conq;
@@ -17,7 +17,7 @@ sosa;id_generation;id_famille;prenom_nom;profession;date_naissance;date_deces;li
 17;G3;TT;marguerite francoise SALUDEN;Cultivatrice Aubergiste;26/04/1853;23/02/1930;Sainte-Seve;Morlaix;11/05/1873;Sainte-Seve;
 18;G3;TL;charles LAUTROU;Chauffeur/Retraite des chemins de fer;21/06/1854;12/04/1919;Plounevezel;Saint-Martin-des-Champs (Route de Ste Sï¿½ve);25/04/1877;Cleden-Poher;22/07/1893 | Morlaix | avec Marie Jeanne Francoise CLAUDE
 19;G3;TL;marie marguerite COCHENNEC;;9/03/1854;27/02/1891;Kergloff;Morlaix;25/04/1877;Cleden-Poher;
-20;G3;LL;joseph,marie LEAUTE;Laboureur;14/02/1857;??;Neulliac;;14/01/1883;Neulliac;Domicilie ï¿½ CLeguerec en 1914 | naiss verifie
+20;G3;LL;joseph marie LEAUTE;Laboureur;14/02/1857;??;Neulliac;;14/01/1883;Neulliac;Domicilie ï¿½ CLeguerec en 1914 | naiss verifie
 21;G3;LL;marie-philomene le quemener (dite meme CLEGUEREC);Menagere/Cultivatrice;9/05/1859;20/11/1943;Neulliac;;14/01/1883;Neulliac;
 22;G3;LP;louis-marie PERZO;Debitant/Cabaretier/Aubergiste;01/12/1859;13/05/1896;Saint-Aignan;Saint-Aignan;13/09/1885;Saint-Aignan;recensement militaire n 316 | recensement st aignan 1861
 23;G3;LP;marie mathurine morzadec (LE);Menagere/Debitante;19/11/1859;26/01/1940;Saint-Aignan;Pontivy;13/09/1885;Saint-Aignan;
@@ -1952,6 +1952,7 @@ G385;G11;QQ;heldrede TREFFRY;;;;;;;;
 126674;G15;PM;philippe castille le LARDIC;notaire de la rue Obscure;;Sieur de Kerguestin, Pluguffan... Notaire. Apothicaire, gouverneur de l'Hï¿½pital de Sainte Catherine. Procureur, syndic de Quimper en 1587-1588. Dï¿½putï¿½ du Tiers-Etat pour Quimper-Corentin aux Etats de Bretagne de 1587 et 1588. Reprï¿½sentant de la Bretagne aux Etats-Gï¿½nï¿½raux ï¿½ Blois en 1588.;;;;;
 AAAA1;G-2;Lucas, Pierre-Billig, Dominique TANGUY;;;;;Fils de Sï¿½bastion dixit son choix du 11/10/2022 et revue le 03/14/2023;;;;
 AAAA2;G-2;Marie, Jeanne-Perrine ,Helene TANGUY;;;;;Fils de Sï¿½bastion dixit son choix du 11/10/2022 et revue le 03/14/2023;;;;
+
 
 
 
