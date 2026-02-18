@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Aïeux, mes racines - Cartographie Globale</title>
+    <script src="js/papaparse.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        :root { --dark: #2c3e50; --blue: #3498db; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; margin: 0; }
+        .container { padding: 20px; max-width: 1200px; margin: auto; }
+        
+        .filters { 
+            background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: flex; gap: 20px; flex-wrap: wrap;
+        }
+        
+        #map { height: 600px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        .legend { 
+            background: white; padding: 15px; border-radius: 8px; margin-top: 20px;
+            display: flex; gap: 15px; flex-wrap: wrap; font-size: 13px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+
+        select { padding: 8px; border-radius: 4px; border: 1px solid #ccc; }
+        .stats-box { font-weight: bold; color: var(--dark); margin-left: auto; }
+    </style>
+</head>
+<body>
+
+<div id="menu-container"></div>
+
+<div class="container">
+    <div class="filters">
+        <div>
+            <strong>Siècle :</strong>
+            <select id="selectSiecle" onchange="filtrerEtAfficher()">
+                <option value="tous">Tous les siècles</option>
+                <option value="16">XVIe siècle</option>
+                <option value="17">XVIIe siècle</option>
+                <option value="18">XVIIIe siècle</option>
+                <option value="19">XIXe siècle</option>
+                <option value="20">XXe siècle</option>
+            </select>
+        </div>
+        <div id="legende-familles" class="legend-item">
+            </div>
+        <div class="stats-box" id="stats-villes">0 villes affichées</div>
+    </div>
+
+    <div id="map"></div>
+    
+    <div class="legend" id="couleurs-familles">
+        <strong>Légende des familles :</strong>
+        </div>
+</div>
+
+<script>
+    // Configuration des couleurs par famille
+    const palette = {
+        'TT': '#e67e22', // Orange
+        'QQ': '#9b59b6', // Violet
+        'QP': '#2ecc71', // Vert
+        'default': '#3498db' // Bleu
+    };
+
+    let map;
+    let rawData = [];
+    let markersLayer = L.layerGroup();
+
+    // Chargement menu
+    fetch('menu.html').then(r => r.text()).then(d => document.getElementById('menu-container').innerHTML = d);
+
+    function initMap() {
+        map = L.map('map').setView([48.2, -2.9], 8);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+        markersLayer.addTo(map);
+    }
+
+    async function chargerDonnees() {
+        Papa.parse("individus_nettoye.csv", {
+            download: true, header: true, delimiter: ";", skipEmptyLines: true,
+            complete: function(results) {
+                rawData = results.data;
+                genererLegende();
+                filtrerEtAfficher();
+            }
+        });
+    }
+
+    function genererLegende() {
+        const familles = [...new Set(rawData.map(r => r.id_famille))].filter(f => f);
+        const container = document.getElementById('couleurs-familles');
+        familles.forEach(f => {
+            const col = palette[f] || palette['default'];
+            container.innerHTML += `
+                <div class="legend-item">
+                    <div class="dot" style="background:${col}"></div> <span>Famille ${f}</span>
+                </div>`;
+        });
+    }
+
+    function extraireSiecle(dateStr) {
+        if (!dateStr || dateStr.length < 4) return null;
+        const annee = parseInt(dateStr.substring(dateStr.length - 4));
+        if (isNaN(annee)) return null;
+        return Math.floor((annee - 1) / 100) + 1;
+    }
+
+    async function geocode(ville) {
+        // Mise en cache simple pour ne pas saturer Nominatim
+        if (window.sessionStorage.getItem(ville)) return JSON.parse(window.sessionStorage.getItem(ville));
+        
+        try {
+            const resp = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(ville + ", Bretagne, France")}`);
+            const data = await resp.json();
+            if (data.length > 0) {
+                const res = [data[0].lat, data[0].lon];
+                window.sessionStorage.setItem(ville, JSON.stringify(res));
+                return res;
+            }
+        } catch (e) { return null; }
+        return null;
+    }
+
+    async function filtrerEtAfficher() {
+        markersLayer.clearLayers();
+        const siecleFiltre = document.getElementById('selectSiecle').value;
+        const occurencesVilles = {};
+
+        // 1. Analyse et filtrage
+        rawData.forEach(r => {
+            const sN = extraireSiecle(r.date_naissance);
+            const sD = extraireSiecle(r.date_deces);
+            
+            if (siecleFiltre === "tous" || siecleFiltre == sN || siecleFiltre == sD) {
+                [r.lieu_naissance, r.lieu_deces].forEach(ville => {
+                    if (ville && ville !== "-") {
+                        if (!occurencesVilles[ville]) occurencesVilles[ville] = { count: 0, familles: new Set() };
+                        occurencesVilles[ville].count++;
+                        if (r.id_famille) occurencesVilles[ville].familles.add(r.id_famille);
+                    }
+                });
+            }
+        });
+
+        // 2. Affichage
+        let total = 0;
+        for (let ville in occurencesVilles) {
+            const coords = await geocode(ville);
+            if (coords) {
+                total++;
+                const info = occurencesVilles[ville];
+                // On prend la couleur de la première famille trouvée pour cette ville
+                const mainFam = Array.from(info.familles)[0];
+                const color = palette[mainFam] || palette['default'];
+                
+                // Taille du cercle proportionnelle au nombre d'ancêtres (min 5, max 20)
+                const radius = Math.min(20, 5 + (info.count * 2));
+
+                L.circleMarker(coords, {
+                    radius: radius,
+                    fillColor: color,
+                    color: "#fff",
+                    weight: 2,
+                    fillOpacity: 0.7
+                }).addTo(markersLayer)
+                  .bindPopup(`<b>${ville}</b><br>Présence : ${info.count} fois<br>Familles : ${Array.from(info.familles).join(', ')}`);
+            }
+        }
+        document.getElementById('stats-villes').innerText = `${total} lieux identifiés`;
+    }
+
+    window.onload = () => { initMap(); chargerDonnees(); };
+</script>
+</body>
+</html>
