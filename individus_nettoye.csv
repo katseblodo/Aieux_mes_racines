@@ -225,8 +225,8 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 225;G6;PP;claudine ars ou ARZ;gens de labeur;20/03/1744;24/06/1804 (6 messidor an 12);Sulniac;Berric;10/09/1771;Sulniac;
 226;G6;PP;francois COLENO;Laboureur;25/08/1748;7/10/1806;manoir du Grand Cadillac;manoir du Grand Cadillac, Noyal-Muzillac;6/07/1779, Noyal Muzillac;;
 227;G6;PP;marguerite PEDRON;;19/04/1757;25/09/1789;Noyal-Muzillac;manoir du Grand Cadillac, Noyal-Muzillac;6/07/1779, Noyal Muzillac;;
-228;G6;PP;francois le MEDEC;;??;;;;;;
-229;G6;PP;francoise le PALLEC;;??;;;;;;
+228;G6;PP;francois le MEDEC;Gens de labeur;17/03/1732;11/10/1813;Ambon, village de trebon;Ambon;21/05/1765;Ambon;
+229;G6;PP;francoise le PALLEC;Gens de labeur;03/10/1749;15/01/1821;Ambon;Ambon;21/05/1765;Ambon;
 230;G6;PP;marc MONTRELAIS;Laboureur;05/04/1746;08/06/1814;Berric;Muzillac;09/02/1779, Ambon;;
 231;G6;PP;francoise FLOHIC;;10/07/1758;01/03/1827;Ambon;Muzillac;09/02/1779, Ambon;;
 232;G6;PP;jean augustin QUELLARD;Laboureur;19/04/1757;;Questembert;;8 fructidore an 2;25/08/1794;Questembert | Parrain Augustin Fleury
@@ -1952,6 +1952,7 @@ G385;G11;QQ;heldrede TREFFRY;;;;;;;;
 126674;G15;PM;philippe castille le LARDIC;notaire de la rue Obscure;;Sieur de Kerguestin, Pluguffan... Notaire. Apothicaire, gouverneur de l'Hï¿½pital de Sainte Catherine. Procureur, syndic de Quimper en 1587-1588. Dï¿½putï¿½ du Tiers-Etat pour Quimper-Corentin aux Etats de Bretagne de 1587 et 1588. Reprï¿½sentant de la Bretagne aux Etats-Gï¿½nï¿½raux ï¿½ Blois en 1588.;;;;;
 AAAA1;G-2;Lucas, Pierre-Billig, Dominique TANGUY;;;;;Fils de Sï¿½bastion dixit son choix du 11/10/2022 et revue le 03/14/2023;;;;
 AAAA2;G-2;Marie, Jeanne-Perrine ,Helene TANGUY;;;;;Fils de Sï¿½bastion dixit son choix du 11/10/2022 et revue le 03/14/2023;;;;
+
 
 
 
