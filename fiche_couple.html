@@ -209,7 +209,18 @@
         `;
     }
 
-    window.onload = () => { initMap(); chargerCouple(); };
+    window.onload = () => { 
+    initMap(); 
+    
+    // On vérifie si un Sosa a été envoyé depuis la page recherche
+    const sosaHistorique = localStorage.getItem('dernierSosaConsulte');
+    if (sosaHistorique) {
+        document.getElementById('sosaInput').value = sosaHistorique;
+        localStorage.removeItem('dernierSosaConsulte'); // Nettoyage
+    }
+    
+    chargerCouple(); 
+};
 </script>
 </body>
 </html>
