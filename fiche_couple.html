@@ -2,99 +2,153 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Fiche Couple et Cartographie</title>
+    <title>Aïeux, mes racines - Fiche Couple</title>
+    
     <script src="js/papaparse.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <style>
-        :root { --blue: #3498db; --dark: #2c3e50; --bg: #f4f7f6; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding: 20px; }
-        .container { max-width: 1000px; margin: auto; }
+        :root { 
+            --blue: #3498db; 
+            --dark: #2c3e50; 
+            --bg: #f4f7f6; 
+            --red: #e74c3c;
+        }
         
-        .search-bar { background: var(--dark); color: white; padding: 15px; border-radius: 8px; display: flex; gap: 15px; align-items: center; margin-bottom: 20px; }
-        input { padding: 8px; border-radius: 4px; border: none; width: 100px; }
-        button { padding: 8px 15px; cursor: pointer; background: var(--blue); color: white; border: none; border-radius: 4px; font-weight: bold; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding: 0; }
+        
+        .container { max-width: 1100px; margin: 20px auto; padding: 0 20px; }
+        
+        /* Barre de recherche */
+        .search-bar { 
+            background: white; padding: 20px; border-radius: 8px; 
+            display: flex; gap: 15px; align-items: center; 
+            margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        input { padding: 10px; border-radius: 4px; border: 1px solid #ccc; width: 120px; font-size: 16px; }
+        button.btn-search { padding: 10px 20px; cursor: pointer; background: var(--blue); color: white; border: none; border-radius: 4px; font-weight: bold; }
 
+        /* Grille du couple */
         .couple-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-        .fiche { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-top: 5px solid var(--blue); }
-        .fiche.mere { border-top-color: #e74c3c; }
+        .fiche { 
+            background: white; padding: 25px; border-radius: 8px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 6px solid var(--blue);
+            position: relative;
+        }
+        .fiche.mere { border-top-color: var(--red); }
         
-        h2 { margin-top: 0; color: var(--dark); border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .info { margin: 10px 0; font-size: 14px; }
-        .label { font-weight: bold; color: #7f8c8d; width: 100px; display: inline-block; }
+        h2 { margin-top: 0; color: var(--dark); font-size: 22px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .info { margin: 12px 0; font-size: 15px; line-height: 1.5; }
+        .label { font-weight: bold; color: #7f8c8d; width: 110px; display: inline-block; }
 
-        #map { height: 300px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 20px; }
+        /* Carte */
+        #map-container { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        #map { height: 450px; border-radius: 6px; }
         
-        .navigation { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
-        .nav-btn { background: #95a5a6; color: white; text-decoration: none; padding: 10px 20px; border-radius: 20px; font-size: 13px; transition: 0.2s; border:none; cursor:pointer;}
-        .nav-btn:hover { background: var(--dark); }
+        /* Navigation */
+        .navigation { display: flex; justify-content: center; gap: 15px; margin: 30px 0; }
+        .nav-btn { 
+            background: var(--dark); color: white; border: none; 
+            padding: 12px 25px; border-radius: 30px; cursor: pointer; 
+            font-size: 14px; transition: 0.3s;
+        }
+        .nav-btn:hover { background: var(--blue); transform: translateY(-2px); }
+        
+        .sosa-badge { position: absolute; top: 15px; right: 20px; background: #eee; padding: 4px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; }
     </style>
 </head>
 <body>
-<div id="menu-container"></div>
-<div class="container">
-    <div class="search-bar">
-        <strong>Rechercher un couple :</strong>
-        <input type="number" id="sosaInput" placeholder="Sosa..." value="32">
-        <button onclick="chargerCouple()">Afficher</button>
-        <span id="status"></span>
-    </div>
 
-    <div class="couple-grid">
-        <div id="pere-box" class="fiche"><h2>Père</h2><p>Saisissez un Sosa pour commencer</p></div>
-        <div id="mere-box" class="fiche mere"><h2>Mère</h2><p>Saisissez un Sosa pour commencer</p></div>
-    </div>
+    <div id="menu-container"></div>
 
-    <div id="map"></div>
+    <div class="container">
+        <div class="search-bar">
+            <strong>Individu cible :</strong>
+            <input type="number" id="sosaInput" value="32" min="1">
+            <button class="btn-search" onclick="chargerCouple()">Afficher le Couple</button>
+            <span id="status" style="font-size: 13px; color: #666;"></span>
+        </div>
 
-    <div class="navigation">
-        <button class="nav-btn" id="btn-enfant">⬇ Voir l'enfant</button>
-        <button class="nav-btn" id="btn-parents-p">⬆ Parents du Père</button>
-        <button class="nav-btn" id="btn-parents-m">⬆ Parents de la Mère</button>
+        <div class="couple-grid">
+            <div id="pere-box" class="fiche">
+                <h2>Père</h2>
+                <p style="color:#999 italic">Recherche en cours...</p>
+            </div>
+            <div id="mere-box" class="fiche mere">
+                <h2>Mère</h2>
+                <p style="color:#999 italic">Recherche en cours...</p>
+            </div>
+        </div>
+
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" id="btn-enfant">⬇ Voir l'enfant</button>
+            <button class="nav-btn" id="btn-parents-p">⬆ Parents du Père</button>
+            <button class="nav-btn" id="btn-parents-m">⬆ Parents de la Mère</button>
+        </div>
     </div>
-</div>
 
 <script>
+    // --- GESTION DU MENU ---
+    fetch('menu.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('menu-container').innerHTML = data; });
+
+    // --- CONFIGURATION CARTE ET ICÔNES ---
     let map;
-    let markers = [];
+    const iconBleu = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+    });
+
+    const iconRouge = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+    });
 
     function initMap() {
         if (map) map.remove();
-        map = L.map('map').setView([48.0, -2.0], 6); // Centré sur la France / Bretagne par défaut
+        map = L.map('map').setView([48.2, -2.9], 8); 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
     }
 
+    // --- GÉOCODAGE PRIORITÉ BRETAGNE ---
     async function geocode(ville) {
         if (!ville || ville === "" || ville === "-") return null;
+        const queryBretagne = `${ville}, Bretagne, France`;
         try {
-            const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${ville}`);
-            const data = await response.json();
+            const resp = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(queryBretagne)}`);
+            const data = await resp.json();
             if (data.length > 0) return [data[0].lat, data[0].lon];
+            
+            const respFr = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(ville + ", France")}`);
+            const dataFr = await respFr.json();
+            if (dataFr.length > 0) return [dataFr[0].lat, dataFr[0].lon];
         } catch (e) { return null; }
         return null;
     }
 
+    // --- LOGIQUE PRINCIPALE ---
     function chargerCouple() {
         const sosa = parseInt(document.getElementById('sosaInput').value);
         if (isNaN(sosa)) return;
 
-        // Déterminer le couple (père et mère)
-        let sosaPere, sosaMere;
-        if (sosa % 2 === 0) { // C'est un homme
-            sosaPere = sosa;
-            sosaMere = sosa + 1;
-        } else { // C'est une femme
-            sosaPere = sosa - 1;
-            sosaMere = sosa;
-        }
+        let sosaPere = (sosa % 2 === 0) ? sosa : sosa - 1;
+        let sosaMere = sosaPere + 1;
 
         Papa.parse("individus_nettoye.csv", {
             download: true,
             header: true,
             delimiter: ";",
+            skipEmptyLines: true,
             complete: async function(results) {
                 const data = results.data;
                 const pere = data.find(r => parseInt(r.sosa) === sosaPere);
@@ -103,58 +157,59 @@
                 afficherIndividu('pere-box', pere, sosaPere, "Père");
                 afficherIndividu('mere-box', mere, sosaMere, "Mère");
 
-                // Mise à jour des boutons de navigation
+                // Navigation
                 document.getElementById('btn-enfant').onclick = () => { document.getElementById('sosaInput').value = Math.floor(sosaPere/2); chargerCouple(); };
                 document.getElementById('btn-parents-p').onclick = () => { document.getElementById('sosaInput').value = sosaPere*2; chargerCouple(); };
                 document.getElementById('btn-parents-m').onclick = () => { document.getElementById('sosaInput').value = sosaMere*2; chargerCouple(); };
 
                 // Cartographie
                 initMap();
-                const villes = new Set();
-                [pere, mere].forEach(p => {
-                    if (p) {
-                        if (p.lieu_naissance) villes.add(p.lieu_naissance);
-                        if (p.lieu_deces) villes.add(p.lieu_deces);
-                    }
-                });
+                const bounds = [];
 
-                for (let ville of villes) {
-                    const coords = await geocode(ville);
-                    if (coords) {
-                        L.marker(coords).addTo(map).bindPopup(ville);
-                        map.panTo(coords);
+                const ajouterMarqueur = async (individu, type) => {
+                    const ville = (type === 'N') ? individu.lieu_naissance : individu.lieu_deces;
+                    const date = (type === 'N') ? individu.date_naissance : individu.date_deces;
+                    const icone = (type === 'N') ? iconBleu : iconRouge;
+                    const titre = (type === 'N') ? "Naissance" : "Décès";
+
+                    if (ville && ville !== "-") {
+                        const coords = await geocode(ville);
+                        if (coords) {
+                            L.marker(coords, {icon: icone}).addTo(map)
+                             .bindPopup(`<b>${titre}</b><br>${individu.nom_prenom}<br>${ville} (${date || '?'})`);
+                            bounds.push(coords);
+                        }
                     }
-                }
+                };
+
+                if (pere) { await ajouterMarqueur(pere, 'N'); await ajouterMarqueur(pere, 'D'); }
+                if (mere) { await ajouterMarqueur(mere, 'N'); await ajouterMarqueur(mere, 'D'); }
+
+                if (bounds.length > 0) map.fitBounds(bounds, {padding: [50, 50]});
             }
         });
     }
 
-    function afficherIndividu(divId, d, sosa, titreDefault) {
+    function afficherIndividu(divId, d, sosa, titre) {
         const box = document.getElementById(divId);
         if (!d) {
-            box.innerHTML = `<h2>${titreDefault}</h2><p>Inconnu (Sosa ${sosa})</p>`;
+            box.innerHTML = `<h2>${titre}</h2><p>Sosa ${sosa} non trouvé dans le fichier.</p>`;
             return;
         }
         box.innerHTML = `
-            <span style="float:right; background:#eee; padding:2px 8px; border-radius:10px; font-size:12px">Sosa ${sosa}</span>
+            <div class="sosa-badge">Sosa ${sosa}</div>
             <h2>${d.nom_prenom}</h2>
-            <div class="info"><span class="label">Famille:</span> ${d.id_famille}</div>
             <div class="info"><span class="label">Profession:</span> ${d.profession || '-'}</div>
             <div class="info"><span class="label">Naissance:</span> ${d.date_naissance || '?'} à ${d.lieu_naissance || '-'}</div>
             <div class="info"><span class="label">Décès:</span> ${d.date_deces || '?'} à ${d.lieu_deces || '-'}</div>
-            <div style="font-size:11px; color:#95a5a6; margin-top:15px">${d.infos_complementaires || ''}</div>
+            <div class="info"><span class="label">Famille:</span> <span style="color:var(--blue);font-weight:bold">${d.id_famille || '-'}</span></div>
+            <div style="font-size:12px; color:#999; border-top:1px solid #eee; padding-top:10px; margin-top:10px;">
+                ${d.infos_complementaires || ''}
+            </div>
         `;
     }
 
     window.onload = () => { initMap(); chargerCouple(); };
-</script>
-<script>
-    // Fonction pour charger le menu
-    fetch('menu.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('menu-container').innerHTML = data;
-        });
 </script>
 </body>
 </html>
