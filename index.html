@@ -2,127 +2,26 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Généalogie - Vue Directe</title>
+    <title>Généalogie - Lecture Gauche à Droite</title>
     <script src="js/papaparse.min.js"></script>
     <style>
-        :root { --blue: #3498db; --orange: #e67e22; --dark: #2c3e50; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; margin: 0; padding: 20px; }
+        :root { --blue: #3498db; --orange: #e67e22; --dark: #2c3e50; --bg: #f0f2f5; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding: 20px; }
         
-        .header { background: var(--dark); color: white; padding: 15px; border-radius: 8px; display: flex; gap: 20px; align-items: center; margin-bottom: 20px; }
-        input { padding: 8px; border-radius: 4px; border: none; width: 80px; }
-        button { padding: 8px 15px; cursor: pointer; background: var(--blue); color: white; border: none; border-radius: 4px; }
+        .header { background: var(--dark); color: white; padding: 15px; border-radius: 8px; display: flex; gap: 20px; align-items: center; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        input { padding: 8px; border-radius: 4px; border: none; width: 80px; font-weight: bold; }
+        button { padding: 8px 15px; cursor: pointer; background: var(--blue); color: white; border: none; border-radius: 4px; font-weight: bold; }
+        button:hover { background: #2980b9; }
 
-        /* Structure de l'arbre en colonnes */
-        .tree-container { display: flex; gap: 20px; justify-content: center; align-items: flex-start; overflow-x: auto; padding: 20px; }
-        .generation-col { display: flex; flex-direction: column; gap: 20px; align-items: center; min-width: 250px; }
+        /* Structure de l'arbre en colonnes inversées */
+        .tree-container { display: flex; gap: 40px; justify-content: center; align-items: flex-start; padding: 20px; }
+        .generation-col { display: flex; flex-direction: column; gap: 30px; align-items: center; min-width: 240px; }
         
         .card { 
-            background: white; border: 1px solid #ddd; border-radius: 8px; padding: 15px; width: 220px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; transition: transform 0.2s;
+            background: white; border: 1px solid #ddd; border-radius: 10px; padding: 15px; width: 220px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: relative; transition: all 0.3s ease;
         }
-        .card:hover { transform: scale(1.02); border-color: var(--blue); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: var(--blue); }
         .card.root { border: 2px solid var(--orange); background: #fffaf5; }
         
-        .sosa-tag { position: absolute; top: -10px; right: 10px; background: var(--dark); color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; }
-        .name { font-weight: bold; color: var(--dark); display: block; margin-bottom: 5px; }
-        .dates { font-size: 12px; color: #666; }
-        .gen-title { font-weight: bold; color: var(--dark); margin-bottom: 10px; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; }
-        
-        .empty { border: 1px dashed #ccc; background: transparent; color: #999; text-align: center; line-height: 50px; height: 50px; }
-    </style>
-</head>
-<body>
-
-<div class="header">
-    <strong>Arbre Ascendant</strong>
-    <div>
-        Sosa de départ : <input type="number" id="rootSosa" value="32">
-        <button onclick="chargerArbre()">Afficher l'arbre</button>
-    </div>
-    <div id="msg"></div>
-</div>
-
-<div class="tree-container">
-    <div class="generation-col">
-        <div class="gen-title">Grands-Parents</div>
-        <div id="slot-128"></div><div id="slot-129"></div>
-        <div id="slot-130"></div><div id="slot-131"></div>
-    </div>
-
-    <div class="generation-col" style="padding-top: 50px;">
-        <div class="gen-title">Parents</div>
-        <div id="slot-64"></div><div id="slot-65"></div>
-    </div>
-
-    <div class="generation-col" style="padding-top: 150px;">
-        <div class="gen-title">Individu</div>
-        <div id="slot-32"></div>
-    </div>
-</div>
-
-<script>
-    function chargerArbre() {
-        const root = parseInt(document.getElementById('rootSosa').value);
-        
-        // Nettoyage des slots
-        document.querySelectorAll('[id^="slot-"]').forEach(div => div.innerHTML = '<div class="card empty">Inconnu</div>');
-
-        Papa.parse("individus_nettoye.csv", {
-            download: true,
-            header: true,
-            delimiter: ";",
-            complete: function(results) {
-                const data = results.data;
-                const targets = [
-                    root, 
-                    root*2, root*2+1, 
-                    root*4, root*4+1, root*4+2, root*4+3
-                ];
-
-                let trouves = 0;
-                data.forEach(personne => {
-                    const s = parseInt(personne.sosa);
-                    const index = targets.indexOf(s);
-                    
-                    if (index !== -1) {
-                        trouves++;
-                        // On calcule l'ID du slot correspondant (pour que ça marche même si on change le root)
-                        // Le slot G1 est toujours celui du root, etc.
-                        let slotId = "";
-                        if (s === root) slotId = "slot-32";
-                        else if (s === root*2) slotId = "slot-64";
-                        else if (s === root*2+1) slotId = "slot-65";
-                        else if (s === root*4) slotId = "slot-128";
-                        else if (s === root*4+1) slotId = "slot-129";
-                        else if (s === root*4+2) slotId = "slot-130";
-                        else if (s === root*4+3) slotId = "slot-131";
-
-                        const container = document.getElementById(slotId);
-                        if (container) {
-                            container.innerHTML = `
-                                <div class="card ${s === root ? 'root' : ''}">
-                                    <span class="sosa-tag">Sosa ${s}</span>
-                                    <span class="name">${personne.nom_prenom}</span>
-                                    <div class="dates">
-                                        🗓 ${personne.date_naissance || '?'} <br>
-                                        📍 ${personne.lieu_naissance || ''}
-                                    </div>
-                                    <div style="margin-top:8px; font-size:11px; font-style:italic; color:var(--blue)">
-                                        ${personne.profession || ''}
-                                    </div>
-                                </div>
-                            `;
-                        }
-                    }
-                });
-                document.getElementById('msg').innerText = trouves + " personnes trouvées.";
-            }
-        });
-    }
-
-    // Lancer au chargement
-    window.onload = chargerArbre;
-</script>
-
-</body>
-</html>a    
+        .sosa-tag { position: absolute; top: -12px; left: 10px; background: var(--dark); color: white; padding: 2px 10px; border-radius:
