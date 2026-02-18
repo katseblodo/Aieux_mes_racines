@@ -2,137 +2,110 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Généalogie - Correctif Affichage</title>
+    <title>Généalogie - 3 Générations Sosa 32</title>
     <script src="js/papaparse.min.js"></script>
     <script src="js/vis-network.min.js"></script>
     <style>
-        body { font-family: sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #e9ecef; }
-        .header { padding: 10px; background: #2c3e50; color: white; display: flex; gap: 10px; align-items: center; }
-        /* On force le conteneur à être bien visible */
-        #mynetwork { flex-grow: 1; background: #ffffff; margin: 10px; border: 2px solid #34495e; border-radius: 5px; }
-        #debug-log { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); color: #0f0; padding: 10px; font-size: 10px; max-height: 100px; overflow: auto; pointer-events: none; z-index: 1000; }
-        .info-panel { position: absolute; right: 20px; top: 70px; width: 250px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.3); display: none; z-index: 10; }
+        body { font-family: sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #f8f9fa; }
+        .header { padding: 15px; background: #2c3e50; color: white; display: flex; justify-content: space-between; align-items: center; }
+        #mynetwork { flex-grow: 1; background: white; margin: 10px; border-radius: 8px; border: 1px solid #ccc; }
+        .legend { font-size: 12px; color: #666; padding: 5px 20px; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <strong>Sosa 32 Explorer</strong>
-    <input type="number" id="searchSosa" placeholder="Sosa..." value="32" style="width:80px">
-    <button onclick="focusOnSosa(document.getElementById('searchSosa').value)">Focus</button>
-    <button onclick="network.fit()">Tout voir</button>
-    <span id="status">Vérification...</span>
+    <strong>Focus : 3 Générations Ascendantes</strong>
+    <div>
+        Sosa Racine : <input type="number" id="rootSosa" value="32" style="width: 60px;">
+        <button onclick="loadData()">Actualiser</button>
+    </div>
 </div>
 
 <div id="mynetwork"></div>
-<div id="infoBox" class="info-panel"></div>
-<div id="debug-log"></div>
+<div class="legend" id="status">Chargement...</div>
 
 <script>
     let network = null;
-    let nodes = new vis.DataSet();
-    let edges = new vis.DataSet();
 
-    function log(m) { document.getElementById('debug-log').innerHTML += m + "<br>"; }
-
-    window.onload = function() {
-        if (typeof vis === 'undefined') return alert("Fichier vis-network.min.js manquant dans /js");
-        loadData();
-    };
+    window.onload = loadData;
 
     function loadData() {
+        const rootId = parseInt(document.getElementById('rootSosa').value);
+        
         Papa.parse("individus_nettoye.csv", {
-            download: true, header: true, delimiter: ";", skipEmptyLines: true,
-            complete: function(res) {
-                log("Data: " + res.data.length + " lignes");
-                build(res.data);
+            download: true,
+            header: true,
+            delimiter: ";",
+            skipEmptyLines: true,
+            complete: function(results) {
+                generateTree(results.data, rootId);
             }
         });
     }
 
-    function build(data) {
-        let items = [];
-        data.forEach(r => {
-            let id = parseInt(r.sosa);
-            if (isNaN(id)) return;
-            items.push({
-                id: id,
-                label: r.nom_prenom + "\n[" + id + "]",
-                shape: 'box',
-                color: { background: '#3498db', border: '#2980b9' },
-                font: { color: '#ffffff', size: 16 }, // Texte blanc sur fond bleu pour être sûr de voir
-                details: r
-            });
+    function generateTree(data, rootId) {
+        const nodes = new vis.DataSet();
+        const edges = new vis.DataSet();
+        
+        // On définit les Sosa cibles pour 3 générations
+        // G1: 32 | G2: 64,65 | G3: 128,129,130,131
+        const targetSosas = new Set();
+        targetSosas.add(rootId);           // G1
+        targetSosas.add(rootId * 2);       // G2 (Père)
+        targetSosas.add(rootId * 2 + 1);   // G2 (Mère)
+        targetSosas.add(rootId * 4);       // G3 (Grand-père P)
+        targetSosas.add(rootId * 4 + 1);   // G3 (Grand-mère P)
+        targetSosas.add(rootId * 4 + 2);   // G3 (Grand-père M)
+        targetSosas.add(rootId * 4 + 3);   // G3 (Grand-mère M)
+
+        // On filtre les données du CSV
+        const mapData = new Map();
+        data.forEach(row => {
+            let sosa = parseInt(row.sosa);
+            if (targetSosas.has(sosa)) {
+                mapData.set(sosa, row);
+                nodes.add({
+                    id: sosa,
+                    label: row.nom_prenom + "\n[" + sosa + "]",
+                    shape: 'box',
+                    color: { background: sosa === rootId ? '#e67e22' : '#3498db', border: '#2c3e50' },
+                    font: { color: '#fff', size: 14 },
+                    level: sosa >= rootId * 4 ? 0 : (sosa >= rootId * 2 ? 1 : 2)
+                });
+            }
         });
-        nodes.add(items);
 
-        items.forEach(node => {
-            let p = node.id * 2;
-            let m = node.id * 2 + 1;
-            if (nodes.get(p)) edges.add({ from: p, to: node.id, arrows: 'to', color: '#2c3e50' });
-            if (nodes.get(m)) edges.add({ from: m, to: node.id, arrows: 'to', color: '#e74c3c' });
+        // On crée les liens uniquement entre les personnes présentes
+        targetSosas.forEach(s => {
+            let p = s * 2;
+            let m = s * 2 + 1;
+            if (mapData.has(s) && mapData.has(p)) 
+                edges.add({ from: p, to: s, arrows: 'to', label: 'P', color: '#3498db' });
+            if (mapData.has(s) && mapData.has(m)) 
+                edges.add({ from: m, to: s, arrows: 'to', label: 'M', color: '#e74c3c' });
         });
 
-        init();
-    }
-
-    function init() {
         const container = document.getElementById('mynetwork');
         const options = {
-            // Désactivation de la hiérarchie stricte qui peut causer des bugs de placement
             layout: {
-                improvedLayout: true,
                 hierarchical: {
-                    enabled: true,
                     direction: "DU",
                     sortMethod: "directed",
-                    nodeSpacing: 200,
-                    levelSeparation: 150
+                    levelSeparation: 150,
+                    nodeSpacing: 250
                 }
             },
-            physics: {
-                enabled: false // On bloque tout mouvement pour éviter que ça s'envole
-            },
-            nodes: {
-                widthConstraint: { minimum: 100, maximum: 200 }
-            }
+            physics: false
         };
 
+        if (network) network.destroy();
         network = new vis.Network(container, { nodes, edges }, options);
-
-        network.once("stabilized", function() {
-            log("Stabilisé. Tentative Focus 32...");
-            focusOnSosa(32);
-        });
-
-        // Sécurité si afterDrawing ne montre rien
-        setTimeout(() => {
-            if (network) {
-                network.fit(); 
-                log("Fit automatique de secours exécuté.");
-            }
-        }, 2000);
-
-        network.on("click", function(p) {
-            if (p.nodes.length > 0) {
-                let d = nodes.get(p.nodes[0]).details;
-                let box = document.getElementById('infoBox');
-                box.style.display = 'block';
-                box.innerHTML = `<b>${d.nom_prenom}</b><br>Sosa: ${d.sosa}<br>${d.profession || ''}`;
-            }
-        });
-    }
-
-    function focusOnSosa(id) {
-        id = parseInt(id);
-        if (nodes.get(id)) {
-            network.focus(id, { scale: 1, animation: true });
-            network.selectNodes([id]);
-            document.getElementById('status').innerText = "Focus sur " + id;
-        } else {
-            network.fit();
-            document.getElementById('status').innerText = "Sosa " + id + " non trouvé, vue globale.";
-        }
+        
+        document.getElementById('status').innerText = nodes.length + " personnes affichées pour l'arbre du Sosa " + rootId;
+        
+        // Forcer le centrage
+        network.once("afterDrawing", () => network.fit());
     }
 </script>
 </body>
