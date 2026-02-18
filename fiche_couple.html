@@ -80,8 +80,11 @@
                 <p style="color:#999 italic">Recherche en cours...</p>
             </div>
         </div>
-<div id="mariage-box" style="text-align: center; margin-bottom: 20px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-left: 5px solid var(--gold); display: none;">
-    <span style="font-size: 20px;">💍</span> <strong style="color: var(--dark);">Mariage :</strong> <span id="mariage-info"></span>
+<div id="mariage-box" style="text-align: center; margin: 0 auto 25px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-top: 4px solid #d4af37; max-width: 500px; display: none;">
+    <div style="font-size: 12px; color: #7f8c8d; text-transform: uppercase; font-weight: bold; margin-bottom: 5px;">Union du couple</div>
+    <div style="font-size: 16px; color: var(--dark);">
+        💍 <strong id="mariage-date"></strong> <span id="mariage-lieu-txt"></span>
+    </div>
 </div>
         <div id="map-container">
             <div id="map"></div>
@@ -158,6 +161,36 @@
 
                 afficherIndividu('pere-box', pere, sosaPere, "Père");
                 afficherIndividu('mere-box', mere, sosaMere, "Mère");
+
+                
+const mariageDiv = document.getElementById('mariage-box');
+// On cherche l'info de mariage (priorité au père, sinon la mère)
+const dMar = (pere && pere.date_mariage) ? pere.date_mariage : (mere ? mere.date_mariage : "");
+const lMar = (pere && pere.lieu_mariage) ? pere.lieu_mariage : (mere ? mere.lieu_mariage : "");
+
+if (dMar || lMar) {
+    document.getElementById('mariage-date').innerText = dMar || "Date inconnue";
+    document.getElementById('mariage-lieu-txt').innerText = lMar ? " à " + lMar : "";
+    mariageDiv.style.display = "block";
+} else {
+    mariageDiv.style.display = "none";
+}
+
+// --- Ajout du lieu de mariage sur la carte ---
+if (lMar && lMar !== "-") {
+    const coordsM = await geocode(lMar);
+    if (coordsM) {
+        L.marker(coordsM, {
+            icon: L.icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+            })
+        }).addTo(map).bindPopup(`<b>💍 Mariage</b><br>${pere.nom_prenom} & ${mere.nom_prenom}<br>${lMar} (${dMar})`);
+        bounds.push(coordsM);
+    }
+}
+// ... reste du code fitBounds ...
 
                 // Navigation
                 document.getElementById('btn-enfant').onclick = () => { document.getElementById('sosaInput').value = Math.floor(sosaPere/2); chargerCouple(); };
