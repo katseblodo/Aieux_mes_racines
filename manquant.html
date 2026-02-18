@@ -2,52 +2,53 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Généalogie - Sosa et Familles à compléter</title>
+    <title>Généalogie - Sosa à compléter</title>
     <script src="js/papaparse.min.js"></script>
     <style>
-        :root { --red: #e74c3c; --dark: #2c3e50; --bg: #f4f7f6; --blue: #3498db; }
+        :root { --red: #e74c3c; --dark: #2c3e50; --bg: #f4f7f6; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding: 20px; }
         
-        .container { max-width: 900px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .header { border-bottom: 2px solid var(--dark); margin-bottom: 20px; padding-bottom: 10px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .header { border-bottom: 2px solid var(--dark); margin-bottom: 20px; padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
         
         .controls { background: #eee; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
         input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; width: 80px; }
-        button { padding: 8px 15px; background: var(--dark); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        
+        button { padding: 8px 15px; background: var(--dark); color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { opacity: 0.9; }
+
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
-        th { background: #f8f9fa; font-size: 12px; text-transform: uppercase; color: #777; }
+        th { background: #f8f9fa; font-size: 13px; text-transform: uppercase; color: #777; }
         
         .sosa-num { font-weight: bold; color: var(--red); background: #fdf2f2; padding: 4px 8px; border-radius: 4px; }
-        .fam-badge { font-weight: bold; color: var(--blue); border: 1px solid var(--blue); padding: 2px 6px; border-radius: 4px; font-family: monospace; }
         .gen-badge { font-size: 11px; background: #ddd; padding: 2px 6px; border-radius: 10px; color: #555; }
+        .relation { font-size: 14px; color: #2c3e50; }
         
-        .summary { margin-top: 20px; padding: 15px; border-radius: 6px; font-weight: bold; background: #fff5f5; color: var(--red); border: 1px solid #feb2b2; }
+        .summary { margin-top: 20px; padding: 10px; border-radius: 6px; font-weight: bold; }
+        .summary.alert { background: #fff5f5; color: var(--red); border: 1px solid #feb2b2; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header">
-        <h2 style="margin:0">🔍 SOSA et Familles manquantes</h2>
+        <h2 style="margin:0">🔍 SOSA manquants à remplir</h2>
     </div>
 
     <div class="controls">
-        <div>Sosa Racine : <input type="number" id="startSosa" value="32"></div>
-        <div>Générations : <input type="number" id="genCount" value="5" min="1"></div>
-        <button onclick="analyser()">Analyser le fichier</button>
+        <div>Partir du Sosa : <input type="number" id="startSosa" value="2"></div>
+        <div>Nombre de générations : <input type="number" id="genCount" value="6" min="1" max="15"></div>
+        <button onclick="analyserManquants()">Lancer l'analyse</button>
     </div>
 
     <div id="resultArea">
-        <div id="summaryBox" style="display:none"></div>
+        <div id="summaryBox"></div>
         <table id="missingTable" style="display:none">
             <thead>
                 <tr>
                     <th>Sosa</th>
-                    <th>Code Famille</th>
                     <th>Génération</th>
-                    <th>Lien théorique</th>
+                    <th>Lien de parenté théorique</th>
                 </tr>
             </thead>
             <tbody id="resultsBody"></tbody>
@@ -56,30 +57,84 @@
 </div>
 
 <script>
-    // Cette fonction trouve le code famille existant le plus proche dans la lignée paternelle
-    function trouverCodeFamille(sosa, dataMap) {
-        let current = sosa;
-        // On remonte la lignée (on divise par 2 pour avoir l'enfant) jusqu'à trouver quelqu'un qui a un code famille
-        while (current >= 1) {
-            if (dataMap.has(current) && dataMap.get(current).id_famille) {
-                return dataMap.get(current).id_famille;
-            }
-            current = Math.floor(current / 2);
-            if (current < 1) break;
-        }
-        return "??"; // Si aucune famille trouvée dans la descendance
-    }
-
-    function getRelationLabel(sosa, root) {
-        if (sosa === root) return "Cible";
+    function getRelation(sosa, root) {
+        if (sosa === root) return "Individu racine";
         let path = [];
         let current = sosa;
         while (current > root) {
-            if (current % 2 === 0) { path.push("Père"); current /= 2; }
-            else { path.push("Mère"); current = (current - 1) / 2; }
+            if (current % 2 === 0) {
+                path.push("Père");
+                current = current / 2;
+            } else {
+                path.push("Mère");
+                current = (current - 1) / 2;
+            }
         }
         return path.reverse().join(" du ");
     }
 
-    function analyser() {
-        const root =
+    function analyserManquants() {
+        const root = parseInt(document.getElementById('startSosa').value);
+        const maxGen = parseInt(document.getElementById('genCount').value);
+        const resultsBody = document.getElementById('resultsBody');
+        const summaryBox = document.getElementById('summaryBox');
+        const table = document.getElementById('missingTable');
+
+        resultsBody.innerHTML = "";
+        table.style.display = "none";
+
+        Papa.parse("individus_nettoye.csv", {
+            download: true,
+            header: true,
+            delimiter: ";",
+            skipEmptyLines: true,
+            complete: function(results) {
+                const sosaExistants = new Set(results.data.map(r => parseInt(r.sosa)));
+                let manquants = [];
+
+                // Calculer la plage de Sosa théorique
+                // Exemple : pour 3 générations à partir de 2 :
+                // G1: 2 | G2: 4,5 | G3: 8,9,10,11
+                for (let g = 0; g < maxGen; g++) {
+                    let firstSosaGen = root * Math.pow(2, g);
+                    let lastSosaGen = firstSosaGen + Math.pow(2, g) - 1;
+
+                    for (let s = firstSosaGen; s <= lastSosaGen; s++) {
+                        if (!sosaExistants.has(s)) {
+                            manquants.push({
+                                sosa: s,
+                                gen: g + 1,
+                                relation: getRelation(s, root)
+                            });
+                        }
+                    }
+                }
+
+                if (manquants.length > 0) {
+                    table.style.display = "table";
+                    summaryBox.className = "summary alert";
+                    summaryBox.innerText = `Il manque ${manquants.length} individus dans votre ascendance sur ${maxGen} générations.`;
+
+                    manquants.forEach(m => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td><span class="sosa-num">${m.sosa}</span></td>
+                            <td><span class="gen-badge">Gén. ${m.gen}</span></td>
+                            <td class="relation">${m.relation}</td>
+                        `;
+                        resultsBody.appendChild(row);
+                    });
+                } else {
+                    summaryBox.className = "summary";
+                    summaryBox.style.color = "green";
+                    summaryBox.innerText = "✅ Félicitations ! Votre ascendance est complète sur ces générations.";
+                }
+            }
+        });
+    }
+
+    window.onload = analyserManquants;
+</script>
+
+</body>
+</html>
