@@ -1,14 +1,14 @@
-sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;lieu_naissance;lieu_deces;date_mariage;lieu_mariage;infos_complementaires;[MILITAIRE] Classe: | Bureau: | Matricule: | Détails:;
+sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;lieu_naissance;lieu_deces;date_mariage;lieu_mariage;infos_complementaires;
 2;G0;TT;dominique TANGUY;Pharmacien;15/08/1948;19/07/2024;Pont-l_Abbe;Quimper;;;
 3;G0;QQ;helene QUILLEC;;26/06/1949;dans trï¿½s longtemps;Vannes;;;;
-4;G1;TT;louis charles yves TANGUY;Veterinaire;14/12/1917;22/04/1997;Morlaix;Pont-l_Abbe;24/05/1945;Pontivy;;[MILITAIRE] Classe : 1937| Bureau :Brest | Matricule : | Détails :;
+4;G1;TT;louis charles yves TANGUY;Veterinaire;14/12/1917;22/04/1997;Morlaix;Pont-l_Abbe;24/05/1945;Pontivy;;
 5;G1;LL;marie philomene LEAUTE;Assitante Sociale;04/05/1918;14/01/1991;Saint-Aignan;Pont-l_Abbe;24/05/1945;Pontivy;Diabetique;
-6;G1;QQ;pierre marie QUILLEC;Medecin;13/03/1912;08/03/2015;Penmarch;Quimper;31/05/1946;Concarneau;Dossier militaire AC 21 P 139683;[MILITAIRE] Classe: 1932| Bureau: Quimper | Matricule: 905 | Détails:pas encore en ligne;
+6;G1;QQ;pierre marie QUILLEC;Medecin;13/03/1912;08/03/2015;Penmarch;Quimper;31/05/1946;Concarneau;Dossier militaire AC 21 P 139683
 7;G1;PP;paule le PAJOLLEC;;20/05/1920;07/06/2005;Beuzec-Conq;Quimper;31/05/1946;Concarneau;
-8;G2;TT;louis TANGUY;Relieur;20/06/1874;07/03/1932;Kerprigent, Sainte-Seve;Morlaix;06/08/1899;Saint-Martin-des-Champs;mort d'une crise d'asthme;[MILITAIRE] Classe: | Bureau: | Matricule: | Détails:;
+8;G2;TT;louis TANGUY;Relieur;20/06/1874;07/03/1932;Kerprigent, Sainte-Seve;Morlaix;06/08/1899;Saint-Martin-des-Champs;mort d'une crise d'asthme
 9;G2;TL;marie louise LAUTROU;Commercante Mercerie;30/01/1878;01/10/1938;Spezet;Morlaix;06/08/1899;Saint-Martin-des-Champs;morte d'un cancer de la peau
-10;G2;LL;pierre marie LEAUTE;Laboureur Negociant en produits agricoles;07/03/1886;20/12/1974;Pontivy;Pontivy;27/04/1914;St-Aignan;[MILITAIRE] Classe: | Bureau: | Matricule: | Détails:;
-11;G2;LP;anne marie, mathurine PERZO;Menagere bar-hotel-restaurant La Martyre Pontivy;19/11/1889;12/01/1963;Saint-Aignan;;27/04/1914;St-Aignan;Morte du Diabete:
+10;G2;LL;pierre marie LEAUTE;Laboureur Negociant en produits agricoles;07/03/1886;20/12/1974;Pontivy;Pontivy;27/04/1914;St-Aignan;;
+11;G2;LP;anne marie, mathurine PERZO;Menagere bar-hotel-restaurant La Martyre Pontivy;19/11/1889;12/01/1963;Saint-Aignan;;27/04/1914;St-Aignan;Morte du Diabete
 12;G2;QQ;sebastien quillec (LE);Boulanger;06/04/1869;21/01/1926;Tregonda, Ploneour;Penmarch;18/11/1896 Plobannalec;;[MILITAIRE] Classe: | Bureau: | Matricule: | Détails:;
 13;G2;QP;marie anne le PEMP;Commercante,Menagere;31/03/1872;18/10/1926;Plobannalec;Penmarch;18/11/1896 Plobannalec;;
 14;G2;PP;antoine marie le PAJOLLEC;Chef d_entreprise, Maitre platrier;10/07/1884;20/01/1970;St Nazaire lieu dit toutes-aides;Concarneau;29/03/1913;Beuzec-Conq;;[MILITAIRE] Classe: | Bureau: | Matricule: | Détails:;
@@ -1952,6 +1952,7 @@ G385;G11;QQ;heldrede TREFFRY;;;;;;;;
 126674;G15;PM;philippe castille le LARDIC;notaire de la rue Obscure;;Sieur de Kerguestin, Pluguffan... Notaire. Apothicaire, gouverneur de l'Hï¿½pital de Sainte Catherine. Procureur, syndic de Quimper en 1587-1588. Dï¿½putï¿½ du Tiers-Etat pour Quimper-Corentin aux Etats de Bretagne de 1587 et 1588. Reprï¿½sentant de la Bretagne aux Etats-Gï¿½nï¿½raux ï¿½ Blois en 1588.;;;;;
 AAAA1;G-2;Lucas, Pierre-Billig, Dominique TANGUY;;;;;Fils de Sï¿½bastion dixit son choix du 11/10/2022 et revue le 03/14/2023;;;;
 AAAA2;G-2;Marie, Jeanne-Perrine ,Helene TANGUY;;;;;Fils de Sï¿½bastion dixit son choix du 11/10/2022 et revue le 03/14/2023;;;;
+
 
 
 
