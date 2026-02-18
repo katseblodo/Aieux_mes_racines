@@ -1,0 +1,1955 @@
+sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;lieu_naissance;lieu_deces;date_mariage;lieu_mariage;infos_complementaires
+2;G0;TT;dominique TANGUY;Pharmacien;15/08/1948;19/07/2024;Pont-l_Abbe;Quimper;;;
+3;G0;QQ;helene QUILLEC;;26/06/1949;dans trï¿½s longtemps;Vannes;;;;
+4;G1;TT;louis, charles, yves TANGUY;Veterinaire;14/12/1917;22/04/1997;Morlaix;Pont-l_Abbe;24/05/1945;Pontivy;recensements:
+5;G1;LL;marie, philomene LEAUTE;Assitante Sociale;04/05/1918;14/01/1991;Saint-Aignan;Pont-l_Abbe;24/05/1945;Pontivy;Diabetique
+6;G1;QQ;pierre, marie QUILLEC;Medecin;13/03/1912;08/03/2015;Penmarch;Quimper;31/05/1946;Concarneau;Dossier militaire AC 21 P 139683
+7;G1;PP;paule le PAJOLLEC;;20/05/1920;07/06/2005;Beuzec-Conq;Quimper;31/05/1946;Concarneau;
+8;G2;TT;louis TANGUY;Relieur;20/06/1874;07/03/1932;Kerprigent, Sainte-Seve;Morlaix;06/08/1899;Saint-Martin-des-Champs;mort d'une crise d'asthme
+9;G2;TL;marie louise LAUTROU;Commercante Mercerie;30/01/1878;01/10/1938;Spezet;Morlaix;06/08/1899;Saint-Martin-des-Champs;morte d'un cancer de la peau
+10;G2;LL;pierre, marie LEAUTE;Laboureur Negociant en produits agricoles;07/03/1886;20/12/1974;Pontivy;Pontivy;27/04/1914;St-Aignan;
+11;G2;LP;anne, marie, mathurine PERZO;Menagere bar-hotel-restaurant La Martyre Pontivy;19/11/1889;12/01/1963;Saint-Aignan;;27/04/1914;St-Aignan;Morte du Diabete
+12;G2;QQ;sebastien quillec (LE);Boulanger;06/04/1869;21/01/1926;Tregonda, Ploneour;Penmarch;18/11/1896 Plobannalec;;
+13;G2;QP;marie anne le PEMP;Commercante,Menagere;31/03/1872;18/10/1926;Plobannalec;Penmarch;18/11/1896 Plobannalec;;
+14;G2;PP;antoine marie le PAJOLLEC;Chef d_entreprise, Maitre platrier;10/07/1884;20/01/1970;St Nazaire lieu dit toutes-aides;Concarneau;29/03/1913;Beuzec-Conq;
+15;G2;PM;marie jeanne le MANCHEC;;2/04/1892;22/12/1973;Avenue de la Gare, Beuzec-Conq;Concarneau;29/03/1913;Beuzec-Conq;https://gw.geneanet.org/loicleroy?n=le+manchec&oc=&p=marie+jeanne
+16;G3;TT;pierre TANGUY;Cultivateur Terrassier;20/11/1848;06/05/1897;Saint-Martin-des-Champs;Saint-Martin-des-Champs;11/05/1873;Sainte-Seve;
+17;G3;TT;marguerite francoise SALUDEN;Cultivatrice Aubergiste;26/04/1853;23/02/1930;Sainte-Seve;Morlaix;11/05/1873;Sainte-Seve;
+18;G3;TL;charles LAUTROU;Chauffeur/Retraite des chemins de fer;21/06/1854;12/04/1919;Plounevezel;Saint-Martin-des-Champs (Route de Ste Sï¿½ve);25/04/1877;Cleden-Poher;22/07/1893 | Morlaix | avec Marie Jeanne Francoise CLAUDE
+19;G3;TL;marie marguerite COCHENNEC;;9/03/1854;27/02/1891;Kergloff;Morlaix;25/04/1877;Cleden-Poher;
+20;G3;LL;joseph,marie LEAUTE;Laboureur;14/02/1857;??;Neulliac;;14/01/1883;Neulliac;Domicilie ï¿½ CLeguerec en 1914 | naiss verifie
+21;G3;LL;marie-philomene le quemener (dite meme CLEGUEREC);Menagere/Cultivatrice;9/05/1859;20/11/1943;Neulliac;;14/01/1883;Neulliac;
+22;G3;LP;louis-marie PERZO;Debitant/Cabaretier/Aubergiste;01/12/1859;13/05/1896;Saint-Aignan;Saint-Aignan;13/09/1885;Saint-Aignan;recensement militaire n 316 | recensement st aignan 1861
+23;G3;LP;marie mathurine morzadec (LE);Menagere/Debitante;19/11/1859;26/01/1940;Saint-Aignan;Pontivy;13/09/1885;Saint-Aignan;
+24;G3;QQ;jean, joseph, felix quillec (LE);Cultivateur;31/05/1831;22/12/1908;Combrit;Pont-l_Abbe, Hotel-Dieu;14/05/1868  Ploneour-Lanvern;;
+25;G3;QQ;anne COIC;;29/08/1840;03/03/1873;Boderez, Ploneour;Tregonda, Ploneour-Lanvern;14/05/1868;Ploneour-Lanvern;
+26;G3;QP;noel le PEMP;Cultivateur;21/02/1841;17/04/1917;Plomeur(Penaprat);Penmarch;11/10/1862  Plomeur;;fils de Pierre et de Marie Anne DURAND
+27;G3;QP;marie jacquette CASTRIC;;18/09/1840 ou 20/09/1840;18/06/1926;Plomeur;Plobannalec;11/10/1862  Plomeur;;
+28;G3;PP;jean francois le PAJOLLEC;Macon,perceur, manoeuvre (signe);30/11/1847;30/08/1908;Noyal-Muzillac Village de Cosquer-grace;Saint-Nazaire;6/08/1883;Saint-Nazaire;
+29;G3;PP;marie reine QUELARD;Employe;21/04/1860;05/03/1919;Noyal-Muzillac;Saint-Nazaire;6/08/1883;Saint-Nazaire;
+30;G3;PM;joseph vincent le MANCHEC;Cabaretier/debitant;10/11/1866;04/04/1917;Elliant;Beuzec-Conq;27/05/1891;Elliant;
+31;G3;PM;marie jeanne COTTEN;Servante/Cabaretiere;23/10/1865;annee 50  (entre 1955-59);Tygoarem Kergrimerr a Pleuven;Concarneau;27/05/1891;Elliant (seconde noce);
+32;G4;TT;christophe marie simon TANGUY;Cultivateur;17/01/1822;07/02/1904;Sainte-Seve;Saint-Martin-des-Champs;19/05/1844;Saint-Martin-des-champs;
+33;G4;TT;jacquette PROUFF;menagere;13/06/1825;28/06/1860;Saint-Martin-des-Champs;Saint-Martin-des-Champs;19/05/1844;Saint-Martin-des-champs;
+34;G4;TT;francois SALUDEN;Cultivateur;1814;25/01/1887;Sainte-Seve;Sainte-Seve;5/02/1843;Sainte-Seve;
+35;G4;TT;marie francoise COAT;Cultivatrice;19/04/1818;24/08/1873;Coat Lore Bras, Sainte-Seve;Sainte-Seve;5/02/1843;Sainte-Seve;
+36;G4;TL;jean marie LAUTROU;Cabaretier/Journalier/Aide cultivateur;9/03/1814;13/09/1867;Plounevezel;Carhaix;8/09/1839;Plouguer;
+37;G4;TL;francoise LOHEAC;Domestique;02/04/1820;22/02/1856;Saint-Hernin;Carhaix;8/09/1839;Plouguer notes domiciliee de droit;Plevin | sa mere y domiciliee et de fait Plouguer
+38;G4;TL;francois guillaume COCHENNEC;Cultivateur;20/12/1812;06/01/1882;Cleden-Poher;Spezetï¿½(Peurit);29/01/1845;Cleden-Poher;
+39;G4;TL;marie marguerite le NAOUR;Cultivatrice;20/08/1818;23/03/1905;Spezet;Morlaix, quartier du chateau;29/01/1845;Cleden-Poher;
+40;G4;LL;yves LEAUTE;Cultivateur;29/05/1829;3/10/1875;Neulliac;Neulliac;24/11/1852;Neulliac;
+41;G4;LL;marie le PONNER;Cultivatrice;14/07/1834;19/12/1868;Neulliac;Neulliac;24/11/1852;Neulliac;
+42;G4;LL;mathurin quemener (LE);Cultivateur;17/07/1816;04/02/1891;Neulliac;Neulliac;30/07/1845;Mur de Bretagne;
+43;G4;LL;marie joseph eudo ou UDO;Cultivatrice;8/03/1820;1/11/1899;Mur-de-Bretagne;Neulliac;30/07/1845;Mur de Bretagne;
+44;G4;LP;francois, jean PERZO;Cultivateur;07/01/1831;28/06/1900;Cleguerec;Saint-Aignan Porh Perzo;8 fev 1857;St-Aignan;
+45;G4;LP;marie PLENEL;Menagere;24/02/1836;21/09/1908;Saint-Aignan;Saint-Aignan;8 fev 1857;St-Aignan;publication 27 janvier
+46;G4;LP;yves le MORZADEC;Tailleur d_habit;1827;14/01/1884;Saint-Aignan;Saint-Aignan;;;
+47;G4;LP;marie mathurine bricon (LE);Menagere/Marchande;11/09/1823;13/03/1907;Caurel, 22;Saint-Aignan;;;
+48;G4;QQ;pierre le QUILLIEC;Cultivateur;29/04/1795;26/09/1830;Tremeoc ou Combrit;Pont-l_Abbe;05/07/1825;Treguennec;
+49;G4;QQ;marie josephe le failler ou FAILLARD;Cultivatrice;2/04/1802;25/02/1865;Treguennec;Combrit (Cruguel);05/07/1825;Treguennec avec Pierre Le Quilliec (seconde noces);louis le de guirriec, cutlivateur, 52 ans, noï¿½l kerdranvat,cultivateur, 25 ans, tous deux gendres de la defunte
+50;G4;QQ;corentin COIC;Cultivateur;/12/1817;25/06/1879;Ploneour;rest treouron;Ploneour,Moulin Du Fao;14/01/1839;Ploneour | remarie avec Jeanne TANNEAU
+51;G4;QQ;marie louise le GARREC;;28/10/1820;17/01/1849;Treguennec (St Vio);Ploneour-Lanvern (Boderez);14/01/1839;Ploneour;
+52;G4;QP;pierre le PEMP;Meunier;21/07/1811;17/05/1860;Penarprat,Plomeur;Penarprat, Plomeur;8/10/1834;Plobannalec;Temoin naissance Tirilly Jean 52 ans
+53;G4;QP;marie anne DURAND;;11/10/1813;19/01/1873;Tronval,Plobannalec;Penmarch,Gouesnach;8/10/1834;Plobannalec;jean louis le pemp, 27 ans (signe)/louis le pemp, 35 ans/les 2 cultivateurs, fils de la defunte et domicilies ï¿½ gouesnach en penmarch.
+54;G4;QP;jacques CASTRIC;Cultivateur;27/05/1798;06/05/1871;Plomeur;Plomeur (La Metairie);19/02/1829 Pont-l_Abbe;;
+55;G4;QP;marie anne KERDRANVAT;;16/03/1803 (25 ventose an XI);25/03/1871;Pont-l_Abbe;Plomeur (La Vieille Metairie);19/02/1829 Pont-l_Abbe;;
+56;G4;PP;pierre le PAJOLLEC;Cantonnier aï¿½ Muzillac;21/03/1819;13/07/1856;Berric;Ilet la Mere-Bagne-Guyane;29/09/1844;Muzillac;Marie aï¿½ Jeanne Francoise Millet | fiche
+57;G4;PP;jeanne francoise LE_MEDEC;Journaliere;5/08/1821;4/09/1887;Ambon;Muzillac;29/09/1844;Muzillac (page 23);
+58;G4;PP;guillaume QUELARD;Journalier/Domestique;3/04/1826;5/11/1867;Berric;Noyal-Muzillac;12/11/1857;Noyal-Muzillac (Kermabalan);Marie Julienne Francoise BEGO Marie le 12/10/1857
+59;G4;PP;marie francoise benoist (BENOIT);Lingere;22/04/1834;?;Noyal-Muzillac larhenic;?;12/11/1857;Noyal-Muzillac;Remarie en 1874 avec Jospeh Le corre
+60;G4;PM;vincent pierre le MANCHEC;Cultivateur;2/12/1816;14/04/1904;Kerhuel, Elliant;Kerangouarch, Elliant;16/05/1850;Elliant;
+61;G4;PM;marie catherine TROALEN;;26/08/1829;Avant 1904;Elliant;Elliant;16/05/1850;Elliant;
+62;G4;PM;jean pierre COTTEN;Journalier/Marin/cordier;19/08/1835;02/03/1913;Fouesnant;La Foret-Fouesnant;2/06/1863;La Foret (Fouesnant);fils de Henry, Marin et de Marie Jeanne COLAS, Cultivatrice | Pere au service du Gouvernement | Roux au yeux bleus | https://www.memoiredeshommes.sga.defense.gouv.fr/fr/arkotheque/visionneuse/visionneuse.php?arko=YToxMDp7czoxMDoidHlwZV9mb25kcyI7czo3OiJhcmtvX2lyIjtzOjg6ImltZ190eXBlIjtzOjM6ImpwZyI7czo0OiJyZWYwIjtzOjI6IjMwIjtzOjQ6InJlZjEiO2k6NTI7czo0OiJyZWYyIjtzOjM6IjEwMSI7czo0OiJyZWYzIjtzOjA6IiI7czo0OiJyZWY0IjtzOjA6IiI7czoxMjoiaW1hZ2VfZGVwYXJ0IjtzOjEzMzoiL1BBUkNPVVJTSU5ESVYvUkVHSVNUUkVTX0VOUk9MRU1FTlQvSW5zY3JpcHRpb25fTWFyaXRpbWVfTG9yaWVudC9TSERNTF9fTUxfN19QXzMvU0hETUxfX01MXzdfUF8zXzI0L1NIRE1MX19NTF83X1BfMDNfMDI0X18wMDgzX18yLkpQRyI7czoxNjoidmlzaW9ubmV1c2VfaHRtbCI7YjoxO3M6MjE6InZpc2lvbm5ldXNlX2h0bWxfbW9kZSI7czo0OiJwcm9kIjt9#uielem_move=-154%2C59&uielem_islocked=0&uielem_zoom=189&uielem_brightness=0&uielem_contrast=0&uielem_isinverted=0&uielem_rotate=F
+63;G4;PM;jeanne marie NEDELEC;Cultivatrice;15/08/1837;;Fouesnant;07/03/1917;2/06/1863;La Foret (Fouesnant);fille de Guillaume, Journalier , present et de Marie LE DANTIC, Journaliere
+64;G5;TT;olivier TANGUY;Cultivateur;26/03/1788;31/08/1850;Sainte-Seve;Sainte-Seve;24/11/1809;Sainte-Seve;verifiï¿½
+65;G5;TT;marie MESSAGER;Cultivatrice;25/11/1784;21/01/1868;Saint-Martin-des-Champs;Saint-Martin-des-Champs;24/11/1809;Sainte-Seve;
+66;G5;TT;guillaume PROUFF;Cultivateur;16/07/1800;6/12/1834;Saint-Martin-des-Champs;Saint-Martin-des-Champs;8/07/1824;Plourin Les Morlaix;
+67;G5;TT;marie jeanne CREN;Cultivatrice;25/03/1792;26/11/1874;Saint-Martin-des-Champs;Saint-Martin-des-Champs;;;
+68;G5;TT;jean SALUDEN;Cultivateur;16/10/1779;08/08/1852;Sainte-Seve;Sainte-Seve;20/06/1806;Sainte-Seve;
+69;G5;TT;marguerite GRAVOT;;17/05/1788;9/11/1832;Saint-Martin-des-Champs;Sainte-Seve;20/06/1806;Sainte-Seve;
+70;G5;TT;jean COAT;Cultivateur;1/02/1785;1861;Sainte-Seve;?;1809;Sainte-Seve;
+71;G5;TT;catherine NICOLAS;Cultivatrice;4/03/1791;1844;Saint-Martin-des-Champs;;1809;Sainte-Seve;
+72;G5;TL;guillaume LAUTROU;Cultivateur Metayer;23/02/1781;22/03/1825;Plounevezel;Plounevezel;4/11/1810;Locmaria-Berrien;
+73;G5;TL;marie anne MANACH;Cultivatrice;20/08/1790;17/01/1821;Locmaria-Berrien;Plounevezel;4/11/1810;Locmaria-Berrien;
+74;G5;TL;jean louis LOHEAC;Cultivateur;20/07/1783;09/05/1822;Saint Hernin;Saint Hernin;19 9bre 1806;Saint Hernin;
+75;G5;TL;marie jacquette CALVARY;Cultivatrice/Menagere;13/09/1784;;Saint-Hernin;;19 9bre 1806;Saint Hernin;
+76;G5;TL;jean COCHENNEC;;12/06/1781;07/02/1840;Saint-Hernin;Cleden-Poher (Kerdivoal);10/nivo/An10;Motreff;
+77;G5;TL;marguerite rivoal ou RIVOIL;;17/09/1785;07/07/1845;Penanjeun, Motreff;Cleden-Poher (Kerdivoal);10/nivo/An10 (31/12/1801);Motreff;
+78;G5;TL;guillaume NAOUR(LE);Cultivateur;20/10/1777;08/10/1850;Cleden-Poher;Cleden-Poher, Coat An Nuz;;;agï¿½ de 69 ans
+79;G5;TL;catherine BERNARD;Cultivatrice;29/01/1779;08/05/1849;Cleden-Poher;Cleden-Poher, Coat An Nuz;;;ï¿½gï¿½ de 71 ans | 3 enfant nï¿½s ï¿½ Spezet, les premiers ï¿½ cleden-poher, et l'ainï¿½ ï¿½ St Hernin
+80;G5;LL;mathurin LEAUTE;Cultivateur;28/04/1801(8 floreal an IX);01/11/1865;Village du Ros, Neulliac;Moustoir, Neulliac;12/07/1824;Neulliac;
+81;G5;LL;perrine LEGAL;Cultivatrice;16/05/1808;25/01/1853;Neulliac;Vannes (hospice d_alines ou d_humanite);12/07/1824;Neulliac;
+82;G5;LL;pierre marie le PONNER;Laboureur;28/06/1807;21/02/1872;Neulliac;Neulliac;26/01/1829;Neulliac;
+83;G5;LL;guillemette GALERNE;;8/10/1808;7/02/1870;Neulliac;Neulliac;26/01/1829;Neulliac;
+84;G5;LL;francois quemener (LE);;6/07/1774;31/03/1836;Mur-de-Bretagne;Neulliac;5/11/1800 (14 brumaire an IX);;
+85;G5;LL;vincente GUILLOUX;Menagere;19/01/1784;12/02/1847;Neulliac Coscarme;Neulliac;5/11/1800 (14 brumaire an IX);Neulliac;acte naissance vu
+86;G5;LL;jean baptiste EUDO;Cultivateur;20/06/1779;24/05/1841;Mur-de-Bretagne;Mur-de-Bretagne;26 juin 1805;Mur-de-Bretagne;
+87;G5;LL;jeanne mathurine STEPHAN;Menagere;30/04/1785;6/08/1866;Mur-de-Bretagne,Kergoric;Mur-de-Bretagne;26 juin 1805;Mur-de-Bretagne;
+88;G5;LP;pierre jean PERZO;Cultivateur;13/01/1804;10/04/1851;Guerihuel, Cleguerec;Kerdrean, Cleguerec;6/02/1822;Cleguerec;
+89;G5;LP;louise le henanf (HENNANFF);Cultivatrice;5/11/1797;2/12/1876;Kerdrean, Cleguerec;Cletoret, Cleguerec;6/02/1822;Cleguerec;
+90;G5;LP;josesph PLENEL;Laboureur;19/01/1795 (30 Nivose an III);27 sept 1850;Porobert Saint-Aignan;Saint-Aignan;9/11/1825;Saint-Aignan;
+91;G5;LP;mathurine BAUDIC;Menagere;1801 (4 thermidor an IX);22/04/1873;Saint-Aignan;Saint-Aignan;9/11/1825;Saint-Aignan;
+92;G5;LP;louis marie le MORZADEC;Journalier;20/03/1799;11/02/1884;Gouvello, Sainte-Brigitte;Saint-Aignan;23/07/1823;Saint-Aignan;
+93;G5;LP;marie jeanne AUFFRET;Menagere;16/10/1792;11/03/1863;Saint-Aignan;Saint-Aignan;23/07/1823;Saint-Aignan;
+94;G5;LP;mathurin le BRICON;Perrieur;15/01/1783;13/05/1830;Caurel;Caurel, 22;30/06/1806;Caurel;Tailleur de pierres, personne extrayant la pierre des carriï¿½res.
+95;G5;LP;marie le CAPITAINE;Filandiere;05/05/1784;19/11/1848;Caurel;Caurel;30/06/1806;Caurel;
+96;G5;QQ;pierre, yves quilliec ( le );;31/01/1767;03/02/1823;Combrit;Combrit;11/05/1784;Combrit;
+97;G5;QQ;anne GAORER;;11/12/1754;09/01/1819;Kerdonard, Ploneour;Combrit;11/05/1784;Combrit;
+98;G5;QQ;joseph le FAILLER;;22/01/1774;13/06/1849;Kerbasquet Creis Treguennec;Keriellec Vras Treguennec;21/01/1790;Treguennec;
+99;G5;QQ;marie LAGADIC;;1er/05/1776;27/10/1844;Keriellec Izella,Treguennec;Keriellec Vras Treguennec;21/01/1790;Treguennec;
+100;G5;QQ;corentin COIC;Cultivateur;27/05/1790;15/08/1844;Ploneour,Kerfelest;Ploneour-Lanvern,Boderez;17/10/1809;Ploneour;Parrain : Coï¿½c Jean, President De L'Assemblee Primaire De Le Canton ?
+101;G5;QQ;jeanne le BERRE;;2/04/1790;20/02/1855;Ploneour;Ploneour-Lanvern,Boderez;;17/10/1809;Ploneour
+102;G5;QQ;sebastien le GARREC;Cultivateur;25/04/1792;27/02/1848;Tronoan, Saint Jean Trolimon;Ploneour-Lanvern (Kerquellou);26/08/1812;Treguennec;fils de Sebastien et de Corentine LE CLOAREC | Tronoan | isidor mourrain, de kerbeneoch, fils par alliance
+103;G5;QQ;sebastienne le PAPE;;?/02/1794;18/02/1847;Plomeur(Penarprat);Plonï¿½our-Lanvern(Kerquellou);26/08/1812;Treguennec;fille de Pierre, decede et de Anne LE DONGE | Saint vio | Naissance En fï¿½vrier 1794 jugement du tribunal civil de quimper du 06/07/1812
+104;G5;QP;guillaume le PEMP;Cultivateur;03/01/1774;3/01/1847;Penarprat, Plomeur;Penarprat, Plomeur;21/11/1799;Plomeur;
+105;G5;QP;marie jeanne MORVAN;;01/03/1777;24/02/1848;Trevaras, Plomeur;Plomeur;21/11/1799;Plomeur;
+106;G5;QP;jean DURAND;Cultivateur;3/12/1792;06/12/1867;Plobannalec;Plobannalec, Tronval;9/08/1812;Treffiagat;Toujours vï¿½cu ï¿½ Tronval
+107;G5;QP;marie perrine CRIQUET;Menagere;12/10/1791;08/06/1863;Treffiagat;Plobannalec, Tronval;9/08/1812;Treffiagat;
+108;G5;QP;budoc CASTRIC;Cultivateur;17/11/1749;05/04/1809;Saint Jean de Trolimon;Plomeur, Kernivili;12/01/1790;Plomeur ou Ploneour;
+109;G5;QP;anne le BERRE;;29/01/1769;1807;Plomeur;Plomeur;12/01/1790;Plomeur ou Ploneour;
+110;G5;QP;mathias KERDRANVAT;;16/01/1782;16/06/1862;Combrit;Pont-l_Abbe;1er/03/1802;Combrit;
+111;G5;QP;anne GARIN;;3/03/1783;07/04/1806;Combrit;;1er/03/1802;Combrit;
+112;G5;PP;francois le PAJOLLEC;Laboureur;06/12/1777;10/09/1828;Sulniac  Village De guerne;Muzillac;21 Janv 1810;Noyal-Muzillac;
+113;G5;PP;perrine COLENO;;04/06/1780;15/10/1851;Grand-Cadillac Noyal-Muzillac;Muzillac;21 Janv 1810;Noyal-Muzillac;
+114;G5;PP;jean LEMEDEC;Laboureur;1785;;Ambon;;27/05/1809;MUZILLAC;M age 24 ans
+115;G5;PP;anne guillemette montrelais ou MONTERLAY;;24/11/1779;8/10/1838;Ambon;Ambon;27/05/1809;MUZILLAC;
+116;G5;PP;joseph quelard ou le QUELLARD;Laboureur;15/01/1797 (26 nivose an V);8/12/1871;Questembert;Berric;9/11/1820;Berric;
+117;G5;PP;julienne jalle (le) ou le JASLE;;27/03/1803;19/03/1873;Berric;Berric;9/11/1820;Berric;
+118;G5;PP;vincent louis BENOIST;Tailleur d_habits;21/05/1805;30/12/1874;Noyal-Muzillac;Muzillac;6/11/1826;Ambon;
+119;G5;PP;louise le MEDEC;Cultivatrice;4/03/1804;14/11/1854;Ambon;Noyal-Muzillac;6/11/1826;Ambon;
+120;G5;PM;vincent le MANCHEC;Cultivateur;5/08/1786;11/04/1847;Elliant;Elliant;9/01/1809;;
+121;G5;PM;marie jeanne TROALEN;Cultivatrice;23/12/1786;24/08/1849;Elliant;Elliant;9/01/1809;;
+122;G5;PM;francois TROALEN;Cultivateur;20/10/1784;29/06/1842;Elliant;Elliant;3/01/1814;Elliant;
+123;G5;PM;anne ou annette MEVELLEC;;10/10/1793;apres 1850;Coray;;3/01/1814;Elliant;
+124;G5;PM;henri cotten (henry le COTTEN);Marin au service du Gouvernement/Journalier;17/07/1809;Apres 1863;Kerequel, St Yvi;;31/01/1833 - Fouesnant;;
+125;G5;PM;marie jeanne COLAS;Cultivatrice;19/05/1807;Apres 1863;Beuzec-Conq (Langoat);;31/01/1833 - Fouesnant;;Fraterie : Ne le 27/11/1809-COLAS Claude Corentin
+126;G5;PM;guillaume jacques NEDELEC;Garcon meunier;15/germ/an 3 (30/03/1795);08/02/1880;Chateauneuf-du-Faou;Fouesnant (Penfoulic);23/07/1833;Fouesnant;
+127;G5;PM;marie corentine le DANTIC;Aide cultivatrice;29/06/1806;07/02/1880;Clohars-Fouesnant;Fouesnant (Penfoulic);23/07/1833;Fouesnant;
+128;G6;TT;herve TANGUY;Menager;26/08/1758;25/09/1793;Sainte-Seve;Sainte-Seve;13/02/1781;Sainte Seve;verifiï¿½
+129;G6;TT;catherine BELLEC;;10/03/1759;24/03/1819;Sainte-Seve;Sainte-Seve;13/02/1781;Sainte Seve;
+130;G6;TT;francois MESSAGER;Cultivateur;6/07/1744;13/01/1809;Saint-Martin-des-Champs;Saint-Martin-des-Champs;27/05/1782;St Martin des Champs;
+131;G6;TT;denise GAUTIER;;12/07/1761;27/04/1847;Saint-Martin-des-Champs;Saint-Martin-des-Champs;27/05/1782;St Martin des Champs;
+132;G6;TT;pierre olivier PROUFF;Cultivateur;29/06/1774;20/11/1858;Saint-Martin-des-Champs;Saint-Martin-des-Champs;2/02/1797;St Martin des Champs;
+133;G6;TT;anne PAUGAM;;27/09/1776;5/05/1806;Sainte-Seve;Saint-Martin-des-Champs;2/02/1797;St Martin des Champs;
+134;G6;TT;paul cren ou CRENN;Cultivateur;22/10/1762;01/01/1831;Guiclan (St Draff);Plourin-les-Morlaix (Coatquizinic);10/02/1789 - Morlaix - Saint-Martin;;
+135;G6;TT;marguerite rioual ou RIVOAL;;01/08/1770;6/08/1850;Taule;Plourin les Morlaix;10/02/1789 - Morlaix - Saint-Martin;;
+136;G6;TT;francois SALUDEN;Laboureur a Saint Martin;27/07/1739;13/02/1784;Taule;St Martin, Inhume a Sainte Seve;Marie le 23/05/1758;Morlaix;1er avec Francoise ROLLAND, Marie le 22/01/1765 a Sainte Seve avec Catherine MENES et Marie le 13/02/1770 a Morlaix avec Guillemette CALVEZ
+137;G6;TT;guillemette CALVEZ;;14/04/1747;26/01/1806;Plouenan;Sainte-Seve (Kerprigent);13/02/1770;Morlaix;Seconde noces avec Jean BRANELLEC
+138;G6;TT;jean GRAVOT;Cultivateur/ Maire;1er/07/1751;24/04/1814;Saint-Martin-des-Champs (Traon ar Velin);Saint-Martin-des-Champs (Trohoat);21/11/1774;Morlaix - Saint-Martin;fils de Claude decede et de Marie GUERNIGOU Notes epoux : mineur decret Penze 311
+139;G6;TT;marie MESSAGER;;25/05/1748;26/12/1825;Saint-Martin-des-Champs;Saint-Martin-des-Champs;21/11/1774;Morlaix - Saint-Martin;fille de Yves decede et de Jacquette LAMER Veuve de : Francois CASTEL - Notes epouse : majeure  et dom Saint Martin avant Saint Seve
+140;G6;TT;pierre COAT;cultivateur, menager;1/12/1754;24/03/1830;Sainte Seve Lieu-dit : Kerret;Sainte Seve Lieu-dit : Grand Kerprigent;16/07/1781;Sainte-Seve;
+141;G6;TT;elizabeth ou isabelle CASTEL;;17/10/1764;25/04/1811;Sainte Seve Lieu-dit :  Kerprigent;sainte seve coat lore bras;16/07/1781;Sainte-Seve;
+142;G6;TT;pierre NICOLAS;cultivateur;16/01/1765;20/10/1821;St Seve, lieu-dit Plessix;St Seve, lieu-dit Trebompe;Pleyber-Christ ou  12/01/1790 (12/01/1790);Morlaix-Saint-Martin;
+143;G6;TT;jeanne le ROUX;menagere;16/11/1769;30/05/1847;Locquenole;Sainte-Seve;12/01/1790;Morlaix-Saint-Martin;
+144;G6;TL;rene LAUTROU;;20/03/1747;14/04/1792;St Idunet - Plounevezel;Plounevezel;18/01/1773;Plounevezel;Yves et de Marie JARU
+145;G6;TL;marie jeanne foucat FOUQUET;;13/08/1758;1826;Carnoet;;18/01/1773;Plounevezel;
+146;G6;TL;sebastien le MANACH;;28/11/1757;15/01/1824;Poullaouen(Kermorvan);Poullaouen(Kermorvan);27/01/1779;Poullaouen;remarier le  18/02/1806 - Poullaouen avec LE MEUR Marie Louise | Le Boult Mauricette Tante
+147;G6;TL;marie URVOAZ;;16/01/1752;1er/06/1803;Poullaouen;Locmaria-Berrien;27/01/1779;Poullaouen;
+148;G6;TL;guillaume LOHEAC;;01/09/1747;;Saint-Hernin, Callac;;05/05/1779 - Saint-Hernin;;
+149;G6;TL;catherine coadelot ou COATDELOT;;31/07/1764;;Saint-Hernin;;05/05/1779 - Saint-Hernin;;
+150;G6;TL;yves CALVARY;Cultivateur, Officier Municipal;09/08/1757;28 germinal an 12 (18/04/1804);Saint-Hernin;Gaouvannec Saint-Hernin;22/06/1783 - Saint-Hernin;Veuf de:Marie KERGARAVAT;
+151;G6;TL;marie joseph GUILLERM;Cultivatrice;1764;Six floral an 12 (26/04/1804);Motreff;Saint-Hernin;22/06/1783 - Saint-Hernin;;
+152;G6;TL;guillaume COCHENEC;;03/07/1755;avant 1817;Saint-Hernin(Trombars);;;14/02/1776 - Saint-Hernin;Notes ï¿½poux : D.J. Kergoat 18/01 | fils de Guillaume et de Louise QUILLEROU | Parrain : Cochennec Guillaume S | Marraine : Coent Marguerite
+153;G6;TL;anne le BIHAN;;05/05/1746;24/08/1817;Saint-Hernin(Pengorvel);Kergloff(Kerlissouarn);14/02/1776 - Saint-Hernin;;signe | Notes ï¿½poux : D.J. Kergoat 18/01 | fille de Allain, Mï¿½nager et de Marie PIERRES, Mï¿½nagï¿½re | Parrain : LE STER Michel ~ de st eval il signe | Marraine : LE GUILLOU Marie ~ de kerouer | Notes : acte 21/1746_vue 265_ le pï¿½re signe
+154;G6;TL;yves rivoal ou RIVOIL;signe;;;Motreff;;24/11/1784;Motreff;fils de Pierre, present et de Marguerite LE CLOAREC, decedee
+155;G6;TL;marie anne LEVENEZ;signe;;;Motreff;;24/11/1784 (mineure);Motreff;fille de Michel, decede et de Marie RAYMOND, presente | dj, la mere curatrice
+156;G6;TL;jean NAOUR;Cultivateur;;26/07/1803;Poullaouen;Saint Hernin;4/10/1773;Cleden-Poher;
+157;G6;TL;anne le BRAS;;2/03/1754;8/01/1833;Kergloff;Saint Hernin;4/10/1773;Cleden-Poher;
+158;G6;TL;guillaume BERNARD;;17/11/1737;25/02/1805;Kergloff;Kergloff;9/02/1763;Cleden-Poher;
+159;G6;TL;catherine LEVENEZ;;3/09/1743;1785;Cleden-Poher;Cleden-Poher;9/02/1763;Cleden-Poher;
+160;G6;LL;toussaint LEAUTE;;8/11/1763;8/03/1815;Neulliac;Neulliac;14/01/1789 (seconde noces);;
+161;G6;LL;marie RIO;;2/03/1766;27/12/1804 ou 2/01/1805;Kergrist;Neulliac;14/01/1789;Kergrist;naiss verifiee
+162;G6;LL;rene LEGAL;Laboureur;1772;26/04/1824;Neulliac;;;;Temoins deces frere Thomas 62ans | Fils de  Denys et de marie Taldio
+163;G6;LL;yvone JOUANNO;;05/05/1768;16/03/1816;Saint-Aignan;Neulliac;;;Fille de Alain Jouanno et de francoise Guillo
+164;G6;LL;mathurin guillaume LEPONNER;;1769;11/01/1817;;Neuillac;;;fils de Jean et de Jeanne Le Bonde (pas sur lecture difficile) | acte de dÃ©ces vu | 38 ans en1807
+165;G6;LL;mathurine RAFFLE;;06/10/1774;18/04/1814;Neulliac;Kerveno, Neuillac;;;fille de Yves et de Louise Le Rachot ou Hechet | acte de dÃ©ces vu
+166;G6;LL;pierre GALERNE;Laboureur;21/07/1784;24/03/1851;Neulliac;Neulliac;28/07/1807;Neulliac;
+167;G6;LL;suzanne le BOTMEL;;12/07/1783;1er/04/1814;la Haye, Cleguerec;Neulliac;28/07/1807;Neulliac;
+168;G6;LL;louis le QUEMENER;;;?;Neulliac;;26/08/1761;Mur de Bretagne;marie lors d'un double mariage de freres epouse deux soeurs | marie a  17 Ans fils de QUEMENER (LE) Francois et de ODIC Jeanne / dcd
+169;G6;LL;francoise le COCQ;;18/07/1745;;Mur de Bretagne;;26/08/1761;Mur de Bretagne;
+170;G6;LL;boniface GUILLOUX;Laboureur;09/10/1758;12/05/1798;Neulliac;Neulliac, coscames;19/02/1783;Neuillac;Naissance: AD56 - Cote 1738-1759, vue 687/735 | Union: AD56 - Cote 1774-1787, vue 215/321 | Deces: AD56 - Cote 1797/1798, vue 58/63
+171;G6;LL;marie le DORLOT;;25/09/1762;04/09/1836;Neulliac, stumo;Neulliac, coscames;19/02/1783;Neuillac;Naissance: AD56 - Cote 1760-1773, vue 78/378 | Union: AD56 - Cote 1774-1787, vue 215/321 | Deces: AD56 - cote 1836, vue 18/31
+172;G6;LL;francois EUDO;;17/03/1747;29/05/1801;;Mur-de-Bretagne;22/10/1766;Mur-de-Bretagne;
+173;G6;LL;marie le VIEULX;;13/12/1749;;Mur-de-Bretagne;;22/10/1766;Mur-de-Bretagne;
+174;G6;LL;joseph STEPHAN;;18/12/1752;1801;Mur-de-Bretagne;;14/02/1776 Saint-Caradec (22279);;STEPHAN Jean / dcd et DENMAT (LE) Louise
+175;G6;LL;jeanne francoise HENRIO;;;;;;14/02/1776 Saint-Caradec (22279);;HENRIO Pierre / dcd et de CORNIQUEL Jeanne
+176;G6;LP;francois PERZO;;21/10/1761;11/05/1817;Cleguerec;Kerihuel - Cleguerec;;;
+177;G6;LP;marie le BOURLOUT;Menagere;15/09/1769;27/02/1823;Coet-Nohenec, Cleguerec;Guerihuel, Cleguerec;;;elle se remarie avec Jean LE HENANFF 1766-1848, le beau-pere de son fils | Naissance: AD 56 Cleguerec BMS 1761-1777 p 212 | Union 2: AD 56 Cleguerec NMD 1819-1827 p 175 acte 15 | Deces: AD 56 Cleguerec NMD 1819-1827 p 235 acte 60
+178;G6;LP;jean le HENANF;;18/12/1766;13/04/1848;Kerdrean, Cleguerec;Kerdrean, Cleguerec;29/01/1793;Cleguerec;
+179;G6;LP;marguerite le MOUEL;;27/09/1769;6/06/1817;Le Guern, Cleguerec;Kerdrean, Cleguerec;29/01/1793;Cleguerec;
+180;G6;LP;jerosme PLENEL;Laboureur;10/02/1767;20/05/1841;Botponal Saint-Aignan;Porh Robert Saint-Aignan;27/01/1785;Saint-Aignan;
+181;G6;LP;marie francoise VIDELO;;?;;;;27/01/1785;Saint-Aignan;
+182;G6;LP;augustin BAUDIC;Laboureur et Maire;22/07/1763;5/12/1824;Saint-Aignan;Saint-Aignan;25/11/1792;Saint-Aignan;
+183;G6;LP;suzanne le COCQ;;8/05/1768;27/04/1847;Saint-Aignan;Saint-Aignan;25/11/1792;Saint-Aignan;
+184;G6;LP;mathurin le mouarhedec ou MORZEDEC;;1762;25/12/1805;Plelauff,22;Saint-Aignan;;;
+185;G6;LP;marie dupuis ou DUPUY;;?;;;;;;
+186;G6;LP;jean AUFFRET;Laboureur;14/02/1756;10/03/1804;Suilherf - Saint-Aignan;Lande de Saint-Aignan;28/10/1778;Cleguerec;decrete de justice de Gouarec
+187;G6;LP;jeanne le SOURNE;;28/09/1754;1789;Sainte Trephine - Stival;;28/10/1778;Cleguerec;
+188;G6;LP;alain bricon (LE);;1746;18/01/1786;Caurel;Caurel, Villeneuve;09/02/1774;Caurel;dcd ï¿½ 40 ans un frere Julien Le Bricon | BRICON (LE) Julien / dcd et de AUDREN Catherine
+189;G6;LP;marie TREGUER;;15/08/1748;;Caurel;;09/02/1774;Caurel;fille de TREGUER Pierre / dcd et de LABBAY Jeanne / dcd | une soeur Suzanne
+190;G6;LP;henri CAPITAINE;;02/03/1747;;;;07/07/1781;Caurel (22);50 ans | ex-conjoint de Marie LE DUO mariage en 1775 | CAPITAINE (LE) Louis / dcd , et de HARNOIS Marie / dcd
+191;G6;LP;marguerite DANIEL;;1754;08/04/1796;Caurel;Caurel (22);07/07/1781;Caurel (22);DANIEL Mathurin / dcd et de COJAN Olive
+192;G6;QQ;rene le QUILLIEC;;19/09/1740;17/02/1787;Combrit;Gorequer, Combrit;11/02/1760;Combrit;
+193;G6;QQ;anne le BRETON;;1743;20/01/1783;Combrit;Gorequer, Combrit;11/02/1760;Combrit;
+194;G6;QQ;joseph le gaorer ou gaurer ou le GAOUERER;;1695;23/09/1775;Ploneour-Lanvern;Ploneour-Lanvern;22/10/1727;Ploneour-Lanvern;
+195;G6;QQ;francoise LODEN;;4/12/1710;16/03/1787;Lambourg;Kerdonard, Ploneour-Lanvern;22/10/1727;Ploneour-Lanvern;frere:sepulture - 25/04/1740 - Ploneour (Kerdonot)-LODEN Jean-aï¿½ge de 19 ans-Pere : Jean, decede-Mere : Marie TANNO, decedee
+196;G6;QQ;jean yves le FAILLER;;6/08/1743;29/05/1787;Beuzec-Cap-Caval;Treguennec;14/07/1761;Treguennec;
+197;G6;QQ;perrine yven ou YVIN;;30/06/1744;27/05/1787;Treguennec;Treguennec;14/07/1761;Treguennec;
+198;G6;QQ;rene le LAGADIC;;22/11/1751;10/12/1787;St Jean Trolimon;Treguennec;17/05/1774;Treguennec;
+199;G6;QQ;renee le GUICHAOUA;;27/03/1748;7/11/1800;Treguennec;Kerguellec, Treguennec;17/05/1774;Treguennec;
+200;G6;QQ;vincent COIC;;15/02/1760;;Treguennec,Kermabec;;23/11/1778;Treguennec;enfant de Jean et de Anne LE GLOANNEC
+201;G6;QQ;anne KERVEVAN;;13/10/1763;28/11/1844;Kersugal,Treguennec;Ploneour-Lanvern,Kerfelest;23/11/1778;Treguennec;fille de Daniel et de Marie BIRIEN
+202;G6;QQ;rene le BERRE;;31/12/1756;22/07/1829;manoir de kerdegas,Saint Jean Trolimon;Trelen,Ploneour-Lanvern;27/06/1780;Ploneour;fils de Alain et Louise Cariou
+203;G6;QQ;marie le BERRE;;28/01/1763;05/04/1836;Kersaux,Treguennec;Trelen,Ploneour-Lanvern;27/06/1780;Ploneour;fille de Herve er de JEanne Kervevan
+204;G6;QQ;sebastien le GARREC;Maire;;;Beuzec Cap Caval;;18/01/1791;Beuzec-Cap-Caval;Veuf de : Anne LE GALL
+205;G6;QQ;corentine le CLOAREC;;16/04/1748;14/10/1809;Penmarch (Kerity);Saint-Jean-Trolimon (Tronnoen);18/01/1791;Beuzec-Cap-Caval;Veuve de : Jean GLOAGUEN
+206;G6;QQ;pierre le PAPE;;16/09/1753;;Plomeur(Penarprat);;11/07/1780;Plomeur;fils de Jean et de Catherine CHALONI
+207;G6;QQ;anne le DONGE;;27/03/1760;03/12/1846;Treffiagat;Ploneour-Lanvern (Kerquellou);11/07/1780;Plomeur;fille de Jerome et de Jeanne POCHAT
+208;G6;QP;tugdual(tual) le PEMP;;2/05/1748;16/03/1824;Plomeur;Plomeur;3/02/1773;Plobannalec;
+209;G6;QP;anne le CALVEZ;;13/12/1754;1er/03/1799;Plobannalec;Plomeur;3/02/1773;Plobannalec;
+210;G6;QP;henri MORVAN;;22/12/1744;;Landudec;;5/10/1772;Plomeur;
+211;G6;QP;louise LARNICOL;;9/06/1750;avant 10/12/1798;Lesplomeur, Plomeur;;5/10/1772;Plomeur;
+212;G6;QP;jean DURAND;;31/03/1767;19/01/1826;Plomeur;Plobannalec;18/01/1791;Plobannalec;
+213;G6;QP;jeanne le CLEACH;;23/02/1769;;Plobannalec;;18/01/1791;Plobannalec;
+214;G6;QP;joseph CRIQUET;;22/01/1757;7/09/1829;le Guilvinec;Treffiagat;18/09/1782;Plomeur;29/10/1782 | Treffiagat
+215;G6;QP;marie-jeanne TANNIOU;Cultivatrice;8/02/1764;15/04/1794;Lechiagat;Penmarch ou Treffiagat;18/09/1782;Plomeur;29/10/1782 | Treffiagat
+216;G6;QP;francois le jeune CASTRIC;;16/10/1723;13/12/1780;Kerguen, Beuzec-Cap-Caval;Beuzec-Cap-Caval;27/06/1747;Beuzec-Cap-Caval;
+217;G6;QP;marie le LAY;;20/10/1725;28/01/1771;Rugaudel,Beuzec-Cap-Caval;Beuzec-Cap-Caval;27/06/1747;Beuzec-Cap-Caval;
+218;G6;QP;yves le BERRE*;;26/11/1730;;Treguennec;;19/02/1754;Peumerit;
+219;G6;QP;constance le coroller (CORLER)*;;7/01/1740;19/10/1778;Peumerit;Ploneour, Ploneour-Lanvern;19/02/1754;Peumerit;
+220;G6;QP;mathias KERDRANVAT;;25/02/1746;20/02/1806;Kereon, Ploneour;Pont-l_Abbe;17/02/1773;Combrit;
+221;G6;QP;marie anne le COLEN;;14/12/1764;3/07/1838;La Forest ,Treffiagat;Pont-l_Abbe;17/02/1773;Combrit;
+222;G6;QP;jean GARIN;;27/12/1753;apres 1793;Combrit;Combrit;17/06/1772;Combrit;
+223;G6;QP;marie urbanne le CLORENNEC;;4/02/1755;11/10/1826;Combrit;Roscanvel, Combrit;17/06/1772;Combrit;
+224;G6;PP;mathurin le PAJOLEC;Laboureur;8/11/1743;5/06/1816;Berric;Berric;10/09/1771;Sulniac;Veuf de Perrine le Jale | acte Nai verifiÃ© page 321
+225;G6;PP;claudine ars ou ARZ;gens de labeur;20/03/1744;24/06/1804 (6 messidor an 12);Sulniac;Berric;10/09/1771;Sulniac;
+226;G6;PP;francois COLENO;Laboureur;25/08/1748;7/10/1806;manoir du Grand Cadillac;manoir du Grand Cadillac, Noyal-Muzillac;6/07/1779, Noyal Muzillac;;
+227;G6;PP;marguerite PEDRON;;19/04/1757;25/09/1789;Noyal-Muzillac;manoir du Grand Cadillac, Noyal-Muzillac;6/07/1779, Noyal Muzillac;;
+228;G6;PP;francois le MEDEC;;??;;;;;;
+229;G6;PP;francoise le PALLEC;;??;;;;;;
+230;G6;PP;marc MONTRELAIS;Laboureur;05/04/1746;08/06/1814;Berric;Muzillac;09/02/1779, Ambon;;
+231;G6;PP;francoise FLOHIC;;10/07/1758;01/03/1827;Ambon;Muzillac;09/02/1779, Ambon;;
+232;G6;PP;jean augustin QUELLARD;Laboureur;19/04/1757;;Questembert;;8 fructidore an 2;25/08/1794;Questembert | Parrain Augustin Fleury
+233;G6;PP;anne maignan ou le MAIGNANT;;1762;;;;8 fructidore an 2;Questembert;
+234;G6;PP;jean le JALLE;Laboureur;1776;1807;;Dreneguy en Berric;;;
+235;G6;PP;francoise le CHAUDELLEC;;9/06/1780;18/06/1811;Marzan;Berric;;;
+236;G6;PP;vincent BENOIST;Tailleur d_habits;15/06/1754;15/01/1830;Noyal-Muzillac;Noyal-Muzillac;;;
+237;G6;PP;yvonne GOURDEL;;1766;1851;Noyal-Muzillac;;;;
+238;G6;PP;mathieu le MEDEC;Laboureur;24/05/1739;17/09/1803;le village de trebon - Ambon;le village de trebon - Ambon;31/01/1785;Noyal-Muzillac;
+239;G6;PP;marie le DOUIN;;??;;;;;;
+240;G6;PM;jospeh le MANCHEC;;24/11/1756;17/05/1827;Elliant;Elliant;22/09/1777;Elliant 29;
+241;G6;PM;catherine MEVELLEC;;17/02/1764;14/12/1806;Elliant;Elliant - Menez Meur;22/09/1777;Elliant 29;
+242;G6;PM;henry TROALEN;;16/02/1764;23/10/1808;;;25/02/1783;Ergue Gaberic;
+243;G6;PM;barbe HUITRIC;;1758;23/11/1789;Ergue-Gaberic;Keringard, Elliant;25/02/1783;Ergue Gaberic;
+244;G6;PM;francois TROALEN;;;;coray;coray;19/02/1776 - Coray;;(Mentions marginales : dispense de consanguinite 1/3 au 1/4 du 30/01)
+245;G6;PM;marie josephe PICOU;;;;coray;coray;19/02/1776 - Coray;;(Temoins : yves picou , pere , sebastien petillon , louis troalen , jean troalen , signe)
+246;G6;PM;thomas MEVELLEC;;13/02/1760;25/08/1835;Langolen;Goarimou, Elliant;12/02/1787;Coray;
+247;G6;PM;marie le CORRE;;27/02/1767;avant 1846;Keresec - Coray;Elliant;12/02/1787;Coray;
+248;G6;PM;guillaume le COTTEN;Laboureur;10/03/1769;12/06/1819;Kerascoet, Landudec;Fouesnant;28/vend/An03;Saint-Evarzec;
+249;G6;PM;catherine le droulaet ou DROUCLAET;Journaliere;02/12/1774;;Saint-Yvi (Kerenbleis);28/vend/An03;Saint-Evarzec;;
+250;G6;PM;claude COLAS;Journalier/Laboureur;17/07/1770;28/03/1837;Melgven (Loquennec);Fouesnant (Kertauban);10/flor/An08 - Concarneau;;
+251;G6;PM;louise GRATIEN;Journaliere;24/01/1782;07/01/1848;Beuzec-Conq (Lochrist);Fouesnant (Le Stivel);10/flor/An08 - Concarneau;;
+252;G6;PM;jean NEDELEC;Cabaretier/Mendiant;05/05/1759;09/11/1817;Le MoustoirÂ (Penquer loncher);Chateauneuf-du-Faou;;Veuf a son deces;naissance fils : aï¿½ge de 46 ans et de Julienne Perine GUEGUEN
+253;G6;PM;julienne perrine GUEGUEN;Mendiante;27/06/1771;12/05/1818;Chateauneuf-du-Faou (Manoir du verge);Saint-Goazec (Kerfer);;fille de Thomas et de Janne FERELLEC;Parrain : De Crachquerolle Vincent Tanguy Messire | Marraine : Le Seigneu Julienne Dame De Rosencoat
+254;G6;PM;julien le DANTEC;;1761;08/11/1822;Elliant;Pleuven;05/frim/An07-25/11/1798 - Pleuven;;fils de Corentin, decede et de Marguerite LE PENNEC, decede
+255;G6;PM;marie BRIEC;;1773;23/10/1808;Saint Evarzec;Pleuven;05/frim/An07 - Pleuven;;fille de Jean, decede et de Francoise DAGORN
+256;G7;TT;christophe TANGUY;Menager;25/07/1725;07/04/1777;Taule;Sainte-Seve;25/01/1752;Taule;verifiï¿½
+257;G7;TT;denise MADEC;;18/07/1728;15/04/1782;St Martin des Champs;Guiclan (La Haye);25/01/1752;Taule;verifiï¿½
+258;G7;TT;yves BELLEC;Menager Huela;7/06/1728;27/06/1778;St Seve;Sainte-Seve;16/11/1750;Sainte-Seve;
+259;G7;TT;catherine ALLAIN;;10/07/1728;2/07/1778;St Seve;Sainte-Seve;16/11/1750;Sainte-Seve;
+260;G7;TT;yves MESSAGER*;Journalier, menager;31/03/1713;18/06/1774;Saint-Martin-des-Champs;Saint-Martin-des-Champs;11/01/1740;Saint-Martin-des-Champs;
+261;G7;TT;jacquette LAMER;;10/10/1717;31/08/1784;Saint-Martin-des-Champs;Sainte-Seve;11/01/1740;Saint-Martin-des-Champs;
+262;G7;TT;allain GAUTIER;laboureur;16/08/1730;25/12/1778;Morlaix-Saint-Martin;Morlaix-Saint-Martin;29/07/1754 - Morlaix - Saint-Martin;fils de Guillaume et de Francoise SAOS,Parrain : LE SAOS Allain (s),Marraine : PEN Catherine;
+263;G7;TT;anne le DUFF;;9/10/1736;15/09/1796;Saint Martin des Champs;Saint Martin des Champs;29/07/1754 aï¿½ St Martin-des-Champs;;
+264;G7;TT;yves PROUFF;;04/11/1725;29/03/1782;Saint-Martin;Saint-Martin;11/07/1763;Saint-Martin;Veuf de : Marie LURIEN
+265;G7;TT;jeanne MINGAM;;22/02/1743;05/12/1828;Saint-Martin;Saint-Martin,Kerchesser;11/07/1763;Saint-Martin;Parrain : Pierre RIOUAL (grand-pere) | Temoins_D: Pierre Prouff son fils 57a, Pierre Prouff son petit-fils 31a (s) | X2 Olivier Gautier + 23.mess .an 13 - Saint-Martin-des-Champs
+266;G7;TT;maurice PAUGAM;signe;14/08/1746;11/10/1820;Saint-Martin;Saint-Martin-des-Champs (Kerohant);22/11/1774;Sainte-Seve;
+267;G7;TT;marie jeanne le JONCOUR;;02/08/1754;16/07/1811;Sainte-Seve (Croas ar vilar);Saint-Martin-des-Champs (Kerohant);22/11/1774;Sainte-Seve;
+268;G7;TT;paul cren(2) ou CRENN;;20/07/1715;9/03/1784;Guiclan;Morlaix - Saint-Martin;08/07/1754 - Guiclan;;
+269;G7;TT;marie MAGUET;;7/03/1734;11 Fructidor an XIII (29/08/1805);Guiclan;Saint martin des Champs;08/07/1754 - Guiclan;;
+270;G7;TT;jean rivoal ou RIOUAL;;22/11/1733;18/05/1781;Saint martin des Champs;Taule;10/02/2017;Taule;
+271;G7;TT;gabrielle BOURHIS;;31/08/1735;14/09/1812;Taule;Pleyber Christ;10/02/2017;Taule;
+272;G7;TT;guillaume SALUDEN;;27/08/1705;apres 1739;Taule;;15/02/1735;Taule;
+273;G7;TT;francoise ABALAN;;11/05/1718;avant 1758;Taule;;15/02/1735;Taule;
+274;G7;TT;jean CALVEZ;;15/08/1709;24/06/1784;Plouenan;Sainte-Seve (Kerprigent);14/06/1735 - Taule;fils de Francois et de Francoise LE SENECHAL;Parrain : BOURCHIS LE Jean et Marraine : SAINT LE Anne | Signe
+275;G7;TT;yvonne le SPAIGNOL;;04/04/1714;;Taule;;14/06/1735 - Taule;enfant de Guillaume et de Marguerite HENRY;
+276;G7;TT;claude GRAVOT;Menager a la metaierie de Traon ar Vilin;4/10/1726;18/04/1774;Taule;Saint martin des Champs;11/05/1750;Saint Martin des Champs;
+277;G7;TT;marguerite GUERNIGOU;;14/01/1727;10/06/1787;Plouezoch;Saint martin des Champs;11/05/1750;Saint Martin des Champs;
+278;G7;TT;yves MESSAGER*;Journalier, menager;31/03/1713;18/06/1774;Saint-Martin-des-Champs;Saint-Martin-des-Champs;11/01/1740;Saint-Martin-des-Champs;fils de Allain, decede et de Marie COAT
+279;G7;TT;jacquette LAMER;;10/10/1717;31/08/1784;Saint-Martin-des-Champs;St Seve;11/01/1740;Saint-Martin-des-Champs;fille de Yves et de Franï¿½oise MADEC
+280;G7;TT;maurice COAT;Cultivateur;13/03/1723;28/ther/An09;Saint-Martin-des-Champs;Sainte-Seve (Kerret);08/02/1746;Saint-Martin-des-Champs;le pere signe
+281;G7;TT;marguerite CASTEL;;19/09/1720;08/brum/An10;Saint-Martin-des-Champs;Sainte-Seve (Kerret);08/02/1746;Saint-Martin-des-Champs;
+282;G7;TT;yves CASTEL;Signe;11/04/1739;;Saint-Martin-des-Champs;;31/07/1759;Sainte-Seve;
+283;G7;TT;marie l_ ARVOR;;18/01/1738;;Sainte-Seve (Guernanlus);;31/07/1759;Sainte-Seve;
+284;G7;TT;jean NICOLAS;Cultivateur;30/07/1729;26/08/1793;Guimiliau;Saint-Martin-des-Champs (Kerserhou);12/01/1756;Sainte-Seve;dom Pleyber Christ | b
+285;G7;TT;marguerite GRAVOT;Cultivatrice;12/07/1736;13/prai/An11;Taule;Saint-Martin-des-Champs;12/01/1756;Sainte-Seve;
+286;G7;TT;herve ROUX;;08/02/1739;25/05/1809;Locquenole;Pleyber-Christ;24/01/1764;Taule;
+287;G7;TT;marie JEZEQUEL;servante domestic Guernisac bian;12/11/1740;10/01/1820;Taule;Sainte-Seve;24/01/1764;Taule;Parrain : Tanguy Yves(signe)
+288;G7;TL;yves LAUTROU;;04/02/1710;03/06/1751;St Idunet - Plounevezel;St Idunet - Plounevezel Lannetargroic;05/02/1744;Carnoet;Parrain : Le Goff Yves(signe) | Marraine : Briand Anne Louise Dlle De Kernavez(signe) | 1er mariage avec LE POSTOLEC Catherine de Kergloff
+289;G7;TL;marie JARU;;22/04/1719;;Carnoet;;;5 February 1744,Carnoet(2nd noces);1er noce avec Maurice HAMON
+290;G7;TL;alexandre alexis FOUCAUT/FOUQUET;Laboureur;17 fevrier 1725;23 octobre 1778;Carnoet;Plounevezel,penalan;;;Charles Foucaut 1694-1743 et Franï¿½oise Collober 1698-
+291;G7;TL;marie LIJU;;21 avril 1731;16 novembre 1806;Carnoet,saint Corentin;Plounevezel,penalan;9 novembre 1750, Carnoet;;Ollivier le Liju 1690-1758 et Jeanne Ou Anne le Paul 1690-1762
+292;G7;TL;pierre le MANACH;;29/04/1731;avant 1779;Trebrivan(22);;Poullaouen (Kermorvan);23/11/1756 - Poullaouen;fils de Pierre, decede et de Genevieve NICOLAS, presente | Veuf de : Anne THAPAULT | Notes epoux : habitue aï¿½ carnoet
+293;G7;TL;marie le BOULT;;07/03/1732 ou 21/02/1738;;;;Poullaouen (Kermorvan);23/11/1756 - Poullaouen;aï¿½gee de 20 ans , de Poullaouen | Domiciliee aï¿½ Kermorvan | fille de Yves, present et de Marie PAUL, decedee
+294;G7;TL;hyerosme URVOIS;;29/09/1730;avant 1779;Poullaouen (Restherve);;01/09/1745 - Poullaouen;;mfils de Jacques, decede et de Marie CALVE, decedee | fils de Jacques et de Marie CALVE
+295;G7;TL;marie le GOFF;;17/01/1728;04/mess/An13;Poullaouen (Kergoat Kerguiniou);Plounevezel;01/09/1745 - Poullaouen;fille de Yves, present et de Perrine JAFFRE, presente;
+296;G7;TL;yves LOHEAC;signe;23/02/1712;19/11/1771;Treogan(22);Saint-Hernin, Callac;15/02/1730 - Saint-Hernin;Francois, Michel et Pierre Loheac, freres;fils de Yves, present et signe et de Louise POULISAC, presente
+297;G7;TL;mauricette QUEMENER;;;04/01/1784;;Saint-Hernin, Kerbour;15/02/1730 - Saint-Hernin;Saint-Hernin (Kerbour);fille de Peron, present et signe et de Anne HUIBAN, presente | Messire Christophe Huyban, oncle signe
+298;G7;TL;louis etienne COATDELOT;signe;;;;;16/02/1756 - Saint-Hernin;Notes epoux : De droit de Riec, de fait de St Hernin. D.J. Quimperle 20/01.;
+299;G7;TL;marie magdelaine KERGARAVAT;;1733;03/03/1772;Saint Hernin;Saint-Hernin (Kerbreuder);16/02/1756 - Saint-Hernin;Notes epouse : D.J. Kergoat Trevigny 17/01.;
+300;G7;TL;philippe louis CALVARI;;1731;26/08/1786;Saint-Hernin;Saint-Hernin (Goaranvec);Bans - 14/10/1753 - Saint-Hernin;;
+301;G7;TL;marie RIOU;;25/08/1735;01/01/1816;Plevin (22);Saint-Hernin,Goaranvec;Bans - 14/10/1753 - Saint-Hernin;;cdc 85ans
+302;G7;TL;tanguy GUILLERM;Menager/domanier;07/11/1706;20/02/1775;Motreff;Motreff (Lanneval);;;Temoins : Me POULIZAC Jean-Rene, notaire, beau-pï¿½re (signe) - GUILLERM Jean (signe), Alain et Marie-Josï¿½phe, enfants
+303;G7;TL;claudine therese POULIZAC;;19/01/1731;20/10/1771;Motreff (Bourg);Motreff (Lanneval);;;Temoins D GUILLERM Jean-Rene et Alain, enfants - POULIZAC Pierre, frï¿½re et Notes : Age : 40 ans 9 mois | POULIZAC a exerce de 1735 aï¿½ 1774, selon les dates extraites des documents conserves dans ce fonds.Il etait alors notaire royal hereditaire de la senechaussee de Carhaix.
+304;G7;TL;guillaume COCHENNEC;;;apres 1760 et avant 1776;Saint Hernin;;05/02/1742 - Spezet;;
+305;G7;TL;louise QUILLEROU;;27/11/1726;02/01/1760;Spezet (Guernandel);Saint-Hernin (Trombars);05/02/1742 - Spezet;mineure et Veuve de : Jean LEVENEZ;
+306;G7;TL;alain le BIHAN;;;20/07/1773;Saint-Hernin;Saint-Hernin (Pengorvel);23/10/1736 - Cleden-Poher;fils de Francois;
+307;G7;TL;marie PIERRES;;06/07/1718;02/05/1783;Cleden-Poher (Lansanec);Saint-Hernin (Pengorvel);23/10/1736 - Cleden-Poher;enfant de Michel et de Anne THOMAS;
+308;G7;TL;pierre RIVOAL;;;;;;Bans - 14/12/1760 - Motreff;(mineur), de Saint Quijeau;fils de Pierre et de Marie THOMAS
+309;G7;TL;marguerite CLOAREC;;;;;;Bans - 14/12/1760 - Motreff;(mineure), de Motreff;fille de Yves et de Jeanne GUELLAEN
+310;G7;TL;michel LEVENEZ;;vers 1722;12/02/1782;Cleden-Poher;Motreff;15/02/1751 - Saint-Hernin;Temoins deces : BOURRIQUEN Jean, gendre (signe) - LEVENEZ Marie-Josephe (signe) et Marie-Anne (signe), enfants;
+311;G7;TL;marie RAYMOND;;;;Saint-Hernin;;15/02/1751 - Saint-Hernin;;
+312;G7;TL;jean le naour ou LAOUR;;12/06/1706;avant 1773;Poullaouen (Quenecgue);;15/02/1734 - Poullaouen;fils de Pezron, decede et de Mauricette KEREVER;
+313;G7;TL;marie le MOAL;;20/07/1706;19/05/1743;Locmaria Berrien;Poullaouen;15/02/1734;Poullaouen;fille de Sebastien, decede et de Marguerite BIZIEN, presente | (Fiancailles - 19/01/1734 - Locmaria-Berrien)
+314;G7;TL;louis le BRAS;;1714;04/03/1778;Cleden-Poher;Kergloff (Kervoastellou);09/07/1732 - Cleden-Poher;;fils de Sebastien et de Marguerite JOURDREN
+315;G7;TL;marguerite KERGANIVET;;1715;06/05/1766;Cleden-Poher;Cleden-Poher (Kerdivoal);09/07/1732 - Cleden-Poher;;fille de Guillaume et de Marie GOACOLOU
+316;G7;TL;francois BERNARD;;;;Kergloff;;22/02/1734 - Landeleau;;fils de Guillaume, present et de Marie DERIEN, decedee | Notes epoux : aux fianï¿½ailles, le pere tenu au lit depuis plusieurs mois de maladie
+317;G7;TL;francoise MARTIN;;;;Landeleau;;22/02/1734 - Landeleau;;fille de Vincent, decede et de Marguerite PONTHOU
+318;G7;TL;joseph LEVENEZ;;20/02/1711;18/04/1771;Cleden-Poher (Ville Neuve);Cleden-Poher(Leigneonez);08/02/1730 - Cleden-Poher;;63 ans | fils de Nicolas et de Marie QUENET info recif
+319;G7;TL;louise MAHE;;1714;05/06/1774;Cleden-Poher;Cleden-Poher(Leigneonez);08/02/1730 - Cleden-Poher;;fille de Herve et de Marguerite LE MOAL
+320;G7;LL;charles LEAUTE;;28/07/1728;9/03/1771;Squiviec, Mur de Bretagne;Neulliac;le 7/02/1748;Neulliac;
+321;G7;LL;marie le PONNER;;21/06/1730;1771;Neulliac;Neulliac;le 7/02/1748;Neulliac;
+322;G7;LL;pierre RIO;;17/03/1722;26/01/1799;Kergrist;Kergrist;19/02/1748;Kergrist;
+323;G7;LL;marie SERVEL;;09/02/1729;25/01/1797;Kergrist;Kergrist;19/02/1748;Kergrist;
+324;G7;LL;denys LEGAL;;;;;;;;
+325;G7;LL;marie TALDIO;;;;;;;;
+326;G7;LL;alain JOUANNO;signe;;;;;;;
+327;G7;LL;francoise GUILLO;;19/08/1727;23/11/1781;Saint-Aignan;Saint-Aignan;;;https://gw.geneanet.org/crosen1?n=guillo&oc=&p=francoise
+328;G7;LL;;;;;;;;;
+329;G7;LL;;;;;;;;;
+330;G7;LL;;;;;;;;;
+331;G7;LL;;;;;;;;;
+332;G7;LL;mathurin GALERNE;;24/05/1755;6/05/1803;Neulliac;Neulliac;27/02/1775;Cleguerec;
+333;G7;LL;francoise le MOIGN;;31/10/1751;26/09/1797;Loqueltas - St Gildas, Cleguerec;Neulliac;27/02/1775;Cleguerec;
+334;G7;LL;pierre le BOTMEL;;17/06/1753;04/07/1820;Cleguerec;Neulliac;16/06/1779;Neulliac;Fils de Paul LE BOTMEL et Louise NICOL
+335;G7;LL;francoise HENRIO;;02/08/1763;05/02/1804;Neulliac;Neulliac;16/06/1779;Neulliac;Fille de Maurice HENRIO et Jeanne BODREMON
+336;G7;LL;francois le QUEMENER;;08/01/1704;14/05/1763;Neulliac;Neulliac;13/05/1729;Neulliac;
+337;G7;LL;jeanne ODIC;;18/01/1706;30/11/1743;Neulliac;Neulliac;13/05/1729;Neulliac;
+338;G7;LL;guillaume le COCQ;;8/03/1706;8/02/1772;Mur de Bretagne;Mur de Bretagne;08/11/1730;Mur de Bretagne;
+339;G7;LL;olive le RALLE;;3/04/1708;15/06/1784;Mur de Bretagne;Mur de Bretagne;08/11/1730;Mur de Bretagne;
+340;G7;LL;corentin GUILLOUX;;21/12/1724;14/10/1761;Neulliac;Neulliac;17/02/1751;Neulliac;Fils de Franï¿½ois GUILLOUX et Marie SERVEL
+341;G7;LL;anne CORREC;;28/02/1730;05/04/1780;Neulliac;Neulliac;17/02/1751;Neulliac;Fille de Jan CORREC et Marie SERVEL
+342;G7;LL;louis le DORLOT;Meunier;09/11/1730;17/12/1772;Cleguerec, Moulin de Botmars;Cleguerec,Moulin du Stumo;15/01/1760;Cleguerec;Annulation de mariage, Le 19 mai 1762, Clï¿½guï¿½rec | Fils de Jï¿½rï¿½me LE DORLOT et Jacquette LE SANTE
+343;G7;LL;elizabeth RUBAN;;30/03/1741;23/04/1796;Cleguerec, Querdrean;Neulliac;19/05/1762;Cleguerec;seconde noce avec  Jean GUILLOUX, le 30 janvier 1775 | Fille de Olivier RUBAN et Yvonne BAUDIC | Naissance: AD56 - cote 1728-1744, vue 435/561
+344;G7;LL;;;;;;;;;
+345;G7;LL;;;;;;;;;
+346;G7;LL;;;;;;;;;
+347;G7;LL;;;;;;;;;
+348;G7;LL;jean STEPHAN;;;;;;;;
+349;G7;LL;louise denmat (LE);;;;;;;;
+350;G7;LL;pierre HENRIO;signe;;;Saint-Connec;;19/02/1732 Saint-Guen;;Parrain GUILLO Hervï¿½ Joseph / sieur de Kergal signe | HENRIO Jean et de QUERO ou GUILLO Guillemette
+351;G7;LL;jeanne CORNIQUEL;Honorable femme;06/08/1714;14/02/1778;Saint Guen;Saint Caradec, Treviel;9/02/1732 Saint-Guen;;CORNIQUEL Louis / dcd et de BOUDEC (LE) Julienne
+352;G7;LP;gabriel PERZO;Boulanger;;17/03/1789;;Guerihuel, Cleguerec;28/11/1730;Cleguerec;
+353;G7;LP;laurence OLIVIERO;;1714;13/02/1782;Cleguerec;Guerihuel, Cleguerec;28/11/1730;Cleguerec;
+354;G7;LP;jean le BOURLOUT;;18/11/1743;24/10/1798;coet nohennec, Cleguerec;coet nohennec, Cleguerec;24/01/1758;Cleguerec;https://gw.geneanet.org/ptougnecabes?lang=fr&pz=arnaud+et+jerome&nz=tougne+cabes&p=jean&n=le+bourlout
+355;G7;LP;franï¿½oise GUILLEMOT;;1737;1804;;;;;
+356;G7;LP;marc le HENANF;;23/07/1728;30/08/1792;Kerdrean, Cleguerec;Kerdrean, Cleguerec;14/02/1764;Cleguerec;
+357;G7;LP;louise le BOTMEL;;28/03/1735;27/01/1799;Dillien, Cleguerec;Kerdrean, Cleguerec;14/02/1764;Cleguerec;
+358;G7;LP;yves le MOUEL;;26/11/1736;17/04/1799;Poulmain, Cleguerec;Kergustin, Cleguerec;18/01/1758;Saint-Aignan;
+359;G7;LP;yvonne GUILLO;;15/12/1739;3/12/1794;Saint-Aignan;Cleguerec;18/01/1758;Saint-Aignan;
+360;G7;LP;louis PLENEL;;;;;;;;
+361;G7;LP;marie AUDERN;;;;;;;;
+362;G7;LP;louis VIDELO;;05/08/1725;25/02/1789;Saint-Aignan;Suilherf, Saint-Aignan;8/01/1755;Saint-Aignan;
+363;G7;LP;francoise allio (ALIO);;1723;3/01/1781;Le Quillio, 22;Suilherf, Saint-Aignan;8/01/1755;Saint-Aignan;
+364;G7;LP;yves BAUDIC;Laboureur;3/04/1730;13/10/1809;Saint-Aignan;Saint-Aignan;16/02/1746;Caurel;22
+365;G7;LP;jeanne CAREL;;;;;;16/02/1746;Caurel;22
+366;G7;LP;louis le COCQ;;13/06/1737;12/09/1790;Cleguerec (56);Saint Aignan;18/02/1760;Saint-Aignan;
+367;G7;LP;francoise LEAUTE;;16/05/1734;21/04/1790;Saint Aignan;Saint Aignan;18/02/1760;Saint-Aignan;
+368;G7;LP;mathurin le MOUARHEDEC;;;;;;;;
+369;G7;LP;catherine BERSON;;;;;;;;
+372;G7;LP;guillaume AUFFRET;;;;;;;;De saint-aignan
+373;G7;LP;suzanne LAUNAY;;;;;;;;
+374;G7;LP;pierre le SOURNE;;;;;;;;
+375;G7;LP;louise MAHEO;;;;;;;;
+376;G7;LP;julien le BRICON;;;;;;09/02/1739;Caurel;fils de BRICON (LE) Yves / dcd et de JEGO Franï¿½oise
+377;G7;LP;catherine AUDREN;;;;;;09/02/1739;Caurel;fille de AUDREN Sylvestre et de BOTAN (LE) Catherine
+378;G7;LP;pierre TREGUER;;30/03/1699;27/10/1753;Saint-Mayeux;Caurel;25/11/1728;Mur-de-Bretagne;Ex-conjoint de HENRY Pï¿½ronnelle | temoins deces Vincent Trï¿½guer son fils, Joseph Trï¿½guer son frï¿½re
+379;G7;LP;jeanne LABBAY;;14/01/1711;;Vieux Kerguillaume,Mur-de-Bretagne;;25/11/1728;Mur-de-Bretagne;fille de LABAY Jacques et de CORNIQUEL Vincente
+380;G7;LP;louis le CAPITAINE;;;avant 1775;Caurel;;21/11/1742;Caurel;
+381;G7;LP;marie HARNOIS;;;avant 1775;La Motte;;21/11/1742;Caurel;fille de HARNOIS Yves / dcd et de GESTIN Louise
+382;G7;LP;mathurin DANIEL;;10/08/1721;23/03/1770;Saint-Mayeux;Caurel;16/09/1751;Caurel;Fils de Rolland DANIEL et Marie ROLLAND
+383;G7;LP;olive COJAN;;28/06/1727;13/04/1791;Caurel;Caurel;16/09/1751;Caurel;Fille de Louis COJAN et Marguerite JEGO
+384;G7;QQ;yves le QUILLIEC;;09/12/1715;30/01/1776;Kerlever, Combrit;Kerhrom, Combrit;30/01/1736 combrit;;
+385;G7;QQ;marie le PAGE;;10/12/1712;06/03/1743;Kerriaou, Combrit;Combrit;30/01/1736 combrit;;
+386;G7;QQ;rene le BRETON;;13/06/1711;13/12/1778;Loctudy;Combrit (Kerlen);9/07/1736;Combrit;temoins deces Rene Fils le Quillec Rene et Le Gall Guillaume Gendres
+387;G7;QQ;marguerite le BOULER;;31/05/1701;26/vent/An03;;Pont-l'Abbe;9/07/1736;Combrit;
+388;G7;QQ;jan le GAURER;Fabrique de Languivoa;07/11/1662;apres 1727;Ploneour;;12/11/1685;Ploneour;Domicilie aï¿½ Lesperves | enfant de Jean GAUFRER et de Anne LE BEC
+389;G7;QQ;catherine le MARCHALLACH;;15/02/1677;16/09/1743;Ploneour;16/09/1743;12/11/1685;Ploneour;Domiciliee aï¿½ Treordo
+390;G7;QQ;jan LODEN;menager;vers 1683;08/04/1727;Ploneour;Ploneour (Kerdonot);;;
+391;G7;QQ;marie TANNO;menager;1681;14/05/1735;Ploneour;Ploneour (Kerdonart);;;
+392;G7;QQ;nicolas le FAILLER;;1695;25/08/1763;Beuzec-Cap-Caval;St Jean Trolimon;23/07/1725;St Jean Trolimon;Veuf de : Catherine LE BEC | fils de Jean et de Clemence DERIEN
+393;G7;QQ;anne KERDRANVAT;;27/02/1704;14/09/1743;Ploneour-Lanvern;Beuzec-Cap-Caval;23/07/1725;St Jean Trolimon;Veuve de : Mathias QUENET (M.1721) et mineure | fille de Jean, decede et de Catherine CARROT
+394;G7;QQ;joseph yven ou YVIN;;23/08/1714;1er/06/1774;Treguennec;Treguennec;21/11/1735;Treguennec;
+395;G7;QQ;marie henriette le TREUT;;19/12/1719;25/03/1774;Treguennec;Treguennec;21/11/1735;Treguennec;
+396;G7;QQ;pierre le LAGADIC;;26/01/1725;18/01/1781;Beuzec-Cap-Caval;Beuzec-Cap-Caval;26/10/1750;Beuzec-Cap-Caval;
+397;G7;QQ;francoise le BIHAN;;23/08/1729;10/01/1757;Beuzec-Cap-Caval;Beuzec-Cap-Caval;26/10/1750;Beuzec-Cap-Caval;
+398;G7;QQ;jean le GUICHAOUA;;27/12/1716;1er/02/1769;Treguennec;Keriellec, Treguennec;5/05/1738;Treguennec;
+399;G7;QQ;anne le BORGNE;;25/09/1712;21/03/1783;Ploneour-Lanvern;Keriellec, Treguennec;5/05/1738;Treguennec;
+400;G7;QQ;jean COIC;;9/06/1723;20/01/1805;Treguennec;Kerfeulest, Ploneour;30/06/17;Ploneour;
+401;G7;QQ;anne le GLOANEC;;7/02/1741;;Ploneour-Lanvern;;30-/06/17;Ploneour;
+402;G7;QQ;daniel KERVEVAN;;1732;01/germ/An09;Treguennec;Treguennec (Kersugal);10/02/1756;Treguennec;fils de Yves et de Mauricette MARZIN
+403;G7;QQ;marie BIRIEN;;1736;1794;Beuzec-Cap-Caval;Treguennec;10/02/1756;Treguennec;fille de Sebastien et de Jeanne RONVARCH
+404;G7;QQ;alain le BERRE;Cultivateur;;24/10/1793;Saint-Jean-Trolimon (Kerenval);;19/01/1740 - Beuzec-Cap-Caval;;fils de Rene, present et de Jeanne LUCAS
+405;G7;QQ;louise CARIOU;;17/12/1722;;Loctudy (Kerdrevel);;19/01/1740 - Beuzec-Cap-Caval;;fille de Andre, present et de Marie MARIEL
+406;G7;QQ;herve le BERRE;;29/10/1729;29/04/1791;Treogat;Ploneour (Treordo);04/11/1755 - Treguennec;(mineur),fils de Chrystophe Joseph et de Marie LE GADONA, Notes epoux : du manoir de lesmenguy en Treogat;
+407;G7;QQ;jeanne KERVEVAN;;02/04/1732 ou 15/03/1737;18/09/1779;Treguennec;Ploneour (Treordo Riou);04/11/1755 - Treguennec;;fille de Rioch Ou Riou et de Marie GOURMELEN, Notes epouse : du lieu de Kersaux en Treguennec
+408;G7;QQ;yves le GARREC;;;17/10/1757;Saint Guenole;Beuzec-Cap-Caval(Kerouil);04/02/1743;Plomeur;
+409;G7;QQ;anne KERAUDREN;;07/11/1726;;Plomeur(Poulguen Kervaragant);;04/02/1743;Plomeur;
+410;G7;QQ;louis le CLOAREC;;12/08/1714;12/05/1760;Penmarch;Penmarch(Kerity);12/05/1760;09/02/1745;Penmarch
+411;G7;QQ;jeanne le CASTEL;;05/11/1718;;Penmarch;;;09/02/1745;Penmarch
+412;G7;QQ;jean le PAPE;;3/01/1721;;Plomeur;;20/02/1748;Saint-Jean-Trolimon;
+413;G7;QQ;catherine le CHALONY;;06/09/1725;17/03/1784;Saint-Jean-Trolimon(Steut Bihan);Plomeur(Penaprat);20/02/1748;Saint-Jean-Trolimon;
+414;G7;QQ;jerosme le DONGE;cultivateur;17/01/1729;19/vend/An14;Treffiagat;Lechiagat;13/10/1750;Treffiagat;
+415;G7;QQ;jeanne POCHAT;;26/10/1730;19/pluv/An10;Treffiagat;Lechiagat;13/10/1750;Treffiagat;
+416;G7;QP;tugdual le PEMPE;;2/10/1724;11/09/1786;Combrit;Plomeur;13/12/1743;Plomeur;
+417;G7;QP;marie le PAPPE;;31/12/1721;22/02/1756;Plomeur;Plomeur;13/12/1743;Plomeur;
+418;G7;QP;gregoire le CALVEZ;;5/02/1720;5/02/1766;Kervague, Plobannalec;Kervague, Plobannalec;25/02/1754;Plomeur;
+419;G7;QP;jeanne le FLOCH;;31/03/1731;10/04/1784;Plobannalec;Plomeur;25/02/1754;Plomeur;
+420;G7;QP;henri MORVAN;;1692;11/07/1759;Gourlizon;Landudec;22/06/1728;Poullan-sur-Mer;
+421;G7;QP;marie buan ou BUHON;;;;Poullan-sur-Mer;;22/06/1728;Poullan-sur-Mer;
+422;G7;QP;pierre LARNICOL;;5/01/1722;4/11/1783;Lestregiou, Plomeur;Plomeur;18/02/1743;Plomeur;
+423;G7;QP;catherine le GUICHAOUA;;22/12/1716;15/09/1757;Plomeur;Plomeur;18/02/1743;Plomeur;Parrain : Le Coz Jean | Marraine : Salaï¿½n Catherine
+424;G7;QP;yves DURAND;;7/12/1736;13/05/1782;;Plomeur;30/01/1758;Plomeur;
+425;G7;QP;urbaine le BUANNIC;;6/09/1734;4/02/1805;Plomeur;Plomeur;30/01/1758;Plomeur;
+426;G7;QP;philibert le CLEACH;;16/02/1736;;Plobannalec;;8/02/1763;Plobannalec;
+427;G7;QP;jeanne TANNEAU;;22/03/1745;6/10/1823;Plomeur;Plobannalec;8/02/1763;Plobannalec;
+428;G7;QP;joseph CRIQUET;;17/03/1726;20/03/1787;le Guilvinec;le Guilvinec;13/02/1748;Plomeur;
+429;G7;QP;marie LHELGO;;24/11/1726;;port et havre du Guilvinec;;13/02/1748;Plomeur;
+430;G7;QP;alain TANNIOU;;22/02/1732;11/11/1801;Plomeur;Treffiagat;20/08/1759;Treffiagat;
+431;G7;QP;marie anne le COMPES;;20/08/1725;avant 11/01/1808;Treffiagat;;20/08/1759;Treffiagat;
+432;G7;QP;francois CASTRIC;;15/101682;06/02/1755;Plomeur Plomeur,Kerancalvez;Beuzec-Cap-Caval (Kerguen);27/11/1720;Beuzec-Cap-Caval;un jumeau
+433;G7;QP;jeanne L_HELGOUARCH;;07/03/1686;;Plomeur;;27/11/1720;Beuzec-Cap-Caval;frere paul | enfant de Ollivier et de Louise GUIMARCH
+434;G7;QP;francois le LAY;;28/08/1699;26/02/1729;Combrit;Beuzec-Cap-Caval;9/10/1719;Beuzec-Cap-Caval;Plomeur
+435;G7;QP;jeanne le BERRE;;1er/10/1700;9/12/1745;Beuzec-Cap-Caval;Beuzec-Cap-Caval;9/10/1719;Beuzec-Cap-Caval;Plomeur
+436;G7;QP;yvon le BERRE**;idem404;24/08/1696;15/03/1742;Treguennec;Plovan;;;
+437;G7;QP;marie le GUICHAOUA**;idem 405;vers 1691;11/12/1731;Treguennec;Treguennec;;;
+438;G7;QP;guillaume le corler ou le COROLLER;idem 406;08/04/1714;;Peumerit;;16/10/1736;Peumerit;
+439;G7;QP;marguerite la ou le PALUD;idem 407;;1758;Peumerit;;16/10/1736;Peumerit;
+440;G7;QP;yves KERDRANVAT;;1696;9/02/1746;;Kereon, Ploneour;fevrier 1720;Ploneour;
+441;G7;QP;corentine SALUN;;1701;4/12/1751;Lesplomeur, Plomeur;Kereon, Ploneour;fevrier 1720;Ploneour;
+442;G7;QP;jean le COLEN;;5/01/1717;22/11/1783;Plobannalec;Troliguer, Combrit;10/02/1744;Treffiagat;
+443;G7;QP;jeanne TANNEAU;;20/06/1724;apres/10/1754;Kervennec, Plomeur;;10/02/1744;Treffiagat;
+444;G7;QP;rene GARIN;;18/10/1730;17/12/1782;Lambourg;Combrit;19/02/1753;Combrit;
+445;G7;QP;jeanne RIOU;;25/12/1725;22/11/1758;Combrit;Combrit;19/02/1753;Combrit;
+446;G7;QP;alain le CLORENNEC;;15/11/1729;16/08/1770;Peumerit;Combrit;22/07/1748;Combrit;
+447;G7;QP;marie le QUILLIEC;;21/10/1732;26/01/1781;Combrit;Combrit;22/07/1748;Combrit;
+448;G7;PP;pierre le PAJOLEC;Homme de labeur;8/02/1713 ou 1716;apres 1783;Sulniac;;25/10/1740;Berric;
+449;G7;PP;jeanne NOURY;;30/10/1712;9/05/1784;Berric;Berric;25/10/1740;Berric;acte de Nai page 75 | acte dÃ©cÃ¨s - page 691/748 haut gauche - environ 62 ans - presents : Jean Nouri son frere, Sebastienne Nori sa soeur, Ambroise Le Pajolec (1733/1805 - menuisier Ã  Berric)
+450;G7;PP;jan ARZ;;26/02/1715;1er/05/1754;Sulniac;Sulniac;28/11/1736;Berric;
+451;G7;PP;christine HAZO;;11/01/1716;26/04/1782;Berric;Sulniac;28/11/1736;Berric;
+452;G7;PP;jean COLENO;Laboureur;13/09/1710;25/08/1772;Berric;Metairie noble du Grand Cadillac - Noyal-Muzillac;05/10/1740;Ambon;Temoin mariage, Francois Le Pajolec | https://gw.geneanet.org/olepajolec?lang=en&pz=odette&nz=le+pajolec&ocz=4&p=jean&n=coleno
+453;G7;PP;gillette le GRIVES;;01/03/1716;;Ambon;;5/10/1740;;https://gw.geneanet.org/olepajolec?n=le+grives&oc=&p=gillette
+454;G7;PP;louis PEDRON;;;;;;;;
+455;G7;PP;claudine BENOIST;;14/09/1726;13/02/1802;Le Petit Cadillac - Noyal-Muzillac;Noyal-Muzillac;28/01/1744;Noyal-Muzillac;acte baptï¿½me - page 461/528 droite | acte dï¿½cï¿½s - page 6/11 gauche | acte mariage - page 291/543 droite
+456;G7;PP;;;;;;;;;
+457;G7;PP;;;;;;;;;
+458;G7;PP;;;;;;;;;
+459;G7;PP;;;;;;;;;
+460;G7;PP;;;;;;;;;
+461;G7;PP;;;;;;;;;
+462;G7;PP;;;;;;;;;
+463;G7;PP;;;;;;;;;
+464;G7;PP;alexys QUELLARD;Laboureur;17/10/1724;28/01/1766;Limerzel;Questembert;21/02/1748;Questembert;Parrain Alexis Du Parc | PrÃ©nom du pÃ¨re et nom de la mÃ¨re tres difficile Ã  lire sur l'actde naissance page 438
+465;G7;PP;perrine FLEURY;;26/10/1731;04/05/1795;Questembert;Questembert;21/02/1748;Questembert;Fille de Jean FLEURY et Perrine MOURAU
+466;G7;PP;julien MAIGNAN;Laboureur;;;;;;;
+467;G7;PP;marie BONAMY;;;;;;;;
+468;G7;PP;jean le JALLE;Laboureur;20/06/1731;9/03/1807;Berric;Bourg-Paul en Muzillac;11/02/1765;Berric;
+469;G7;PP;laurence boisselle ou BOISSEL;;9/09/1749;29/07/1805;Berric;Larcan en Berric;11/02/1765;Berric;
+470;G7;PP;pierre le CHAUDELLEC;gens de labeur ï¿½ la Mï¿½tairie de Kergo;vers 1752;20/03/1792;Marzan;;1er/10/1776;Marzan;
+471;G7;PP;noelle MADOUAS;gens de labeur ï¿½ la Mï¿½tairie de Kergo;11/08/1751;26/01/1788;Noyal-Muzillac;;01/10/1776;Marzan;Fille de Franï¿½ois MADOUAS et Perrine BERRET
+472;G7;PP;francois BENOIST;Tailleur d_habits;1705;03/04/1791;;Noyal-Muzillac;;;inhumï¿½ le 5 avril ï¿½ l'age d'environ 87 ans | acte de deces lu aux archives en ligne
+473;G7;PP;louise le GALUDEC;;;17/03/1783;Noyal-Muzillac village de Larhennic;;;;
+474;G7;PP;;;;;;;;;
+475;G7;PP;;;;;;;;;
+476;G7;PP;jean le MEDEC;;;;;;;;
+477;G7;PP;claudine le VAILLAN;;;;;;;;
+478;G7;PP;julien le DUIN;;;;;;;;
+479;G7;PP;;Marie ROUSSE;;;;;;;
+480;G7;PM;rene louis hyacinthe le MANCHEC;;16/11/1725;17/11/1790;Maner Botbodern, Elliant;Bois daniel, Elliant;1753;Elliant 29;
+481;G7;PM;corentine le bleiz (BLEIS);;8/11/1722;24/01/1768;Kerdaenes, Elliant,29;Kerdaenes, Elliant,29;1753;Elliant 29;
+482;G7;PM;vincent MEVELLEC;;19/06/1737;2/08/1773;Bois daniel, Elliant;Bois daniel, Elliant;09/02/1756;Elliant 29;
+483;G7;PM;jeanne le MOAL;;27/03/1739;28/09/1802;Elliant;Bois daniel, Elliant;09/02/1756;Elliant 29;
+484;G7;PM;alain TROALEN;;10/11/1731;14/12/1805;Elliant;Elliant;22/11/1762 Elliant;;
+485;G7;PM;louise le roy ou ROI;;12/06/1737;18/09/1772;Ergue-Gaberic;Keringard, Elliant;22/11/1762 Elliant;;
+486;G7;PM;herve HUITRIC;;;02/02/1769;Ergue Gaberic;Ergue-Gaberic (Nierrot);10/02/1738 - Ergue-Gaberic;;
+487;G7;PM;catherine CRIDOU;;06/05/1725;21/03/1786;Ergue Gaberic;Ergue Gaberic;10/02/1738 - Ergue-Gaberic;;65 ans | Mariï¿½e ï¿½ 13 ans
+488;G7;PM;francois TROALEN;;17/02/1723;;Elliant;;;18/09/1747 - Coray;Veuf de : Catherine GUINARD | fils de Jean et de Isabelle KERVRAN
+489;G7;PM;jeanne MAHE;;14/01/1719;;Coray;;;18/09/1747 - Coray;fille de Peron, present et de Marie MOREL, decedee
+490;G7;PM;yves PICOU;;1727;12/09/1787;Coray;Coray (Larragen);15/02/1751, Coray;2nde noces 9/01/1775 aï¿½ Coray avec Isabelle COSQUER (LE);3eme noces le 17/11/1777 aï¿½ Coray, avec Jeanne Marie HEMERY de Laz
+491;G7;PM;therese POUPON;;26/10/1729;12/10/1774;Coray;Coray (LANVILIOU);15/02/1751, Coray;;
+492;G7;PM;michel andre le MEVELLEC;;vers/02/1725;14/09/1786;Kermadec - Tregourez;Keraoulet - Langolen;10/01/1750;Langolen;
+493;G7;PM;anne le GARS;;31/08/1729;28/05/1782;Landudal;Keraoulet - Langolen;10/01/1750;Langolen;
+494;G7;PM;corentin le CORRE;;29/12/1736;19/flor/An10;Coray;Coray (Keramfinit);;mariage - 08/02/1762 - Coray LE CORRE Corentin X LOUSSOUARN Marie de Coray fille de Louis, present et de Pauline BARRE, decede;
+495;G7;PM;marie LOUSSOUARN;;24/08/1748;14/06/1785;Coray;Coray (Roslosquet);08/02/1762;;Enfant MArie, Louis et Jean | Dispense de consanguinite
+496;G7;PM;mathurin COTTEN;fiche manchec;30/12/1715;18/05/1771;Pleuven;Saint-evarzec;05/02/1759 - Pleuven;Veuf de : Marie LE REUN mariage - 21/02/1735 - Pleuven;enfant de Jean et de Constance PELLU
+497;G7;PM;marguerite GUEGUEN;;01/06/1732;12/09/1782;Saint-evarzec (Moustoircoat);Saint-evarzec (Kerandraon);05/02/1759 - Pleuven;fille de Pierre, decede et de Marie LE BERRE, decedee;
+498;G7;PM;mathieu le DROULAET;Jumeau-fiche manchec;16/12/1735;29/12/1784;Saint-Yvi (Quermabou);Saint-Yvi;28/07/1755 - Elliant;fils de Alain et de Janne LE ROCCAN;Notes : 1er jumeau
+499;G7;PM;marie MERRIEN;;10/01/1735;05/10/1803;Elliant;Saint-Yvi;28/07/1755 - Elliant;fille de Herve et de Marie LE POUPON;
+500;G7;PM;claude COLAS;;09/02/1733;;Cadol;;11/01/1764 - Melgven;;Yves Et Marie Colas , Frere Et Soeur Du Marie
+501;G7;PM;jeanne le CARDUNER;;23/09/1742;10/09/1777;Melgven;Beuzec-Conq (Pellan);11/01/1764 - Melgven;;Renee Le Carduner Soeur De La Marie
+502;G7;PM;christophe GRATIEN;;07/06/1745;06/germ/An04-26/03/1796;Lanriec (Le Treff d\_En Bas);Beuzec-Conq (Lochrist);06/02/1770 - Lanriec;Jan et de Marie LE BOURHIS;
+503;G7;PM;marie DENIS;;;;Lanriec;;06/02/1770 - Lanriec;Mineure fille de Francois, decede et de Yvone DEGORZE;
+504;G7;PM;yves NEDELEC;;05/01/1722;;Chï¿½teauneuf-du-Faou,Kerverser;;21/07/1749;Le Moustoir;Yves, decede et de Francoise LE GUILLOU | Veuf de : Catherine CLOAREC
+505;G7;PM;jeanne le GUILLOU;;;;Le Moustoir;;21/07/1749;Le Moustoir;fille de Jan, present et de Marie PARIS
+506;G7;PM;thomas GUEGUEN;Agriculteur, signe;11/07/1730;19/09/1786;Chateauneuf-du-Faou;Chateauneuf-du-Faou;26/02/1756 - Chateauneuf-du-Faou;;
+507;G7;PM;janne FERELLEC;;10/04/1740;peut-etre en 1786;Chateauneuf-du-Faou;Chateauneuf-du-Faou;26/02/1756 - Chateauneuf-du-Faou;;
+508;G7;PM;corentin le DANTIC;;;avant 1798;Rosporden;;1743;Rosporden;Veuf de : Jeanne JEOT | Guillaume et de Catherine LE GALLOU | Temoins : louis le manchec , de landanet , r j kermoal , charles le hars , sebastienne de la font
+509;G7;PM;marguerite le PENNEC;;;avant 1798;Kernevel-concarneau;1743;Rosporden;;Fille de Yves et de Marguerite LUCAS
+510;G7;PM;jean BRIEC;;1730;18/11/1782;Clohars Fouesnant;Pleuven;;16/10/1765;Clohars-Fouesnant | fils de Jean, decede et de Marie BERTHOLOM, decedee
+511;G7;PM;francoise DAGORN;;28/04/1741;24/02/1805;Saint-ï¿½varzec,Poullogoden;;16/10/1765;Clohars-Fouesnant;Jean, decede et de Franï¿½oise JAOUEN, decedee | tuteur le quere pierre
+512;G8;TT;jacques TANGUY;;10/02/1675;10/08/1742;Guiclan;Taule;18/01/1706;Taule;acte de naissance non verifiï¿½
+513;G8;TT;marie le CASTEL;;11/10/1683;27/03/1753;Taule;Goazaroux, Taule;18/01/1706;Taule;ï¿½gï¿½ de 78 ans | Notes ï¿½pouse : dï¿½cret Pensez 28 11 1705 | verifiï¿½ saus naissance
+514;G8;TT;guillaume MADEC;;10/03/1703;24/03/1787;St Martin des Champs;St Martin des Champs;5/12/1725;St Martin des Champs;fils de Franï¿½ois, dï¿½cï¿½dï¿½ et de Denise RIOUAL | Notes ï¿½poux : dï¿½cret Penzï¿½ 271 | verifiï¿½
+515;G8;TT;anne URIEN;;1705;18/04/1778;;Saint-martin-morlaix;5/12/1725;St Martin des Champs;verifiï¿½ | fille de Allain, dï¿½cï¿½dï¿½ et de Marie ROLLAND | Notes ï¿½pouse : dï¿½cret Penzï¿½ 271
+516;G8;TT;yves BELLEC;;1683;2/02/1761;Taule;Kerveguen, St Seve;4/02/1712;Sainte-Seve;
+517;G8;TT;julienne francoise CHARLES;;11/10/1693;11/02/1758;Taule;St Seve;4/02/1712;Sainte-Seve;
+518;G8;TT;francois ALLAIN;;02/12/1675;21/02/1754;Morlaix - Saint-Martin;St Seve;19/11/1708;Sainte-Seve;signe | temoins mariage:  Paul LEDAN, Olivier(fils de Franï¿½ois et de Janne HENRY) et jean ALAIN
+519;G8;TT;marie LEDAN;;23/07/1686;24/01/1766;St Seve;St Seve;19/11/1708;Sainte-Seve;naissance hypothï¿½se | LEDAN Marie Madeleine - enfant de Paul et de Marguerite BIZIEN
+520;G8;TT;allain MESSAGER;;1659;22/10/1739;;Saint-Martin-des-Champs;4/02/1712;Saint-Martin-des-Champs;
+521;G8;TT;marie COAT;;22/07/1685;12/10/1752;Saint-Martin-des-Champs;Saint-Martin-des-Champs;4/02/1712;Saint-Martin-des-Champs;
+522;G8;TT;yves le LAMER;;25/12/1680;10/02/1751;Morlaix - Saint-Martin;Morlaix - Saint-Martin;21/02/1705 - Morlaix - Saint-Martin;fils de Yves et de Anne GUEVEL;Parrain : Yves LE LAMER-Marraine : Francoise RIVOAL | Notes : Marie LE LAMER, fille du couple Yves LE LAMER / Francoise MADEC, a epouse Jean LE SAOULT, le 17/11/1727 aï¿½ Saint Martin, puis Francois ROLLAND, le 16/01/1736 toujours aï¿½ saint Martin.
+523;G8;TT;francoise MADEC;fille de Martin et de Marie NICOLAS;;;;;;;
+524;G8;TT;guillaume GAUTIER;;;06/04/1736;;Morlaix - Saint-Martin;26/01/1722;Saint-Martin-des-Champs;+ 43 ans
+525;G8;TT;francoise saos ou le SAUX;;;23/05/1732;;Morlaix - Saint-Martin;26/01/1722;Saint-Martin-des-Champs;inhumï¿½e dans l'ï¿½glise + a 30 ans
+526;G8;TT;francois le DUFF;;16/07/1688;5/09/1761;Saint-Martin-des-Champs;Saint-Martin-des-Champs;30/05/1718 saint-martin-des-Champs;;
+527;G8;TT;madeleine PROUFF;;30/07/1694;20/01/1763;Saint-Martin-des-Champs;Saint-Martin-des-Champs;;;
+528;G8;TT;yves PROUFF;;20/06/1696;19/11/1752;Saint-Martin-des-Champs;Saint-Martin-des-Champs;24/07/1721;Saint-Martin-des-Champs;fils de Jean, decede et de Marguerite RIOUAL, decedee
+529;G8;TT;guyone le DUFF;;23/11/1692;08/05/1755;Saint-Martin-des-Champs;Saint-Martin-des-Champs;24/07/1721;Saint-Martin-des-Champs;fille de Pierre et de Marie CASTEL
+530;G8;TT;jacques MINGAM;Menager;10/05/1708;04/04/1743;Pleyber-Christ;Saint-Martin-des-Champs;03/02/1739 - Morlaix - Saint-Martin;;fils de Jean et de Franï¿½oise COUIL, dï¿½cï¿½dï¿½e
+531;G8;TT;catherine rioual RIOUALEN;;16/03/1711;03/04/1748;Saint-Martin-des-Champs;Saint-Martin-des-Champs;03/02/1739 - Morlaix - Saint-Martin;ille de Pierre et de Denise LURIEN;
+532;G8;TT;tanguy PAUGAM;Laboureur;13/02/1720;05/vent/An08;Saint-Martin-des-Champs;Guiclan;25/02/1745;Saint-Martin-des-Champs;fils de Francois, decede et de Anne GUIVARCH
+533;G8;TT;anne le SAOUT;;;;Taule;1724;06/10/1762;Saint-Martin-des-Champs;fille de Yves, decede et de Marguerite GRALL | Temoins deces Maurice PAUGAM (son beau-fils).
+534;G8;TT;sebastien JONCOUR;Marchand, signe;08/01/1728;3 nivose an 7;Sainte-Seve;Sainte-seve;;;
+535;G8;TT;jeanne ANDRE;;;15 germinal an 6;;Sainte-seve;;;
+536;G8;TT;francois CREN;;;20/04/1740;;Guiclan;23/11/1711;Plouvorn;
+537;G8;TT;louise GUEGUEN;;;6/05/1736;Plouvorn;Guiclan;23/11/1711;Plouvorn;
+538;G8;TT;herve MAGUET;;;apres 1754;;;10/02/1733;;
+539;G8;TT;jeanne PAUGAM;;25/01/1708;1754 et 1810;Guiclan;;10/02/1733;;
+540;G8;TT;guillaume RIVOAL;;;;Saint-Martin-des-Champs;;27/10/1708;Pleyber Christ;
+541;G8;TT;marguerite ROLLAND;;;;Pleyber Christ;;27/10/1708;Pleyber Christ;
+542;G8;TT;antoine BOURHIS;;4/10/1708;14/07/1776;Taule;Taule;11/02/1733;Taule;http://gw.geneanet.org/yvham?lang=fr&pz=enora&nz=hamon&ocz=0&p=antoine&n=bourhis
+543;G8;TT;marie querne ou KERNE;;17/12/1707;21/09/1776;Taule;Taule;11/02/1733;Taule;
+544;G8;TT;yves SALUDEN;Serviteur Honorable;03/06/1671;19/03/1731;Plouvorn (Kerdrein);Plouvorn(Kervisien Mespaul);Sainte-Seve (Kerbiguet);09/05/1698;Taule | : | 63 ans
+545;G8;TT;louise le TRAON;;;01/01/1733;;;09/05/1698;Taule;fille de Francois,menager, present. | Un fils yves batise le 12/11/1698 aï¿½ Taule= enceinte avant mariage | un frere ? ou neveu  nï¿½ 03/10/1735 ï¿½ ï¿½le-de-Batz TRAON Gabriel
+546;G8;TT;ollivier ABALAN;;;;;;15/06/1716 - Taule;;dcd avant fevrier 1748
+547;G8;TT;marguerite MERER;;;;;;15/06/1716 - Taule;;temoins de mariage : Temoins : Laurans MERRER (S)
+548;G8;TT;francois CALVEZ;;env 1676;12/07/1741;Plouenan;Pen ar Pont, Plouenan;;20/02/1702 Taule;
+549;G8;TT;francoise le SENECHAL;;1673;07/03/1753;Guiclan;Penze, Taule;20/02/1702 Taule;;
+550;G8;TT;guillaume le SPAIGNOL;;20/06/1661;;Taule;;07/02/1698;Sainte-Seve;fils de Christophe et de Marie KERMAREC
+551;G8;TT;marguerite HENRY;;1666;22/11/1756;;Ploueran;07/02/1698;Sainte-Seve;
+552;G8;TT;jean gravot 1698-1765;;10 juin 1698;;Taule;;;;
+553;G8;TT;claudine le ROUX*;;28 fï¿½vrier 1703;1761;;;;;Fille de Renï¿½ LE ROUX et Jeanne KERRIEN
+554;G8;TT;ollivier GUERNIGOU;;16/01/1679;16/03/1750;Plouezocï¿½h;Morlaix - Saint-Martin;12/01/1705;Ploezoch;
+555;G8;TT;francoise BESCOND;;12/04/1681;09/02/1753;Plouezoc'h;Morlaix - Saint-Martin;12/01/1705;Ploezoch;fille de Louis et de Constance MICHEL | Veuve de : Yves GOURMELON
+556;G8;TT;allain MESSAGER;;;;;;;;
+557;G8;TT;marie COAT;;;;;;;;
+558;G8;TT;yves le LAMER;;;;;;;;
+559;G8;TT;franï¿½oise MADEC;;;;;;;;
+560;G8;TT;pierre COAT;Signe;;;;;19/06/1702;Taule;
+561;G8;TT;marguerite BELLEC;;1683;27/12/1745;;Sainte-Sï¿½ve (Kerret);19/06/1702;Taule;Tï¿½moins deces : Coat Olivier Et Maurice (fils)
+562;G8;TT;herve CASTEL;;14/04/1673;;Saint-Martin-des-Champs;;;;pere Yves mï¿½re BOULOUARD Marguerite z
+563;G8;TT;marguerite COAT;;;;;;;;
+564;G8;TT;jean CASTEL;Menager de campagne, metairie du roudou, signe;;06/06/1786;;Sainte-Seve (Bourg);10/01/1735 - Morlaix - Saint-Martin;;aï¿½ge de 75 ans | fils de Mathieu, decede et de Marie LURIEN
+565;G8;TT;marguerite PROUFF;;;avant 1786;10/01/1735 - Morlaix - Saint-Martin;;;fille de Jean, decede et de Marguerite RIOUAL;
+566;G8;TT;francois L_ARVOR;Menager,Signe;;;;;;;
+567;G8;TT;francoise QUEMENER;;;;;;;;
+568;G8;TT;gabriel NICOLAS;;;apres elle;Commana;;12/11/1725;Guimiliau;fils de Olivier et de Jeanne BRETON
+569;G8;TT;marguerite ROUX;;11/10/1681;05/05/1736;Lampaul-Guimiliau (Bourg);Guimiliau (Mescouez);12/11/1725;Guimiliau;Veuve de : Yves PICART | Guillaume et de Anne BARON
+570;G8;TT;jean GRAVOT;Signe;10/06/1698;29/01/1765;;Morlaix - Saint-Martin;20/02/1719 - Taule;;
+571;G8;TT;claudine ROUX*;;28/02/1703;1761;;;20/02/1719 - Taule;;Fille de Renï¿½ LE ROUX et Jeanne KERRIEN
+572;G8;TT;francois ROUX;Signe;30/08/1714;13/02/1792;Loquenole;Taulï¿½;17/02/1738,Locquenole;;
+573;G8;TT;barbe BOCHIC;;02/12/1712;11/03/1742;Taule;Taule;17/02/1738,Locquenole;;Nicolas BOCHIC, frï¿½re
+574;G8;TT;derien JEZEQUEL;Signe;;;;;;;
+575;G8;TT;francoise JACQ;;;;;;;;
+576;G8;TL;jacques LAUTROU;Menager;;avant 1678;entre 1720 et 1744;;Carnoet;;https://bagad.cgf.bzh/web/pgs/afficher_individu.php?i_id=1426004283
+577;G8;TL;marie RIOU;Menagere;;avant 1688;aprï¿½s 1745;;Carnoet;;
+578;G8;TL;rene le JARU;;15/07/1689;17/12/1723;Carnoet;Carnoet;16/08/1714,Carnoet;;
+579;G8;TL;anne le GOFF;;4/05/1683;31/10/1736;Carnoet(Saint Corentin);Carnoet;16/08/1714,Carnoet;http://gw.geneanet.org/gueg19?lang=en&pz=daniel+si+yi&nz=gueguen&ocz=0&p=anne&n=le+goff&oc=1;
+580;G8;TL;charles FOUCAUT;;1/07/1694;28/05/1743;Carnoet;Carnoet;12/02/1720;Carnoet;
+581;G8;TL;franï¿½oise COLLOBER;;23/11/1698;;Plourac'H,kerdudal;;12/02/1720;Carnoet;http://gw.geneanet.org/acadiou?lang=fr&iz=6477&p=francoise&n=collober
+582;G8;TL;ollivier LIJU;;30/11/1690;19/07/1758;Carnoet;Trebrivan;12/02/1714, Carnoet;;Adrien le Liju 1659- et Marie Omnes 1659- | http://gw.geneanet.org/acadiou?lang=fr&iz=6477&p=ollivier&n=le+liju
+583;G8;TL;jeanne ou anne le PAUL;;24/12/1690;12/03/1762;Carnoet;Carnoet;12/02/1714, Carnoet;;Jan le Paul et Marie Prigeant
+584;G8;TL;pierre le MANACH;;11/11/1697;avant 1756;;;01/02/1728;Corlay;fils Veuf de : Anne THAPAULT | Pierre B, nï¿½ ï¿½ Plouguernï¿½vel (22220) | enfant de MOIGNE (LE) Isaac et de MERCIER (LE) Franï¿½oise, Identifiant Unique (IU) de l'enregistrement : N 222003540
+585;G8;TL;genevieve NICOLAS;;;;;;01/02/1728;Corlay;
+586;G8;TL;yves le BOULT;;;;;;25/02/1721 - Poullaouen;;
+587;G8;TL;marie PAUL;;;avant 1756;;;25/02/1721 - Poullaouen;;
+588;G8;TL;jacques URVOIS;;;11/07/1742;;Poullaouen (Resthervï¿½);06/08/1724 - Poullaouen;;marie le du, ayeule et tutrice, henry et jean urvoaz, oncle et cousin,jean le cam, cousin, du mariï¿½ | Henry frï¿½re
+589;G8;TL;marie CALVE;;23/01/1711;07/02/1742;Poullaouen (Resthervï¿½);Poullaouen (Resthervï¿½);06/08/1724 - Poullaouen;;enfant de Charles et de Marie LE DU Mï¿½nagers / le pï¿½re : Charles Le Jeune | + 33 ans | frere charles
+590;G8;TL;yves le GOFF;metayers au chateau de Kergoat;1688;20/04/1761;;Poullaouen (La Salle Kerviniou);15/09/1721;Cleden-Poher;ï¿½ge de 73 ans
+591;G8;TL;perrine JAFFRE(Z);metayers au chateau de Kergoat;29/05/1698;18/09/1772;Cleden-Poher (Lansannec);Poullaouen (La Salle Kerviniou);15/09/1721;Cleden-Poher;enfant de Michel et de Marie LANNEVAL | 90 ans
+592;G8;TL;yves LOHEAC;;;;;Trï¿½ogan(22);;;
+593;G8;TL;louise POULISAC;;;26/04/1743;Treogan(22);Treogan, Kerfreost;;;Temoin Dcd Michel et Louise Loheac-Mauricette Quemener- Franï¿½ois Evenou
+594;G8;TL;peron QUEMENER;signe;;;;Saint-Hernin;avant 1704;;
+595;G8;TL;anne HUIBAN;;21/02/1678;14/05/1757;Spï¿½zet (Villeneuve);Saint-Hernin (Kerbellec);;;Parrain : Guillerm Henry,Marraine : Huiban Marie | Temoins D: Marie Et Mauricette Quemener Ses Filles Louis Le Guillou | Messire Christophe Huyban,Prï¿½tre, son frere | 80 ans
+596;G8;TL;vincent joseph COATDELOT;;;;Lothea, quimperle;;08/02/1734 - Riec-sur-Belon;;Etienne et de Adelice BOURGUILLOT | Coadelot Louis Joseph De La Paroisse De Lothï¿½a Signe sans doute son frere
+597;G8;TL;oelise JAMBOU;;06/02/1713;11/02/1761;Riec-sur-Belon(Keraoret);Riec-sur-Belon(Keraoret);08/02/1734 - Riec-sur-Belon;;Parrain : Jambou Guillaume (ayeul) (keraoret),Marraine : Andre Adelice (ayeule) (kerdudal Locquenole) | fille de Guillaume et de Janne DERRIEN | installe ï¿½ Quimperle - Saint-Michel en 1745
+598;G8;TL;pierre KERGARAVAT;;22/06/1707;06/01/1735;Saint-Hernin, Penfrat;Saint-Hernin;19/02/1732;Saint-Hernin;une soeur Marguerite ne le 16/07/1704 | fils de Michel, decede et de Marie SIMON, presente | Notes epoux : signe
+599;G8;TL;magdelaine KERGARAVAT;;;06/01/1735;Saint-Hernin, Kerbreudeur;;19/02/1732;Saint-Hernin;deux soeurs marie et marguerite | fille de Michel, present et de Catherine HAMON | Notes epouse : Mï¿½re signalee presente aux fianï¿½ailles.
+600;G8;TL;vincens CALVARI;Maitre,signe;;aprï¿½s 1755;;Saint-Hernin (Goarenvec);;;epouse en seconde noces COZELIN Barbe en 1745
+601;G8;TL;marie jeanne JEGOU;;;avant 1745;;;;;
+602;G8;TL;jean RIOU;;;avant 1753;plevin 22;;22/11/1734;Plevin;Ex-conjoint de LESCOAT catherine
+603;G8;TL;catherine le MEUR;;;;plevin 22;;22/11/1734;Plevin;Ex-conjointe de BIZIEN pezron
+604;G8;TL;alain GUILLERM;HH;1661;12/08/1749;;Motreff (Barnazou);01/10/1698 - Motreff;;fils de Jean et de Jeanne LE JEUNE | Dï¿½cï¿½dï¿½ chez son fils, Tanguy
+605;G8;TL;marie le CORVELLEC;;;;;;01/10/1698 - Motreff;;Notes ï¿½pouse : dj de carhaix
+606;G8;TL;jean rene POULIZAC;Notaire royal et apostolique,Notaire Royal ï¿½ Carhaix en 1761;;14/05/1777;Treogan(22);Motreff (Bourg);16/02/1724;Plevin;Contribue ï¿½ la reconstruction de l'eglise Saint-Pierre en Motreff en 1767 et 1768 financee par Poulizac et Yvon Cloarec moyennant 9 000 livres.
+607;G8;TL;marguerite LAUZET/NOZET/NAIZET;;14/07/1698;10/08/1763;Plevin;Motreff (Bourg);16/02/1724;Plevin;enfant de LAUSET Henry et de GOFF (LE) Catherine | M 220200476
+608;G8;TL;pierre COCHENNEC;;;;Spï¿½zet;;19/01/1705 - Saint-Hernin;Saint Hernin;Daniel Cochennec, frï¿½re Yves Cochennec Christophe Pasquet, beau frï¿½re de l'ï¿½poux Jean Clech, frï¿½re.
+609;G8;TL;catherine CLECH;;;;Saint Hernin;;19/01/1705 - Saint-Hernin;Saint Hernin;fille de Jean
+610;G8;TL;michel QUILLEROU;;;17/12/1732;Clï¿½den Poher;Spï¿½zet (Guernendel);03/02/1723 - Spï¿½zet;;+34 ans, Tï¿½moins : Michel Glezran Son Beau Pï¿½re
+611;G8;TL;jeanne gleran (glerans ou GLEZRAN);;;;Spezet;;03/02/1723 - Spï¿½zet;;
+612;G8;TL;francois le BIHAN;;;21/04/1737;;Saint-Hernin (Pengorbel);;ï¿½gï¿½ de 74 ans;Tï¿½moins : Sa veuve dï¿½clarant, Franï¿½oise LE BIHAN, sa soeur, Alain LE BIHAN son fils,(s) ,
+613;G8;TL;madeleine le COENT;;;;;;;;
+614;G8;TL;michel PIERES;;;;;;27/01/1717 - Cleden-Poher;;
+615;G8;TL;anne THOMAS;;;;;;27/01/1717 - Cleden-Poher;fille de Yves;
+616;G8;TL;pierre RIVOAL;;06/05/1711;08/03/1749;Saint Quijeau;Saint Quijeau;12/07/1734;Plouguer;Deces ï¿½ 38ans | fils de Yves, decede et de Anne LE RESTE
+617;G8;TL;marie THOMAS;;05/04/1711;04/01/1772;Plouguer (Kergalet (lieu Noble));Saint-Quijeau (Kervoazou);12/07/1734;Plouguer;pierre et guillaume rivoal ses enfants | fille de Louis, decede et de Marie QUEMENER
+618;G8;TL;yves CLOAREC;Honorables gens;11/12/1718;05/10/1779;Motreff;Motreff,Pennayun;;;fils de Jean et de Franï¿½oise LE COUTELLER | Tï¿½moins : CLOAREC Yves (signe), Marguerite, Marie-Anne (signe), Nominande Cï¿½cile (signe), Louise (signe), enfants | On lui doit l'ï¿½glise Saint Pierre de Motreff-infoBretagne:L'ï¿½difice est reconstruit en 1767 et 1768 par Poulizac et Yvon Cloarec moyennant 9 000 livres.
+619;G8;TL;jeanne GUELLAEN;Honorables gens;;1711;;;;;fille de Gabrielle LE SCILLARD | une fille nee le 08/05/1755 - Motreff (Lieu Noble De Pennanguer) CLOAREC Nominande Cecile
+620;G8;TL;gilles LEVENEZ;;17/05/1703;11/02/1773;Cleden-Poher (Kerlandram);Cleden-Poher (Kerlandram);enfant de Michel et de Catherine LAURANS;;+Tï¿½moins : beau fils : Pierre Raimond et Louis Ruffel
+621;G8;TL;marie URVOAZ;;env 1704;27/12/1764;;Cleden-Poher;;;
+622;G8;TL;jean RAYMOND;;;25/09/1770;;Saint-Hernin,Chateau De Kergoat;;;ï¿½gï¿½ de 75 ans | Tï¿½moins : Remond Jean Et Yves Ses Enfants
+623;G8;TL;perrine le GUERN;;08/03/1702;25/10/1760;Cleden-Poher,Kerlandram;Saint-Hernin,Chateau De Kergoat;;Saint Hernin;ï¿½gï¿½ de 60 ans | Tï¿½moins : Relond Jean Fils | Naissance probabilitï¿½ | Probable enfant de Guillaume et de Franï¿½oise LE MINEC
+624;G8;TL;pezron LAOUR;Laboureur;15/03/1677;29/07/1720;Poullaouen;Poullaouen;27/10/1701;Poullaouen;
+625;G8;TL;mauricette KEREVER;;;26/04/1738;;Poullaouen;27/10/1701;Poullaouen;fille de Henry, dï¿½cï¿½dï¿½ et de Catherine LE MANACH | https://bagad.cgf.bzh/web/pgs/afficher_individu.php?i_id=1933053805
+626;G8;TL;sebastien le MOAL;;;;;;;;
+627;G8;TL;marguerite BIZIEN;;;;;;;;
+628;G8;TL;sebastien le BRAS;;;;Cleden-Poher;;20/08/1709 - Sainte-Catherine-Plounevezel;;
+629;G8;TL;marguerite JOURDREN;;;;;;20/08/1709 - Sainte-Catherine-Plounevezel;;
+630;G8;TL;guillaume KERGANIVET;;;16/02/1720;Cleden-Poher;Cleden-Poher(Kerdivoal);17/09/1714 - Cleden-Poher;;
+631;G8;TL;marie GOACOLOU;;;;;;17/09/1714 - Cleden-Poher;;fille de Barthelemy
+632;G8;TL;guillaume BERNARD;dit guillaume le jeune;28/11/1668;28/04/1743;;Kergloff (Kerminguy);29/01/1693 - Kergloff;Domiciliï¿½ ï¿½ Kermenguy 1693;
+633;G8;TL;marie DERIEN/DEYRIEN;;;;;;29/01/1693 - Kergloff;Domiciliï¿½e ï¿½ Sainte Agnï¿½s;jean le guen, oncle ï¿½ la mariï¿½e, de kervoastellou
+634;G8;TL;vincent MARTIN;;22/04/1676;28/06/1721;Collorec;Landeneau;28/11/1707;Collorec;fils de francois martin et de jeanne le moal
+635;G8;TL;marguerite PONTHOU;;27/03/1691;;Landeleau;;28/11/1707;Collorec;Fille de Grï¿½goire PONTHOU et Jeanne QUINTIN
+636;G8;TL;nicolas LEVENEZ;;;;Cleden-Poher;;09/05/1701 - Cleden-Poher;;Domiciliï¿½ ï¿½ Bourg | fils de Jean
+637;G8;TL;marie QUENET;;;11/02/1715;Cleden-Poher;Cleden-Poher (Ville Neuve);09/05/1701 - Cleden-Poher;;Domiciliï¿½e ï¿½ Kernevez | fille de Jean | +Conjoint : Nicolas LEVENEZ, prï¿½sent(e),Tï¿½moins : ses frï¿½res : Guillaume et Jan
+638;G8;TL;herve MAHE;;;11/02/1754;Cleden-Poher;Cleden-Poher (Langantec);27/02/1702 - Cleden-Poher;;M:Domiciliï¿½ ï¿½ Lesnevez Tï¿½moins : yves mahï¿½, frï¿½re du mariï¿½ | +ï¿½gï¿½ de 76 ans,Tï¿½moins : ses enfants :Guillaume et Yves,Bf.Joseph Levenez
+639;G8;TL;marguerite le MOAL;;;26/03/1748;Cleden-Poher;Cleden-Poher (Leigneonez);27/02/1702 - Cleden-Poher;;fille de Marguerite RUMELEN
+640;G8;LL;francois LEAUTE;Honorable Homme;17/02/1689;6/01/1729;Squiviec, Mur de Bretagne;Squiviec, Mur de Bretagne;15/02/1706;Saint Guen (22);
+641;G8;LL;francoise CHAMOUFFLET;;23/10/1689;5/12/1759;Kergravin, Saint Guen (22);Squiviec, Mur de Bretagne;15/02/1706;Saint Guen (22);manoir de Kergravin
+642;G8;LL;jean le PONNER;;14/03/1703;24/07/1759;Neulliac;Neulliac;26/11/1721, Neulliac;;
+643;G8;LL;janne HENRIO;;1698;20/05/1743;Neulliac;Neulliac;26/11/1721, Neulliac;;
+644;G8;LL;pierre RIO;;11/02/1688;25/04/1757;Kergrist;Kergrist;18/06/1709;Kergrist;un fils Pierre
+645;G8;LL;clemence HERVO;;;;;;;;
+646;G8;LL;yves SERVEL;;;;;;;;
+647;G8;LL;louise HERVIO;;;;;;;;Archives pas en ligne
+654;G8;LL;mathurin GUILLO;;;;;;;;
+672;G8;LL;francois le QUEMENER;;;;;;;;
+673;G8;LL;guillemette BIGOT;;;;;;;;
+674;G8;LL;rene ODIC;;;;;;;;
+675;G8;LL;perinne AUDREN;;;;;;;;
+676;G8;LL;vincent le COQ;;22/06/1669;20/10/1716;Mur de Bretagne,22;Mur de Bretagne,22;;;Poulhibet
+677;G8;LL;marie BAUDIC;;1669;13/12/1719;;Mur de Bretagne,22;;;
+678;G8;LL;julien le RALLE;;1661;28/01/1741;;Mur de Bretagne,22;le 21/11/1699;Mur de Bretagne;
+679;G8;LL;marguerite MAHEO;;1680;27/03/1743;;Mur de Bretagne,22;le 21/11/1699;Mur de Bretagne;
+680;G8;LL;franï¿½ois GUILLOUX;;;;;;;;
+681;G8;LL;marie SERVEL;;;;;;;;
+682;G8;LL;jan CORREC;;;;;;;;
+683;G8;LL;marie SERVEL;;;;;;;;
+684;G8;LL;jerome le DORLOT;Meunier;apres 1705;23/12/1738;Cleguerec;Cleguerec, Boduic;07/12/1730, Cleguerec;Union: AD56 - cote 1728-1744, vue 61/561;Dï¿½cï¿½s: AD56 - cote 1728-1744, vue 343/561 | https://gw.geneanet.org/ddanetz?lang=fr&pz=doremy&nz=danetz&p=jerome&n=le+dorlot
+685;G8;LL;jacquette le SANTE;;11/12/1702;03/04/1739;Saint-Aignan;Cleguerec, Boduic;07/12/1730, Cleguerec;Union: AD56 - cote 1728-1744, vue 61/561;Naissance: AD56 - Cote 1671-1703, vue 336/353 | premier mariage en 1720 avec Mathurine CORBEL 1724-1799 | fille de Jean LE SANTE ca 1652-1730 et Aliette CADIC ca 1670-1733
+686;G8;LL;olivier RUBAN;;/08/1714;25/03/1743;Cleguerec;Cleguerec;19/02/1740, Cleguerec;;parents : ves RUBAN 1685-1736 (Laboureur) Olive RAFFLï¿½ ca 1690-1760 | Naissance: AD56 - cote 1728-1744, vue 393/561, voir acte de mariage | Union: AD56 - cote 1728-1744, vue 393/561 | Dï¿½cï¿½s: AD56 - cote 1728-1744, vue 509/561 sans filiation
+687;G8;LL;yvonne BAUDIC;;13/06/1717;12/12/1755;Cleguerec;Cleguerec;19/02/1740, Cleguerec;;Parents:Gabriel BAUDIC ca 1685-1747 (Boulanger) Yvonne CORREC ca 1684-1749 | Naissance: AD56 - Cote 1670-1727, vue 195/466 | Union: AD56 - cote 1728-1744, vue 393/561 | Dï¿½cï¿½s: AD56 - cote 1745-1760, vue 371/501, page avec taches d'encre
+700;G8;LL;yves HENRIO;Laboureur de terre;;avant 1732;;;;;fils HENRIO ?Yves ou Gregoire / Dcd et de JOUAN Guillemette | ::::::
+701;G8;LL;julienne GUILLO;HF;17/06/1693;;Mur-de-Bretagne,Curlan;;;;ï¿½Ex-conjointe de HENRIO corentin | fille de GUILLO Yves et de AUDREIN Susanne
+702;G8;LL;louis CORNIQUEL;;12/10/1683;01/07/1721;Saint-Guen;Saint-Guen;30/01/1698;saint-guen;dcd ï¿½ 38 ans, Temoins dcd Louys Corniquel
+703;G8;LL;julienne le BOUEDEC;;06/01/0680;11/05/1723;Saint-Guen;Saint-Guen;30/01/1698;saint-guen;https://gw.geneanet.org/lotavy?lang=fr&iz=6622&p=julienne&n=le+bouedec&oc=2
+704;G8;LP;yves PERZO;;vers 1667;29/12/1742;;Guerihuel, Cleguerec;;;
+705;G8;LP;jeanne bernard ca 1677-1742;;vers 1677;20/12/1742;;Guerihuel, Cleguerec;;;
+706;G8;LP;louis OLIVIERO;;vers 1683;24/03/1743;Tosten, Cleguerec;;vers 1714;Cleguerec;2nd noces avec Catherine PERZO
+707;G8;LP;marguerite le GUELLANF;;vers 1684;21/09/1729;Cleguerec;Guerihuel, Cleguerec;;;
+708;G8;LP;;;;;;;;;
+709;G8;LP;;;;;;;;;
+712;G8;LP;joseph le HENANF;;1705;2/01/1765;Cleguerec;Kerdrean, Cleguerec;7/02/1720;Cleguerec;
+713;G8;LP;jeanne BAUDIC;;1696;16/11/1746;Cleguerec;Kerdrean, Cleguerec;7/02/1720;Cleguerec;
+714;G8;LP;rene le BOTMEL;;;;;;;;
+715;G8;LP;julienne JAN;;;;;;;;
+716;G8;LP;mathurin le MOUEL;;1713;26/01/1743;Cleguerec;Kergustin, Cleguerec;19/01/1734;Cleguerec;
+717;G8;LP;brigitte le GUELLANF;;1712;19/02/1782;Cleguerec;Dillien, Cleguerec;19/01/1734;Cleguerec;
+718;G8;LP;pierre GUILLO;;26/05/1719;5/01/1780;Porh Antoine, Saint-Aignan;Porh Antoine, Saint-Aignan;21/02/1735;Saint-Aignan;Guillaume GUILLO et Perrine PERZO
+719;G8;LP;jacquette VIDELO;;19/06/1718;28/05/1805;Saint-Aignan;Saint-Aignan;suppose en 1737;pas de trace;
+724;G8;LP;yves VIDELO;Maitre, Notaire;01/12/1681;12/08/1768;Saint-Aignan;Suilherf,Saint-Aignan;01/12/1708;Saint-Aignan;
+725;G8;LP;marguerite le BIHAN;;08/02/1687;15/02/1758;Saint-Aignan;Suilherf,Saint-Aignan;01/12/1708;Saint-Aignan;
+728;G8;LP;jacques BAUDIC;;;;;;;;
+729;G8;LP;jeanne GUILLOUX;;;;;;;;
+734;G8;LP;mathurin LEAUTE(2);;14/02/1700;23/04/1770;Mur-de-Bretagne;Saint Aignan (56);5/02/1720;Saint Aignan ();
+735;G8;LP;francoise EDY;;30/01/1700;6/01/1755;Saint Aignan (56);Saint Aignan (56);5/02/1720;Saint Aignan ();
+752;G8;LP;yves le BRICON;;;;;;;;
+753;G8;LP;francoise JEGO;;;;;;;;
+754;G8;LP;sylvestre AUDREN;;;18/11/1741;;Caurel;;;dcd 54 ans
+755;G8;LP;catherine le BOTAN;;;;;;;;
+756;G8;LP;guillaume TREGUER;;;;;;05/11/1695;Saint-Mayeux;
+757;G8;LP;jacquette MORVAN;;;;;;05/11/1695;Saint-Mayeux;
+758;G8;LP;jacques LABAY;;;;;;28/10/1697;Mur-de-Bretagne;fils de LABAY Louis
+759;G8;LP;vincente CORNIQUEL;;;;;;28/10/1697;Mur-de-Bretagne;Mineur(e) | son pere decede au mariage
+760;G8;LP;;;;;;;;;
+761;G8;LP;;;;;;;;;
+762;G8;LP;yves HARNOIS;;;;;;27/11/1708;La Motte;
+763;G8;LP;louise GESTIN;;;;;;27/11/1708;La Motte;fils agriculteur au Canada https://www.genealogie22.com/personnage.pl#content
+764;G8;LP;rolland DANIEL;;1693;15/04/1757;;Kermahouarn, Saint-Mayeux;19/02/1716;Plussulien;temoin dcd sa Vve, Franï¿½ois Salmon, Yves Daniel, Jean Auffret | fils de Daniel Francois
+765;G8;LP;marie ROLLAND;;mineure;14/09/1771;;Guerlï¿½zan, Saint-Mayeux;19/02/1716;Plussulien;temoins dcd [CG] Jean Daniel son fils, Yves Belouin, Gildas Dubois, Marie Daniel | fille de ROLLAND Laurent / dcd et de CANANT Janne
+766;G8;LP;louis COJAN;;apres 1700;;;;12/02/1725;Caurel;son pï¿½re decede avant mariage sa mere BASCAU (LE) Marguerite
+767;G8;LP;marguerite JEGO;;;;;;12/02/1725;Caurel;fille de JEGO Henry
+768;G8;QQ;guillaume le QUILLIEC;;11/05/1692;;;;21/11/1711;combrit;
+769;G8;QQ;madeleine le GUERNIC;;;;Combrit ?;;21/11/1711;combrit;
+770;G8;QQ;rene le PAGE;Laboureur de terre, menager;1665;7/02/1745;;Combrit;;;13 enfants ne entre 1693 et 1716, premiers nes ï¿½ Tremeoc suivant ï¿½ Combrit Kerriaou
+771;G8;QQ;marie le LAGADIC;;06/04/1672;4/05/1750;Tremeoc (St Coulleau);Kerriaou, Combrit;;;actes de naissance au hasard, la date et le lieu le plus probable | enfant de Jan et de Helaine GOURMELEN
+772;G8;QQ;guillaume le BRETON;;1665;20/06/1745;;Le Suler, Loctudy;10/02/1698;Loctudy;
+773;G8;QQ;anne (marguerite) KERBINIBIN;;12/01/1682;1er/05/1737;metairie noble de Pen ar prat, Loctudy;Loctudy;10/02/1698;Loctudy;
+774;G8;QQ;guillaume le BOULER;Laboureur;10/09/1676;18/02/1733;Lambour (Kerlen Combrit);Combrit (Kerlen);27/02/1702;Combrit;
+775;G8;QQ;anne JAVRY;Laboureur;06/01/1686;;Bodivit;;27/02/1702;Combrit;Parrain Javry Pierre Le Vieux, De Lestrebian
+776;G8;QQ;jean GAUFRER;;;;;;;;
+777;G8;QQ;anne le BEC;;;;;;;;
+778;G8;QQ;pierre le MARCHALLACH;;20/08/1651;;Ploneour;;;;fils Alain LE MARCHALLACH, ne en 1627, decede le 29 juin 1697 - Treordo - Ploneour, ï¿½ l'ï¿½ge de 70 ans Marie avec Catherine LE BELLEC
+779;G8;QQ;jacquette YVEN;;;;;;;;
+780;G8;QQ;jean LODEN;;;;;;;;rien manque actes de naissance ou mariage fils
+781;G8;QQ;jeanne le teurnier ou TURNER;;;09/09/1699;;Ploneour (Kergaviny);;;rien manque actes de naissance ou mariage fils
+782;G8;QQ;;;;;;;;;rien manque actes de naissance ou mariage fille
+783;G8;QQ;;;;;;;;;rien manque actes de naissance ou mariage fille
+784;G8;QQ;jean le FAILLER;;11/04/1654;30/03/1741;Beuzec Cap Caval;Beuzec-Cap-Caval (Keregard Isela);23/01/1680 - Beuzec-Cap-Caval;fils de Jean et de Louise DIASCORN;age  92 ans
+785;G8;QQ;clemence DERIEN;;;;Beuzec Cap Caval;;23/01/1680 - Beuzec-Cap-Caval;fille de Yves et de Anne JAOUEN;
+786;G8;QQ;jean KERDRANVAT;;16/01/1684;22 avril 1704;Ploneour;Ploneour;12/02/1703, Saint-Jean-Trolimon;;Parents source geneant :Jean KERDRANVAT 1642-1686/ &  Anne CROAZEC ca 1650-1711
+787;G8;QQ;catherine CARROT;;25/03/1672;apres 1725;;;12/02/1703, Saint-Jean-Trolimon;;fille de Corentin et de Catherine LE DIDOM | veuve en 1eres noces de jean kerdranvat et en 2emes noces de mathias gloannec et 3emes avec COUPPA Yves
+788;G8;QQ;alain alour YVEN;;1er/11/1668;;Treguennec;;;;
+789;G8;QQ;marie le CORRE;;;24/03/1732;;Treguennec;;;
+790;G8;QQ;jacques le TREUT;;1677;;Plovan;;;;fils de Allain et de Jeanne Le PAPE
+791;G8;QQ;agathe GOURMELEN;;06/08/1682;;;;;;fille de Riou, dï¿½cï¿½dï¿½ et de Jeanne KERVEVAN | Notes ï¿½pouse : min(DJ) du 03/11 suivant ordonnance de Mtre charles Loheac advocat en la Cour - extrait baptismal du 06/08/1682 | https://recif.cgf.bzh/r2_resultat.php?ctxt=rech&auth=45bee1767e7d5c0282790a34cb0ca01f&amount=1&to=cgf&key=21215800-1970861830&ref=20210921-79082-70183&language=#
+792;G8;QQ;pierre le LAGADIC;;1697;6/03/1738;;Kerbascol, Beuzec-Cap-Caval;14/01/1715;Treguennec;
+793;G8;QQ;jeanne le LOCH;;1700;30/10/1766;;Kerbascol, Beuzec-Cap-Caval;14/01/1715;Treguennec;
+794;G8;QQ;jacques le BIHAN;;25/09/1702;11/02/1768;Plomeur;Kerbascol, Beuzec-Cap-Caval;17/02/1727;Beuzec-Cap-Caval;
+795;G8;QQ;marie le BIDEAU;;23/01/1689;28/01/1741;Beuzec-Cap-Caval;Lanvoran,Beuzec Cap Caval;17/02/1727;Beuzec-Cap-Caval;
+796;G8;QQ;yves  le jeune  le GUICHAOUA;;1690;entre 1726 et 1729;Kerguellec, Treguennec;Treguennec;16/06/1712;Treguennec;
+797;G8;QQ;barbe le GOYAT;;1690;9/06/1722;Treguennec;Keriellec izella, Treguennec;16/06/1712;Treguennec;
+798;G8;QQ;jean le BORGNE;;1674;17/03/1724;Treguennec;Treguennec;11/10/1696;Treguennec;
+799;G8;QQ;jeanne anne le PAPE;;1er/11/1678;entre le 17/02/1715 et 1721;Kerambleudou, Ploneour;Treguennec;11/10/1696;Treguennec;
+800;G8;QQ;corentin coic ou COZIC;honorables gens;18/12/1680;30/09/1726;Kergadaouen, Treguennec;Treguennec;9/02/1711;Treguennec;
+801;G8;QQ;marguerite le PAPE;;;4/01/1740;Treguennec;Kermabec, Treguennec;9/02/1711;Treguennec;
+802;G8;QQ;guillaume le GLOANEC;;8/02/1708;8/10/1743;Beuzec-Cap-Caval;Beuzec-Cap-Caval;19/01/1725;Beuzec Cap Carval;
+803;G8;QQ;marie LUCAS;;29/03/1710;27/04/1761;Beuzec-Cap-Caval;Beuzec-Cap-Caval;19/01/1725;Beuzec Cap Carval;
+804;G8;QQ;yves KERVEVAN;;1695;25/10/1770;Treguennec;Treguennec (Kersugal);17/07/1730;Treogat;Notes epoux : Kerouant aux fiancailles
+805;G8;QQ;mauricette MARZIN;;;avant 1771;Peumerit;;17/07/1730;Treogat;fille de Riou
+806;G8;QQ;sebastien BIRIEN;;1713;4/11/1775;St Jean Trolimon;Beuzec-Cap-Caval;16/11/1734;Beuzec;
+807;G8;QQ;jeanne RONVARCH;;16/10/1714;10/03/1764;Beuzec-Cap-Caval;Gorae Beuzec, Beuzec-Cap-Caval;16/11/1734;Beuzec;
+808;G8;QQ;rene le BERRE;;22/06/1680;27/09/1754;;Beuzec-Cap-Caval (Keregar);;;pas de certitude pour la naissance, base sur dispo recif au plus proche 78 ans au decï¿½s | fils de Yves et de Marie LE ROY
+809;G8;QQ;jeanne LUCAS;;1675;29/01/1720;;Beuzec-Cap-Caval (Keregar);;;premier enfant en 1700
+810;G8;QQ;andre CARIOU;;30/03/1684;25/08/1745;Plonivel;;05/10/1705 - Loctudy;;fils de Yves, decede et de Jeanne LE BALLACON
+811;G8;QQ;marie MARIEL;;11/08/1689;15/07/1731;Loctudy,Kerdrevel;Loctudy;05/10/1705 - Loctudy;;fille de Michel et de Guillemette STRUILLOU
+812;G8;QQ;chrystophe joseph le BERRE;;25/04/1700;03/03/1766;Treogat (Lesvenguy);Treogat(Lesmenguy);25/11/1720 - Trï¿½ogat;mariï¿½s en l'ï¿½glise paroissiale de Plovan;fils de Jean (mï¿½nager)et de Marie LE CUNEUDEC, dï¿½cï¿½dï¿½e | +Tï¿½moins : Sa Veuve, Christophe & Mathias (de Plovan), Hervï¿½ (de Trï¿½guennec), Boscat Capitaine Du Guet De Trï¿½ogat (de Lesmenguy) Ses Fils, Jean Le Berre Son Frï¿½re Consanguin, Renï¿½ Christophe Le Berre Son Neveu
+813;G8;QQ;marie le GADONA;;04/01/1698;07/04/1767;Plozevet(Lestuyen);Treogat(Lesmenguy);25/11/1720 - Trï¿½ogat;mariï¿½s en l'ï¿½glise paroissiale de Plovan;fille de Jean, prï¿½sent et de Catherine LE PENVEN
+814;G8;QQ;riou KERVEVAN;;09/01/1713;;Treguennec;;14/11/1729 - Treguennec;;Rioch Ou Riou | enfant de Paul et de Franï¿½oise GUENNOLE
+815;G8;QQ;marie GOURMELEN;;13/01/1710;;Treguennec - Kersaux;;14/11/1729 - Treguennec;;enfant de Riou et de Jeanne GUEZENEC
+816;G8;QQ;sebastien le GARREC;;29/03/1686;;Saint-Guenole;;13/02/1719;Plomeur;fils de yves | veuf en 1719 | frere pierre(signe) et  nicolas | parents dï¿½cï¿½des ï¿½ Kersugal en Beuzec Cap Caval
+817;G8;QQ;louise L'ARNICOL;;;07/02/1727;Plomeur;Beuzec-Cap-Caval (St Guennole);13/02/1719;Plomeur;
+818;G8;QQ;claude KERAUDREN;Meunier;;;;;03/07/1723;Plomeur;Veuf de : Jeanne TANNEAU | 30 ans en 1723
+819;G8;QQ;jeanne TREBERON;;1688;29/01/1746;;Plomeur (Poulguen);03/07/1723;Plomeur;fille de Jacques
+820;G8;QQ;louis le CLOAREC;;;;Penmarch;;10/11/1704;Penmarch;fils de Jan, decede et de Marie TIRILLI
+821;G8;QQ;jeanne le TRIVIDIC;;;28/05/1742;Penmarch;Penmarch;10/11/1704;Penmarch;fille de Jan et de Urbane HEMON
+822;G8;QQ;jan le CASTEL;;1690;03/02/1741;;Penmarch;;;
+823;G8;QQ;catherine le DREAU;;;;;;;;
+824;G8;QQ;herve le PAPE**834;Menager Laboureur de Terre procureur terrien;05/04/1687;16/11/1758;Kerambleudou, Ploneour;Penanprat,Plomeur;10/07/1706;Plomeur;Affaire du Jeune Brasseur + 15 enfants | un homme de haute stature, visage maigre et long, les yeux bleus
+825;G8;QQ;peronnelle KERCHROM**835;;26/02/1692;21/12/1756;;Plomeur;10/07/1706;Plomeur;28 aout 1754, interrogatoire de Peronelle Kerchrom, dans le cadre de l affaire du Jeune Brasseur, nous dit :C_est une petite femme de 68 ans, aux yeux bleus et sourcils blonds
+826;G8;QQ;corentin CHALONY;;18/11/1685;19/03/1744;Beuzec-Cap-Caval;Saint-Jean-Trolimon (Steut Bihan);19/10/1711;Saint-Jean-Trolimon;fils de Henry et de Marie NAY
+827;G8;QQ;catherine le marc MAREC;;;Saint-Jean-Trolimon;Steut Bihan,Saint-Jean-Trolimon;;19/10/1711;Saint-Jean-Trolimon;Herve et de Louise LE PERENNOU | Tï¿½moins : Pierre, Michel le Chalonny ses enfants / Pierre Coic, Yves le Calvez et Jean le Pape ses beaux fils tous de Plomeur
+828;G8;QQ;pierre le DONGE;;;;;;07/02/1728;Treffiagat;
+829;G8;QQ;louise l' ARNICOL;;21/06/1709;;Treffiagat;;07/02/1728;Treffiagat;enfant de Pierre et de Anne LE DIVELLEC
+830;G8;QQ;maurice POCHAT;;1692;24/10/1750;Treffiagat;Treffiagat;28/01/1715;Plobannalec;
+831;G8;QQ;marie le PICHON;;21/12/1693;;Plobannalec;;28/01/1715;Plobannalec;fille de Ambroise,et de Catherine COURVEST
+832;G8;QP;tugdual le PEMPE;Menager;20/03/1681;22/06/1747;Combrit;Combrit;30/09/1701;;
+833;G8;QP;marguerite JEZEQUELOU;;13/07/1682;31/03/1766;Combrit;Combrit;30/09/1701;;
+834;G8;QP;herve le PAPE**824;Menager Laboureur de Terre procureur terrien;05/04/1687;16/11/1758;Kerambleudou, Ploneour;Penanprat,Plomeur;10/07/1706;Plomeur;Affaire du Jeune Brasseur + 15 enfants | un homme de haute stature, visage maigre et long, les yeux bleus
+835;G8;QP;peronnelle KERCHROM**825;;26/02/1692;21/12/1756;;Plomeur;10/07/1706;Plomeur;28 aout 1754, interrogatoire de Peronelle Kerchrom, dans le cadre de l affaire du Jeune Brasseur, nous dit :C_est une petite femme de 68 ans, aux yeux bleus et sourcils blonds
+836;G8;QP;michel le CALVEZ;;2/02/1675;3/12/1749;Keroulle Izella, Loctudy;Kervague, Plobannalec;5/10/1696;Plobannalec;
+837;G8;QP;louise le MARECHAL;;22/05/1682;9/01/1742;Plobannalec;Plobannalec;5/10/1696;Plobannalec;
+838;G8;QP;jean le FLOCH;;25/02/1700;16/08/1766;Plobannalec;Plobannalec;21/05/1727;Plobannalec;
+839;G8;QP;anne le COSSEC;;17/09/1710;28/10/1761;Plobannalec;Plomeur;21/05/1727;Plobannalec;
+840;G8;QP;guillaume MORVAN**;;;;;;;;
+841;G8;QP;marie QUERVIAN;;;;;;;;
+842;G8;QP;riou BUHON;;;;;;;;
+843;G8;QP;urbanne louet (LE);;;;;;;;
+844;G8;QP;pierre LARNICOL;;;;;;;;
+845;G8;QP;catherine l' ARSUL;;;;;;;;
+846;G8;QP;mathieu GUICHAOUA;;;;;;;;
+847;G8;QP;catherine GUEIDOU;;;;;;;;
+848;G8;QP;jean DURAND;;6/11/1707;1781 et 1805;Plomeur;;10/11/1727;Plomeur;
+849;G8;QP;marie BARGAIN;;16/01/1708;1776 et 1780;Plomeur;;10/11/1727;Plomeur;
+850;G8;QP;charles le BUANNIC;;3/01/1692;15/06/1779;Kersilan, Plomeur;Plomeur;23/01/1730;Plomeur;
+851;G8;QP;anne BIGER;;vers 1697;29/11/1765;;Gouesnac_h, Plomeur;23/01/1730;Plomeur;
+852;G8;QP;jean le CLEACH;;12/05/1705;;Tronval, Plobannalec;Tronval, Plobannalec;29/01/1725;Plobannalec;
+853;G8;QP;marie TANNEAU;;5/03/1706;/01/1766;Plomeur;Plobannalec;29/01/1725;Plobannalec;
+854;G8;QP;jean TANNEAU;;2/05/1713;23/06/1780;Kersidal, Plomeur;Kersivi, Plomeur;6/02/1736;Plomeur;
+855;G8;QP;thumette KERCHROM;;19/09/1718;18/04/1755;Kersivini, Plomeur;Kersivini, Plomeur;6/02/1736;Plomeur;
+856;G8;QP;guillaume criquet dit RIQUIN;Pecheur Poissonnier;Ne entre 1695 et 1710;16/12/1787;;le Guilvinec;18/06/1725;Plomeur;
+857;G8;QP;isabelle taniou ou DANNIOU;;8/09/1699;6/08/1741;Treffiagat;le Guilvinec;18/06/1725;Plomeur;
+858;G8;QP;francois LHELGO;;21/12/1692;11/08/1750;le Guilvinec;le Guilvinec;23/11/1722;Plomeur;
+859;G8;QP;thumette le GUIRRIEC;;entre 1687 et 1692;5/02/1766;Plomeur;le Guilvinec;23/11/1722;Plomeur;
+860;G8;QP;guillaume TANNIOU;Pecheur;4/06/1695;1er/03/1780;Plomeur;Plomeur;11/09/1720;Ploare;
+861;G8;QP;marie BRIAND;;27/03/1696;19/07/1769;Ploare;Plomeur;11/09/1720;Ploare;
+862;G8;QP;corentin le COMPES;;1er/02/1680;28/07/1742;Treffiagat;Lohan,Treffiagat;21/06/1723;Treffiagat;temoins de deces Fiacre Fils Riagat et Philibert Frï¿½res
+863;G8;QP;anne le SANT;;1690;5/10/1766;Treffiagat;Lechiagat;21/06/1723;Treffiagat;
+864;G8;QP;francois CASTRIC;Laboureur;;;;;;;
+865;G8;QP;catherine le DONGE;;;26/02/1686;;Plomeur,kerguen;;;morte en couches a 35ans - 8enfants
+866;G8;QP;ollivier LHELGOUARCH;Laboureur de terre;1645;03/05/1731;Plomeur;Plomeur;03/06/1680;Plomeur;1er mariage avec LE BEC Jeanne | hervï¿½ le quiniou beau frï¿½re du mariï¿½ | https://bagad.cgf.bzh/web/pgs/afficher_individu.php?i_id=586000491
+867;G8;QP;louise GUIMARCH;;1651;10/01/1737;Plomeur;Plomeur;03/06/1680;Plomeur;1er mariage avec LE BEC Jeanne
+868;G8;QP;nicolas le LAY;;1686;05/11/1736;Ploneour;Beuzec-Cap-Caval,Rue Caudall;05/11/1736;22/05/1697;Combrit | mort a l'age de 80ans
+869;G8;QP;marie CARIOU;;;;Combrit;;22/05/1697;Combrit;
+870;G8;QP;rene le BERRE;;;26/09/1754;Beuzec-Cap-Caval;Keregar, Beuzec-Cap-Caval;1690;;
+871;G8;QP;jeanne LUCAS;;1675;29/01/1720;Beuzec-Cap-Caval;Beuzec-Cap-Caval,Keregard Bourg;1690;;
+872;G8;QP;corentin le BERRE;;;;;;;;
+873;G8;QP;jeanne BALOUIN;;;;;;;;
+874;G8;QP;le GUICHAOUA**;;;;;;;;
+875;G8;QP;;;;;;;;;
+876;G8;QP;guillaume le corler ou QUOROLER;;;;;;;Peumerit;
+877;G8;QP;marie KERVEILLANT;;;;;;;Peumerit;
+878;G8;QP;laurans le PALUD;;;;;;;;
+879;G8;QP;marie le VIGOUROUX;;;;;;;Peumerit;
+880;G8;QP;KERDRANVAT;;;;;;;;
+881;G8;QP;;;;;;;;;
+882;G8;QP;herve SALUN;Domanier;;17/04/1734;Ploneour-Lanvern;Penfrat, Plomeur;23/07/1698;Plomeur;
+883;G8;QP;catherine DANIEL**;;22/04/1663;15/08/1709;Plonivel;Lesplomeur, Plomeur;23/07/1698;Plomeur;
+884;G8;QP;andre le COLEN;;;;;;23/07/1708;Plobannalec;
+885;G8;QP;francoise le PAVEC;;13/05/1676;29/04/1720;Plobannalec;Plobannalec;23/07/1708;Plobannalec;
+886;G8;QP;ambroise TANNEAU;;13/01/1698;8/12/1759;Plomeur;Treffiagat;9/02/1722;Plobannalec;
+887;G8;QP;jeanne le CLEACH;;21/11/1698;;Plomeur;;9/02/1722;Plobannalec;
+888;G8;QP;jean GARIN;;12/04/1684;7/12/1750;Ploneour;Combrit;14/08/1729;Combrit;
+889;G8;QP;marie ou jeanne le LEC;;6/09/1705;4/04/1773;Combrit;Combrit;14/08/1729;Combrit;
+890;G8;QP;pierre RIOU;;1er/02/1700;3/11/1763;Combrit;Combrit;25/01/1723;Combrit;
+891;G8;QP;marguerite le POCHAT;;3/03/1703;19/11/1734;Combrit;Combrit;25/01/1723;Combrit;
+892;G8;QP;corentin le CLORENNEC;;5/03/1696;3/05/1763;Tremeoc;Kerhors, Tremeoc;1er/02/1723;Peumerit;
+893;G8;QP;marie BALOUIN;;23/10/1707;2/12/1731;Peumerit;Peumerit;1er/02/1723;Peumerit;
+894;G8;QP;francois le QUILLIEC;;3/12/1681;11/06/1769;Combrit;Combrit;19/07/1728;Combrit;
+895;G8;QP;marie le BIDON;Menagere;27/01/1694;29/12/1775;Combrit;Kerneurach, Combrit;19/07/1728;Combrit;
+896;G8;PP;charles le PAJOLEC;;06/10/1654--30/04/1653;13/04/1733;;Kerlomen, Sulniac;06/04/1709;Larre;Fils de Jan et Jacquette LE PIRONNEC
+897;G8;PP;julienne LAMOUR;;1686;;Larre;;06/04/1709;Larre;Fille de Julien
+898;G8;PP;francois NOURY;;1678;23/08/1755;Berric;Berric;14/07/1708;Berric;
+899;G8;PP;francoise le CHASTELLIER;;21/01/1680;19/10/1740;Berric;Berric;14/07/1708;Berric;
+900;G8;PP;michel ARZ;;8/05/1685;1755;Sulniac;;19/01/1713;Trefflean;fils de Bertrand ARS 1655- et Julienne MAHE 1654-
+901;G8;PP;sebastienne le turionner ca 1689-1748;;1689;30/11/1748;;Sulniac;;;fille de Yves
+902;G8;PP;jean HAZO;;12/02/1673;14/05/1753;Noyal-Muzillac;Berric;;;
+903;G8;PP;marie rolland 1678-1720;;;;;;;;
+904;G8;PP;jan COLENO;;05/02/1667;14/05/1740;Muzillac;Le Grand Cadillac - Noyalo;22/11/1692;Berric;
+905;G8;PP;guillemette CATREVAUT;;4/06/1671;27/12/744;Cadillac - Noyalo;Noyal-Muzillac;22/11/1692;Berric;
+906;G8;PP;julien le grivays, le GRIVES;;2/04/1680;31/07/1718;Ambon;Ambon;23/09/1704;Ambon;
+907;G8;PP;jeanne le BRAS;;25/03/1681;30/10/1717;Ambon;Ambon;23/09/1704;Ambon;https://gw.geneanet.org/olepajolec?lang=en&pz=odette&nz=le+pajolec&ocz=4&p=jeanne&n=le+bras
+910;G8;PP;jean BENOIST;;21/09/1691;01/07/1766;Le Petit Cadillac - Noyal-Muzillac;Le Petit Cadillac - Noyal-Muzillac;26/01/1712;Noyal-Muzillac;
+911;G8;PP;claudine MOURAULT;;;;;;;;https://gw.geneanet.org/olepajolec?lang=fr&pz=odette&nz=le+pajolec&ocz=4&p=claudine&n=mourault
+928;G8;PP;mathurin QUELLARD;Laboureur;;;;;;;
+929;G8;PP;franã§oise RICHARD;;;;;;;;
+930;G8;PP;jean FLEURY;;08/05/1701;18/04/1747;Questembert;Questembert;28/08/1725;Limerzel;Fils de Guillaume FLEURY et Laurence GUILLOUZOUIC
+931;G8;PP;perrine MOURAU;;8/03/1709;;Limerzel;;28/08/1725;Limerzel;Fille de Nicolas MOURAU et Michelle GUILLOUZOUIC https://gw.geneanet.org/hlegros?n=guillouzouic&oc=&p=michelle
+942;G8;PP;francois MADOUAS;;;;;;;;
+943;G8;PP;perrine BERRET;;;;;;21/02/1748;Noyal-Muzillac;Fille de Pierre BERRET et Yvonne CALEDORET
+960;G8;PM;louis le MANCHEC;;2/11/1699;28/11/1775;Squibermeur - Saint-Yvi;Penenech - Elliant;5/11/1721;Elliant;
+961;G8;PM;jeanne LAOUENAN;;18/11/1705;13/03/1776;Elliant;Elliant - Kerdaenes;5/11/1721;Elliant;https://gw.geneanet.org/loicleroy?lang=fr&iz=2&p=jeanne&n=laouenan
+962;G8;PM;joseph le BLEIZ;;;;;;26/04/1719;Elliant;fils de Alain, decede et de Jeanne LE MOAL
+963;G8;PM;catherine DERYEN;;;;;;26/04/1719;Elliant;Veuve de : Jacques LE MASSON
+964;G8;PM;vincent MEVELLEC;;27/02/1708;03/07/1779;Edern;Elliant;17/09/1736;Elliant;fils de Alain et de Isabelle LE TARIDEC
+965;G8;PM;catherine le DEUFF;;19/06/1707;04/07/1773;Guellevain(La Villeneuve);Elliant;17/09/1736;Elliant;Veuve de : Jacques COR
+966;G8;PM;pierre le MOAL;;23/03/1711;27/02/1770;Elliant;Elliant;16/07/1736;Elliant;Fils de Yves LE MOAL et Catherine SANCEAU
+967;G8;PM;marie CONAN;;25/01/1717;21/01/1770;Elliant;Elliant;16/07/1736;Elliant;Fille de Pierre CONAN et Marie COSTIOU
+968;G8;PM;eloy TROALEN;;1711;26/03/1763;;Elliant;11/01/1731;Elliant;
+969;G8;PM;louise GUINARD;;19/04/1709;15/03/1762;Keringao - Elliant;Keringar - Elliant;11/01/1731;Elliant;Veuve de : Yves KERVEANT
+970;G8;PM;henry le ROY;;11/09/1701;avant 1762;Elliant;Elliant;27/01/1728;Elliant;M-1728-2904900-61250-01461
+971;G8;PM;anne le CREOFF;;1706;;Elliant;Elliant;27/01/1728;Elliant;M-1728-2904900-61250-01461
+972;G8;PM;alain HUITRIC;;1672;03/12/1722;;Ergue Gaberic;;;Ergue Gaberic
+973;G8;PM;catherine le DENVAL;;;23/09/1739;;Ergue Gaberic;;;Ergue Gaberic | agee de 66 ans
+974;G8;PM;guillaume CREDOU;;1694;22/03/1757;Ergue Gaberic;Ergue Gaberic;12/02/1721 - Ergue-Gaberic;;fils de Guillaume, present et de Marie LOZEACH
+975;G8;PM;marie le BARVEC;;8/12/1695;21/02/1736;Ergue Gaberic;Ergue Gaberic;12/02/1721 - Ergue-Gaberic;fille de Urbain, decede et de Marie LE DEUVRY;
+976;G8;PM;jean TROALEN;;1658;20/02/1718;;Elliant;;;+60 ans Temoins : Sa femme, Jean, Yves, Louis, Francois ses enfants
+977;G8;PM;isabelle KERVRAN;;18/11/1665;;Coray;;;;enfant de Francois et de Louise SIGOIN ou JEGUOIN
+978;G8;PM;peron MAHE;;19/11/1685;18/03/1750;Coray;;27/02/1710 - Coray;;fils de Thomas, present et de Marguerite LE COATERO, presente
+979;G8;PM;marie MOREL;;;;Coray;;27/02/1710 - Coray;;
+980;G8;PM;thomas PICOU;;12/01/1709;06/10/1746;Coray;Coray (Lanviliou);29/01/1728 - Coray;;enfant de Jean et de Jeanne MAHE
+981;G8;PM;marie MASSON;;;avant 1751;;;29/01/1728 - Coray;fille de Alain, decede et de Barbe PENANGUER, decede;
+982;G8;PM;henry poupon (LE);;16/10/1688;15/04/1752;Coray;Coray (LANVILIOU);13/06/1715, Coray;;
+983;G8;PM;margueritte guillou (LE);;7/04/1688;18/11/1752;Coray;Coray (PORLAZOU-BRAZ);13/06/1715, Coray,;;
+984;G8;PM;francois augustin MEVELLEC;;14/06/1688;25/06/1742;Laz;Tregourez;7/02/1712;Tregourez;
+985;G8;PM;marie le GUIADER;;7/02/1689;apres 1731;Tregourez;Edern;7/02/1712;Tregourez;
+986;G8;PM;joseph le GARS;;9/12/1698;06/06/1749;Langolen/Tregourez;Keraoulet - Langolen;1er/03/1718;Landudal;Temoins : Mauricette et Anne filles | Marraine : Guilleuis Franï¿½oise Nourice De Mr Kerstrat De Briec
+987;G8;PM;laurence GARDIEN;;avant 1698;21/02/1752;;Keraoulet - Langolen;1er/03/1718;Landudal;
+988;G8;PM;corentin le CORRE;;08/11/1708;;Coray;;09/09/1733 - Coray;;fils de Henry, decede et de Marie LE BRAS, decede | Mentions marginales : dispense de consanguinite du 3 ï¿½me degre
+989;G8;PM;jeanne LOUCHOUARN/LOUSSOUARN;;1718;26/04/1739;;Coray (Kervanal);09/09/1733 - Coray;;fille de Guillaume, present et de Jeanne AUFFRET, decede | temoins decï¿½s Guillaume Loussouarn , Pï¿½re , Charles Et Louis Le Corre
+990;G8;PM;louis LOUSSOUARN;;04/01/1723;25/07/1789;Coray;Coray (Rosloquet);17/08/1747 - Coray;;fils de Louis, decede et de Marie LE KERNEVEZ, decedee | Temoins D: Louis Et Marguerite Loussouarn , Ses Enfants
+991;G8;PM;appolline/pauline BARRE;;15/12/1723;16/07/1760;Coray;Coray (Rosloquet);17/08/1747 - Coray;;fille de Guillaume, decede et de Franï¿½oise FLOCHLAY, decedee | Notes epouse : 2 dm par les reguaires
+992;G8;PM;jean COTTEN;;;;Pleuven;;22/11/1712 - Pleuven;;M Tï¿½moins : Le Moal Herve /Pennec Yves /Cariou Yves | veuf
+993;G8;PM;constance PELLU;;vers 1674;27/04/1737;Pleuven;Pleuven;22/11/1712 - Pleuven;;ï¿½gï¿½ de 63 ans | veuve de Sourain mariage en 1699 | une fille Jeanne SOurain de son premier mariage nï¿½e en 1700
+994;G8;PM;pierre GUEGUEN;;;;;;;;
+995;G8;PM;marie le BERRE;;;;;;;;
+996;G8;PM;alain le DROULAET;;15/02/1697;;Beuzec-Conq (Moulin du Nezert);;05/07/1723 - Locmaria-an-Hent;;age de 25 ans , de Saint-Yvi | fils de Christophe, decede et de Marie STAGUER | Parrain : Mansien Allain, Ecuyer, Sr Du Piarobin | Marraine : Dumoulin Marie
+997;G8;PM;jeanne ROCAN;;14/03/1698;;Ergue-Gaberic;;05/07/1723 - Locmaria-an-Hent;;enfant de Yvon et de Marie BERNARD | Parrain : Jacques Guerrot | Marraine : Adelice Credou
+998;G8;PM;herve MERIEN;;03/07/1711;1759;Quimper - Saint-Esprit-et-Lanniron;Elliant;03/03/1734 - Elliant;;03/03/1734 | Elliant | fils de Guenole et de Marie HASCOET
+999;G8;PM;marie le POUPON;;;;Elliant;;03/03/1734 - Elliant;;Jean et de Franï¿½oise LE GONIDEC
+1000;G8;PM;claude COLAS;;15/06/1681;;Cadol;;02/09/1726 - Cadol;Veuf de : Francoise JANNES-mariage 25/11/1711 (habite depuis 20ans Elliant) - Rosporden;peut-etre:fils de Jan et de Catherine TREFFLEZ
+1001;G8;PM;marie le BACON;;;;Cadol;;02/09/1726 - Cadol;fille de Pierre et de Marie LE GUISQUET;
+1002;G8;PM;charles CARDUNER;;;;;;23/01/1730;Kernevel;http://gw.geneanet.org/gjymjb?lang=fr&p=charles&n=le+carduner
+1003;G8;PM;jeanne le BULS;;26/05/1704;;Rosporden(St eloy);;23/01/1730;Kernevel;
+1004;G8;PM;jan GRATIEN;;31/07/1716;avant 1780;Tregunc (Bourg de Tregunc);;;27/07/1744 - Lanriec;enfant de Jan et de Janne LE BOURHIS
+1005;G8;PM;marie le BOURHIS;;1718;25/10/1780;Lanriec;Beuzec-Conq (Lochrist);7/07/1744 - Lanriec;fille de Jean, present et de Marie JAOENNE, decedee;
+1006;G8;PM;francois DENIS;;;avant 1770;;;18/08/1728;Scaer;veuf a son mariage
+1007;G8;PM;yvone degorze DEGORGE;;1707;12/01/1770;;Lanriec;;;18/08/1728 | Scaer | fille de Anne RICHARD, presente
+1008;G8;PM;yves NEDELEC;;;avant 1776;;;;;
+1009;G8;PM;francoise le GUILLOU;;07/06/1693;25/11/1776;Chateauneuf-du-Faou (Tremelle bihan);Chateauneuf-du-Faou (Tremellez bihan);;;fille de Charles et de Francoise LIDOUREN
+1010;G8;PM;jan le GUILLOU;;15/02/1703;08/05/1757;Chateauneuf-du-Faou (Vieux marche);Le Moustoir (Pinquer locher);08/02/1730 - Chateauneuf-du-Faou;fils de Francois et de Marie RIOU;48 ans
+1011;G8;PM;marie PARIS;;29/03/1712;13/01/1772;Chateauneuf-du-Faou;Le Moustoir (Kerroignan);08/02/1730 - Chateauneuf-du-Faou;;fille de Herve et de Louise MARSIN ou MARZIN
+1012;G8;PM;vincent GUEGUEN;;23/09/1694;6/12/1769;Chateauneuf-du-Faou;Chateauneuf-du-Faou;4/03/1726 -Chateauneuf-du-Faou;http://gw.geneanet.org/csolvignon?lang=fr&iz=248&p=vincent&n=gueguen;
+1013;G8;PM;jeanne LARVOR;;14/05/1705;1743;Laz keraval;Chateauneuf-du-Faou;4/03/1726 -Chateauneuf-du-Faou;;
+1014;G8;PM;yves FERELLEC;;25/01/1708;18/04/1753;Le Quilliou Plonevez du Faou;Chateauneuf-du-Faou;27/01/1735 Chateauneuf-du-Faou;;bapteme-enfant de Jan et de Francoise BELLIVET-Parrain : Ferellec Yves-Marraine : Diverres Francoise-Notes : Les parents mesnagers
+1015;G8;PM;isabelle RIOU;;15/03/1709;27/05/1774;Chateauneuf-du-Faou (Kerelou);Chateauneuf-du-Faou;27/01/1735 Chateauneuf-du-Faou;;fille de Jacques et de Janne RIOU Parrain : Riou Francois, Fils De + Jan Marraine : Riou Janne, Fille Du Dit Jacques | http://gw.geneanet.org/csolvignon?lang=fr&iz=248&p=isabelle&n=riou
+1016;G8;PM;guillaume le DANTEC;;1674;24/01/1734;;Rosporden;;;
+1017;G8;PM;catherine le GALLOU;;;;;;;;un enfant en 1706
+1018;G8;PM;yves le PENNEC;;;;;;;;
+1019;G8;PM;marguerite LUCAS;;;;;;;;
+1020;G8;PM;jean BRIEC;;23/03/1682;08/06/1756;Locamand;La Forï¿½t-Fouesnant,Keranmidy;17/02/1716;Clohars-Fouesnant;fils de Jan, dï¿½cï¿½dï¿½ et de Mauricette FURIC
+1021;G8;PM;marie BERTHOLOM;;19/01/1696;11/12/1745;Clohars-Fouesnant,Metairie st guenole;Clohars-Fouesnant,Kergarec Bihan;17/02/1716;Clohars-Fouesnant;Allain, dï¿½cï¿½dï¿½ et de Catherine TOULARASTEL
+1022;G8;PM;jean DAGORN;;;;;;28/11/1725;Saint-Evarzec;fils de Jean, dï¿½cï¿½dï¿½ et de Franï¿½oise ANSQUER
+1023;G8;PM;franï¿½oise JAOUEN;;;26/04/1749;;Saint-Evarzec;28/11/1725;Saint-Evarzec;fille de Yves et de Renï¿½e LE GAL, dï¿½cï¿½dï¿½e
+1024;G9;TT;louis TANGUY;;5/08/1637;26/10/1668;Guiclan;Plouvorn;28/02/1667;Guiclan;
+1025;G9;TT;catherine ROLLAND;;5/11/1641;30/06/1710;Guiclan;Guiclan;28/02/1667;Guiclan;
+1026;G9;TT;pierre CASTEL;;18/04/1653;11/05/1694;Taule;;;;fils de Francois et de Marie LEDAN
+1027;G9;TT;claudine ACRALL;;09/03/1658;26/08/1711;Taule;Taule;30/07/1882;Taulï¿½;M avec BECAM Gabriel | fille de Maurice et de Catherine MAHE ou Maze
+1028;G9;TT;francois MADEC;;14/05/1674;;Morlaix - Saint-Martin;;15/11/1700;Morlaix - Saint-Martin;fils de Bernard, dï¿½cï¿½dï¿½ et de Franï¿½oise CARO, dï¿½cï¿½dï¿½e
+1029;G9;TT;denise RIOUAL;;;;;;15/11/1700;Morlaix - Saint-Martin;fille de Hervï¿½, dï¿½cï¿½dï¿½ et de Franï¿½oise MADEC | Notes ï¿½pouse : decret 1410
+1030;G9;TT;allain URIEN;;;;;;;;
+1031;G9;TT;marie ROLLAND;;;;;;;;
+1032;G9;TT;francois BELLEC;;1634;7/10/1704;;St Seve;;;
+1033;G9;TT;catherine LAMER;;;13/12/1699;;St Seve;;;
+1034;G9;TT;yves CHARLES;;23/10/1664;18/04/1733;Taule;Sainte-Sï¿½ve (Boton);19/10/1687;Taulï¿½;Parrain : MERRER Yves,Marraine : CHARLES Janne | + a 72 ans | temoins mariage:Christophe, Charles, Gabriel et Thomas CHARLES | fils de Jean, dï¿½cï¿½dï¿½ et de Marie L' ESPAIGNOL | Thomas CHARLES (frere), Jean CHARLES (fils)
+1035;G9;TT;marguerite GUEGUEN;;1664?;14/10/1739;;Sainte-Sï¿½ve (Boton);19/10/1687;Taulï¿½;pas d'infos sur ses parents au mariage, pas de gueguen parrain/marraine | + 75 ans Charles Jean (fils), Bellec Yves (gendre) | domicilee ï¿½ Sainte-Sï¿½ve (Quinquis) en 1704 | a eu des jumeaux
+1036;G9;TT;francois ALLAIN;signe;26/10/1645;29/01/1686;Morlaix - Saint-Martin;Morlaix - Saint-Martin;;;ï¿½gï¿½ de 40 ans,Tï¿½moins : Hiï¿½rosme ALLAIN frï¿½re,Notes : inhumï¿½ dans l'ï¿½glise | une fille nï¿½e & mois apres son deces | enfant de Maurice et de Janne LE MINGAM,Parrain : Franï¿½ois DE KERGADIOU,Marraine : Claude LE GUELEN douairiï¿½re De KERNEGUEZ
+1037;G9;TT;janne HENRY;;;09/04/1686;;Morlaix - Saint-Martin;;ï¿½gï¿½ de 42 ans Tï¿½moins : Franï¿½ois ALLAIN fils, Franï¿½ois HENRY frï¿½re;sNotes : inhumï¿½e dans l'ï¿½glise
+1038;G9;TT;paul LEDAN;;;;;;;;
+1039;G9;TT;marguerite BIZIEN;;;;;;;;
+1040;G9;TT;alain MESSAGER;;1609;8/02/1699;;Saint-Martin-des-Champs;;;
+1041;G9;TT;anne QUEGUINER;;1637;3/02/1697;;Saint-Martin-des-Champs;;;
+1042;G9;TT;jean COAT;;1665;12/05/1723;Saint-Martin-des-Champs;Saint-Martin-des-Champs;;;
+1043;G9;TT;catherine PAUGAM;;1665;;Saint-Martin-des-Champs;;;;
+1044;G9;TT;yves le LAMER;;;;;;;;
+1045;G9;TT;anne le GUEVEL;;;;;;;;
+1046;G9;TT;martin MADEC;;;;;;;;
+1047;G9;TT;marie NICOLAS;;;;;;;;
+1048;G9;TT;estienne GAUTIER;;31/03/1653;26/04/1732;Ploujean;Morlaix - Saint-Martin;06/06/1680;Ploujean;inhume dans l'eglise | Domicilie a metairie Coatcongar (Ploujean),fils de Nicolas, present et de Janne LE FEREC vivante
+1049;G9;TT;catherine JEFFROY;;16/05/1655;16/08/1736;Plougasnou;Morlaix - Saint-Martin;06/06/1680;Ploujean;Domiciliee a Plougasnou,fille de Louis, decede et de Marie DEUFF, decedee
+1050;G9;TT;ollivier saos ou le SAUX;;;;;;;;
+1051;G9;TT;jeanne MARTIN;;;;;;;;
+1052;G9;TT;laurens le DUFF;;25/03/1637;11/03/1713;Morlaix;Morlaix;;Herve Le Duff ca 1600- et Marie Kerlecq;
+1053;G9;TT;marguerite LANNION;;24/12/1645;7/07/1716;Morlaix (Saint Martin);Morlaix (Saint Martin);;Paul Lannion 1612-1674 et Isabelle Maguet 1608-;
+1054;G9;TT;jean PROUFF;;5/03/1662;17/02/1721;Saint-Martin-des-Champs;Saint-Martin-des-Champs;23/09/1690 Saint Martin des Champs;Jean Prouff et Isabelle Pondeon;
+1056;G9;TT;jan PROUFF;;;1721;;;23/09/1690;Morlaix-Saint-Martin;Veuf de : Marguerite CORPHBIAN
+1057;G9;TT;marguerite RIOUAL;;;31/01/1721;;Eglise Saint-Martin Morlaix;23/09/1690;Morlaix-Saint-Martin;ille de Christophe, dÃ©cÃ©dÃ© et de Jacquette LE BELLEC | premiere grossesse des jumeaux, mort a 2 mois et inhumÃ© dans l'Ã©glise
+1058;G9;TT;pierre le DUFF;;;;;;;;
+1059;G9;TT;marie CASTEL;;;;;;;;
+1060;G9;TT;jean MINGAM;;;apres 1739;;;01/01/1702;Pleyber-Christ;
+1061;G9;TT;francoise COUIL;;1670;03/02/1730;;Pleyber-Christ,Treuscoat;01/01/1702;Pleyber-Christ;
+1062;G9;TT;pierre RIOUALEN;;;;;;;;
+1063;G9;TT;denise LURIEN;;;;;;;;
+1064;G9;TT;francois PAUGAM;;;;;;08/02/1712;Saint-Martin;
+1065;G9;TT;anne GUIVARCH;;;;;;08/02/1712;Saint-Martin;fille de Laurent
+1066;G9;TT;yves le SAOUT;;;;;;;;
+1067;G9;TT;marguerite GRALL;;;;;;;;
+1068;G9;TT;rolland JONCOUR;signe;;09/11/1742;;Sainte-Seve(Croasar Vilar);05/07/1717;Sainte-Seve;+ 65 ans | Veuf 2 fois. Premier mariage avec Anne QUEMENER
+1069;G9;TT;catherine HAMEURY;;;18/03/1733;;Sainte-Seve (Bourg);05/07/1717;Sainte-Seve;+40ans | fille de Mathieu, decede et de Jeanne MEUDEC, decedee
+1082;G9;TT;herve ROLLAND;;;;;;;;
+1083;G9;TT;marguerite QUEMENER;;;;;;;;
+1084;G9;TT;yves BOURHIS;;1685;20/09/1747;;Taule;16/11/1705;Taule;
+1085;G9;TT;anne HILY;;12/10/1678;29/11/1741;;Taule;16/11/1705;Taule;
+1088;G9;TT;christophe SALUDEN;;04/12/1640;13/02/1689;Guiclan;Plouvorn (Kerdrein);12/10/1668 - Plouvorn;fils de Francois et de Francoise BELEC;deux Christophe Saluden contemporain | present au deces de son epouse, deces a 50ans
+1089;G9;TT;claude MORVAN;;24/05/1649;06/04/1677;Plouvorn;Plouvorn (Kerdrein);;12/10/1668 - Plouvorn;fille de Jan et de Marie CLOAREC
+1090;G9;TT;francois TRAON;Menager;;apres 1698;;;;;
+1100;G9;TT;christoforus ESPAIGNOL;;16/04/1641;;Saint-Martin, Morlaix;;;;Parrain L'espaignol Christophorus | Marraine: Pinart de Quelennec Marguerite
+1101;G9;TT;marie KERMAREC;;;;;;;;
+1104;G9;TT;francois gravot ?1718;;;;;;;;
+1105;G9;TT;marie lespagnol ?1720;;23/12/1662;08/02/1720;Taule;Taule;;;Fille de Jean SPAGNOL et Marie POUBENNEC mariï¿½ le 24/11/1660 - Saint-Pol-de-Lï¿½on
+1106;G9;TT;rene le ROUX;menager;1661;24/03/1755;;Saint-Seve;;;Fils de Gilles LE ROUX et Anne PENVEN
+1107;G9;TT;jeanne KERRIEN;;21/11/1661;18/04/1720;Taule;Taule;;;Alain KERRIEN et Gilette BORODOU
+1108;G9;TT;pierre le GUERNIGOU;;1644;01/01/1689;;Plouezoc'h;;;
+1109;G9;TT;francoise le LOUCEAUT;;1655;11/12/1731;;Plouezoc'h;;;https://bagad.cgf.bzh/web/pgs/afficher_individu.php?i_id=249002407
+1110;G9;TT;louis BESCOND;;;09/10/1726;;;20/02/1680;Plouezoc'h;
+1111;G9;TT;constance MICHEL;;;09/04/1689;;ï¿½Plouezoc'h;20/02/1680;Plouezoc'h;
+1128;G9;TT;mathieu CASTEL;;;;;;;;
+1129;G9;TT;marie LURIEN;;;;;;;;
+1136;G9;TT;olivier NICOLAS;;;;;;;;
+1137;G9;TT;jeanne BRETON;;;;;;;;
+1138;G9;TT;guillaume ROUX;;;;;;;;
+1139;G9;TT;anne BARON;;;;;;;;
+1140;G9;TT;franï¿½ois le GRAVOT;;;21/04/1718;;Taule;16/02/1688 - Taule;veuf;
+1141;G9;TT;marie SPAGNOL;;;08/02/1720;;Taule;16/02/1688 - Taule;;fille de Jean, dï¿½cï¿½dï¿½
+1142;G9;TT;rene le ROUX;;;;;;;;
+1143;G9;TT;jeanne KERRIEN;;;;;;;;
+1144;G9;TT;alain BOHIC;;1674;14/06/1714;Taule;Taule;26/09/1697;Taule;
+1145;G9;TT;jeanne HAMON;;19/06/1674;16/02/1725;Taule;Taule;26/09/1697;Taule;fille HAMON Yves et MESCAM Marguerite
+1152;G9;TL;jacques LAUTROU;;;;;;;;
+1153;G9;TL;marie QUEVAREC;;;02/03/1717;;Carnoet;;;
+1154;G9;TL;RIOU;;;;;;;;
+1156;G9;TL;guillaume le jaru ca 1650-1724;;;;;;;;
+1157;G9;TL;marie le symon ca 1651-1696;;;;;;;;
+1158;G9;TL;yves le goff 1640-1720;;;;;;;;
+1159;G9;TL;marie foucault ca 1642-1712;;;;;;;;
+1178;G9;TL;charles CALVEZ;menager/laboureur, dit le jeune;;;;;;fils de charles;
+1179;G9;TL;marie le DU;;;;;;;;
+1180;G9;TL;le GOFF;;;;;;;;
+1181;G9;TL;;;;;;;;;
+1182;G9;TL;michel JAFFREZ;;;16/05/1703;;Cleden-Poher (Lansannec);;;
+1183;G9;TL;marie LANNEVAL;;;13/04/1731;;Cleden-Poher (Lansannec);;;
+1190;G9;TL;guillaume HUYBAN;Mï¿½nager;;14/02/1717;;Spï¿½zet (Villeneuve);;;ï¿½gï¿½ de 62 ans | Tï¿½moins : Sa Veuve/anne,marie Et Catherine Huyban Ses Filles/pierre Quemeneur Et P Cochennec Ses Gendres
+1191;G9;TL;janne GUILLERM;;;;;;;;un frere Guillerm Placide De Restmeno
+1192;G9;TL;etienne COATELOT;;08/03/1671;05/05/1736;Quimperle St Michel;Quimperle - Saint-Michel (Keranglien Lothï¿½a);15/01/1691 - Quimperle - Saint-Colomban;;fils de Jean et de Franï¿½oise LE POCHAT
+1193;G9;TL;adelice BOURGUILLOT;;12/03/1673;31/07/1735;Quimperle St Colomban;Quimperle - Saint-Michel (Keranglien ï¿½ Lothea);15/01/1691 - Quimperle - Saint-Colomban;;+62 ans Tï¿½moins : COADELOT Louis Joseph, Guillaume Vincent ses enfants
+1194;G9;TL;guillaume JAMBOU;;22/03/1694;;Riec-sur-Belon;;27/01/1712 - Riec-sur-Belon;;fils de Jan, dï¿½cï¿½dï¿½ et de Janne LALEZON,Notes ï¿½poux : Veuf / patronyme de la mï¿½re cf famille
+1195;G9;TL;janne DERRIEN;;;;Locunole;;27/01/1712 - Riec-sur-Belon;;fille de Louis
+1196;G9;TL;michel kergaravat (1);;;;;;;;
+1197;G9;TL;marie SIMON;;;04/11/1746;;Saint-Hernin (Penfrat);;;
+1198;G9;TL;michel kergaravat (2);signe;;;;;;;Domiciliï¿½ ï¿½ Kerbreudeur
+1199;G9;TL;catherine HAMON;;;;;;;;
+1212;G9;TL;gilles POULLIZAC;;;;Paule (22);;;;
+1213;G9;TL;marie FOUCAULT;;;;Trebrivan (22);;;;
+1214;G9;TL;henry LAUSET;;;;;;;;
+1215;G9;TL;catherine le GOFF;;;;;;;;
+1232;G9;TL;yves RIVOAL;;15/06/1672;09/05/1730;Trebrivan;Saint-Quijeau (Kervoasou);15/02/1700 Trebrivan;;
+1233;G9;TL;anne le REST;;09/10/1672;07/02/1734;Trebrivan;Saint-Quijeau (Kervoasou);15/02/1700 Trebrivan;;Manoir de Saint-Quijeau au XVe siï¿½cle il est la propriete de la famille Le Rest
+1234;G9;TL;louis THOMAS;HH;12/04/1672;18/03/1722;Carhaix - Saint-Tremeur;Kergalet-Plouguer;23/01/1696 - Plouguer;23/01/1696,  Plouguer;Plouguer=Carhaix-Plouguer
+1235;G9;TL;marie QUEMENER;;16/02/1672;;Carhaix - Saint-Trï¿½meur;;23/01/1696 - Plouguer;;Kemener, cï¿½est le tailleur en breton.
+1236;G9;TL;jean CLOAREC;signe / Maitre, HH;;09/01/1746;;Motreff, Lescleden;25/01/1714;Motreff;
+1237;G9;TL;francoise le COUTELLER;signe,Honorable Femme;;02/12/1731;;Motreff;25/01/1714;Motreff;+ 35ans | Tdeces Me Le Coutheller Louis Augustin, frï¿½re
+1238;G9;TL;tanguy GUELHEN;;10/11/1702;30/04/1732;Motreff;Motreff, Treourec;05/10/1718;Motreff;+52 ans , Tï¿½moins : Guelhen Henri et Jean, ses frï¿½res | fils de Henri et de Louise LE MICHEN
+1239;G9;TL;jeanne le CORVELLEC;;;;;;05/10/1718;Motreff;
+1245;G9;TL;;;;;;;;;
+1264;G9;TL;guillaume BERNARD;dit guillaume le vieil, Laboureur de terre;;1630;23/11/1706;;Kergloff;;ï¿½gï¿½ de 76 ans
+1265;G9;TL;magdalaine le LOUARN;Laboureur de terre;;13/07/1702;;Kergloff (Kerminguy);;;ï¿½gï¿½ de 60 ans
+1266;G9;TL;jan DERIEN;;;4/03/1692;;Kergloff;;;
+1267;G9;TL;marie le GUEN;;04/04/1643;02/11/1674;Kergloff;Kergloff;;;Parents :PIERRE LE GUEN ï¿½1677 & LOUISE HOURMAN ï¿½1686)
+1268;G9;TL;francois MARTIN;;1655;07/05/1721;Collorec;Peulliou,Collorec;;;
+1269;G9;TL;jeanne le MOAL;;;06/02/1721;;Peulliou,Collorec;;;
+1270;G9;TL;gregoire PONTHOU;Menager;20/05/1743;;Landeleau;;;;Fils de Jan ??? PONTOU et Marie FERELLEC
+1271;G9;TL;jeanne QUINTIN;;v1673;29/11/1738;Landeleau;Landeleau;;;
+1272;G9;TL;jean LEVENEZ;;;03/11/1710;;Cleden-Poher;;;
+1273;G9;TL;marie QUILLEROU;;;06/07/1700;;;;;
+1274;G9;TL;jean QUENET;;;;;Cleden-Poher;;;present au deces de sa femme en 1701
+1275;G9;TL;yvonne JAFFRE;;;26/04/1701;;Clï¿½den-Poher(Ville Neuve);;;
+1276;G9;TL;?? MAHE;;;;;;;;
+1277;G9;TL;??;;;;;;;;
+1278;G9;TL;?? le MOAL;;;;;;;;
+1279;G9;TL;marguerite RUMELEN;;;;;;;;
+1280;G9;LL;mathurin LEAUTE;;4/09/1650;18/09/1708;Kerhotaise,Mur de Bretagne;Squiviec, Mur de Bretagne;10/01/1682;Mur de Bretagne;actes naissance verifeir
+1281;G9;LL;francoise lair LAIRE;;16/01/1666;2/08/1710;Neulliac;Squiviec, Mur de Bretagne;10/01/1682;Mur de Bretagne;
+1282;G9;LL;vincent CHAMOUFFLET;;1/04/1656;1711;Saint-Guen;Saint-Guen;25/11/1671;Saint-Guen;http://gw.geneanet.org/jmlb?lang=fr&p=vincent&n=chamoufflet
+1283;G9;LL;perrine BILLON;;16/12/1647;20/06/1700;Saint-Guen;Saint-Guen;25/11/1671;Saint-Guen;Olivier BILLON 1611-1684 | Louise LE BRIGAND 1620-1695
+1284;G9;LL;jan le PONNER;;8/01/1673;;Neulliac;;4/10/1696, Neulliac;http://gw.geneanet.org/ponalz?lang=fr&p=jan&n=le+ponner;
+1285;G9;LL;marie NICOL;;28/11/1670;;;;4/10/1696, Neulliac;;
+1286;G9;LL;guillaume HENRIO;;1675;;;;;16/02/1696;Neulliac
+1287;G9;LL;janne HUBY;;1682;;;;16/02/1696;Neulliac;http://gw.geneanet.org/ponalz?lang=fr&p=janne&n=huby&oc=2
+1288;G9;LL;franï¿½ois RIO;Laboureur;18/09/1652;28/06/1692;Kergrist;Gazecan,Kergrist;17/02/1676;Kergrist;https://gw.geneanet.org/quenecanf?lang=fr&iz=0&p=francois&n=rio
+1289;G9;LL;jeanne LUCAS;;;;;;;;
+1352;G9;LL;guillaume le COQC;;14/01/1634;21/02/1695;Mur-de-Bretagne;Mur-de-Bretagne;;;
+1353;G9;LL;marie AUFFRET;;;;;;;;
+1362;G9;LL;;;;;;;;;
+1363;G9;LL;;;;;;;;;
+1364;G9;LL;;;;;;;;;
+1365;G9;LL;;;;;;;;;
+1372;G9;LL;yves RUBAN;Laboureur;01/01/1685;11/04/1736;Cleguerec;Cleguerec;;;Naissance: AD56 - Cote 1670-1727, vue 154/466 | Dï¿½cï¿½s: AD56 - cote 1728-1744, vue 253/561 | https://gw.geneanet.org/ddanetz?lang=fr&pz=doremy&nz=danetz&p=yves&n=ruban
+1373;G9;LL;olive RAFFLE;;1690;23/02/1760;Cleguerec;Cleguerec;;;
+1374;G9;LL;gabriel BAUDIC;Boulanger;1685;22/10/1747;Cleguerec;Poularain, Cleguerec;;;
+1375;G9;LL;yvonne CORREC;;1684;01/05/1749;Cleguerec;Cleguerec;;;
+1404;G9;LL;louys CORNIQUEL;H H Sr Du Bodon;;24/07/1723;;Saint-Guen, Coï¿½tdrï¿½zo;;;agï¿½ de 77 ans
+1418;G9;LL;guillaume GUILLO;;;;;;;;
+1419;G9;LL;perrine PERZO;;;;;;;;
+1424;G9;LL;yves le HENANF;;;;;;;;
+1425;G9;LL;marie GUILLEMOT;;;;;;;;
+1432;G9;LL;olivier le MOUEL;;1659;1714;;;;;
+1433;G9;LL;guillemette le FORESTIER;;1682;1742;;;;;
+1434;G9;LL;guillaume le GUELLANF;;1662;1752;;;vers 1710;;
+1435;G9;LL;louise CORREC;;4/03/1683;26/12/1721;Kerrault, Cleguerec;Poulmain, Cleguerec;vers 1710;;
+1438;G9;LL;yves VIDELO;nomme Maitre;01/12/1681;12/08/1768;;Saint-Aignan;1er/12/1708;Saint-Aignan;
+1439;G9;LL;marguerite le BIHAN;dite Honorable femme;08/02/1687;15/02/1758;;Saint-Aignan;1er/12/1708;Saint-Aignan;
+1448;G9;LP;charles VIDELO;Notaire Maitre;28/09/1649;03/04/1708;Mur-de-Bretagne;Saint-Aignan;;;
+1449;G9;LP;olive le BIGOT;;13/07/1657;29/03/1695;Mur-de-Bretagne;Guerledan - Saint-Aignan;;;https://gw.geneanet.org/eumi22?lang=fr&pz=isabelle+francoise+joelle&nz=brient&p=olive&n=le+bigot
+1468;G9;LP;herve LEAUTE;;27/12/1653;13/04/1720;;;29/07/1683;Neulliac();enfant de LEAUTTE Jan et de ROBIC Anne | Parrain (ou Tï¿½moin) : ROBIC Hervï¿½ Missire | actes nais verifiï¿½
+1469;G9;LP;marie laire LAIR;;;1er/06/1655;;;29/07/1683;Neulliac ();
+1528;G9;LP;francois DANIEL;;;;;;;;
+1529;G9;LP;;;;;;;;;
+1530;G9;LP;laurent ROLLAND;;;;;;;;
+1531;G9;LP;janne CANANT;;;;;;;;
+1532;G9;LP;louis COJAN;;;;;;12/02/1725;Caurel;
+1533;G9;LP;marguerite le BASCAU;;;;;;12/02/1725;Caurel;
+1534;G9;LP;henry JEGO;;;;;;;;
+1535;G9;LP;;;;;;;;;
+1536;G9;QQ;jacques le QUILLEC;;08/04/1640;26/01/1702;Combrit;Combrit;15;Parrain : Riou Pierre, Sire,Marraine : Beneat Catherine;
+1537;G9;QQ;anne le LOURS;;18/02/1657;06/01/1711;Combrit;Combrit (Manoir De Gorrequer);;;deces ï¿½ 50ans, Temoins : Le Quillec Jacques et Charles Fils | enfant de Franï¿½ois et de Catherine DAOUFARZ
+1538;G9;QQ;pierre le GUERNIC;;17/05/1656;janvier 1729;Combrit;Combrit;;;
+1539;G9;QQ;marie FLATRES;;5/11/1664;8/07/1708;Combrit;Combrit;;;
+1542;G9;QQ;jan LAGADIC;;;23/09/1690;;tremeoc;07/05/1663 - Tremeoc;;
+1543;G9;QQ;helaine GOURMELEN;;24/09/1642;06/05/1708;Ploneour (Manoir De Kerandraon);Combrit (Keriaou);07/05/1663 - Tremeoc;;enfant de Alain et de Jeanne NICOLAS | temoins de mariage messire yves le faou germain diraison, prï¿½tre honorable gens joannis irigoity
+1544;G9;QQ;michel le BRETON;;16/06/1638;juillet 1687;Lambourg;combrit;;;
+1545;G9;QQ;marie DAOULAS;;29/12/1639;21/02/1705;Lambourg;Lambourg ,Feunteun;;;
+1546;G9;QQ;lucas KERBINIBIN;Laboureur de terre;1625;4/07/1698;;Le Suler, Loctudy;1655;;
+1547;G9;QQ;anne lollichon, L_OLLICHON;;1630;29/01/1706;Loctudy;Lambourg;1655;;
+1548;G9;QQ;michel le BOULLER;;;avant 1699;;;;;
+1549;G9;QQ;catherine CONAN;;;;;;;;
+1550;G9;QQ;pierre JAVRY;Le jeune;24/08/1646;14/09/1700;Bodivit;Bodivit;19/10/1676;Bodivit;enfant de Yves et de Barbe LE COLIN
+1551;G9;QQ;marie le BARAER;;;;;;19/10/1676;Bodivit;de Bodivit fille de Mathias et de Marie JAVRY
+1556;G9;QQ;alain le MARCHALLACH;;;(29/06/1697;;Ploneour;;;
+1557;G9;QQ;catherine le BELLEC;;;;;;;;
+1576;G9;QQ;etienne yven ou YVIN;;;;;;;;
+1577;G9;QQ;marie le REST;;30/03/1642;27/02/1717;Treguennec;Beuzec-Cap-Caval;;;
+1578;G9;QQ;jean le CORRE;;;;;;;;
+1579;G9;QQ;marie POCHIC;;15/08/1650;17/05/1720;Treguennec;Treguennec;;;
+1580;G9;QQ;allain le TREUT;;;;;;;;
+1581;G9;QQ;jeanne le PAPE;;;;;;;;
+1582;G9;QQ;riou/rioch GOURMELEN;;;;Treguennec;;14/10/1686 - Treguennec;;fils de Nonna et de Franï¿½oise LE BUREL | Domiciliï¿½ ï¿½ Kersugar | Marraine : Gourmelen Hï¿½lï¿½ne Soeur De Nonna - est la sosa 1543?
+1583;G9;QQ;jeanne KERVEVAN;;04/10/1666;;Kerbasquet creis, Treguennec;;14/10/1686 - Treguennec;;fille de Allain et de Agathe LE BOLZER
+1584;G9;QQ;alain le LAGADIC;;avant 1671;5/05/1706;;Kerdrezec, Plovan;;;
+1585;G9;QQ;anne CUDENNEC;;avant 1671;avant 1705;;Plovan;;;
+1586;G9;QQ;ollivier le LOCH;;1666;8/11/1726;;Kerbascol, Beuzec-Cap-Caval;Beuzec-Cap-Caval;;
+1587;G9;QQ;jeanne GOULETQUER;;avant 1685;avant 1710;Beuzec-Cap-Caval;Beuzec-Cap-Caval;Beuzec-Cap-Caval;;
+1588;G9;QQ;yves le BIHAN;;1678;18/05/1738;;;;;
+1589;G9;QQ;anne BARGAIN;;1671;;Pefrat, Plomeur;;;;
+1590;G9;QQ;jacques le BIDEAU;;1648;2/08/1728;Beuzec-Cap-Caval;Beuzec-Cap-Caval;2/06/1681;Beuzec-Cap-Caval;
+1591;G9;QQ;beatrice BILLY;;12/12/1665;apres 4/03/1712;Beuzec-Cap-Caval;Beuzec-Cap-Caval;2/06/1681;Beuzec-Cap-Caval;nee le 12/12/1665 ï¿½ Beuzec-Cap-Caval, fille de roch et de renee nedelec
+1592;G9;QQ;yves le GUICHAOUA;;04/03/1662;9/02/1733;;Keriellec izella, Treguennec;;;N hyp par rapport a l'age
+1593;G9;QQ;marie le BRUN;;8/09/1667;5/03/1729;Treguennec;Treguennec;;;
+1594;G9;QQ;guillaume le GOYAT;;3/06/1668;27/02/1716;Kerjean, Ploneour;Kerjean, Ploneour;4/11/1686;Ploneour;
+1595;G9;QQ;anne le FAOU;;1668;24/04/1739;;Ploneour;4/11/1686;Ploneour;
+1596;G9;QQ;yvon  le jeune  le BORGNE;;13/03/1644;7/12/1715;Treguennec;Cleus Bras, Treguennec;avant 1673;;
+1597;G9;QQ;marguerite GOURRET;;24/07/1648;9/05/1714;Plozevet;Cleus Bras, Treguennec;avant 1673;;
+1598;G9;QQ;jean le PAPE;;entre 1600 et 1620;1659;;;;;
+1599;G9;QQ;jeanne le GARREC;;1623;avant 1659;Lanvoran, Beuzec-Cap-Caval;;;;
+1600;G9;QQ;jean COIC;;27/07/1653;16/12/1720;Treguennec;Treguennec;31/05/1677;Treguennec;
+1601;G9;QQ;louise le HENAFF;;1655;9/08/1727;Peumerit;Treguennec;31/05/1677;Treguennec;Notes ï¿½pouse : de la paroisse de Pumerit,Tï¿½moins : le Henaff pierre frï¿½re de ladite louyse
+1602;G9;QQ;yves le PAPE;;1671;14/01/1757;Kerambludou, Ploneour;Kermabec, Treguennec;;;
+1603;G9;QQ;anne le BORGNE;;30/08/1671;18/02/1727;Treguennec;Treguennec;;;
+1604;G9;QQ;alain le GLOANEC;;1674;mai 1720;Beuzec-Cap-Caval;;23/11/1699;Ploneour;
+1605;G9;QQ;constance GOYAT;;;1715;Ploneour;Ploneour;23/11/1699;Ploneour;
+1606;G9;QQ;jean LUCAS;;20/11/1681;25/05/1753;Beuzec-Cap-Caval;Lestimbeach, Beuzec-Cap-Caval;;;
+1607;G9;QQ;catherine BILLY;;11/01/1688 ou 13/03/1688;avril 1719;Beuzec-Cap-Caval;Beuzec-Cap-Caval;;;
+1612;G9;QQ;pierre BIRIEN;;24/09/1682;11/04/1714;St Jean Trolimon;St Jean Trolimon;30/10/1707;Plomeur;
+1613;G9;QQ;claude le PICHON;;21/11/1679;31/10/1739;Plomeur;Beuzec-Cap-Caval;30/10/1707;Plomeur;
+1614;G9;QQ;jean RONVARCH;Laboureur de terre;12/04/1683;7/03/1736;Beuzec-Cap-Caval;Beuzec-Cap-Caval;1699;Treguennec;
+1615;G9;QQ;jeanne GOURMELEN;;1676;31/03/1721;Treguennec;Kerzin,Beuzec-Cap-Caval;1699;Treguennec;
+1616;G9;QQ;paul kerv VAN;;1635;9/02/1697;Beuzec-Cap-Caval;Kerbascol, Beuzec-Cap-Caval;;;
+1616;G9;QQ;le BERRE;;;;;;;;
+1617;G9;QQ;;;;;;;;;
+1618;G9;QQ;;;;;;;;;
+1619;G9;QQ;;;;;;;;;
+1620;G9;QQ;yves CARIOU;;;;Combrit;31/01/1674 - Plonivel;;;
+1621;G9;QQ;jeanne le BALLACON;;31/12/1654;29/05/1715;Plonivel;Plonivel;31/01/1674 - Plonivel;;Jacques et de Marie FOLGOUAS
+1622;G9;QQ;;Menager;;;;;;;
+1623;G9;QQ;;;;;;;;;
+1624;G9;QQ;jean le BERRE;Menager;;;;24/10/1695;Treogat;;Treogat | fils de Yvon et de Marie LE ROY
+1625;G9;QQ;marie le CUNEUDEC;;1678;02/01/1708;Lababan;Treogat;24/10/1695;Treogat;
+1626;G9;QQ;jean GADONNA;;;12/11/1742;;Plozevet;27/07/1694;Plozevet;
+1627;G9;QQ;catherine PENVEN;;;21/02/1731;;Plozevet;27/07/1694;Plozevet;
+1628;G9;QQ;paul KERVEVAN;;;;;;;;
+1629;G9;QQ;francoise GUENNOLE;;;;;;;;
+1630;G9;QQ;riou GOURMELEN;;;;;;;;
+1631;G9;QQ;jeanne GUEZENEC;;;;;;;;
+1632;G9;QQ;yves le GARREC;;;;;;;;
+1633;G9;QQ;adelice le BERRE;;;;;;;;
+1640;G9;QQ;jan le CLOAREC;;;;;;;;
+1641;G9;QQ;marie TIRILLI;;;;;;;;
+1642;G9;QQ;jan le TRIVIDIC/TREVIDIC;;;;;;;;
+1643;G9;QQ;urbane HEMON;;;;;;;;
+1644;G9;QQ;jean le DONGE;;11/04/1707;28/02/1741;Beuzec-Cap-Caval;Beuzec-Cap-Caval;3/08/1733;Treguennec;
+1645;G9;QQ;louise le BRUN;;6/01/1703;23/08/1769;Penmarch;Beuzec-Cap-Caval;3/08/1733;Treguennec;
+1648;G9;QQ;gregoire le PAPE;idem 1668;1643;25/02/1721;Lanvenael,Beuzec-Cap-Caval;Treganne,Beuzec-Cap-Caval;;;fils de Jean et de Jeanne Le Gauvec
+1649;G9;QQ;urbanne le CLORENNEC;idem 1669;29/01/1646;29/02/1709;Ploneour;Ploneour;fille de Yves Clorennec et Jeanne Le Borgne;;
+1650;G9;QQ;jacques KERCHOM;Domanier;1657;23/02/1727;;pen ar prat, Plomeur;;;un possible frere nï¿½ en 1677 ï¿½ Loctudy | deces Tï¿½moins : Le Pape Hervï¿½ kerchrom Peronelle Jean et Jacques Ses Efts
+1651;G9;QQ;isabeau le BUANNIC;;27/02/1673;14/09/1701;Plomeur (Lesplomeur);Plomeur;;;Manoir de Pen a prat | Deces 7 jours apres la naissance d'une fille. | enfant de Jean et de Catherine LE FOUILLE
+1652;G9;QQ;henry CHALONY;;1655;26/06/1685;;Beuzec-Cap-Caval;30/06/1681;Beuzec-Cap-Caval;
+1653;G9;QQ;marie NAY;;;;;Beuzec-Cap-Caval;30/06/1681;Beuzec-Cap-Caval;
+1654;G9;QQ;herve le MAREC;;;;;;;;
+1655;G9;QQ;louise le PERENNOU;;;11/04/1693;;Saint-Jean-Trolimon;;;
+1656;G9;QQ;jean le GUIRRIEC;Laboureur de terre , menager;16/10/1685;23/01/1776;Plomeur;Plomeur;7/02/1725;Plomeur;
+1660;G9;QQ;jean POCHAT;Poissonnier;;;Treffiagat ou Saint-Jean-Trolimon;;27/11/1684;Plomeur;
+1661;G9;QQ;marie le LEC;Poissonniï¿½re;9/03/1670;02/12/1711;Plomeur (Kervennec);Treffiagat;27/11/1684;Plomeur;
+1662;G9;QQ;ambroise PICHON;;;21/01/1719;Plobannalec;Plobannalec;31/10/1692;;veuf, 45 ans en 1692
+1663;G9;QQ;catherine COURVEST;;;26/03/1716;Plounevezel;Plobannalec;31/10/1692;;35 ans en 1692 | Tï¿½moins : les sieurs et dame du Conquet le Veyer, la dame de querfantany (pour querfeuntenic) et plusieurs autres personnes / Deshayes recteur (s) | Notes : promesses en la paroisse de Plounevesel
+1664;G9;QP;daniel (dit le jeune) le PEMPE;;25/10/1625;25/12/1699;Combrit;Combrit;Marie avec Catherine TALOUARN;;Marie avant 1653 avec Marie GUEGUEN
+1665;G9;QP;catherine TALOUARN;;janvier 1649;6/09/1709;isle chevalier, combrit;Tromarzin, Combrit;;;
+1666;G9;QP;martin JEZEQUELOU;Matelot;12/02/1645;03/02/1730;Combrit;Combrit;;;
+1667;G9;QP;jeanne COCHOU;;24/03/1654;8/10/1701 ou  15/04/1700;Combrit;Combrit;;;
+1668;G9;QP;gregoire le PAPE;idem 1668;1643;25/02/1721;Lanvenael,Beuzec-Cap-Caval;Treganne,Beuzec-Cap-Caval;;;fils de Jean et de Jeanne Le Gauvec
+1669;G9;QP;urbanne le CLORENNEC;idem 1669;29/01/1646;29/02/1709;Ploneour;Ploneour;fille de Yves Clorennec et Jeanne Le Borgne;;
+1670;G9;QP;jacques KERCHOM;Domanier;1657;23/02/1727;;pen ar prat, Plomeur;;;deces Tï¿½moins : Le Pape Hervï¿½ kerchrom Peronelle Jean et Jacques Ses Efts
+1671;G9;QP;isabeau le BUANNIC;;27/02/1673;14/09/1701;Plomeur (Lesplomeur);Plomeur;;;Manoir de Pen a prat | Deces 7 jours apres la naissance d'une fille. | enfant de Jean et de Catherine LE FOUILLE
+1672;G9;QP;michel le CALVEZ;;1633;2/10/1707;;Keroulle, Loctudy;;;
+1673;G9;QP;jeanne ( anne ) GOUZIEN;;1638;13/03/1693;;Keroulle, Loctudy;;;
+1674;G9;QP;rene le MARECHAL;;;21/04/1695;;Plobannalec;vers 1668;;
+1675;G9;QP;marie anne KERNILIS;;1640;1er/02/1709;;Plobannalec;vers 1668;;
+1676;G9;QP;francois le FLOCH;;;22/12/1720;;Plobannalec;23/02/1688;Plobannalec;
+1677;G9;QP;anne DURAND;;14/09/1673;10/04/1725;Plobannalec;Plobannalec;23/02/1688;Plobannalec;
+1678;G9;QP;ambroise le COSSEC;;26/02/1680;23/03/1727;Plomeur;Plobannalec;10/01/1707;Plobannalec;
+1679;G9;QP;anne FOLGOAS;;1665;8/11/1725;Loctudy;Kerguen, Plobannalec;10/01/1707;Plobannalec;
+1696;G9;QP;michel DURAND;Domanier, Fabrique de l_eglise de Plomeur en 1714;1681;18/08/1723;Penmarch;Poulguen Bihan, Plomeur;18/02/1697;Penmarch;
+1697;G9;QP;anne LARNICOL;;1er/03/1683;12/09/1740;Plomeur;Poulguen Bihan, Plomeur;18/02/1697;Penmarch;
+1698;G9;QP;herve BARGAIN;;12/05/1687;23/01/1760;Plomeur;Plomeur;24/01/1707;Plomeur;
+1699;G9;QP;marie le BLEVEC;;;27/04/1716;Plomeur;Loctudy;24/01/1707;Plomeur;
+1700;G9;QP;sebastien le buannic ou BUANIC;Laboureur de terre;1661;8/08/1741;;Gouesnac_h, Plomeur;;;
+1701;G9;QP;marguerite STEPHAN;;1665;28/07/1735;;Gouesnac_h, Plomeur;;;
+1702;G9;QP;guillaume BIGER;Laboureur de terre, Domanier;03/11/1670;11/11/1724;Kerscaven, Plomeur;Kerscaven, Plomeur;18/02/1692;Plomeur;
+1703;G9;QP;louise GUESDON;;1660/1670;18/03/1709;;Kerscaven, Plomeur;18/02/1692;Plomeur;
+1704;G9;QP;pierre le CLEACH;;12/05/1676;15/02/1736;Plobannalec;Tronval, Plobannalec;23/02/1699;Plobannalec;
+1705;G9;QP;anne CARIOU;;26/10/1684;10/10/1739;Plobannalec;Plobannalec;23/02/1699;Plobannalec;
+1706;G9;QP;ambroise TANNEAU**;;1668;31/12/1735;Plomeur;Kervennec, Plomeur;27/08/1692;Plomeur;
+1707;G9;QP;marie COSQUER**;;1668;7/03/1736;Plomeur;Kervennec, Plomeur;27/08/1692;Plomeur;
+1708;G9;QP;noel TANNEAU;Laboureur , domanier;vers 1665;2/12/1712;Kerdidel - Plomeur;Plomeur (Inhume - Pluguffan);Marie vers 1688;;
+1709;G9;QP;catherine NEDELEC;;29/09/1678;1er/10/1756;Keregar - Plomeur;Plomeur;Marie vers 1688;;
+1710;G9;QP;joseph KERCHROM;Domanier;vers 1687;16/02/1757;;Lesplomeur, Plomeur;17/06/1711;Plomeur;
+1711;G9;QP;thumette le COSSEC;;fevrier 1695;26/04/1770;Plomeur;Lesplomeur, Plomeur;17/06/1711;Plomeur;
+1712;G9;QP;francois criquet dit RIQUIN;;1674;24/07/1724;eveche de Vannes;metairie de Kergoz;;;
+1713;G9;QP;anne istin JESTIN;;1681;19/10/1724;eveche du Leon;;;;
+1714;G9;QP;alain pierre taniou (TANNIOU);Matelot;19/04/1673;18/06/1707;Kergoz;Plomeur;;;
+1715;G9;QP;claudine FREOUR;;1682;14/10/1752;;bourgfur, Beuzec-Cap-Caval;;;
+1716;G9;QP;jean LHELGO;Poissonnier;1665;14/10/1720;Plomeur;Plomeur;6/11/1691;Ploare;
+1717;G9;QP;julienne BOUCICAUT;;30/03/1667;6/05/1733;Ploare;lieu-dit le Guilvinec;6/11/1691;Ploare;
+1718;G9;QP;luc le GUIRRIEC;Laboureur de terre, journalier, domanier;avant 1669;apres 1714;;;;;
+1719;G9;QP;marie GUIZIOU;;18/09/1669;27/04/1713;kersilan - Plomeur;poulguen - Plomeur;;;
+1720;G9;QP;nicolas tanniou ou DANIOU**;Poissonnier,  Fermier au manoir de Kergoz;1622;1er/11/1720;;Lohan Guilvinec;Marie entre 1669 et 1671;Plomeur;
+1721;G9;QP;marie le BARBIER**;;1640;7/01/1736;;Lohan Guilvinec;Marie entre 1669 et 1671;Plomeur;
+1722;G9;QP;jean BRIAND;;12/06/1664;;Ploare;Ploare;25/06/1692;Ploare;
+1723;G9;QP;leveneze briand ou BRIANT;;11/08/1667;;Ploare;;25/06/1692;Ploare;
+1724;G9;QP;guillaume le COMPES;;1644;23/08/1714;Treffiagat;Treffiagat;entre 1660 et 1673;;
+1725;G9;QP;catherine kermeur ou GUERMEUR;;1649;11/08/1724;;Treffiagat;entre 1660 et 1673;;
+1726;G9;QP;paschale le SANT;HH-Charpentier de mer;1639;2/03/1699;;Bourg de kerity;;;
+1727;G9;QP;jeanne NEDELEC;;1655;28/10/1715;;Penmarch;;;
+1736;G9;QP;le LAY;;;;;;;;
+1738;G9;QP;julien CARIOU;;;;;;;;
+1740;G9;QP;rene le BERRE;;1631;10/10/1699;Beuzec-Cap-Caval;Beuzec-Cap-Caval;1655;Beuzec-Cap-Caval;
+1741;G9;QP;jeanne le DIASCORN;;1620;21/06/1710;Beuzec-Cap-Caval;Beuzec-Cap-Caval;1655;Beuzec-Cap-Caval;
+1742;G9;QP;jean LUCAS;;avant 1645;avant 1725;Beuzec-Cap-Caval;Beuzec-Cap-Caval;1665;Beuzec-Cap-Caval;
+1743;G9;QP;jeanne DERRIEN;;apres 1640;22/01/1721;Beuzec-Cap-Caval;Lanvenaeln,Beuzec-Cap-Caval;1665;Beuzec-Cap-Caval;
+1770;G9;QP;jean, jan PAVEC;Laboureur;avant 1640;4/12/1704;;Manoir de Kerespert, Plobannalec;;;
+1771;G9;QP;anne le DIVELLEC;;avant 1650;21/11/1707;Plobannalec;Treffiagat;;;
+1772;G9;QP;ambroise TANNEAU**;;1664;1er/01/1736;Plomeur;Kervennec, Plomeur;27/08/1692;Plomeur;
+1773;G9;QP;marie COSQUER**;;1668;8/03/1736;Plomeur;Kervennec, Plomeur;27/08/1692;Plomeur;
+1774;G9;QP;tanguy le CLEACH**;;1652;13/01/1677;;Plobannalec;;;
+1775;G9;QP;jeanne le BEC;;;;;;;;
+1776;G9;QP;michel GARIN;Journalier, pauvre;5/01/1644;23/06/1707;Ploneour;Ploneour;Marie vers 1678;;
+1777;G9;QP;anne SIMON;;12/02/1659;5/08/1723;Ploneour;Combrit;Marie vers 1678;;
+1778;G9;QP;paul le LEC;;vers 1663;21/10/1713;Plomeur;Lambourg;7/02/1695;Lambourg120;
+1779;G9;QP;jeanne GALUDEN;;30/08/1671;4/01/1742;Lambourg;Lambourg;7/02/1695;Lambourg120;
+1780;G9;QP;jacques RIOU;;vers 1650;vers 1702;Combrit;;;;
+1781;G9;QP;jeanne LOURS;;11/08/1670;7/04/1733;Combrit;Combrit;;;
+1782;G9;QP;martin le POCHAT;;;;;;;;
+1783;G9;QP;marie JEZEQUELOU;;;;;;;;
+1784;G9;QP;corentin le CLORENNEC;;6/10/1658;11/08/1716;Ploneour (Kerambludou);Kerguillec, Tremeoc;;aï¿½ge de 65 ans;
+1785;G9;QP;marie saint AVE;;28/02/1662;;Tremeoc;Kerguillec, Tremeoc;;;
+1786;G9;QP;jean BALOUIN;;10/11/1678;27/03/1743;Peumerit;Peumerit;;;
+1787;G9;QP;vincente le DIASCORNE;;1659;14/05/1735;Peumerit;Peumerit;;;
+1788;G9;QP;jacques le QUILLIEC;;8/04/1640;26/01/1702;Combrit;Combrit;vers 1679;;
+1789;G9;QP;anne LOURS;;16/02/1657;6/01/1711;Combrit;Combrit;;;
+1790;G9;QP;yves BIDON;Procureur terrien, menager, locataire;1652;12/09/1712;;Kerdeoc, Tremeoc;;;
+1791;G9;QP;marie  tiffiou ou DIFFIOU;;17/06/1666;16/12/1702;Peumerit;Froutguen, combrit;;;
+1792;G9;PP;pierre le PAJOLEC;;avant 1635;8/02/1660;Sulniac;Sulniac;;;
+1793;G9;PP;guillemette MAHEO;;19/11/1630;;Larre, Morbihan;;;;
+1796;G9;PP;louis LARGEMENT;;;;;;;;
+1797;G9;PP;marguerite le BELLEGUIC;;;;;;;;
+1800;G9;PP;bertrand arz 1655-1709;;;;;;;;
+1801;G9;PP;julienne mahe 1654;;;;;;;;
+1802;G9;PP;yves le turionner 1658-1719;;;;;;;;
+1803;G9;PP;gabrielle SURZUR;;;;;;;;
+1804;G9;PP;julien HAZO;;29/04/1643;26/11/1709;Noyal-Muzillac;Noyal-Muzillac;;;Archives en ligne naissance de son fils indï¿½chiffrable | https://gw.geneanet.org/jfuzeau?lang=fr&pz=noemie+olivia+nathalie+stephanie&nz=fuzeau&p=julien&n=hazo
+1805;G9;PP;janne mouessart 1636-1710;;;;;;;;
+1806;G9;PP;jean rolland 1643-1704;;;;;;;;
+1807;G9;PP;louise le chastelier 1647-1707;;;;;;;;
+1920;G9;PM;louis le MANCHEC;Laboureur de terre;26/01/1673;11/06/1740;Melgven;Elliant;6/02/1699;Saint-Yvi;
+1921;G9;PM;anne le GAC;;4/07/1681;31/03/1716;Squibarmeur - Saint-Yvi;Elliant;6/02/1699;Saint-Yvi;
+1922;G9;PM;antoine LAOUENAN;;15/02/1677;24/04/1719;Elliant;Elliant;9/05/1703;Elliant;
+1923;G9;PM;jeanne le MASSON;;5/03/1687;9/02/1722;Elliant;Elliant;9/05/1703;Elliant;
+1928;G9;PM;alain le MEVELLEC;;1660;01/01/1730;Guellevain;Guellevain;21/07/1701;Guellevain;
+1929;G9;PM;izabelle le TARIDEC;;04/03/1680;10/06/1711;Tregourez(Kerdineret);Guellevain;21/07/1701;Guellevain;Fille de Louis LE TARIDEC et Marie LE GARS
+1930;G9;PM;;;;;;;;;
+1931;G9;PM;;;;;;;;;
+1932;G9;PM;yves le MOAL;;13/10/1675;28/03/1720;Elliant;Elliant;14/02/1692;Elliant;Fils de Henri LE MOAL et Anne JOUGENAY OU JAN
+1933;G9;PM;catherine SANCEAU;;20/01/1673;26/08/1747;Elliant;Elliant;14/02/1692;Elliant;Fille de Louis SANCEAU et Marie KERAUDREN
+1934;G9;PM;pierre CONAN;;;29/06/1740;Elliant;Elliant;22/02/1715;Elliant;Fils de Alain CONAN et Marie ISCUFF
+1935;G9;PM;marie COSTIOU;;12/02/1687;;Elliant;Elliant;22/02/1715;Elliant;Fille de Yves COSTIOU et Marie LE ROY
+1936;G9;PM;jean TROALEN;;;20/02/1718;;Elliant;;;
+1937;G9;PM;isabelle KERVRAN;;;apres 1722;;;;;
+1938;G9;PM;alain guinard ca 1668-1720;;;;;;;;
+1939;G9;PM;catherine kerveant 1675-;;;;;;;;
+1940;G9;PM;jean le ROY;Tailleur D'Habits;;;Elliant;;29/10/1697 - Elliant;M-1697-2904900-61250-00663;
+1941;G9;PM;jeanne le ROY;;10/04/1666;29/08/1715;Elliant;Elliant (Villeneuve Cotten);29/10/1697 - Elliant;M-1697-2904900-61250-00663;Notes ï¿½pouse : Veuve / comme ledit mariage est avantageux ï¿½ ladite le roy et ï¿½ l'enfant de son 1er mariage pour vivre honnï¿½tement, vu que ledit le roy est un bon ouvrier et tailleur d'habits... + dispense du 1/3 et du 1/4ï¿½ de consanguinitï¿½ et d'affinitï¿½, etant pauvres paysans ils n'ont pas le moyen de recourir ï¿½ Rome... / 2 paires de bannies / | 1er mariage - 15/09/1681 - Elliant avec  JANNES Louis de Elliant,fils de Louis, dï¿½cï¿½dï¿½ et de Catherine CAVELLAT, dï¿½cï¿½dï¿½e. | Parrain : Cotten Alain,Marraine : Kerveant Jeanne | Identifiant CGF de l'acte : N-1666-2904900-51078-03289
+1942;G9;PM;yves CREOFF;Menager;22/08/1672;11/03/1706;Elliant (Keraden);Elliant (Kerguinou);28/08/1697 - Elliant;;
+1943;G9;PM;isabelle le BERRE;;;27/02/1731;;Elliant;28/08/1697 - Elliant;;
+1944;G9;PM;HUITRIC;;;;;;;;
+1945;G9;PM;;;;;;;;;
+1946;G9;PM;DEVAL/DENVAL;;;;;;;;
+1947;G9;PM;;;;;;;;;
+1948;G9;PM;guillaume CREDOU;;;11/03/1721;Ergue-Gaberic;Ergue-Gaberic;18/07/1689 - Ergue-Gaberic;;
+1949;G9;PM;marie LOZEACH;;1671;26/01/1716;Ergue-Gaberic;Ergue-Gaberic(Treolan);18/07/1689 - Ergue-Gaberic;mineure;temoins deces Temoins : Conan Laurent, Lozach Pierre, Cast Herve, Colliou Guillaume
+1950;G9;PM;urbain le BARVEC;;avant 1674;21/06/1709;Ergue-Gaberic;Ergue-Gaberic;7/02/1695;Ergue-Gaberic;2nd noces en 1900 avec LE CALLOCH Catherine
+1951;G9;PM;marie le DEUVRY/DEFFURY;Menager,;avant 1677;03/09/1699;Ergue-Gaberic;Niverot - Ergue-Gaberic;7/02/1695;Ergue-Gaberic;
+1956;G9;PM;thomas MAHE;;;06/08/1724;;coray;;;
+1957;G9;PM;marguerite le COATERO;;;26/03/1723;;coray;;;
+1958;G9;PM;MOREL;;;;;;;;
+1960;G9;PM;jean PICOU;;1681;;Coray;;20/10/1704;Coray;fils de Louis, prï¿½sent et de Catherine LE GUERN, prï¿½sente
+1961;G9;PM;jeanne MAHE;;1682;;;;20/10/1704;Coray;fille de Thomas, prï¿½sent et de Marguerite LE COATDERO
+1964;G9;PM;francois poupon (LE);;26/09/1663;26/05/1729;Coray;Coray (TY-OURTEZ);3/10/1686, Coray;Parents:Robert POUPON (LE) ca 1629-1689 et Francoise DAVID;
+1965;G9;PM;catherine maguet (LE);;24/04/1661;12/04/1728;Coray(KERGUEREZ);Coray(TY-OURTEZ);16/07/1676, Coray;Parents:Olivier MAGUET (LE) ca 1635-1679 et Isabelle DU (LE) ca 1636-1703;http://gw.geneanet.org/pvdm?lang=fr&p=catherine&n=maguet+le&oc=1
+1966;G9;PM;andre le GUILLOU;;7/10/1658;28/10/1706;Laz(MERDY);Coray;28/09/1684, Coray;Marc GUILLOU (LE) ca 1636-1671 et Catherine FERELLEC (LE) 1634-1700;
+1967;G9;PM;marguerite le FLEUTER;;1667;25/04/1732;;Coray(ROZMEUR);8/09/1684, Coray;;
+1968;G9;PM;andre rene MEVELLEC;;5/02/1661;26/09/1736;Saint-Thois;Kermadec - Tregourez;27/07/1687;Laz;
+1969;G9;PM;marguerite CADOUDAL;;14/11/1655;13/01/1728;Laz;Tregourez;27/07/1687;Laz;
+1970;G9;PM;pierre le GUIADER;;;;Edern;;08/06/1680 - Tregourez;;
+1971;G9;PM;constance le TAXIN;;;;Tregourez;;08/06/1680 - Tregourez;fille de Prigent et de Catherine BOURHIS, decedee;
+1972;G9;PM;corentin le GARS;Menager;avant 1680;;;;;;fils de
+1973;G9;PM;marie jeanne PENGALET;;;17/06/1729;;Briec (Kerspernen);;;remarie avec Jean BRIAND
+1974;G9;PM;;;;;;;;;
+1975;G9;PM;;;;;;;;;
+1976;G9;PM;henry le CORRE;;;;;;;;
+1977;G9;PM;marie le BRAS;;;;;;;;
+1978;G9;PM;guillaume LOUCHOUARN;;25/07/1690;avant 1733;Coray;;15/10/1713;Coray;
+1979;G9;PM;jeanne AUFFRET;;17/12/1691;apres 1733;Coray;;15/10/1713;Coray;Louis et de Marie MERIEN | guil. Auffret, messire Fs Merrien oncle de jeanne auffret
+1980;G9;PM;louis LOUSSOUARN/LOCHOUARN;;21/02/1698;;Coray;;12/02/1720 - Coray;;Guillaume et de Marguerite LE MAGUET
+1981;G9;PM;marie le kernevez / GUERNEVEZ;;06/04/1700;04/12/1732;Coray;Coray (Kerescant);12/02/1720 - Coray;;Mï¿½re : Anne BARRE
+1982;G9;PM;guillaume BARRE;;;27/04/1734;;Coray (Roslosquet);;;
+1983;G9;PM;franï¿½oise le FLOCHLAY;;15/06/1682;18/05/1747;Coray;Coray (Roslesquet);;;Augustin et de Franï¿½oise LE COURANT | Temoins D: Yves , Renee Et Appoline Barre , Ses Enfants | https://gw.geneanet.org/loicleroy?n=flochlay&oc=&p=francoise
+1984;G9;PM;;;;;;;;;rien trouve geneante ou recif
+1985;G9;PM;;;;;;;;;rien trouve geneante ou recif
+1986;G9;PM;;;;;;;;;rien trouve geneante ou recif
+1987;G9;PM;;;;;;;;;rien trouve geneante ou recif
+1988;G9;PM;;;;;;;;;rien trouve geneante ou recif
+1989;G9;PM;;;;;;;;;rien trouve geneante ou recif
+1990;G9;PM;;;;;;;;;rien trouve geneante ou recif
+1991;G9;PM;;;;;;;;;rien trouve geneante ou recif
+1992;G9;PM;christophe le DROULAET;;19/08/1671;;Melgven;;22/02/1696 - Beuzec-Conq;;Charles et de Franï¿½oise LE BRETON
+1993;G9;PM;marie STAGUER;;;;;;22/02/1696 - Beuzec-Conq;;peu-etre enfant de Jacob et de Isabelle TREFLES | nee le 04/04/1671 - Melgven
+1994;G9;PM;yvon ROCAN;;;;;;;;ien trouve geneante ou recif
+1995;G9;PM;marie BERNARD;;;;;;;;rien trouve geneante ou recif
+1996;G9;PM;guenole MERIEN;;;26 janvier 1736;Ergue-Gaberic;Ergue-Gaberic;02/08/1694;Ergue-Gaberic;mineur a son mariage
+1997;G9;PM;marie HASCOET;;1671;8 mars 1718;Ergue Armel;Botzuzic Ergue-Gaberic;02/08/1694;Ergue-Gaberic;mineur a son mariage
+1998;G9;PM;jean le POUPON;;;;;;;;
+1999;G9;PM;franï¿½oise le GONIDEC;;02/04/1687;19/11/1718;Tourch;Tourch;;;Tï¿½moins deces: Corneille Gonidec , son frï¿½re , Etienne le Gonidec , son pï¿½re
+2000;G9;PM;jean COLAS;;;;;;30/10/1669 - Cadol;;fils de Augustin, prï¿½sent | Domicile Manoir De Coat Aven Melgven
+2001;G9;PM;catherine TREFFLEZ;;13/01/1641 ou  13/03/1644;02/09/1690;Cadol;Cadol(St Eloy);30/10/1669 - Cadol;;Domiciliï¿½e ï¿½ Pennanfeunteun | fille de Hierome | enfant de Jï¿½rome et de Catherine TUDAL
+2002;G9;PM;pierre BACON;;30/04/1661;;Melgven;;19/07/1692;Melgven;
+2003;G9;PM;marie le GUISQUET;;;;;;19/07/1692;Melgven;
+2004;G9;PM;pierre CARDUNER;;;;;;;;
+2005;G9;PM;;;;;;;;;
+2006;G9;PM;pierre le BULS;;04/09/1659;;Rosporden;;27/08/1691;(Penhoat Cadol) Melgven;Fils de Jean BULS ( LE ) et Marie MAURICE
+2007;G9;PM;marie MARTIN;;Vers 1669;;Locmaria an Hent;;27/08/1691;(Penhoat Cadol) Melgven;
+2008;G9;PM;jan GRATIEN;;21/02/1733;;Tregunc;Tregunc,Keranmarch;09/10/1715 - Tregunc;fils de Estienne, decede et de Isabelle LE GAC, decedee;
+2009;G9;PM;jeanne le BOURHIS;;;15/01/1743;Tregunc;Tregunc(Kergleuhan);09/10/1715 - Tregunc;fille de Yves, decede et de Marie MABIL;
+2010;G9;PM;jan le BOURHIS;;;;Nevez;;19/02/1716 - Tregunc;fils de Yves, present et de Corentine DAGORN, decedee;
+2011;G9;PM;marie JAOENNE-JAOUEN;;;;Tregunc;;19/02/1716 - Tregunc;Domiciliee aï¿½ Trevignon-fille de Yves et de Louise LE PELETER;
+2012;G9;PM;;;;;;;;;
+2013;G9;PM;;;;;;;;;
+2014;G9;PM;;;;;;;;;
+2015;G9;PM;;;;;;;;;
+2016;G9;PM;allain NEDELEC;;?/?/1668;;Chateauneuf-du-Faou;;;;
+2017;G9;PM;janne le TOMEV;;;;;;;;
+2018;G9;PM;charles GUILLOU;;;avant elle;;;06/01/1690 - Chateauneuf-du-Faou(bans);;
+2019;G9;PM;francoise LIDOUREN;;vers 1670;30/06/1744;;Le Moustoir (Voaquer);06/01/1690 - Chateauneuf-du-Faou(bans);;70 ans
+2020;G9;PM;francois GUILLOU;;vers 1664;18/02/1719;;Chateauneuf-du-Faou (Kerysaouen);30/08/1694, Chateneuf-du-Faou;;
+2021;G9;PM;marie RIOU;;02/04/1679;20/06/1711;Chateauneuf du Faou (Vieux Marche);Chateauneuf du Faou(Kerisaouen Bian);30/08/1694, Chateneuf-du-Faou;;fille de Riou Jan et Roux Isabelle
+2022;G9;PM;herve PARIS;;;;Lennon;;12/01/1711;Lennon;fils Alain et de Marguerite HAOUEL
+2023;G9;PM;louise marsin ou MARZIN;;09/06/1689;01/02/1735;Chateauneuf-du-Faou;Chateauneuf-du-Faou,Poulei;12/01/1711;Lennon;fille de Franï¿½ois, dï¿½cï¿½dï¿½ et de Marie KERUZAOUEN
+2024;G9;PM;christophe GUEGUEN;Menager,boulanger,marï¿½chal ferrand;;;;;;;
+2025;G9;PM;jeanne MADIEC;Boulangï¿½re;;;;;;;
+2029;G9;PM;francoise BELLIVET;Menagere;;02/01/1712;;Le Quilliou (Bourg);;;Temoins Deces: Son Veuf ...
+2030;G9;PM;jacques RIOU;;;avant 1735;;;10/02/1687 - Chateauneuf-du-Faou;;
+2031;G9;PM;janne RIOU;;;;;;10/02/1687 - Chateauneuf-du-Faou;fille de Jean;
+2040;G9;PM;jan BRIEC;metayer de crech an du;;;;;07/02/1677;Locamand;Mariage bï¿½ni par messire martin le guiader qui signe
+2041;G9;PM;mauricette FURIC;;07/08/1650;24/10/1711;La Forï¿½t-Fouesnant;La Forï¿½t-Fouesnant,Ponterec;07/02/1677;Locamand;fille de Louis et de Jeanne LOZEACH | Parrain : N H Le Veyer Renï¿½ Sieur de l'Espine(signe VAYER),Marraine : Quelen Mauricette(s) fille aisnï¿½e d'Escuyer Quellen Yves Conseiller du roy & son sï¿½nï¿½chal en la juridiction de Conq
+2042;G9;PM;alain BERTHOLOME;;;;;;29/07/1693;Clohars-Fouesnant;
+2043;G9;PM;catherine TOULERASTEL;;;;;;29/07/1693;Clohars-Fouesnant;fille de Alain, dï¿½cï¿½dï¿½ et de Anne LE LEURE
+2044;G9;PM;jean DAGORN;;;avant 1725;;;;;
+2045;G9;PM;franï¿½oise ANSQUER;;;;;;;;
+2046;G9;PM;yves JAHOUEN;;;;;;19/10/1707;Saint-Evarzec;
+2047;G9;PM;renee le GAL;;17/03/1681;;Saint-Evarzec;;19/10/1707;Saint-Evarzec;ille de Jacob, Laboureur et de Jeanne LE COZ
+2048;G10;TT;francois TANGUY;;26/05/1609;1er/07/1676;Landivisiau;Guiclan;11/02/1673;Saint-Thegonnec;Mentions marginales : Curï¿½ : PLASSART Jacques, Ch : Ste Brigite | temoons mariage TANGUY Jacques, TANGUY Renï¿½, POULIQUEN Franï¿½ois, GUIOT Hervï¿½, GUIOT Olivier
+2049;G10;TT;anne GUIOT;;;19/03/1684;;Saint-Thegonnec(Herlan);11/02/1673;Saint-Thegonnec;
+2050;G10;TT;pierre ROLLAND;;;;;;;;
+2051;G10;TT;marguerite COAT;;;;;;;;
+2052;G10;TT;francois CASTEL;;;;;;;;
+2053;G10;TT;marie LEDAN;;;;;;;;
+2054;G10;TT;maurice ABGRALL;;;;;;;;
+2055;G10;TT;catherine MAHE;;;;;;;;
+2056;G10;TT;bernard MADEC;;18/08/1623;18/01/1680;Morlaix;Morlaix;avant 1668;;3 filles et un garcon tous nï¿½s ï¿½ st martin
+2057;G10;TT;franï¿½oise caro ou CAROFF;;avant le 11/1700;15/09/1706;;St-Martin Morlaix;;;
+2058;G10;TT;herve RIOUAL;;;;;;;;
+2059;G10;TT;franï¿½oise MADEC;;;;;;;;
+2068;G10;TT;jean CHARLES;;;;;;;;
+2069;G10;TT;marie l' ESPAIGNOL;;;;;;;;
+2070;G10;TT;GUEGUEN;;;;;;;;
+2072;G10;TT;maurice ALLAIN;Laboureur de terre;;15/09/1681;;Morlaix - Saint-Martin (Keriven);;;inhumï¿½ dans l'ï¿½glise
+2073;G10;TT;janne le MINGAM;;;09/01/1685;;Morlaix - Saint-Martin (Keriven);;;a eux des jumeaux | ï¿½gï¿½ de 70 ans inhumï¿½e dans l'ï¿½glise
+2096;G10;TT;nicolas GAUTIER;;;;;;;;
+2097;G10;TT;janne le FEREC;;;;;;;;
+2098;G10;TT;ludovicus/louis GEFFROY;;;26/09/1677;;Saint-Jean-du-Doigt (Kervron);11/11/1647;Plougasnou;+ 56 ans Tï¿½moins : Jacques et Guillaume GEFFROY ses enfants, Jan MILON son gendre
+2099;G10;TT;marie DEUFF;;23/10/1616;30/11/1674;Plougasnou;Saint-Jean-du-Doigt (Kervron);11/11/1647;Plougasnou;+60 ans | enfant de Pierre et de Marie CAZOULAT
+2120;G10;TT;claude MINGAM;;;;;;;;
+2121;G10;TT;marie MER;;;;;;;;
+2122;G10;TT;yves COUIL;;;entre 1699 et 1702;Pleyber-Christ;;;;
+2123;G10;TT;marie PICART;;;;;;;;
+2170;G10;TT;bizien HILY;;;;;;;;
+2171;G10;TT;francoise L'ERROU;;27/11/1655;;Taule;;;;fille de Franï¿½ois et de Janne BODENAN
+2176;G10;TT;francois SALUDEN;;;24/07/1668;;Plouvorn (Canton De Kerdrein);;;
+2177;G10;TT;francoise BELEC;;;19/07/1673;;Plouvorn (Kerdrein);;;
+2178;G10;TT;jan MORVAN;;;30/05/1670;;Plouvorn (Kerivoas);;;
+2179;G10;TT;marie CLOAREC;;;17/10/1670;;Plouvorn (Kerivoas);;;
+2200;G10;TT;paol SPAGNOL;;27/10/1597;09/04/1656;Saint-martin;Saint-martin;5/2/1692;Morlaix-Saint-Martin;
+2201;G10;TT;joanna ruz ou an DERU;;04/06/1599;;Saint-martin;Saint-martin;5/2/1692;Morlaix-Saint-Martin;Fille de Heguinius et de catherine Kerguellec
+2210;G9;TT;jean SPAGNOL;;;;;;24/11/1660;Saint-Pol-de-Leon;
+2211;G9;TT;marie POUBENNEC;;;;;;24/11/1660;Saint-Pol-de-Leon;
+2212;G9;TT;gilles le ROUX;;;;;;;;
+2213;G9;TT;anne PENVEN;;;;;;;;
+2214;G9;TT;alain KERRIEN;;;;;;;;
+2215;G9;TT;gilette BORODOU;;;;;;;;
+2220;G10;TT;philippe BESCOND;;;;;;;;
+2221;G10;TT;catherine REDOU;;;;;;;;
+2223;G10;TT;yvon MICHEL;;;;;;;;
+2224;G10;TT;janne CLECH;;;;;;;;
+2384;G10;TL;jean COATELOT;;;;;;;;
+2385;G10;TL;franï¿½oise le POCHAT;;;;;;;;
+2386;G10;TL;yves BOURGUILLAUT/BOURGUILLON;;;04/04/1705;Le Faouet(56);Quimperle - Saint-Colomban;10/01/1666 - Quimperle - Saint-Colomban;;+ï¿½gï¿½ de 60 ans
+2387;G10;TL;adelice/eliette BONIC;;22/03/1649;;Quimperle St Colomban;;10/01/1666 - Quimperle - Saint-Colomban;;fille de Jan et de Marie LE TREVOU | Parrain : LE TREVOU Mathieu Messire Prï¿½tre
+2388;G10;TL;jan JAMBOU;;;;;18/09/1690 - Riec-sur-Belon;;;fils de Guillaume
+2389;G10;TL;jeanne LALESON;;;26/04/1697;;Riec-sur-Belon(Kerauret);18/09/1690 - Riec-sur-Belon;;fille de Louis et de Louise EVEN
+2464;G10;TL;yves RIVOAL;;;03/07/1695;;TREBRIVAN (La Boissiï¿½re);;;
+2465;G10;TL;marguerite LALAURET;;;02/04/1720;;La Boissiï¿½re Banal - Trebrivan;;;
+2466;G10;TL;franï¿½ois le REST;;;;;;;;info geneanet
+2467;G10;TL;anne TILLY;;;;;;;info geneanet;
+2468;G10;TL;sebastien THOMAS;;;08/11/1689;;Carhaix, Saint-Tremeur;avant 1655;;08/11/1689 - Carhaix - Saint-Trï¿½meur | deces environ 64 ans
+2469;G10;TL;louise le DAIN;H.F.;;22/03/1699;;Penanvoas,Plouguer;;;Notes : H:f, le conjoint ï¿½tait mï¿½nager // ladite dï¿½funte grande aumonniere des pauvres
+2470;G10;TL;guillaume QUEMENER;;;;;;;;
+2471;G10;TL;perinne le BORGNE;;;;;;;;
+2472;G10;TL;;;;;;;;;
+2473;G10;TL;;;;;;;;;
+2474;G10;TL;louis COUTELLER;27/09/1733;;Kergaravat,Motreff;;;;;
+2475;G10;TL;renee GUIOMARCH;;;;;;;;
+2476;G10;TL;henri GUELHEN;;;;Motreff;;21/11/1701;Motreff;fils de Pierre
+2477;G10;TL;louise le MICHEN;;;;;;21/11/1701;Motreff;fille de Catherine HAMON
+2560;G10;LL;jan (sosa2936) LEAUTE;Laboureur, Boulanger;11/03/1633;20/10/1670;Mur-de-Bretagne;Kerhotaise, Mur de Bretagne;24/11/1649;Mur de Bretagne;
+2561;G10;LL;anne ROBIC;;5/01/1624;29/01/1686;Mur-de-Bretagne;Kerhotaise, Mur de Bretagne;24/11/1649;Mur de Bretagne;
+2564;G10;LL;guillaume CHAMOUFLET;;30/03/1617;;Saint-Guen;;03/09/1648;Saint-Guen;enfant de CHAMOUFLET Jean / (le Jeune) et de OLLIVIER Pï¿½rine
+2565;G10;LL;marguerite HERVO;;;;Saint-Guen;;03/09/1648;Saint-Guen;
+2566;G10;LL;olivier BILLON;;;;Saint-Guen;;01/02/1646;Saint-Guen;saint-guen
+2567;G10;LL;louise brigant (LE);;;;Saint-Connec;;01/02/1646;Saint-Guen;saint-guen
+2590;G10;LL;;;;;;;;;
+2591;G10;LL;;;;;;;;;
+2704;G10;LL;guillaume le COCQ;;;06/03/1656;Mur-de-Bretagne;Mur-de-Bretagne;28/05/1618;Mur-de-Bretagne;
+2705;G10;LL;franï¿½oise PENSEVY;;16/04/1606;;Mur-de-Bretagne;Mur-de-Bretagne;28/05/1618;Mur-de-Bretagne;
+2744;G10;LL;charles RUBAN;;;23/10/1720;;Mangour, Cleguerec;;;
+2745;G10;LL;louise le MOIGN;;;;;;;;
+2746;G10;LL;louis RAFFLE;;;;;;;;
+2747;G10;LL;guillemette le GUELLANF;;;;;;;;
+2876;G10;LL;alain VIDELO;;1643;12/09/1711;Guerledan, Saint-Aignan;;;;
+2936;G10;LP;jan LEAUTE;Laboureur, Boulanger;11/03/1633;20/10/1670;Mur-de-Bretagne;Kerhotaise, Mur de Bretagne;24/11/1649;Mur de Bretagne;
+2937;G10;LP;anne ROBIC;sosa2561;5/01/1624;29/01/1686;Mur-de-Bretagne;Kerhotaise, Mur de Bretagne;24/11/1649;Mur de Bretagne;
+3064;G10;LP;jan COJAN;;;;;;;;
+3065;G10;LP;suzanne le BRAS;;;;;;;;
+3072;G10;QQ;michel le QUILLEC;;01/07/1611;01/04/1653;Combrit;Combrit;;;
+3073;G10;QQ;helene BENEAT;;03/12/1609;;Combrit;Combrit;;soeur :Beneat Catherine;
+3074;G10;QQ;franï¿½ois L'OURZ;;20/08/1628;24/02/1682;Combrit;Combrit (Quelen);;;53 ans | enfant de Yvon et de Janne GUIVARCH
+3075;G10;QQ;catherine DAOUFARZ;;;30/09/1689;;Combrit (Quelen);;;ï¿½ge de 65 ans
+3076;G10;QQ;guyon le GUERNIC;;3/06/1602;16/08/1661;Combrit;Combrit;;;
+3077;G10;QQ;jeanne CARIOU;;22/02/1626;9/04/1690;Combrit;Combrit;;;
+3078;G10;QQ;joseph FLATRES;;25/07/1645;12/01/1671;Combrit;Keradily, Combrit;;;
+3079;G10;QQ;francoise AUBIN;;1640;apres 1678;Combrit;Combrit;;;
+3088;G10;QQ;yves le BRETON;;avant 1615;avant 1655;Lambourg;combrit;;;
+3089;G10;QQ;catherine BERREHOUC;;4/03/1603;avant 1638;combrit;Lambourg;;;Mariï¿½e en 1629, Pays Bigouden (29), France, avec Guillaume LE PEMP | https://gw.geneanet.org/odjibway?lang=fr&pz=alan&nz=layec&p=catherine&n=berehouc
+3090;G10;QQ;francois-jean DAOULAS;;02/04/1615;11/04/1676;Lambourg;Sainte-Marine;;;Pierre DOULLAS et de Constance BRAS
+3091;G10;QQ;marie GUEGUEN;;30/04/1616;;Combrit;;;;peu-etre enfant de Yvon et de Marie PERRIN
+3092;G10;QQ;jean KERBINIBIN;;1615;1671;;;;;
+3093;G10;QQ;marie le DIASCORN;;1600;1650;;;;;
+3094;G10;QQ;jean, jan LOLLICHON;;1595;25/07/1679;;Pen-ar-prat, Loctudy;;;
+3095;G10;QQ;jeanne, marie-jeanne LAHUEC;;1595;16/12/1671;Loctudy;;;;
+3100;G10;QQ;yves JAVRY;;;13/11/1682;;Bodivit;;;
+3101;G10;QQ;barbe le COLIN;;31/05/1628;6/06/1666;Bodivit;Bodivit;;;
+3102;G10;QQ;mathias le BARAER;;;;;;;;
+3102;G10;QQ;marie JAVRY;;;;;;;;
+3130;G10;QQ;;;;;;;;;
+3172;G10;QQ;yvon le LOCH;;1638;28/07/1713;Beuzec-Cap-Caval;Kerbascol, Beuzec-Cap-Caval;;;
+3173;G10;QQ;jeanne le GUEVEL;;1641;13/12/1701;Beuzec-Cap-Caval;Kerbascol, Beuzec-Cap-Caval;;;
+3182;G10;QQ;roch BILLY;;1623;4/03/1712;;Beuzec-Cap-Caval;;;
+3183;G10;QQ;renee NEDELEC;;avant 1641;20/03/1705;;Beuzec-Cap-Caval;;;
+3184;G10;QQ;renï¿½ le GUICHAOUA;;1638;21/12/1704;;St-Jean-Trolimon;;;
+3185;G10;QQ;anne COLIN;;30/01/1632;;Trï¿½guennec;;;fille de Jacques et de Hï¿½lï¿½ne CHRISTIEN;N-1632-2929200-50210-00223
+3186;G10;QQ;jean le BRUN;;avant 1640;6/02/1671;;Keriellec, Treguennec;;;
+3187;G10;QQ;marie le BERRE;;avant 1644;apres 1666;;;;;
+3188;G10;QQ;yves le GOYAT;;avant 1636;;;;;;
+3189;G10;QQ;barbe MORVAN;;1631;14/05/1686;;Ploneour;;;
+3190;G10;QQ;noel le FAOU;;1634;10/04/1684;;Ploneour;avant 1650;;
+3191;G10;QQ;catherine GOURLAOUEN;;1622;26/08/1692;;Ploneour;avant 1650;;
+3192;G10;QQ;peron le BORGNE;;18/06/1618;15/03/1661;Treguennec;Kermabec, Treguennec;avant 1641;;Parrain : TREFFRY Pierre et Marraine : COCHON Marie
+3193;G10;QQ;marguerite le lec ou LEHEC;;avant 1626;29/01/1677;;Kermabec, Treguennec;avant 1641;;
+3194;G10;QQ;gregoire GOURRET;;21/09/1609;12/09/1651;Plozevet;Plozevet;;;
+3195;G10;QQ;marguerite MARZIN;;30/09/1610;1/12/1654;Plozevet;Plozevet;;;
+3200;G10;QQ;alain le vieil COIC;;9/09/1613;12/01/1686;Treguennec;Kergadaouen, Treguennec;;;
+3201;G10;QQ;jeanne LOUSSOUARN;;1620;11/02/1677;;Treguennec;;;
+3202;G10;QQ;le HENAFF;;;;;;;;un temoin petit enfant Le HENAFF Renï¿½. de Peumerit | un fils Pierre
+3203;G10;QQ;;;;;;;;;
+3204;G10;QQ;gregoire le PAPE;Menager;1643;25/02/1721;Beuzec-Cap-Caval;Beuzec-Cap-Caval;23/11/1659;Ploneour;Succession sous la cote 30 C 1/32 (AD29, contrï¿½le des actes de Pont-l'Abbï¿½) | Contrat de mariage passï¿½ le 23 octobre (AD29, 6 J 177 [fonds Le Hars]) | famille : gregoire, guillaume,paul et mathias oncles Marguerite
+3205;G10;QQ;marie urbanne le CLORENNEC;;;;;;;;Parents : sosa Yves LE CLORENNEC 1620-1670 & sosa Jeanne LE BORGNE ca 1625-ca 1655
+3206;G10;QQ;yvon le vieil le BORGNE;;13/03/1641;14/02/1707;Treguennec;Kermabec, Treguennec;;;
+3207;G10;QQ;catherine le GOFF;;avant 1654;apres 1679;;;;;
+3208;G10;QQ;jean le GLOANEC;;6/05/1647;12/08/1682;Ploneour;Beuzec-Cap-Caval;29/01/1674;St Jean Trolimon;
+3209;G10;QQ;renee le DONGE;;1640;1er/02/1703;;Beuzec-Cap-Caval;29/01/1674;St Jean Trolimon;
+3210;G10;QQ;guillaume GOYAT;;;4/07/1713;;Ploneour;;;
+3211;G10;QQ;constance COIC;;1er/02/1655;14/02/1700;Ploneour;Ploneour;;;
+3228;G10;QQ;rene RONVARCH;;1651;1er/12/1711;;Kerzin, Beuzec-Cap-Caval;vers 1675;;
+3229;G10;QQ;constance RIOU;;1642;19/10/1712;;Kerzin, Beuzec-Cap-Caval;vers 1675;;
+3230;G10;QQ;jacques GOURMELEN;;;1706;Treguennec;Treguennec;vers 1665;;
+3231;G10;QQ;marie COIC;;1647;;;Treguennec;vers 1665;;
+3248;G10;QQ;yvon le BERRE;Laboureur de terre;;21/06/1710;;treogat;03/11/1670;Treogat;fils de Hervï¿½ et de Marie KERVAHU | du manoir de lesvenguy
+3249;G10;QQ;marie le ROY;;;17/11/1720;;Treogat, Lesmenguy;;;fille de Renï¿½, dï¿½cï¿½dï¿½ et de Catharine LOUSSOUARN | Notes ï¿½pouse : du village de lessaloux
+3290;G10;QQ;rene le BRUN;;1663;2/03/1735;Penmarch;Penmarch;;;
+3291;G10;QQ;marie RIOUAL;;1673;10/05/1745;Penmarch;Penmarch;;;
+3296;G10;QQ;jean le PAPE;ca 1620-ca 1670;;;;;;;fils de Yvon et de Louise Marchiou 6592-6593
+3297;G10;QQ;jeanne le GARREC;ca 1623-/1659;;;;;;;
+3298;G10;QP;yves CLORENNEC;;;;;;;;
+3299;G10;QP;jeanne le BORGNE;;;;;;;;
+3328;G10;QP;guillaume PEMPP;Laboureur;avant 1605;1637;;;;;
+3329;G10;QP;catherine BERREHOUC;;4/03/1603;1638;Combrit;;;;
+3330;G10;QP;tual (tugdual) TALOUARN;;17/06/1618;apres 8/06/1686;Combrit;;;;
+3331;G10;QP;etiennette le SIELLER;;17/12/1613;avant 1675;Combrit;Combrit;;;
+3332;G10;QP;martin JEZEQUELOU;;28/05/1613;14/02/1667;Combrit;Combrit;;;
+3333;G10;QP;marie le GUERNIC;;30/04/1605;04/12/1646;Combrit;Combrit;;;
+3334;G10;QP;noel COCHOU;;31/01/1625;19/03/1654;Combrit;Combrit;;;
+3335;G10;QP;marie DICQUELLOU;;06/10/1637;10/01/1670;Combrit;Combrit;;;
+3336;G10;QP;jean le PAPE;;;;;;;;
+3337;G10;QP;jeanne le GAUVEC;;1600;1650;;;;;
+3338;G10;QP;yves CLORENNEC;;;;;;;;
+3339;G10;QP;jeanne le BORGNE;;;;;;;;
+3340;G10;QP;herve KERHROM;;;;;;;;
+3341;G10;QP;guyone le FASCHEUX;;;;;;;;
+3342;G10;QP;jean le BUANNIC;Menuisier, Maitre charpentier;janvier 1644;19/12/1716;;Plobannalec;31 janvier 1663, Plomeur,;;fils de Olivier
+3343;G10;QP;catherine le FOUILLE;;1636;19/07/1713;Plomeur;Lesplomeur, plomeur;31 janvier 1663, Plomeur,;;fille de Alain KERFOUILLE et de Catherine Le pape
+3348;G10;QP;jean le MARECHAL;;;;;;;;
+3349;G10;QP;louise le BLEIS;;;;;;;;
+3354;G10;QP;pierre DURAND;;entre 1635 et 1640;17/04/1685;;Plobannalec;;;
+3355;G10;QP;etiennette le POBER;;entre 1635 et 1645;13/11/1703;;Penmarch;;;deces a 75 ans, Tï¿½moins : Riouall Renï¿½, Gouzien Pierre, Le Goascoz Noï¿½l
+3356;G10;QP;guillaume le COSSEC;Laboureur de terre;1638;9/07/1700;;Kersivy, Plomeur;18/02/1658;Plomeur;
+3357;G10;QP;marie COUPA;;1640;13/12/1700;Plomeur;Kersivy, Plomeur;18/02/1658;Plomeur;
+3358;G10;QP;rene FOLGOAS;Laboureur, tessier;;26/03/1692;;kerniviel, Plonivel;;;
+3359;G10;QP;alienore MONFORT;;;18/11/1676;;Loctudy;;;
+3392;G10;QP;michel DURAND;;entre 1625 et 1640;11/03/1694;;Penmarch;entre 1655 et 1675;;
+3393;G10;QP;marie GUIRRIEC;;entre 1635 et 1650;29/09/1700;;Penmarch;entre 1655 et 1675;;
+3394;G10;QP;jean LARNICOL;Laboureur;entre 1625 et 1640;entre 1686 et 1697;;;entre 1673 et 1680;;
+3395;G10;QP;anne TANNEAU;;entre 1635 et 1655;entre 1697 et 1750;;;entre 1673 et 1680;;
+3400;G10;QP;charles BUANIC;;entre 1615 et 1630;22/02/1705;;Plomeur;10/07/1655 Plomeur;;
+3401;G10;QP;jeanne BOLLORE;;entre 1625 et 1645;18/09/1709;;Plomeur;10/07/1655 Plomeur;;
+3402;G10;QP;marthieu STEPHAN;Laboureur, Domanier;entre 1620 et 1645;entre 1680 et 1710;;;28/02/16 Plomeur;;
+3403;G10;QP;jeanne QUENET;;entre 1625 et 1645;decembre 1710;;Gouesnac_h, Plomeur;28/02/16 Plomeur;;
+3404;G10;QP;alain BIGER;Laboureur, Domanier;1625 et 1640;11/10/1706;;Kerouant, Plomeur;;;
+3405;G10;QP;urbanne VOLANT;;;28/03/1683;;Kerscaven, Plomeur;;;
+3406;G10;QP;noel GUESDON;;1646;6/04/1706;;Bourg, Plomeur;;;
+3408;G10;QP;jean le CLEACH;Laboureur de terre;1635 et 1650;10/03/1694;Tronval, Plobannalec;Tronval, Plobannalec;14/07/1663;Plomeur;
+3409;G10;QP;jeanne LARNICOL;;;;;Tronval, Plobannalec;;;
+3410;G10;QP;pierre CARIOU;;vers 1645;4/05/1715;Plobannalec;Plobannalec;20/02/1675;Loctudy;
+3411;G10;QP;marguerite CARIOU;;vers 1660;19/05/1730;Loctudy;Kerdalae Lesconil;20/02/1675;Loctudy;
+3414;G10;QP;guillaume COSQUER;;entre 1620 et 1630;entre 1697 et 1699;Plomeur;Plomeur;;;
+3415;G10;QP;marie PULOT;;avant 1635;1691;;Plomeur;;;
+3416;G10;QP;ambroise TANNEAU;Laboureur de Terre;avant 1637;12/11/1715;kersidal - Plomeur;Plomeur;5/02/1652;Plomeur;
+3417;G10;QP;louise JAOUEN;;avant 1620;30/09/1718;;Rufolligou, Plomeur;5/02/1652;Plomeur;
+3418;G10;QP;olivier NEDELEC;Laboureur de terre, Domanier;1643;20/06/1703;Plomeur;Plomeur;Marie vers 1677;Beuzec-Cap-Caval;
+3419;G10;QP;jeanne GUESDOU;;4/10/1660;22/11/1737;Beuzec-Cap-Caval;Penfont D_En Bas - Plomeur;Marie vers 1677;Beuzec-Cap-Caval;
+3420;G10;QP;corentin KERCHROM;Laboureur de terre;11/061670;avant 1698;Plomeur;;5/02/1687;Plobannalec;
+3421;G10;QP;catherine DANIEL**;;22/04/1663;15/08/1709;Plonivel;Lesplomeur, Plomeur;5/02/1687;Plobannalec;
+3422;G10;QP;yves le COSSEC;;1665;12/03/1725;Plomeur;Kersivini, Plomeur;Mariee avant 1695;;
+3423;G10;QP;catherine le TARQUIS;;1671;15/03/1731;Penmarch;Bourg, Plomeur;Mariee avant 1695;;
+3428;G10;QP;nicolas TANIOU**;Fermier du manoir de kergoz puis poissonnier_Sieur;1622;1er/11/1720;;village du Guilvinec;entre 1670 et 1672;;
+3429;G10;QP;marie le BARBIER;fermiere au Manoir de Kergoz;1655;7/01/1736;;Lohan, Guilvinec;entre 1670 et 1672;;
+3430;G10;QP;herve FREOUR;Laboureur de terre;avant 1660;13/06/1726;Kerven, Ploneour;Loctudy ou Lambourg;10/02/1676;Plobannalec;
+3431;G10;QP;marie le MARCHAND;;;18/08/1707;Kerespert, Plobannalec;Keralio, Loctudy;10/02/1676;Plobannalec;
+3432;G10;QP;nicolas LHELGO;Laboureur de terre;9/02/1622;11/08/1692;Plomeur;Plomeur;;;
+3433;G10;QP;catherine le GARREC;;1635;14/02/1695;;Plomeur;;;
+3434;G10;QP;tanguy BOUCICAUT;;1630;22/02/1671;;Ploare;;;
+3435;G10;QP;jacquette le GALL;;24/03/1624;16/03/1681;Ploare;Ploare;;;
+3436;G10;QP;jean le GUIRRIEC;;1628;14/09/1698;;Plomeur;;;
+3437;G10;QP;anne COUPA;;avant 1630;apres 1685;;;;;
+3438;G10;QP;michel GUIZIOU;;entre 1630 et 1650;6/07/1716;;Plomeur;;;
+3439;G10;QP;adelice OLLIVIER(DRIVER);;entre 1635 et 1650;22/04/1708;;poulguen - Plomeur;;;
+3440;G10;QP;julien TANNIOU;;1618;29/12/1699;plomeur;Manoir du Porz-Moros, Lambour;;;
+3441;G10;QP;guillemette JOSSE;;;;;;;;
+3444;G10;QP;jean BRIAND;;1635;;;;21/08/1662;Ploare;
+3445;G10;QP;catherine YOUENOU;;7/04/1640;13/01/1710;Ploare;Ploare;21/08/1662;Ploare;
+3446;G10;QP;tudec BRIAND(BRIANT);;10/05/1635;12/10/1706;Ploare;Ploare;31/01/1661;Ploare;
+3447;G10;QP;anne PENHOAT;;10/05/1641;14/06/1686;Plomodiern;Ploare;31/01/1661;Ploare;
+3448;G10;QP;philibert le COMPES;;entre 1620 et 1625;avant 1700;Treffiagat;Treffiagat;;;
+3449;G10;QP;julienne BOUEC(QUINIOU);;1625;avant 1700;Treffiagat;Treffiagat;;;
+3450;G10;QP;philibert KERMEUR(GUERMEUR);;;;;;;;
+3451;G10;QP;julienne BOUIC;;entre 1610 et 1630;Janvier 1690;;Treffiagat;;;
+3484;G10;QP;henry LUCAS;Laboureur;avant 1622;1er/05/1711;;Beuzec-Cap-Caval;;;
+3485;G10;QP;marie LOUNS;;;;;;;;
+3486;G10;QP;yves DERRIEN;Homme Honorable;avant 1615;2/09/1700;;Bourg, Beuzec-Cap-Caval;entre 1640 et 1653;;
+3487;G10;QP;anne JAOUEN(JAHOUEN);;apres 1620;6/05/1695;;Beuzec-Cap-Caval;entre 1640 et 1653;;
+3538;G10;QP;yves le CLORENNEC;;avant 1630;mai 1670;;Kerambleudou, Ploneour;;;
+3539;G10;QP;jeanne le BORGNE;;avant 1630;apres 1655;;;;;
+3540;G10;QP;laurent, lorans PAVEC;Laboureur;1605;21/10/1678;Plobannalec;Plobannalec;1630;;
+3541;G10;QP;marie le MARCHAND;;1615;21/04/1697;;Plobannalec;1630;;
+3542;G10;QP;paul DIVELLEC;;;;;;;;
+3543;G10;QP;anne OLLIER;;;;;;;;
+3544;G10;QP;michel TANNEAU;Laboureur;entre 1630 et 1655;entre 1709 et 1740;;;;;
+3545;G10;QP;jeanne COLIN;;;20/01/1716;;Kervroague, plomeur;;;
+3552;G10;QP;yves GARIN;;1610;apres 1672;;;;;
+3553;G10;QP;marie le GLOANEC;;1610;apres 1651;;;;;
+3554;G10;QP;olivier SIMON;;1640;avant 1689;;;;;
+3555;G10;QP;marie LOUSSOUARN;;1636;13/02/1696;;Brentevoas, Ploneour;;;
+3556;G10;QP;thomas le LEC;;;;;;;;
+3557;G10;QP;catherine le PAPE;;;;;;;;
+3558;G10;QP;nouel GULUDEN;;;;;;;;
+3559;G10;QP;madalaine DAOULAS;;;;;;;;
+3564;G10;QP;yves (yvon) LOURS;;24/05/1631;10/01/1700;Combrit;Combrit;avant 1661;Combrit;
+3565;G10;QP;marie JEZEQUELOU(DIQUELOU);;26/04/1641;14/06/1701;Combrit;Combrit;avant 1661;Combrit;
+3568;G10;QP;jean le CLORENNEC;;avant 1643;avant/07/1661;;Tremeoc;;;
+3569;G10;QP;catherine le CLORENNEC;;avant 1643;16/01/1681;;Tremeoc;;;
+3570;G10;QP;sebastien SAINT_AVE;Laboureur de terre;1632;27/12/1670;;manoir de Kerhor, Tremeoc;;;
+3571;G10;QP;jeanne le MUT;;1641;29/11/1701;;le bourg, Tremeoc;;;
+3572;G10;QP;jean BALOUIN;;1660;avant 1710;;;;;
+3573;G10;QP;marguerite JOLIVET;;1660;avant 1710;;;;;
+3576;G10;QP;michel le QUILLIEC;;1er/07/1611;4/04/1653;Combrit;Combrit;;;
+3577;G10;QP;helene BENEAT;;13/12/1609;;Combrit;Combrit;;;
+3578;G10;QP;francois LOURS(LE_NOURS);;aout 1628;24/04/1682;Combrit;Combrit;;;
+3579;G10;QP;catherine DAUFARZ(DAOUPHARS);;vers 1624;30/09/1689;Combrit;Combrit;;;
+3584;G10;PP;pierre le PAJOLEC;;vers 1565;7/07/1655;;Sulniac;;;
+3585;G10;PP;;;;;;;;;
+3586;G10;PP;guillaume MAHEO;;;;;;;;
+3587;G10;PP;perrine TUAL;;;;;;;;
+3840;G10;PM;alain le MANCHEC;;30/01/1636;20/12/1699;Lanournec - Melgven;Melgven (Parc Ar Broc Cadol);;enfant de Yvon et de Claude CREDOU;Precision concernant la mere : laquelle mourut a l_enfentement dudit enfant
+3841;G10;PM;marie le GOUIFFES;;5/03/1646;13/06/1705;Melgven;Melgven;;;
+3842;G10;PM;mathieu le GAC;Laboureur;vers 1635;19/08/1720;Squibarveur - Saint-Yvi;Squibarveur - Saint-Yvi;Marie avant 1667;;
+3843;G10;PM;catherine COTTEN;;;8/02/1719;Saint-Yvi;Squibarveur - Saint-Yvi;Marie avant 1667;;
+3844;G10;PM;antoine LAOUENAN;Laboureur de Terre, Metayer;16/07/1655;20/04/1711;Elliant;Elliant;2/02/1671;Elliant;
+3845;G10;PM;laurence LOZEAC_H;Laboureur de terre;23/11/1653;26/05/1688;Ville Neuve - Saint-Evarzec;Elliant;2/02/1671;Elliant;
+3858;G10;PM;louis le TARIDEC;;;;;;;;
+3859;G10;PM;marie le GARS;;25/11/1644;22/11/1710;Tregournez;Tregournez;;;
+3864;G10;PM;henri le MOAL;;25/11/1640;14/05/1679;Elliant;Elliant;1671;Elliant;Fils de Germain LE MOAL et Marguerite LE CREOFF
+3865;G10;PM;anne jougenay ou JAN;;1646;;;;;;remariï¿½ en 1682 avec Yves ABGRALL
+3866;G10;PM;louis SANCEAU;;06/11/1637;13/03/1692;Elliant;Elliant;07/09/1671;Elliant;Fils de Pierre Peron SANCEAU et Franï¿½oise PENANGUER
+3867;G10;PM;marie KERAUDREN;;28/06/1643;14/03/1708;Elliant;Elliant;07/09/1671;Elliant;Fille de Jean KERAUDREN et Jeanne SALAï¿½N
+3880;G10;PM;hervï¿½ le ROY;;;;;;;;
+3881;G10;PM;marie le GAC;;;;;;;;
+3882;G10;PM;hervï¿½ le ROY;;;;;;;;
+3883;G10;PM;marie lor ou l'or ou NAOUR;;;;;;;;
+3884;G10;PM;yves CREOFF;;18/06/1650;;Elliant;;07/07/1671 - Elliant;;fils de Franï¿½ois, dï¿½cï¿½dï¿½ et de Catherine LE BOUDER
+3885;G10;PM;catherine QUEMERE;;23/06/1649;22/09/1678;Elliant;Elliant (Kerguenou);07/07/1671 - Elliant;;fille de Hervï¿½, dï¿½cï¿½dï¿½ et de Marie LAGADEC, dï¿½cï¿½dï¿½e | N-1649-2904900-51078-01642
+3886;G10;PM;le BERRE;;;;;;;;
+3887;G10;PM;;;;;;;;;
+3920;G10;PM;louis PICOU;;;;;;;;
+3921;G10;PM;catherine le GUERN;;;;;;;;
+3922;G10;PM;thomas MAHE;;1655;;Coray;;27/01/1676;Coray;
+3923;G10;PM;marguerite le COATDERO;;18/09/1637;26/07/1723;Elliant;Coray (Kerfeot);27/01/1676;Coray;fille de Mahï¿½ et de Barbe HELORY
+3928;G10;PM;robert le POUPON;;1629;1689;;;;;
+3929;G10;PM;francoise DAVID;;;;;;;;
+3930;G10;PM;olivier le MAGUET;;1635;29/12/1679;Coray;KERGUEREZ - Coray;vers 1660, Coray;;
+3991;G10;PM;isabelle le DU;;1636;31/03/1703;Tourc_h;KERGUEREZ - Coray;;;http://gw.geneanet.org/pvdm?lang=fr&p=isabelle&n=du+le
+3932;G10;PM;marc le GUILLOU;;1636;1671;;;;;
+3933;G10;PM;catherine le FERELLEC;;08/06/1634;19/01/1700;laz;Laz (Merdi);;enfant de Andre et de Marie BREUT;Parrain : Salaunic Alain,Marraine : Jahouen Catherine femme de LE GUILLOU Allain | Temoins +: Andre, Jean, Anne, Therese Le Guillou. Bleuzen Claude,fille. Enfants.
+3936;G10;PM;guillaume MEVELLEC;;avant 1628;;Guellevain Villeneuve - Edern;;;;
+3937;G10;PM;jeanne le FEBURE;;avant 1627;21/12/1697;Kerern - Saint-Thois;;;;peut-etre baptaï¿½me - 28/12/1623 - Scaer - LE FEVRE Janetta enfant de Anthonii et de Mariae DUIGOU | Parrain : Carne (de) N V Johanes:Marraine : Guernisac (de) Della Claudia
+3956;G10;PM;marc LOUCHOUARN;;1653;29/03/1692;Coray;Coray(Penaven);;21/02/1686 - Coray;
+3957;G10;PM;marie le ROY;;1652;;;;;21/02/1686 - Coray;
+3958;G10;PM;louis AUFFRET;Honorable Homme - Laboureur;1658;;Coray;;17/11/1681 - Coray;;
+3959;G10;PM;marie MERIEN;;;;;Coray;;17/11/1681 - Coray;
+3896;G10;PM;guillaume CREDOU;;16/01/1636;17/09/1678;Ergue Gaberic;Ergue Gaberic;10/07/1662;https://gw.geneanet.org/nlegrand?lang=fr&pz=raymond+jean+louis&nz=le+grand&p=guillaume&n=credou&oc=6;
+3897;G10;PM;marguerite le BARZ;;4/01/1645;29/06/1683;Ergue-Gaberic;Poulduic - Ergue-Gaberic;;;
+3898;G10;PM;LOZEACH;;;;;;;;
+3899;G10;PM;;;;;;;;;
+3900;G10;PM;guillaume le BARVEC;;14/02/1633;13/06/1709;Ergue Gaberic;Ergue Gaberic;23/11/1665, Ergue-Gaberic;;
+3901;G10;PM;catherine COLLIOU;;;;Ergue Gaberic;;23/11/1665 - Ergue-Gaberic;;
+3902;G10;PM;charles deffry (LE);;1639;;Ergue-Gaberic;;;;
+3903;G10;PM;;Laurence LE CALVEZ;;1641;;Ergue-Gaberic;;;
+3960;G10;PM;guillaume LOUSSOUARN/LOCHOUARN;;;;Coray;06/02/1687 - Coray;fils de Marie LE GUIADER;;
+3961;G10;PM;marguerite le MAGUET;;1665;23/02/1698;Coray;Coray (Kerescant);06/02/1687 - Coray;fille de Isabeau LE DUFF;M-1687-2904100-60448-00123
+3962;G10;PM;louis le KERNEVEZ/QUERNEVEZ;;1664;11/01/1722;Coray;Coray (Pen al leign);27/07/1695 - Coray;Notes ï¿½poux : dj par les reguaires;M Tï¿½moins : augustin le flochlay , marc le ster , estiennette le kernevez , guillaume le coduat , jacques michele
+3963;G10;PM;anne BARRE;;;;Langolen;;27/07/1695 - Coray;dj par baronnie de laz;
+3998;G10;PM;etienne le GODINEC;;;;;;;;
+3990;G10;PM;marguerite le BERR;;05/04/1648;;Elliant;;;;
+4000;G10;PM;augustin COLAS;;1611;26/03/1671;;Melgven;;;Tï¿½moins : Colas Jan, fils Colas Franï¿½ois, autre fils Algouet Jan, beau fils
+4002;G10;PM;jerome TREFFLEZ;Laboureur;09/11/1611;02/09/1668;Cadol;Cadol,Penfeuteun;;;
+4003;G10;PM;catherine TUDAL;;;02/09/1668;;Cadol,Penfeuteun;;;
+4004;G10;PM;jean BACON;;;;;;;;
+4005;G10;PM;renï¿½e le QUIGNOUR;;;;;;;;
+4006;G10;PM;jean le GUISQUET;;;;;;;;
+4007;G10;PM;marie GUIBAN;;;;;;;;
+4016;G10;PM;estienne GRATIEN;;1647;15/05/1697;Lanriec;Lanriec;22/06/1680 - Lanriec;;
+4017;G10;PM;isabelle le GAC;;;;Lanriec;Tregunc;22/06/1680 - Lanriec;;
+4018;G10;PM;yves le BOURHIS;;;;;Tregunc;;;
+4019;G10;PM;marie MABIL;;;;;Tregunc;;;
+4020;G10;PM;yves le BOURHIS;;;;Nevez;;08/07/1676 - Nevez;Domicilie aï¿½ Kerenchastalen : fils de Jan, Laboureur et de Ysabelle COSTIOU;
+4021;G10;PM;catherine DAGORN;;;;Nevez;;08/07/1676 - Nevez;Domiciliee aï¿½ Kerenvaillet : fille de Yves, Laboureur , decede et de Marie RICHARD, decedee;
+4044;G10;PM;alain PARIS;;;;;;;;
+4045;G10;PM;marguerite HAOUEL;;;10/06/1725;;Chateauneuf-du-Faou,Poulei;;;age 60 ans
+4046;G10;PM;henri ou francois MARZIN;Menager;;23/04/1706;04/04/1706;Chateauneuf-du-Faou;Chateauneuf-du-Faou;20/10/1678;Chateauneuf-du-Faou | veuf de Treut
+4047;G10;PM;marie KERUZAOUEN;;;24/05/1721;;Chateauneuf-du-Faou, Kerbiligat;20/10/1678;Chateauneuf-du-Faou;
+4066;G10;QP;alour le REST;erreur de numero;4/01/1617;24/11/1677;Treguennec;Keriellec, Treguennec;;;
+4067;G10;QP;francoise GENTRIC;erreur de numero;8/05/1618;28/02/1686;Treguennec;Treguennec;;;
+4070;G10;QP;guillaume POCHIC;erreur de numero;;;;;;;
+4071;G10;QP;marguerite MORVAN;erreur de numero;21/12/1618;2/01/1666;Treguennec;Treguennec;;;
+4080;G10;PM;BRIEC;;;;;;;;
+4081;G10;PM;;;;;;;;;
+4082;G10;PM;louis FURIC;;;;;;;;
+4083;G10;PM;jeanne LOZEACH;;;;;;;;
+4096;G11;TT;francois TANGUI;;;apres 1609;;;;;
+4097;G11;TT;louise ROLLAND;;;apres 1609;;;;;
+4112;G11;TT;johanes MADEC;;;;;;;;
+4113;G11;TT;honoree PLOUGAZNOU;;;;;;;;
+4198;G11;TT;pierre/pietrus DEUFF;;;;;;;;
+4199;G11;TT;marie CAZOULAT;;;;;;;;
+4244;G11;TT;franï¿½ois COUIL;;;;;;17/02/1670 - Pleyber-Christ;;fils de Guillaume et de Claudine CORRE
+4244;G11;TT;jeanne ROLLAND;;;;;;17/02/1670 - Pleyber-Christ;;fille de Guillaume, dï¿½cï¿½dï¿½ et de Jeanne NICOLAS, dï¿½cï¿½dï¿½e
+4342;G11;TT;franï¿½ois L'ERROU;;;;;;;;
+4343;G11;TT;janne BODENAN;;;;;;;;
+4400;G11;TT;yvo en SPAIGNOL;;05/06/1578;;Plouezoch;;;;enfant de Franciscus et de Ameta DERIEN | Parrain : Yvo Peleter | Marraine : Anna Bolen | Identifiant CGF : N-1578-2918600-50908-00597
+4401;G11;TT;joanna FLOCH;;;18/02/1630;;Saint-martin-morlaix;;;
+4608;G11;TL;LAUTROU;;;;;;;;
+4774;G11;TL;jan BONNIC;;;;;;03/10/1644 - Quimperle - Saint-Colomban;;
+4775;G11;TL;marie le TREVOU;;;;;;03/10/1644 - Quimperle - Saint-Colomban;;a mis au monde 15 enfants entre 1646 et 1668
+4776;G11;TL;guillaume JAMBOU;;;;;;;;
+5120;G11;LL;lorans LEAULTE;;28/01/1605;17/02/1660;Mur-de-Bretagne;Mur-de-Bretagne;22/02/1632;https://www.geneanet.org/media/public/leaute-lorans-naissance-24026807;http://gw.geneanet.org/yannicklegoff?lang=fr&pz=karine+andree+solange&nz=le+goff&ocz=0&p=lorans&n=leaulte | https://gw.geneanet.org/alec91?lang=en&pz=antoine+edouard+marie+joseph&nz=capitaine+le&p=lorans&n=leaute
+5121;G11;LL;janne ALLANO;;22/11/1609;7/04/1661;Mur-de-Bretagne;Mur-de-Bretagne;22/02/1632;;
+5122;G11;LL;jan ROBIC;;;;;;;;
+5123;G11;LL;petronille le GAL;;;;;;;;
+5128;G11;LL;jean CHAMOUFLET;dit le jeune;;1650;;;;saint-guen;
+5129;G11;LL;perine OLLIVIER;;1590;1661;;;;;saint-guen
+5130;G11;LL;mathurin HERVO;;;;Saint-Guen;;26/07/1618;Saint-Guen;
+5131;G11;LL;olive MAHEO;;;;Saint-CAradec;;26/07/1618;Saint-Guen;
+5410;G11;LL;hervï¿½ PENSEVY;;;;;;;;
+5411;G11;LL;renï¿½e BIHAN;;;;;;;;https://gw.geneanet.org/carina1982?lang=fr&iz=22&p=renee&n=le+bihan&oc=5
+5588;G11;LL;yvon HENRIO;;ca 1591;1671;Saint-Connec, 22;;;;https://gw.geneanet.org/quenecanf?lang=fr&iz=0&p=yvon&n=henrio&oc=3
+5589;G11;LL;louise guennec (LE);;1602;1669;Saint-Connec, 22;;;;
+5632;G11;LP;PERZO;;;;;;;;
+5872;G11;LL;lorans LEAULTE;;28/01/1605;17/02/1660;Mur-de-Bretagne;Mur-de-Bretagne;22/02/1632;;
+5873;G11;LL;janne ALLANO;;22/11/1609;7/04/1661;Mur-de-Bretagne;Mur-de-Bretagne;22/02/1632;;
+5874;G11;LL;jan ROBIC;;;;;;;;
+5875;G11;LL;petronille le GAL;;;;;;;;
+6144;G11;QQ;jean quilliec (LE);;1600;1637;;;;;
+6145;G11;QQ;marie le GOYAT;;1582;02/01/1629;Combrit;Combrit;;;
+6146;G11;QQ;jacob BENEAT;;1589;24/12/1631;;Combrit;;;https://gw.geneanet.org/bhenno?lang=fr&iz=2&p=jacob&n=beneat
+6147;G11;QQ;louise guillou (LE);;;17/031629;;Combrit;;;
+6178;G11;QQ;jean BEREHOUC;;1574..1575;18/02/1620;;Combrit;;;
+6179;G11;QQ;jeanne le DÏ¿½NIC;;1578..1579;05/01/1636;;Combrit;;;
+6184;G11;QQ;jean KERBINIBIN;;;;;;;;
+6185;G11;QQ;jeanne THOMAS;;;;;;;;Dï¿½cï¿½dï¿½e avant 26 septembre 1651
+6384;G11;QQ;yvon born ou le BORGNE;;;;;;;;
+G385;G11;QQ;heldrede TREFFRY;;;;;;;;
+6388;G11;QQ;xxx GOURRET;;;;;;;;
+6389;G11;QQ;jeanne le BIHAN;dite Guerannic;14/03/1604;12/11/1657;Plozevet;Plozevet;;;mais ï¿½a marche pas | Notï¿½ Grand mï¿½re dans acte de naissance acte Identifiant CGF de l'acte : N-1645-2921500-50188-00642
+6390;G11;QQ;yvon MARZIN;;;;;;;;
+6391;G11;QQ;marguerite JANNIC;;;8/08/1651;;Plozevet;;;
+6580;G11;Q;rene le BRUN;;1615;entre 1652 et 1700;;;5/02/1633;Plomeur;
+6581;G11;Q;marie COLIN;;1615;entre 1652 et 1700;Plomeur;;;;
+6592;G11;QP;yvon le PAPE;;1590;1654;;;;;
+6593;G11;QP;louise MARCHIOU;;1595;1657;;;;;
+6594;G11;QP;jean le GLOANEC;;;;;;;;
+6595;G11;QP;;;;;;;;;
+6596;G11;QQ;yves le CLORENNEC;1620-1670;;;;;;;
+6597;G11;QQ;jeanne le BORGNE;ca 1625-ca 1655;;;;;;;
+6598;G11;QP;le BORGNE;;;;;;;;
+6599;G11;QP;;;;;;;;;
+6656;G11;QP;vincent le PEMP;;1570;26/07/1609;;Combrit;;;
+6657;G11;QP;marie KERGROARC'H;;1575;20/04/1657;Combrit;;;;
+6658;G11;QP;jean BERREHOUC;;1575;18/02/1620;;Combrit;;;
+6659;G11;QP;jeanne le DENIC;;1579;5/01/1636;;Combrit;;;
+6660;G11;QP;etienne stephanus TALOUARN;;20/05/1576;21/12/1628;Lambour;Lambour;;;
+6661;G11;QP;marie ODIERN;;29/02/1600;16/09/1631;Combrit;Lambourg;;;
+6662;G11;QP;pezron le SIELLER;;1580;26/10/1659;;Combrit;;;
+6663;G11;QP;jeanne le QUILLIEC;;1585;avant 1625;;;;;
+6664;G11;QP;pierre JEZEQUELOU;;1590;07/03/1638;Combrit;Combrit;;;
+6665;G11;QP;jeanne LAIR;;15/07/1595;29/05/1629;Combrit;Combrit;;;
+6668;G11;QP;guillaume COCHOU;;12/02/1604;24/09/1662;Combrit;Combrit;;;
+6669;G11;QP;jeanne le NAM;;avant 1605;19/01/1639;;Roscanvel, Combrit;;;
+6670;G11;QP;martin JEZEQUELOU/DICQUELLOU;;28/05/1613;14/02/1667;Combrit;Combrit;;;
+6671;G11;QP;marie HELER;;1610;;;;;;
+6672;G11;QP;yvon le PAPE;;1590;1654;;;;;
+6673;G11;QP;louise MARCHIOU;;1595;1657;;;;;
+6674;G11;QP;jean le GLOANEC;;;;;;;;
+6675;G11;QP;;;;;;;;;
+6676;G11;QP;CLORENNEC;;;;;;;;
+6677;G11;QP;;;;;;;;;
+6678;G11;QP;le BORGNE;;;;;;;;
+6679;G11;QP;;;;;;;;;
+6714;G11;QP;pierre COUPA;Domanier;1617;15/03/1681;;Plomeur;28/01/1636;Plomeur;
+6715;G11;QP;marguerite le DREAU;;1621;14/04/1681;;Plomeur;28/01/1636;Plomeur;
+6716;G11;QP;guillaume  FOLGOAS;;;;;;;;
+6717;G11;QP;marie le CARO;;;;;;;;
+6718;G11;QP;rene MONFORT;Laboureur de terre;1612;16/08/1692;;manoir de kerilan ( Kerlian ) - Loctudy;;;
+6719;G11;QP;marie CARIOU;;1618;24/04/1678;;manoir de kerilan ( Kerlian ) - Loctudy;;;
+6790;G11;QP;michel TANNEAU;Laboureur;entre 1585 et 1610;13/02/1670;;Trevars, Plomeur;;;
+6791;G11;QP;aliette CHEVER;;entre 1605 et 1625;15/04/1687;;Plomeur;;;+ aï¿½ge de 70 ans
+6816;G11;QP;tanguy le CLEACH;**;1580/1605;13/01/1677;;;;;
+6820;G11;QP;vincent CARIOU;;entre 1595 et 1620;31/01/1685;Plobannalec;Plobannalec;;;
+6821;G11;QP;marie BLEVEC;;1600 et 1620;entre 1630 et 1685;;;;;
+6822;G11;QP;guenole CARIOU;Laboureur de terre;entre 1625 et 1640;09/09/1698;;La Forest, Loctudy;;;
+6823;G11;QP;anne TANTER;;entre 1630 et 1645;05/12/1671;;La Forest, Loctudy;;;
+6828;G11;QP;yves COSQUER;;1580;3/07/1670;Plomeur;Plomeur;;;
+6829;G11;QP;marie DURAND;Honorable femme;1600;21/09/1679;;Treffiagat;;;
+6830;G11;QP;guillaume PULOT;;;;;;;;
+6854;G11;QP;jean le BOLZER;;;2/07/1671;;Treguennec;;;
+6855;G11;QP;marie LOUSSOUARN;;;;;;;;
+6856;G11;QP;riou GOURMELEN;;5/02/1601;22/10/1668;Treguennec;Treguennec;;;
+6857;G11;QP;marie SIMON;;;31/05/1677;;Treguennec;;;
+6860;G11;QP;jacques FREOUR;Notaire Royal Maitre;avant 1630;;Manoir de Kergoz;Tremeoc;24/11/1649;Plomeur;
+6861;G11;QP;anne GUEZENNEC;Notaire Royal, Demoiselle;1632;1er/06/1702;Plomeur;Manoir de Kerven, Plomeur;24/11/1649;Plomeur;
+6862;G11;QP;yvon le MARCHAND;;25/05/1627;30/09/1685;Lambourg;Kerroparz, Plobannalec;;;
+6863;G11;QP;marie le FUR;;28/12/1635;9/03/1697;Combrit;Plobannalec;;;
+6878;G11;QP;jacques OLLIVIER;dit Driver;1615;18/03/1681;;Treffiagat;;;
+6879;G11;QP;thomase domate JAOUEN;;1624;18/07/1684;;Treffiagat;;;
+6888;G11;QP;alain BRIANT;;;;ploare;;;;signe au mariage de son fils
+6889;G11;QP;marie CELTON;;;;;;;;
+6892;G11;Q;francois BRIAND;;1600;10/05/1635;;Ploare;Marie en 1620;Ploare;
+6893;G11;Q;eleonore STANDELA;;1600;;Ploare;;Marie en 1620;Ploare;
+7088;G11;Q;ambroise TANNEAU;Laboureur de terre;entre 1580 et 1600;30/03/1678;Plomeur;Plomeur;;;
+7089;G11;Q;jeanne STEPHAN;;entre 1590 et 1610;entre 1664 et 1701;;entre 1605 et 1635;;;
+7090;G11;Q;charles COLIN;;entre 1605 et 1625;16/10/1681;Plomeur;Plomeur;27/11/1638;Plomeur;
+7091;G11;Q;marie MORVAN;;entre 1605 et 1625;entre 1639 et 1700;;;27/11/1638;Plomeur;
+7112;G11;QP;christofori GULUDEN;;;;;;;;
+7113;G11;QP;jahane DERIEN;;;;;;;;
+7140;G11;Q;antoine saint AVE;;1600;apres 1644;;Tremeoc;;;
+7141;G11;Q;thyphaine/ tephanie ou etiennette le DENIC;;4/03/1601;13/05/1667;combrit;manoir de Kerhor, Tremeoc;;;
+7142;G11;Q;pierre le MUT;;;;;;;;
+7143;G11;Q;marie le BERRE;;1610;4/04/1677;;Kerhore, Tremeoc;;;
+7144;G11;Q;jean BALOUIN;;1643;19/06/1703;;Treogat;;;
+7145;G11;Q;jeanne GUERNELEC;;1645;apres 1703;;;;;
+7154;G11;Q;jacob BENEAT;;;;;Combrit;;;
+7155;G11;Q;louise GUILLOU;;;;;Combrit;;;
+7168;G11;PP;PAJOLLEC;;;;;;;;
+7680;G11;PM;yvon le MANCHEC;;29/02/1600;;Melgven;Melgven;;;enfant de Jan et de Helene CALVEZ
+7681;G11;PM;claude ou clauda CREDOU;;7/01/1599;29/01/1636;Melgven;Melgven;;;fille de Paul et de Marye LE MEUR
+7684;G11;PM;pezron le GAC;Domanier;;;Squibarveur - Saint-Yvi;;;;
+7688;G11;PM;jean LAOUENAN;Messire;12/08/1608;19/12/1669;Elliant;Keriannic - Elliant;avant 1652;;
+7689;G11;PM;marie KERRUA;;vers 1627;25/08/ 1673;;;avant 1652;;
+7728;G11;PM;germain le MOAL;;;;;;;;Fils de Henri LE MOAL et Marie KERDEAST
+7729;G11;PM;marguerite le CREOFF;;13/03/1611;;Elliant;;;;Fille de Jean LE CREOFF et Beatrice CARADEC
+7730;G11;PM;;;;;;;;;
+7731;G11;PM;;;;;;;;;
+7732;G11;PM;pierre peron SANCEAU;;13/02/1605;;Elliant;Elliant;01/11/1637;Elliant;Fils de Noï¿½l SANCEAU et Marie COLLIOU
+7733;G11;PM;francoise PENANGUER;;19/10/1617;28/06/1687;Elliant;Elliant;01/11/1637;Elliant;Fille de Jean PENANGUER et Franï¿½oise LOREC
+7734;G11;PM;jean KERAUDREN;;;;;;;;fils de Grï¿½goire KERAUDREN
+7735;G11;PM;jeanne SALAUN;;;;;;;;
+7768;G11;PM;francois CREOFF;;14/06/1617;avant 1670;Elliant;;;;fils de Jean et de Bï¿½atrice CARADEC | N-1617-2904900-51077-00855
+7769;G11;PM;catherine le bouder/ BONDER;;;apres 1675;;;;;
+7770;G11;PM;herve QUEMERE;;;;;;;;
+7771;G11;PM;marie LAGADEC;;;;;;;;
+7792;G11;PM;guillaume CREDOU;;;;;;;;
+7793;G11;PM;marie KERLEDAN;;;;;;;;
+7794;G11;PM;allain le BARZ;;ne avant 1625;;;;;;
+7795;G11;PM;marie le POUPON;;avant 1606;28/12/1681;;Poulduic - Ergue-Gaberic;;;
+7796;G11;PM;LOZEACH;;;;;;;;
+7797;G11;PM;??;;;;;;;;
+7798;G11;PM;;;;;;;;;
+7799;G11;PM;;;;;;;;;
+7800;G11;PM;henry le BARVEC;;avant 1614;28/03/1679;;Niverot - Ergue-Gaberic;avant 1632;;
+7801;G11;PM;marie MARC'H;;avant 1614,;26/10/1678;;Niverot - Ergue-Gaberic;avant 1632;;
+7802;G11;PM;COLLIOU;;;;;;;;
+7803;G11;PM;;;;;;;;;
+7804;G11;PM;jean le DEFFRY;;1600;;Ergue-Gaberic;;;;
+7805;G11;PM;jeanne le POUPON;;1605;;Ergue-Gaberic;;;;
+7806;G11;PM;thomas le CALVEZ;;1615;;Ergue-Gaberic;;;;
+7807;G11;PM;barbe PENNANEACH;;1615;;Ergue-Gaberic;;;;
+7872;G11;PM;guillaume le MEVELLEC;;avant 1610;apres 1645;;;;;
+7873;G11;PM;marie AUFFRET;;avant 1610;;;;;;
+7912;G11;PM;guillaume LOSHOUARN;;;11/04/1687;;Coray - Kerodet;;;
+7913;G11;PM;catherine le SCOAZEC;;09/07/1635;26/04/1675;Coray;Coray - Kerodet;;;
+7914;G11;PM;paul le ROY;;;;;;;;
+7915;G11;PM;jeanne RANNOU;;28/02/1632;07/03/1688;Elliant;coray;;;
+7916;G11;PM;guillaume AUFFRET;Notaire Royal, Sieur de Kerlean;19/05/1634;12/11/1701;St Sauveur ï¿½ Quimper;quimper;;;
+7917;G11;PM;marguerite BAUDOUYN;Dame de Kerleau;28/07/1630;13/03/1712;St Julien - Quimper;Coray (Port lazou);1658;;https://gw.geneanet.org/lquennet?lang=fr&n=baudouin&oc=0&p=marguerite
+7918;G11;PM;guillaume MERIEN;Hon gents-Laboureur De Terre;1633;11/06/1703;;Coray (Kerescant);;;Temoins deces Temoins : Mes. Franï¿½ois Merien , Son Fils , Prï¿½tre, Louis Auffret , Son Gendre , Jean Le Guillou, Auffret , Vicaire
+7919;G11;PM;catherine GOURIN;Hon gents;1640;29/03/1710;;Coray (Kerescant);;;Temoins : messire franï¿½ois Merien son fils, prï¿½tre / guillaume Auffret | Notes : uniquement present en coll.dptale, feuillet dechire en communale
+7920;G11;PM;hyerosme LOUSSOUARN/LOSHOUARN;;;;;;;;
+7921;G11;PM;marie le GUIADER;;;;;;;;
+7922;G11;PM;le MAGUET;;;;;;;;
+7923;G11;PM;isabeau le DUFF;;;;;;;;
+7924;G11;PM;le KERNEVEZ/QUERNEVEZ;;;;;;;;
+7925;G11;PM;;;;;;;;;
+7926;G11;PM;guillaume BARRE;;20/03/1645;;Trï¿½gourez/Langolen;;27/08/1668 - Erguï¿½-Gabï¿½ric;;fils de Hervï¿½ et de Marie BARRE - hypothese par rapport au mariage | N-1645-2929100-50493-00971
+7927;G11;PM;franï¿½oise le BARS;;;;Erguï¿½ Gabï¿½ric;;27/08/1668 - Erguï¿½-Gabï¿½ric;;M Tï¿½moins : Le Berre Nouel , Barrï¿½ Allain , Jan , Charles , Le Bars Jacob , Hervï¿½
+7994;G11;PM;antoine le FEBURE;;avant 1609;;;;;;scaer | tregourez,saint-thois
+7995;G11;PM;marie DUIGOU;;avant 1609;;;;;;
+8132;G11;Q;yvon le REST;;;01/03/1660;;Keriellec, Treguennec;;;
+8133;G11;Q;jeanne le CALVEZ;;;;;;;;
+8134;G11;Q;alour GENTRIC;;;25/03/1651;;Treguennec;;;
+8135;G11;Q;marie COLIN;;;22/03/1655;;Kervaillant, Treguennec;;;
+8142;G11;Q;guillaume MORVAN**;;;;;;;;
+8143;G11;Q;marie le GOYAT;;;;;;;;
+8800;G12;TT;franciscus en SPAIGNOL;;;;;;;;
+8801;G12;TT;ameta DERIEN;;;;;;;;
+10240;G12;LL;jan LEAUTE;Boulanger;1579;7/04/1606;;Mur-de-Bretagne;;;
+10241;G12;LL;francoise TOTTE;;1579;19/02/1642;;Mur-de-Bretagne;;;Death: AD 22 / Mï¿½r de Bretagne - page 208
+10242;G12;LL;jean ALLANO;;vers 1580;13/03/1649;;coet Nohen, Mur-de-Bretagne;;;
+10243;G12;LL;louise le BRIZ;;vers 1585;25/11/1651;;Mur-de-Bretagne;;;
+10244;G12;LL;herve ROBIC;;;;Mur-de-Bretagne;;;;
+10256;G12;LL;jan CHAMOUFFLET;;;1618;;Kergravin,Saint-Guen;;;
+10257;G12;LL;renee NOIAN;;;1616;;Saint-Guen;;;
+10258;G12;LL;julien OLLIVIER;;;1609;;;;;
+10259;G12;LL;marguerite le DENMAT;;;1633;;;;;
+10260;G12;LL;pierre HERVO;;;;;Saint-Guen;;;
+11176;G12;LL;alain HENRIO;;ca 1560;1628;;;;;
+11177;G12;LL;marie GALLERN;;ca 1560;1640;;;;;
+12768;G12;QQ;geoffroy le BORGNE;Sieur de KERALIOU Dit Gaulffredi;;;;;;;
+12769;G12;QQ;amon rouaud ou ROUE;;;;;;;;
+12782;G12;QQ;pierre JANNIC;Seigneur de Leuranboyou Guiler-sur-Goyen;;;;Guiler-sur-Goyen;;;LEURANBOYOU : En 1540, appartenait en partie ï¿½ Yvon Le Roy, fils de Guillaume, mort vers 1490, ï¿½ charge de payer 35 soulz de rente ï¿½ Margarite Glazien, veuve d'Hervï¿½ Jahannic.
+12824;G12;QQ;yves le BORGNE;;1585;16/07/1646;Treguennec;Treguennec;avant 1610;;
+12825;G12;QQ;heldrede TREFFRY;;;16/07/1646;;Treguennec;;;fille de Yvon et de Plesou FEZOU
+12844;G12;Q;jean COIC;;1600;;;;;;
+12845;G12;Q;catherine GAURIER;;1600;;;;;;
+13320;G12;QP;antoine TALOUARN;;1550;1580;;Lambour;;;
+13321;G12;QP;stephanie DONYLEC;;1560;1580;Lambour;Lambour;;;
+13322;G12;QP;michel ODIERN;;1580;31/03/1624;;Combrit;;;Fils de Jean Odiern
+13323;G12;QP;marie le QUILLIEC;;1580;31/12/1626;;Combrit;;;
+13340;G12;QP;pierre JEZEQUELOU;;1590;07/03/1638;Combrit;Combrit;;;
+13341;G12;QP;jeanne LAIR;;15/07/1595;29/05/1629;Combrit;Combrit;;;
+13438;G12;QP;paul CARIOU;Laboureur, Matelot;1570;;Loctudy;;;;
+13439;G12;QP;azenore le BREN;;1565;;Plobannalec;;;;
+13722;G12;Q;vincent guezenec de KERVEN;Ecuyer;entre 1580 et 1610;1646 et 1690;;;;;
+13723;G12;Q;marguerite le BRIZOAL;;entre 1580 et 1610 peut-etre en 1632;entre 1649 et 1690;;;;;
+15360;G12;PM;jan le MANCHEC;;;;;;;;
+15361;G12;PM;helene CALVEZ;;;;;;;;
+15456;G12;PM;henri le MOAL;;;;;;;;
+15457;G12;PM;marie KERDEAST;;;;;;;;
+15458;G12;PM;jean le CREOFF;;;;;;;;
+15459;G12;PM;beatrice CARADEC;;;;;;;;
+15460;G12;PM;;;;;;;;;
+15461;G12;PM;;;;;;;;;
+15462;G12;PM;;;;;;;;;
+15463;G12;PM;;;;;;;;;
+15464;G12;PM;noel SANCEAU;;;;;;;;
+15465;G12;PM;marie COLLIOU;;;;;;;;
+15466;G12;PM;jean PENANGUER;;;;;;;;
+15467;G12;PM;francoise LOREC;;;;;;;;
+15536;G12;PM;jean le CREOFF;;;;;;;une fille nee le 30/05/1606 - Elliant : CREOFF Jacotte;
+15537;G12;PM;beatrice CARADEC;;;;;;;;
+15538;G12;PM;jacob le BOUDER;;;;;;;;
+15539;G12;PM;catherine CONSTANCE;;;;;;;;
+15540;G12;PM;guillaume QUEMERE;;;;;;;;
+15541;G12;PM;catherine COLLIOU;;;;;;;;
+15542;G12;PM;yvon le lagadec YVON;;;;;;;;
+15744;G12;PM;yvon le MEVELLEC;;avant 1592;;;;;;
+15745;G12;PM;jeanne COROLLER;;avant 1592;avant 1630;;La villeneuve - Guellevain (Edern);;;
+15830;G12;PM;jean RANNOU;;;;;;;;
+15831;G12;PM;catherine COSTIOU;;;;;;;;
+15832;G12;PM;louis AUFFRET;Notaire royal Sieur de Porlazou;1600;27/07/1671;;Coray;;;
+15833;G12;PM;marguerite le ROUX;;19/05/1600;6/05/1679;;Coray;;;veuve de  Jacques le jeune BRAS | https://gw.geneanet.org/lquennet?lang=fr&iz=0&p=marguerite&n=le+roux
+15834;G12;PM;pierre BAUDOUIN;noble;1595;1644;Quimper;Coray;;;
+15835;G12;PM;yvoree FORSAN;;1600;;;;;;
+20484;G13;LL;racine ALLANO;;;;;;;;
+20512;G13;LL;jean iv du FOU;chevalier, chatelain de Noyen;1540;1604;;Manoir de la Roche-Guehenneuc, Mur-de-Bretagne;;;
+25564;G12;QQ;herve JAHANNIC;;;;;;;;
+25565;G12;QQ;margarite GLAZIEN;;;;;;;;
+25650;G12;QQ;yvon TREFFRY;;;;;;;;
+25651;G12;QQ;plesou FEZOU;;;;;;;;
+31664;G13;PM;AUFFRET;;;;;;;;
+31665;G13;PM;;;;;;;;;
+31666;G13;PM;le ROUX;;;;;;;;
+31667;G13;PM;;;;;;;;;
+31668;G13;PM;eustache BAUDOUIN;Notaire - Marchand, Sieur de Kervreach;1570;;Coray;Quimper;;;Le 25 juin 1610, il est dit ï¿½ sire Eustache BAUDOUIN gouverneur des rentes et revenus de l'hï¿½pital de Sainte Catherine ï¿½ (2G23).On retrouve son nom ï¿½ plusieurs reprises dans les comptes des miseurs de QUIMPER pendant les guerres de la Ligue.
+31669;G13;PM;marie CARIOU;dame de Kerbrech;;;;;;;
+31670;G13;PM;pierre FORSAN;Marchand;1575;1623;;;;;
+31671;G13;PM;catherine de la ROCHE;;1575;;;;;;
+63336;G14;PM;robert castille BAUDOUIN;Sieur de Kerguestin,apothicaire prï¿½s de la cathï¿½drale;1545;1594..1600;;;Peut-etre originaire du Gard : Eustache   BAUDOUIN,  apothicaire  natif    de  Montpellier   habi-tant    Anduze   -*-  at   Beatrix    CASTEL fille   de  feu   Jean,   tessier   et veuve de   Pierre   Penissiï¿½re,    coutelier.;Robert BAUDOUYN a jouï¿½ ï¿½galement un rï¿½le politique dans la citï¿½ cornouaillaise. Il est procureur syndic (l'ï¿½quivalent de maire) de QUIMPER en 1587-1588. Il est dï¿½putï¿½ du Tiers-Etat pour QUIMPERCORENTIN aux Etats de Bretagne de 1587 et 1588, ï¿½ PLOERMEL, VANNES, RENNES et NANTES. Il est nommï¿½ parmi les reprï¿½sentants de la Bretagne aux Etats gï¿½nï¿½raux ï¿½ BLOIS en 1588. Dans son ouvrage sur la Ligue, Anatole de BARTHELEMY le dit ï¿½galement ï¿½ sieur de Kerhusin, dï¿½putï¿½ du Tiers-Etat pour QUIMPER, aux Etats de Vannes, tenus par le duc de MERCOEUR en 1592 ï¿½. En fait, il ï¿½tait sieur de Kerguestin (aujourd'hui Kerjestin), terre de PLUGUFFAN, pour laquelle il rend aveu dï¿½s 1577 (25H37). Il est vraisemblablement mort entre 1594 et 1600. Comme son fils Eustache, il est mentionnï¿½ ï¿½ plusieurs reprises dans les comptes des miseurs de QUIMPER pendant les guerre de la Ligue, notamment pour une mission auprï¿½s du colonel espagnol DON JUAN d'AGUILA.;
+63337;G14;PM;marguerite LARDIC;;1545;;;;;;
+63342;G14;PM;bernard de la ROCHE;MArchand;1550;;;;Quimper;;
+126674;G15;PM;philippe castille le LARDIC;notaire de la rue Obscure;;Sieur de Kerguestin, Pluguffan... Notaire. Apothicaire, gouverneur de l'Hï¿½pital de Sainte Catherine. Procureur, syndic de Quimper en 1587-1588. Dï¿½putï¿½ du Tiers-Etat pour Quimper-Corentin aux Etats de Bretagne de 1587 et 1588. Reprï¿½sentant de la Bretagne aux Etats-Gï¿½nï¿½raux ï¿½ Blois en 1588.;;;;;
+AAAA;G-2;Lucas, Pierre-Billig, Dominique TANGUY;;;;;Fils de Sï¿½bastion dixit son choix du 11/10/2022 et revue le 03/14/2023;;;;
+AAAA;G-2;Marie, Jeanne-Perrine ,Hï¿½lï¿½ne TANGUY;;;;;Fils de Sï¿½bastion dixit son choix du 11/10/2022 et revue le 03/14/2023;;;;
