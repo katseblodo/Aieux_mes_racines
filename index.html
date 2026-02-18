@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Généalogie - Visualisation Sosa</title>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/vis-network.min.js"></script>
+
     <style>
         body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: #f0f2f5; }
         .header { padding: 15px; background: #2c3e50; color: white; display: flex; gap: 15px; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
@@ -12,15 +14,15 @@
         input, select { padding: 8px; border-radius: 4px; border: 1px solid #ccc; }
         #mynetwork { flex-grow: 1; background: white; margin: 10px; border-radius: 8px; border: 1px solid #ddd; position: relative; }
         .info-panel { position: absolute; right: 20px; top: 20px; width: 280px; background: rgba(255,255,255,0.95); padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: none; z-index: 10; border: 1px solid #ccc; max-height: 80vh; overflow-y: auto; }
-        #status { position: absolute; bottom: 10px; left: 10px; font-size: 12px; color: #666; font-style: italic; }
+        #status { position: absolute; bottom: 10px; left: 10px; font-size: 12px; color: #666; font-style: italic; background: rgba(255,255,255,0.7); padding: 2px 5px; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <strong>Généalogie</strong>
+    <strong>Ma Généalogie</strong>
     <div class="controls">
-        <input type="number" id="searchSosa" placeholder="Sosa...">
+        <input type="number" id="searchSosa" placeholder="N° Sosa...">
         <select id="filterFamily"><option value="">Toutes les familles</option></select>
         <button onclick="resetView()">Vue globale</button>
     </div>
@@ -28,35 +30,52 @@
 
 <div id="mynetwork">
     <div id="infoBox" class="info-panel"></div>
-    <div id="status">En attente des données...</div>
+    <div id="status">Vérification des bibliothèques...</div>
 </div>
 
 <script>
-    // Variables globales
+    // Variables globales (on ne les initialise pas tout de suite avec vis.DataSet)
     let network = null; 
-    let allNodes = new vis.DataSet();
-    let allEdges = new vis.DataSet();
+    let allNodes = null;
+    let allEdges = null;
 
-    // 1. Chargement du CSV
-    Papa.parse("individus_nettoye.csv", {
-        download: true,
-        header: true,
-        skipEmptyLines: true,
-        delimiter: ";",
-        complete: function(results) {
-            if (results.data && results.data.length > 0) {
-                processData(results.data);
-                document.getElementById('status').innerHTML = results.data.length + " individus chargés.";
-            } else {
-                document.getElementById('status').innerHTML = "⚠️ Fichier vide ou mal formaté.";
-            }
-        },
-        error: function() {
-            document.getElementById('status').innerHTML = "❌ Erreur : Serveur local requis (Live Server).";
+    // 1. On vérifie si les bibliothèques sont chargées
+    window.onload = function() {
+        if (typeof vis === 'undefined') {
+            document.getElementById('status').innerHTML = "❌ Erreur : La bibliothèque Vis.js n'a pas pu être chargée. Vérifiez votre connexion internet.";
+            return;
         }
-    });
+        
+        // Si OK, on charge le CSV
+        loadCSV();
+    };
+
+    function loadCSV() {
+        document.getElementById('status').innerHTML = "Chargement du fichier CSV...";
+        
+        Papa.parse("individus_nettoye.csv", {
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+            delimiter: ";",
+            complete: function(results) {
+                if (results.data && results.data.length > 0) {
+                    processData(results.data);
+                } else {
+                    document.getElementById('status').innerHTML = "⚠️ Fichier CSV vide ou introuvable.";
+                }
+            },
+            error: function() {
+                document.getElementById('status').innerHTML = "❌ Erreur : Impossible de lire 'individus_nettoye.csv'. Utilisez 'Live Server'.";
+            }
+        });
+    }
 
     function processData(data) {
+        // C'est ici qu'on initialise les DataSets maintenant que vis est garanti présent
+        allNodes = new vis.DataSet();
+        allEdges = new vis.DataSet();
+
         const families = new Set();
         const sosaMap = new Map();
 
@@ -74,7 +93,7 @@
             });
         });
 
-        // Liens Sosa
+        // Liens Sosa automatiques
         sosaMap.forEach((person, sosa) => {
             const fatherSosa = sosa * 2;
             const motherSosa = sosa * 2 + 1;
@@ -82,25 +101,27 @@
             if (sosaMap.has(motherSosa)) allEdges.add({ from: motherSosa, to: sosa, arrows: 'to', color: '#e74c3c', label: 'M' });
         });
 
-        // Menu familles
+        // Menu filtres
         const select = document.getElementById('filterFamily');
         Array.from(families).sort().forEach(f => {
-            let opt = document.createElement('option');
-            opt.value = f; opt.innerText = f;
-            select.appendChild(opt);
+            if(f) {
+                let opt = document.createElement('option');
+                opt.value = f; opt.innerText = f;
+                select.appendChild(opt);
+            }
         });
 
+        document.getElementById('status').innerHTML = data.length + " individus chargés.";
         drawNetwork();
     }
 
     function drawNetwork() {
         const container = document.getElementById('mynetwork');
         const options = {
-            nodes: { shape: 'box', margin: 10, color: { background: '#fff' } },
-            layout: { hierarchical: { direction: 'DU', sortMethod: 'directed', nodeSpacing: 150 } },
+            nodes: { shape: 'box', margin: 10, font: { multi: true } },
+            layout: { hierarchical: { direction: 'DU', sortMethod: 'directed', nodeSpacing: 180 } },
             physics: false
         };
-        // Initialisation du network
         network = new vis.Network(container, { nodes: allNodes, edges: allEdges }, options);
 
         network.on("click", function (params) {
@@ -108,24 +129,21 @@
             if (params.nodes.length > 0) {
                 const d = allNodes.get(params.nodes[0]).details;
                 infoBox.style.display = 'block';
-                infoBox.innerHTML = `<h3>${d.nom_prenom}</h3>
+                infoBox.innerHTML = `
+                    <button style="float:right" onclick="this.parentElement.style.display='none'">x</button>
+                    <h3>${d.nom_prenom}</h3>
                     <p><b>Sosa :</b> ${d.sosa}</p>
-                    <p><b>Né :</b> ${d.date_naissance} à ${d.lieu_naissance}</p>
-                    <p><b>Profession :</b> ${d.profession}</p>
+                    <p><b>Naissance :</b> ${d.date_naissance} à ${d.lieu_naissance}</p>
+                    <p><b>Décès :</b> ${d.date_deces} à ${d.lieu_deces}</p>
                     <hr><small>${d.infos_complementaires || ''}</small>`;
             }
         });
     }
 
-    // --- Fonctions de contrôle avec vérification ---
-
     function resetView() {
-        // Le correctif est ici : on vérifie si network existe
-        if (network !== null) {
+        if (network) {
             network.fit({ animation: true });
             document.getElementById('infoBox').style.display = 'none';
-        } else {
-            console.log("Le réseau n'est pas encore prêt.");
         }
     }
 
