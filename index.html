@@ -24,4 +24,103 @@
         .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: var(--blue); }
         .card.root { border: 2px solid var(--orange); background: #fffaf5; }
         
-        .sosa-tag { position: absolute; top: -12px; left: 10px; background: var(--dark); color: white; padding: 2px 10px; border-radius:
+        .sosa-tag { position: absolute; top: -12px; left: 10px; background: var(--dark); color: white; padding: 2px 10px; border-radius: 10px; font-size: 11px; font-weight: bold; }
+        .name { font-weight: bold; color: var(--dark); display: block; margin-bottom: 8px; font-size: 15px; }
+        .dates { font-size: 12px; color: #555; line-height: 1.4; }
+        .gen-title { font-weight: bold; color: #7f8c8d; margin-bottom: 20px; text-transform: uppercase; font-size: 12px; letter-spacing: 2px; border-bottom: 2px solid #bdc3c7; width: 100%; text-align: center; padding-bottom: 5px; }
+        
+        .empty { border: 2px dashed #ccc; background: rgba(255,255,255,0.5); color: #aaa; text-align: center; font-style: italic; display: flex; align-items: center; justify-content: center; height: 80px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <strong>Généalogie Ascendante</strong>
+    <div>
+        Sosa racine : <input type="number" id="rootSosa" value="32">
+        <button onclick="chargerArbre()">Générer l'arbre</button>
+    </div>
+    <div id="msg" style="font-size: 13px; opacity: 0.8;"></div>
+</div>
+
+<div class="tree-container">
+    <div class="generation-col" style="padding-top: 180px;">
+        <div class="gen-title">Individu (G1)</div>
+        <div id="slot-root"></div>
+    </div>
+
+    <div class="generation-col" style="padding-top: 80px;">
+        <div class="gen-title">Parents (G2)</div>
+        <div id="slot-p"></div>
+        <div id="slot-m"></div>
+    </div>
+
+    <div class="generation-col">
+        <div class="gen-title">Grands-Parents (G3)</div>
+        <div id="slot-pp"></div>
+        <div id="slot-pm"></div>
+        <div id="slot-mp"></div>
+        <div id="slot-mm"></div>
+    </div>
+</div>
+
+<script>
+    function chargerArbre() {
+        const root = parseInt(document.getElementById('rootSosa').value);
+        const msgDiv = document.getElementById('msg');
+        
+        // Initialisation/Nettoyage des emplacements
+        const slots = {
+            [root]: "slot-root",
+            [root*2]: "slot-p",
+            [root*2+1]: "slot-m",
+            [root*4]: "slot-pp",
+            [root*4+1]: "slot-pm",
+            [root*4+2]: "slot-mp",
+            [root*4+3]: "slot-mm"
+        };
+
+        Object.values(slots).forEach(id => {
+            document.getElementById(id).innerHTML = '<div class="card empty">Donnée absente</div>';
+        });
+
+        Papa.parse("individus_nettoye.csv", {
+            download: true,
+            header: true,
+            delimiter: ";",
+            skipEmptyLines: true,
+            complete: function(results) {
+                const data = results.data;
+                let trouves = 0;
+
+                data.forEach(personne => {
+                    const s = parseInt(personne.sosa);
+                    if (slots[s]) {
+                        trouves++;
+                        const container = document.getElementById(slots[s]);
+                        container.innerHTML = `
+                            <div class="card ${s === root ? 'root' : ''}">
+                                <span class="sosa-tag">Sosa ${s}</span>
+                                <span class="name">${personne.nom_prenom}</span>
+                                <div class="dates">
+                                    <b>Naissance :</b> ${personne.date_naissance || '?'}<br>
+                                    <b>Lieu :</b> ${personne.lieu_naissance || '-'}<br>
+                                    <span style="color:var(--blue); font-size:11px;">${personne.profession || ''}</span>
+                                </div>
+                            </div>
+                        `;
+                    }
+                });
+                msgDiv.innerText = trouves + " fiches affichées sur les 7 possibles.";
+            },
+            error: function() {
+                msgDiv.innerText = "Erreur de chargement du fichier CSV.";
+            }
+        });
+    }
+
+    window.onload = chargerArbre;
+</script>
+
+</body>
+</html>
