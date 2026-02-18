@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Aïeux, mes racines - Recherche</title>
+    <script src="js/papaparse.min.js"></script>
+    <style>
+        :root { --blue: #3498db; --dark: #2c3e50; --bg: #f4f7f6; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding: 0; }
+        .container { max-width: 900px; margin: 20px auto; padding: 0 20px; }
+        
+        .search-box { 
+            background: white; padding: 25px; border-radius: 8px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px;
+        }
+        
+        .search-input {
+            width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 8px;
+            font-size: 18px; outline: none; transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+        .search-input:focus { border-color: var(--blue); }
+
+        .results-table { 
+            width: 100%; border-collapse: collapse; background: white; 
+            border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .results-table th { background: var(--dark); color: white; padding: 15px; text-align: left; }
+        .results-table td { padding: 12px 15px; border-bottom: 1px solid #eee; }
+        .results-table tr:hover { background: #f9f9f9; }
+
+        .btn-view { 
+            background: var(--blue); color: white; padding: 5px 12px; 
+            border-radius: 4px; text-decoration: none; font-size: 13px; font-weight: bold;
+        }
+        .sosa-badge { background: #eee; padding: 2px 8px; border-radius: 10px; font-weight: bold; font-size: 12px; }
+        .fam-badge { color: var(--blue); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div id="menu-container"></div>
+
+    <div class="container">
+        <div class="search-box">
+            <h2 style="margin-top:0">🔍 Rechercher un ancêtre</h2>
+            <input type="text" id="searchInput" class="search-input" placeholder="Tapez un nom, un prénom ou un lieu..." onkeyup="filtrerDonnees()">
+            <div id="count" style="margin-top:10px; font-size: 13px; color: #666;">Chargement du fichier...</div>
+        </div>
+
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Sosa</th>
+                    <th>Nom & Prénoms</th>
+                    <th>Naissance / Décès</th>
+                    <th>Famille</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="resultsBody">
+                </tbody>
+        </table>
+    </div>
+
+<script>
+    // Chargement du menu
+    fetch('menu.html').then(r => r.text()).then(d => document.getElementById('menu-container').innerHTML = d);
+
+    let catalogue = [];
+
+    // Lecture du fichier CSV au démarrage
+    Papa.parse("individus_nettoye.csv", {
+        download: true,
+        header: true,
+        delimiter: ";",
+        skipEmptyLines: true,
+        complete: function(results) {
+            // Nettoyage des données pour éviter les colonnes vides ou décalées
+            catalogue = results.data.filter(row => row.sosa && row.nom_prenom);
+            document.getElementById('count').innerText = catalogue.length + " individus chargés.";
+            afficherResultats(catalogue.slice(0, 20)); // Affiche les 20 premiers par défaut
+        }
+    });
+
+    function filtrerDonnees() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        
+        const filtered = catalogue.filter(p => {
+            return (p.nom_prenom && p.nom_prenom.toLowerCase().includes(query)) ||
+                   (p.lieu_naissance && p.lieu_naissance.toLowerCase().includes(query)) ||
+                   (p.sosa && p.sosa.toString().includes(query)) ||
+                   (p.id_famille && p.id_famille.toLowerCase().includes(query));
+        });
+
+        document.getElementById('count').innerText = filtered.length + " résultat(s) trouvé(s).";
+        afficherResultats(filtered);
+    }
+
+    function afficherResultats(liste) {
+        const tbody = document.getElementById('resultsBody');
+        tbody.innerHTML = "";
+
+        liste.forEach(p => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><span class="sosa-badge">${p.sosa}</span></td>
+                <td><strong>${p.nom_prenom}</strong></td>
+                <td style="font-size: 13px">
+                    ✨ ${p.date_naissance || '?'} (${p.lieu_naissance || '-'})<br>
+                    🪦 ${p.date_deces || '?'} (${p.lieu_deces || '-'})
+                </td>
+                <td><span class="fam-badge">${p.id_famille || ''}</span></td>
+                <td>
+                    <a href="fiche_couple.html?sosa=${p.sosa}" class="btn-view" onclick="sauverSosa(${p.sosa})">👁 Voir</a>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    // Petite astuce pour que la page Fiche Couple reçoive le bon Sosa
+    function sauverSosa(sosa) {
+        localStorage.setItem('dernierSosaConsulte', sosa);
+    }
+</script>
+</body>
+</html>
