@@ -80,13 +80,23 @@
         });
     }
 
-    function processData(data) {
+
+function processData(data) {
         const families = new Set();
         const sosaMap = new Map();
 
         data.forEach(row => {
             if (!row.sosa) return;
             const sosaNum = parseInt(row.sosa);
+            
+            // --- CORRECTIF ANTI-DOUBLONS ---
+            // Si le Sosa existe déjà, on ignore cette ligne pour éviter l'erreur
+            if (allNodes.get(sosaNum)) {
+                console.warn("Doublon ignoré pour le Sosa : " + sosaNum);
+                return; 
+            }
+            // -------------------------------
+
             if (row.id_famille) families.add(row.id_famille);
             sosaMap.set(sosaNum, row);
 
@@ -98,6 +108,32 @@
             });
         });
 
+        // Génération automatique des liens Sosa
+        sosaMap.forEach((person, sosa) => {
+            const pere = sosa * 2;
+            const mere = sosa * 2 + 1;
+            // On ne crée le lien que si le parent existe dans les données
+            if (sosaMap.has(pere)) {
+                allEdges.add({ from: pere, to: sosa, arrows: 'to', color: '#3498db', label: 'P' });
+            }
+            if (sosaMap.has(mere)) {
+                allEdges.add({ from: mere, to: sosa, arrows: 'to', color: '#e74c3c', label: 'M' });
+            }
+        });
+
+        // Mise à jour du menu filtres
+        const select = document.getElementById('filterFamily');
+        Array.from(families).sort().forEach(f => {
+            if(f) {
+                let opt = document.createElement('option');
+                opt.value = f; opt.innerText = f;
+                select.appendChild(opt);
+            }
+        });
+
+        drawNetwork();
+    }
+    
         // Génération automatique des liens Sosa
         sosaMap.forEach((person, sosa) => {
             const pere = sosa * 2;
