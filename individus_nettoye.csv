@@ -182,7 +182,7 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 182;G6;LP;augustin BAUDIC;Laboureur et Maire;22/07/1763;5/12/1824;Saint-Aignan;Saint-Aignan;25/11/1792;Saint-Aignan;
 183;G6;LP;suzanne le COCQ;;8/05/1768;27/04/1847;Saint-Aignan;Saint-Aignan;25/11/1792;Saint-Aignan;
 184;G6;LP;mathurin LE MORZEDEC;Bucheur;1760;25/12/1805;Sainte-Brigitte (56209);Saint-Aignan;09/02/1789;SAINTE-BRIGITTE (56209);mariage trouvé via MANNE-POHER;fils de MORZADEC Mathurin / dcd au mariage et BERSON Catherine / dcd1798 reside à Sainte-Brigitte au lieu-dit Le Gouvello;
-185;G6;LP;marie DUPUIS ou DUPUY;;1765;;;;09/02/1789;SAINTE-BRIGITTE (56209);Mineur a son mariagefille de DUPUIS Jean / dcd et de LE NOIR Yvonne;
+185;G6;LP;marie DUPUIS ou DUPUY;;11/06/1765;;Sainte-Brigitte,Chataigneraie;;09/02/1789;SAINTE-BRIGITTE (56209);Mineur a son mariagefille de DUPUIS Jean / dcd et de LE NOIR Yvonne Naissance vue 403;
 186;G6;LP;jean AUFFRET;Laboureur;14/02/1756;10/03/1804;Suilherf - Saint-Aignan;Lande de Saint-Aignan;28/10/1778;Cleguerec;decrete de justice de Gouarec
 187;G6;LP;jeanne le SOURNE;;28/09/1754;1789;Sainte Trephine - Stival;;28/10/1778;Cleguerec;
 188;G6;LP;alain bricon (LE);;1746;18/01/1786;Caurel;Caurel, Villeneuve;09/02/1774;Caurel;dcd ï¿½ 40 ans un frere Julien Le Bricon | BRICON (LE) Julien / dcd et de AUDREN Catherine
@@ -367,8 +367,8 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 367;G7;LP;francoise LEAUTE;;16/05/1734;21/04/1790;Saint Aignan;Saint Aignan;18/02/1760;Saint-Aignan;
 368;G7;LP;mathurin le MOUARHEDEC;;;;;;;;
 369;G7;LP;catherine BERSON;;;;;;;;
-370;G7;LP;Jean DUPUIS;;;;;;;;
-371;G7;LP;Yvonne LE NOIR;;;;;;;;
+370;G7;LP;Jean DUPUYS;;;;;;10/02/1755;SILFIAC(56245);;
+371;G7;LP;Yvonnette LE NOIR;;;;;;10/02/1755;SILFIAC(56245);8 enfants Mathurin Anne Jean Marguerite Francoise Marie et Jean-Mathurin;
 372;G7;LP;guillaume AUFFRET;;;;;;;;De saint-aignan
 373;G7;LP;suzanne LAUNAY;;;;;;;;
 374;G7;LP;pierre le SOURNE;;;;;;;;
@@ -1954,6 +1954,7 @@ G385;G11;QQ;heldrede TREFFRY;;;;;;;;
 126674;G15;PM;philippe castille le LARDIC;notaire de la rue Obscure;;Sieur de Kerguestin, Pluguffan... Notaire. Apothicaire, gouverneur de l'Hï¿½pital de Sainte Catherine. Procureur, syndic de Quimper en 1587-1588. Dï¿½putï¿½ du Tiers-Etat pour Quimper-Corentin aux Etats de Bretagne de 1587 et 1588. Reprï¿½sentant de la Bretagne aux Etats-Gï¿½nï¿½raux ï¿½ Blois en 1588.;;;;;
 AAAA1;G-2;ST;Lucas, Pierre-Billig, Dominique TANGUY;;;;;Fils de Sï¿½bastion dixit son choix du 11/10/2022 et revue le 03/14/2023;;;;
 AAAA2;G-2;ST;Marie, Jeanne-Perrine ,Helene TANGUY;;;;;Fils de Sï¿½bastion dixit son choix du 11/10/2022 et revue le 03/14/2023;;;;
+
 
 
 
