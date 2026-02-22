@@ -6,16 +6,97 @@
     "fin": 511,
     "pays": "france",
     "maison": "Mérovingiens",
-    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Clovis_Ier.jpg/220px-Clovis_Ier.jpg"
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Clovis_Ier.jpg/200px-Clovis_Ier.jpg"
+  },
+  {
+    "nom": "Dagobert Ier",
+    "titre": "Roi des Francs",
+    "debut": 629,
+    "fin": 639,
+    "pays": "france",
+    "maison": "Mérovingiens",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Dagobert_Ier.jpg/200px-Dagobert_Ier.jpg"
+  },
+  {
+    "nom": "Pépin le Bref",
+    "titre": "Roi des Francs",
+    "debut": 751,
+    "fin": 768,
+    "pays": "france",
+    "maison": "Carolingiens",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/P%C3%A9pin_le_Bref.jpg/200px-P%C3%A9pin_le_Bref.jpg"
+  },
+  {
+    "nom": "Charlemagne",
+    "titre": "Empereur d'Occident",
+    "debut": 768,
+    "fin": 814,
+    "pays": "france",
+    "maison": "Carolingiens",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Charlemagne_by_Louis-F%C3%A9lix_Amiel.jpg/200px-Charlemagne_by_Louis-F%C3%A9lix_Amiel.jpg"
+  },
+  {
+    "nom": "Egbert",
+    "titre": "Roi du Wessex",
+    "debut": 802,
+    "fin": 839,
+    "pays": "angleterre",
+    "maison": "Wessex",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Egbert_of_Wessex.jpg/200px-Egbert_of_Wessex.jpg"
   },
   {
     "nom": "Nominoë",
-    "titre": "Duc / Roi de Bretagne",
+    "titre": "Père de la Patrie Bretonne",
     "debut": 845,
     "fin": 851,
     "pays": "bretagne",
     "maison": "Nominoë",
-    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Statue_Nominoe_Bains_sur_Oust.jpg/220px-Statue_Nominoe_Bains_sur_Oust.jpg"
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Statue_Nominoe_Bains_sur_Oust.jpg/200px-Statue_Nominoe_Bains_sur_Oust.jpg"
+  },
+  {
+    "nom": "Erispoë",
+    "titre": "Roi de Bretagne",
+    "debut": 851,
+    "fin": 857,
+    "pays": "bretagne",
+    "maison": "Nominoë",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Erispoe.jpg/200px-Erispoe.jpg"
+  },
+  {
+    "nom": "Salomon",
+    "titre": "Roi de Bretagne",
+    "debut": 857,
+    "fin": 874,
+    "pays": "bretagne",
+    "maison": "Nominoë",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Salomon_de_Bretagne.jpg/200px-Salomon_de_Bretagne.jpg"
+  },
+  {
+    "nom": "Alfred le Grand",
+    "titre": "Roi des Anglo-Saxons",
+    "debut": 871,
+    "fin": 899,
+    "pays": "angleterre",
+    "maison": "Wessex",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/King_Alfred.jpg/200px-King_Alfred.jpg"
+  },
+  {
+    "nom": "Hugues Capet",
+    "titre": "Roi des Francs",
+    "debut": 987,
+    "fin": 996,
+    "pays": "france",
+    "maison": "Capétiens",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Hugues_Capet.jpg/200px-Hugues_Capet.jpg"
+  },
+  {
+    "nom": "Alain Barbetorte",
+    "titre": "Duc de Bretagne",
+    "debut": 936,
+    "fin": 952,
+    "pays": "bretagne",
+    "maison": "Nantes",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Alain_Barbetorte.jpg/200px-Alain_Barbetorte.jpg"
   },
   {
     "nom": "Guillaume le Conquérant",
@@ -24,6 +105,123 @@
     "fin": 1087,
     "pays": "angleterre",
     "maison": "Normandie",
-    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/William_I_of_England.jpg/220px-William_I_of_England.jpg"
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/William_I_of_England.jpg/200px-William_I_of_England.jpg"
+  },
+  {
+    "nom": "Philippe II Auguste",
+    "titre": "Roi de France",
+    "debut": 1180,
+    "fin": 1223,
+    "pays": "france",
+    "maison": "Capétiens",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Philippe_II_Auguste.jpg/200px-Philippe_II_Auguste.jpg"
+  },
+  {
+    "nom": "Richard Cœur de Lion",
+    "titre": "Roi d'Angleterre",
+    "debut": 1189,
+    "fin": 1199,
+    "pays": "angleterre",
+    "maison": "Plantagenêt",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Richard_I_of_England_2.jpg/200px-Richard_I_of_England_2.jpg"
+  },
+  {
+    "nom": "Pierre Mauclerc",
+    "titre": "Duc de Bretagne (baillistre)",
+    "debut": 1213,
+    "fin": 1237,
+    "pays": "bretagne",
+    "maison": "Dreux",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Pierre_Mauclerc.jpg/200px-Pierre_Mauclerc.jpg"
+  },
+  {
+    "nom": "Saint Louis (Louis IX)",
+    "titre": "Roi de France",
+    "debut": 1226,
+    "fin": 1270,
+    "pays": "france",
+    "maison": "Capétiens",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Saint_Louis_de_France.jpg/200px-Saint_Louis_de_France.jpg"
+  },
+  {
+    "nom": "Jean IV le Conquérant",
+    "titre": "Duc de Bretagne",
+    "debut": 1364,
+    "fin": 1399,
+    "pays": "bretagne",
+    "maison": "Montfort",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Jean_IV_de_Bretagne.jpg/200px-Jean_IV_de_Bretagne.jpg"
+  },
+  {
+    "nom": "Henri V",
+    "titre": "Roi d'Angleterre",
+    "debut": 1413,
+    "fin": 1422,
+    "pays": "angleterre",
+    "maison": "Lancastre",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/King_Henry_V.jpg/200px-King_Henry_V.jpg"
+  },
+  {
+    "nom": "Anne de Bretagne",
+    "titre": "Duchesse de Bretagne / Reine de France",
+    "debut": 1488,
+    "fin": 1514,
+    "pays": "bretagne",
+    "maison": "Montfort",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Anne_de_Bretagne_miniature.jpg/200px-Anne_de_Bretagne_miniature.jpg"
+  },
+  {
+    "nom": "François Ier",
+    "titre": "Roi de France",
+    "debut": 1515,
+    "fin": 1547,
+    "pays": "france",
+    "maison": "Valois-Angoulême",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Francois_Ier_Louvre.jpg/200px-Francois_Ier_Louvre.jpg"
+  },
+  {
+    "nom": "Henri VIII",
+    "titre": "Roi d'Angleterre",
+    "debut": 1509,
+    "fin": 1547,
+    "pays": "angleterre",
+    "maison": "Tudor",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Hans_Holbein_the_Younger_-_Henry_VIII_-_Google_Art_Project.jpg/200px-Hans_Holbein_the_Younger_-_Henry_VIII_-_Google_Art_Project.jpg"
+  },
+  {
+    "nom": "Élisabeth Ière",
+    "titre": "Reine d'Angleterre",
+    "debut": 1558,
+    "fin": 1603,
+    "pays": "angleterre",
+    "maison": "Tudor",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Elizabeth_I_by_George_Gower.jpg/200px-Elizabeth_I_by_George_Gower.jpg"
+  },
+  {
+    "nom": "Henri IV",
+    "titre": "Roi de France et de Navarre",
+    "debut": 1589,
+    "fin": 1610,
+    "pays": "france",
+    "maison": "Bourbon",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Henry_IV_of_France_by_Frans_Pourbus_the_Younger.jpg/200px-Henry_IV_of_France_by_Frans_Pourbus_the_Younger.jpg"
+  },
+  {
+    "nom": "Louis XIV",
+    "titre": "Roi de France (Le Roi Soleil)",
+    "debut": 1643,
+    "fin": 1715,
+    "pays": "france",
+    "maison": "Bourbon",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Louis_XIV_of_France.jpg/200px-Louis_XIV_of_France.jpg"
+  },
+  {
+    "nom": "Charles II",
+    "titre": "Roi d'Angleterre",
+    "debut": 1660,
+    "fin": 1685,
+    "pays": "angleterre",
+    "maison": "Stuart",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Charles_II_by_John_Michael_Wright_2.jpg/200px-Charles_II_by_John_Michael_Wright_2.jpg"
   }
 ]
