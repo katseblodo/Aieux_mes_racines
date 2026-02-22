@@ -2,149 +2,36 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeline Royale - Bretagne, France, Angleterre</title>
+    <title>Timeline Royale - Alignée</title>
     <style>
-        :root {
-            --br-color: #000;
-            --fr-color: #0055A4;
-            --en-color: #CE1124;
+        :root { --br: #000; --fr: #0055A4; --en: #CE1124; }
+        body { font-family: sans-serif; background: #f4f4f4; margin: 0; }
+        header { background: #2c3e50; color: white; text-align: center; padding: 20px; position: sticky; top: 0; z-index: 10; }
+        
+        .grid-header { 
+            display: grid; grid-template-columns: 100px 1fr 1fr 1fr; 
+            max-width: 1200px; margin: 20px auto 0; position: sticky; top: 85px; z-index: 9;
+            color: white; font-weight: bold; text-align: center;
         }
+        .h-date { background: #7f8c8d; } .h-br { background: var(--br); } .h-fr { background: var(--fr); } .h-en { background: var(--en); }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            color: #333;
+        .timeline-row { 
+            display: grid; grid-template-columns: 100px 1fr 1fr 1fr; 
+            max-width: 1200px; margin: 0 auto; background: white; border-bottom: 1px solid #ddd;
         }
-
-        header {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px 10px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        /* En-tête des colonnes */
-        .grid-header {
-            display: grid;
-            grid-template-columns: 100px 1fr 1fr 1fr;
-            max-width: 1400px;
-            margin: 20px auto 0;
-            position: sticky;
-            top: 105px; /* Ajusté selon la hauteur du header */
-            z-index: 999;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .grid-header div {
-            padding: 15px;
-            color: white;
-            text-align: center;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .h-date { background: #95a5a6; }
-        .h-br { background: var(--br-color); }
-        .h-fr { background: var(--fr-color); }
-        .h-en { background: var(--en-color); }
-
-        /* Lignes de la Timeline */
-        .timeline-row {
-            display: grid;
-            grid-template-columns: 100px 1fr 1fr 1fr;
-            max-width: 1400px;
-            margin: 0 auto;
-            border-bottom: 1px solid #dfe6e9;
-            background: white;
-        }
-
-        .year-label {
-            background: #ecf0f1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1em;
-            border-right: 1px solid #bdc3c7;
-        }
-
-        .cell {
-            padding: 20px;
-            min-height: 150px;
-            border-right: 1px solid #f0f0f0;
-            transition: background 0.2s;
-        }
-
-        .cell:hover { background: #fdfdfd; }
-
-        /* Cartes des Souverains */
-        .card {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            animation: slideIn 0.4s ease-out;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .portrait {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #eee;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .info h3 { 
-            margin: 0; 
-            font-size: 1.1em; 
-            color: #2c3e50;
-        }
-
-        .title-tag {
-            font-size: 0.75em;
-            color: #7f8c8d;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .event-box {
-            font-size: 0.85em;
-            line-height: 1.4;
-            background: #f8f9fa;
-            padding: 10px;
-            border-radius: 5px;
-            border-left: 4px solid #dcdde1;
-        }
-
-        .maison {
-            font-size: 0.75em;
-            color: #95a5a6;
-            font-style: italic;
-        }
-
-        /* Couleurs de bordure selon le pays */
-        .cell.bretagne { border-left: 2px solid #000; }
-        .cell.france { border-left: 2px solid #0055A4; }
-        .cell.angleterre { border-left: 2px solid #CE1124; }
-
+        .year-label { background: #eee; display: flex; align-items: center; justify-content: center; font-weight: bold; border-right: 1px solid #ccc; }
+        .cell { padding: 15px; min-height: 120px; border-right: 1px solid #f0f0f0; }
+        
+        .card { display: flex; flex-direction: column; align-items: center; text-align: center; font-size: 0.9em; }
+        .portrait { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #ddd; margin-bottom: 5px; }
+        .name { font-weight: bold; color: #2c3e50; display: block; }
+        .event { font-size: 0.8em; color: #666; font-style: italic; margin-top: 5px; background: #f9f9f9; padding: 4px; border-radius: 3px; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Chronologie Royale Comparée</h1>
-    <p>Alignement temporel : Bretagne, France et Angleterre</p>
 </header>
 
 <div class="grid-header">
@@ -154,66 +41,52 @@
     <div class="h-en">Angleterre</div>
 </div>
 
-<div id="timeline-container">
-    </div>
+<div id="container"></div>
 
 <script>
-    async function initTimeline() {
+    async function init() {
         try {
-            const response = await fetch('souverains.json');
-            if (!response.ok) throw new Error("Impossible de charger le JSON");
-            const data = await response.json();
-
-            // 1. Extraire toutes les dates de début uniques pour créer les lignes
-            const uniqueDates = [...new Set(data.map(s => s.debut))].sort((a, b) => a - b);
+            const res = await fetch('souverains.json');
+            const data = await res.json();
             
-            const container = document.getElementById('timeline-container');
+            // On récupère toutes les dates de début uniques
+            const dates = [...new Set(data.map(s => s.debut))].sort((a, b) => a - b);
+            const container = document.getElementById('container');
 
-            // 2. Créer une ligne pour chaque date de début
-            uniqueDates.forEach(date => {
+            dates.forEach(date => {
                 const row = document.createElement('div');
                 row.className = 'timeline-row';
 
-                // Colonne Année
-                const yearDiv = document.createElement('div');
-                yearDiv.className = 'year-label';
-                yearDiv.innerText = date;
-                row.appendChild(yearDiv);
+                // Colonne Date
+                const y = document.createElement('div');
+                y.className = 'year-label';
+                y.innerText = date;
+                row.appendChild(y);
 
                 // Colonnes Pays
                 ['bretagne', 'france', 'angleterre'].forEach(pays => {
                     const cell = document.createElement('div');
-                    cell.className = `cell ${pays}`;
+                    cell.className = 'cell';
                     
-                    // Trouver si quelqu'un commence à régner à cette date exacte pour ce pays
                     const s = data.find(item => item.pays === pays && item.debut === date);
-
                     if (s) {
                         cell.innerHTML = `
                             <div class="card">
-                                <img src="${s.portrait}" class="portrait" alt="${s.nom}">
-                                <div class="info">
-                                    <span class="title-tag">${s.titre}</span>
-                                    <h3>${s.nom}</h3>
-                                    <div class="event-box">${s.evenement}</div>
-                                    <span class="maison">Maison : ${s.maison}</span>
-                                </div>
+                                <img src="${s.portrait}" class="portrait">
+                                <span class="name">${s.nom}</span>
+                                <div class="event">${s.evenement}</div>
                             </div>
                         `;
                     }
                     row.appendChild(cell);
                 });
-
                 container.appendChild(row);
             });
-
-        } catch (err) {
-            document.getElementById('timeline-container').innerHTML = `<p style="text-align:center; color:red; padding:50px;">Erreur : ${err.message}. Assurez-vous que souverains.json est dans le même dossier.</p>`;
+        } catch (e) {
+            console.error("Erreur de chargement JSON:", e);
         }
     }
-
-    window.onload = initTimeline;
+    init();
 </script>
-
 </body>
 </html>
