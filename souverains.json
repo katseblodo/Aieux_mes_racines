@@ -1,4 +1,135 @@
 [
+  [
+  {
+    "nom": "Clovis Ier",
+    "titre": "Roi des Francs",
+    "debut": 481,
+    "fin": 511,
+    "pays": "france",
+    "maison": "Mérovingiens",
+    "evenement": "Baptême à Reims et unification des Francs. Début de la monarchie.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/9/91/Clovis_Ier.jpg"
+  },
+  {
+    "nom": "Période Légendaire",
+    "titre": "Chefs de clans",
+    "debut": 481,
+    "fin": 550,
+    "pays": "bretagne",
+    "maison": "Celtes",
+    "evenement": "Grande émigration des Bretons d'Outre-Manche vers l'Armorique.",
+    "portrait": "https://ui-avatars.com/api/?name=B&background=000&color=fff"
+  },
+  {
+    "nom": "Heptarchie",
+    "titre": "Royaumes divisés",
+    "debut": 481,
+    "fin": 600,
+    "pays": "angleterre",
+    "maison": "Saxons",
+    "evenement": "Arrivée des Angles et Saxons. Le pays est divisé en 7 royaumes rivaux.",
+    "portrait": "https://ui-avatars.com/api/?name=A&background=CE1124&color=fff"
+  },
+  {
+    "nom": "Clotaire Ier",
+    "titre": "Roi des Francs",
+    "debut": 511,
+    "fin": 561,
+    "pays": "france",
+    "maison": "Mérovingiens",
+    "evenement": "Fils de Clovis, il finit par réunifier le royaume après ses frères.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/0/07/Clotaire_Ier.jpg"
+  },
+  {
+    "nom": "Waroch Ier",
+    "titre": "Roi du Broërec",
+    "debut": 550,
+    "fin": 590,
+    "pays": "bretagne",
+    "maison": "Vannes",
+    "evenement": "Chef breton puissant qui défend le Vannetais contre les Francs.",
+    "portrait": "https://ui-avatars.com/api/?name=W&background=000&color=fff"
+  },
+  {
+    "nom": "Dagobert Ier",
+    "titre": "Roi des Francs",
+    "debut": 629,
+    "fin": 639,
+    "pays": "france",
+    "maison": "Mérovingiens",
+    "evenement": "Dernier grand roi mérovingien. Il fonde l'abbaye de Saint-Denis.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Dagobert_Ier.jpg"
+  },
+  {
+    "nom": "Judicaël",
+    "titre": "Roi de Domnonée",
+    "debut": 632,
+    "fin": 657,
+    "pays": "bretagne",
+    "maison": "Rennes",
+    "evenement": "Signe un traité de paix avec Dagobert Ier à Clichy.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/6/67/Saint_Judicael.jpg"
+  },
+  {
+    "nom": "Période des Rois Fainéants",
+    "titre": "Crise de pouvoir",
+    "debut": 650,
+    "fin": 750,
+    "pays": "france",
+    "maison": "Mérovingiens",
+    "evenement": "Le pouvoir passe des rois aux 'Maires du Palais' (ancêtres de Charlemagne).",
+    "portrait": "https://ui-avatars.com/api/?name=RF&background=0055A4&color=fff"
+  },
+  {
+    "nom": "Offa de Mercie",
+    "titre": "Roi de Mercie",
+    "debut": 757,
+    "fin": 796,
+    "pays": "angleterre",
+    "maison": "Mercie",
+    "evenement": "Souverain le plus puissant avant l'unification. Il construit la 'Digue d'Offa'.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Offa_of_Mercia_coin.jpg"
+  },
+  {
+    "nom": "Pépin le Bref",
+    "titre": "Roi des Francs",
+    "debut": 751,
+    "fin": 768,
+    "pays": "france",
+    "maison": "Carolingiens",
+    "evenement": "Dépose le dernier mérovingien et instaure la dynastie Carolingienne.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Pepin_le_Bref.jpg"
+  },
+  {
+    "nom": "Charlemagne",
+    "titre": "Empereur d'Occident",
+    "debut": 768,
+    "fin": 814,
+    "pays": "france",
+    "maison": "Carolingiens",
+    "evenement": "Sacré Empereur en 800. Il soumet brièvement les chefs bretons.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Charlemagne_by_Albrecht_D%C3%BCrer.jpg"
+  },
+  {
+    "nom": "Chef Morvan",
+    "titre": "Le Marcheur",
+    "debut": 814,
+    "fin": 818,
+    "pays": "bretagne",
+    "maison": "Le Faouët",
+    "evenement": "Se soulève contre Louis le Pieux (fils de Charlemagne) pour l'indépendance.",
+    "portrait": "https://ui-avatars.com/api/?name=M&background=000&color=fff"
+  },
+  {
+    "nom": "Egbert de Wessex",
+    "titre": "Roi du Wessex",
+    "debut": 802,
+    "fin": 839,
+    "pays": "angleterre",
+    "maison": "Wessex",
+    "evenement": "Considéré comme l'un des premiers 'Bretwalda' (souverain de Bretagne insulaire).",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/5/52/Egbert_of_Wessex.jpg"
+  },
   { "nom": "Clovis Ier", "titre": "Roi des Francs", "debut": 481, "fin": 511, "pays": "france", "maison": "Mérovingiens", "evenement": "Baptême à Reims et unification des tribus franques.", "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Clovis_Ier.jpg/200px-Clovis_Ier.jpg" },
   { "nom": "Egbert", "titre": "Roi du Wessex", "debut": 802, "fin": 839, "pays": "angleterre", "maison": "Wessex", "evenement": "Premier roi à unifier l'Angleterre du Sud.", "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Egbert_of_Wessex.jpg/200px-Egbert_of_Wessex.jpg" },
   { "nom": "Charles le Chauve", "titre": "Roi de Francie Occidentale", "debut": 840, "fin": 877, "pays": "france", "maison": "Carolingiens", "evenement": "Traité de Verdun et luttes contre Nominoë.", "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Charles_le_Chauve.jpg/200px-Charles_le_Chauve.jpg" },
