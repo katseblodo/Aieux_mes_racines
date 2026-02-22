@@ -9,36 +9,37 @@ async function loadData() {
 }
 
 function renderTimeline(items) {
-    const container = document.getElementById('timeline');
-    container.innerHTML = '';
-
-    // Dictionnaire des drapeaux/emojis
-    const flags = {
-        'france': '🇫🇷',
-        'bretagne': '🏴󠁦󠁲󠁢󠁲󠁥󠁿', // Note: Le drapeau Hermine peut varier selon le support, on peut utiliser une image sinon
-        'angleterre': '🏴󠁧󠁢󠁥󠁮󠁧󠁿'
+    // On vide les 3 colonnes
+    const cols = {
+        'bretagne': document.querySelector('#col-bretagne .entries'),
+        'france': document.querySelector('#col-france .entries'),
+        'angleterre': document.querySelector('#col-angleterre .entries')
     };
+    
+    Object.values(cols).forEach(el => el.innerHTML = '');
 
-    items.forEach((item, index) => {
-        const side = index % 2 === 0 ? 'left' : 'right';
+    items.forEach(item => {
+        const targetCol = cols[item.pays];
+        if (!targetCol) return;
+
         const card = document.createElement('div');
-        card.className = `card ${side} ${item.pays}`;
+        card.className = `card ${item.pays}`;
         
         card.innerHTML = `
             <div class="content">
-                <div style="font-size: 1.5em; margin-bottom: 5px;">${flags[item.pays] || ''}</div>
+                <span class="date-label">${item.debut} - ${item.fin}</span>
                 <h3>${item.nom}</h3>
-                <img src="${item.portrait}" alt="${item.nom}">
+                <img src="${item.portrait}" style="width:60px; height:60px; float:right; border-radius:5px; margin-left:10px;">
                 <p><strong>${item.titre}</strong></p>
-                <p>📅 ${item.debut} - ${item.fin}</p>
-                <span class="country-badge badge-${item.pays}">${item.pays}</span>
-                <p><small>🏰 Maison : ${item.maison}</small></p>
+                <p class="event"><small>${item.evenement}</small></p>
+                <p style="font-size:0.8em; color:gray;">Maison: ${item.maison}</p>
             </div>
         `;
-        container.appendChild(card);
+        targetCol.appendChild(card);
     });
 }
 
+// La fonction filterTimeline reste la même, elle filtrera juste les données envoyées
 function filterTimeline(country) {
     if (country === 'all') {
         renderTimeline(data);
