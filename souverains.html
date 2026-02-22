@@ -3,106 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeline Comparée : Bretagne, France, Angleterre</title>
+    <title>Timeline Royale - Bretagne, France, Angleterre</title>
     <style>
         :root {
-            --bg-color: #f4f7f6;
-            --br-color: #000000;
+            --br-color: #000;
             --fr-color: #0055A4;
             --en-color: #CE1124;
-            --header-bg: #2c3e50;
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
             margin: 0;
-            padding: 0;
+            color: #333;
         }
 
         header {
-            background: var(--header-bg);
+            background: #2c3e50;
             color: white;
-            padding: 20px;
             text-align: center;
+            padding: 30px 10px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
+        /* En-tête des colonnes */
         .grid-header {
             display: grid;
-            grid-template-columns: 80px 1fr 1fr 1fr;
-            gap: 15px;
-            max-width: 1200px;
+            grid-template-columns: 100px 1fr 1fr 1fr;
+            max-width: 1400px;
             margin: 20px auto 0;
-            padding: 0 15px;
-            font-weight: bold;
-            text-align: center;
+            position: sticky;
+            top: 105px; /* Ajusté selon la hauteur du header */
+            z-index: 999;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .grid-header div {
-            padding: 10px;
-            border-radius: 5px 5px 0 0;
+            padding: 15px;
             color: white;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .h-date { color: #333 !important; }
+        .h-date { background: #95a5a6; }
         .h-br { background: var(--br-color); }
         .h-fr { background: var(--fr-color); }
         .h-en { background: var(--en-color); }
 
-        #timeline-container {
-            max-width: 1200px;
-            margin: 0 auto 50px;
-            padding: 0 15px;
-        }
-
+        /* Lignes de la Timeline */
         .timeline-row {
             display: grid;
-            grid-template-columns: 80px 1fr 1fr 1fr;
-            gap: 15px;
-            border-bottom: 1px solid #ddd;
+            grid-template-columns: 100px 1fr 1fr 1fr;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-bottom: 1px solid #dfe6e9;
             background: white;
-            transition: background 0.3s;
         }
 
-        .timeline-row:hover { background: #fefefe; }
-
-        .year-col {
-            background: #eee;
+        .year-label {
+            background: #ecf0f1;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 0.9em;
-            color: #555;
-            border-right: 1px solid #ccc;
+            font-size: 1.1em;
+            border-right: 1px solid #bdc3c7;
         }
 
         .cell {
-            padding: 15px;
-            min-height: 120px;
-            border-right: 1px inset #f0f0f0;
+            padding: 20px;
+            min-height: 150px;
+            border-right: 1px solid #f0f0f0;
+            transition: background 0.2s;
         }
 
+        .cell:hover { background: #fdfdfd; }
+
+        /* Cartes des Souverains */
         .card {
             display: flex;
-            gap: 10px;
-            animation: fadeIn 0.5s ease;
+            flex-direction: column;
+            gap: 12px;
+            animation: slideIn 0.4s ease-out;
         }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .portrait {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #ddd;
-            flex-shrink: 0;
+            border: 3px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .info h3 {
-            margin:
+        .info h3 { 
+            margin: 0; 
+            font-size: 1.1em; 
+            color: #2c3e50;
+        }
+
+        .title-tag {
+            font-size: 0.75em;
+            color: #7f8c8d;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .event-box {
+            font-size: 0.85em;
+            line-height: 1.4;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #dcdde1;
+        }
+
+        .maison {
+            font-size: 0.75em;
+            color: #95a5a6;
+            font-style: italic;
+        }
+
+        /* Couleurs de bordure selon le pays */
+        .cell.bretagne { border-left: 2px solid #000; }
+        .cell.france { border-left: 2px solid #0055A4; }
+        .cell.angleterre { border-left: 2px solid #CE1124; }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Chronologie Royale Comparée</h1>
+    <p>Alignement temporel : Bretagne, France et Angleterre</p>
+</header>
+
+<div class="grid-header">
+    <div class="h-date">Année</div>
+    <div class="h-br">Bretagne</div>
+    <div class="h-fr">France</div>
+    <div class="h-en">Angleterre</div>
+</div>
+
+<div id="timeline-container">
+    </div>
+
+<script>
+    async function initTimeline() {
+        try {
+            const response = await fetch('souverains.json');
+            if (!response.ok) throw new Error("Impossible de charger le JSON");
+            const data = await response.json();
+
+            // 1. Extraire toutes les dates de début uniques pour créer les lignes
+            const uniqueDates = [...new Set(data.map(s => s.debut))].sort((a, b) => a - b);
+            
+            const container = document.getElementById('timeline-container');
+
+            // 2. Créer une ligne pour chaque date de début
+            uniqueDates.forEach(date => {
+                const row = document.createElement('div');
+                row.className = 'timeline-row';
+
+                // Colonne Année
+                const yearDiv = document.createElement('div');
+                yearDiv.className = 'year-label';
+                yearDiv.innerText = date;
+                row.appendChild(yearDiv);
+
+                // Colonnes Pays
+                ['bretagne', 'france', 'angleterre'].forEach(pays => {
+                    const cell = document.createElement('div');
+                    cell.className = `cell ${pays}`;
+                    
+                    // Trouver si quelqu'un commence à régner à cette date exacte pour ce pays
+                    const s = data.find(item => item.pays === pays && item.debut === date);
+
+                    if (s) {
+                        cell.innerHTML = `
+                            <div class="card">
+                                <img src="${s.portrait}" class="portrait" alt="${s.nom}">
+                                <div class="info">
+                                    <span class="title-tag">${s.titre}</span>
+                                    <h3>${s.nom}</h3>
+                                    <div class="event-box">${s.evenement}</div>
+                                    <span class="maison">Maison : ${s.maison}</span>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    row.appendChild(cell);
+                });
+
+                container.appendChild(row);
+            });
+
+        } catch (err) {
+            document.getElementById('timeline-container').innerHTML = `<p style="text-align:center; color:red; padding:50px;">Erreur : ${err.message}. Assurez-vous que souverains.json est dans le même dossier.</p>`;
+        }
+    }
+
+    window.onload = initTimeline;
+</script>
+
+</body>
+</html>
