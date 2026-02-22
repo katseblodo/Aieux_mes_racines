@@ -167,3 +167,67 @@ header {
     .timeline-container { flex-direction: column; }
     .timeline-column { width: 100%; }
 }
+
+:root {
+    --br-color: #000;
+    --fr-color: #0055A4;
+    --en-color: #CE1124;
+}
+
+.timeline-row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    min-height: 80px;
+    align-items: stretch;
+}
+
+.time-indicator {
+    width: 60px;
+    background: #2c3e50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    flex-shrink: 0;
+}
+
+.col-cell {
+    flex: 1;
+    padding: 5px;
+    border-right: 1px inset #eee;
+    position: relative;
+}
+
+.mini-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.thumb {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.name {
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+/* Couleurs subtiles de fond pour les colonnes */
+.bretagne { background-color: #f9f9f9; }
+.france { background-color: #f0f7ff; }
+.angleterre { background-color: #fff0f0; }
+
+.col-cell.bretagne { border-left: 3px solid var(--br-color); }
+.col-cell.france { border-left: 3px solid var(--fr-color); }
+.col-cell.angleterre { border-left: 3px solid var(--en-color); }
