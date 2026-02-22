@@ -3,195 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Généalogie Tanguy-Quillec</title>
+    <title>Généalogie Dynamique | Tanguy-Quillec</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
+        :root {
+            --primary: #2c3e50;
+            --male: #3498db;
+            --female: #e74c3c;
+            --bg: #f4f7f6;
         }
 
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 10px;
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; padding-top: 100px; }
+
+        /* BARRE DE NAVIGATION */
+        .header-tools {
+            position: fixed; top: 0; width: 100%; background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1); z-index: 1000;
+            padding: 15px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
         }
 
-        .tree-container {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        .nav-group { display: flex; align-items: center; gap: 10px; }
+        
+        select, button {
+            padding: 8px 12px; border: 1px solid #ddd; border-radius: 5px;
+            background: white; cursor: pointer;
         }
 
-        .generation {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+        .gen-active { background: var(--primary); color: white; }
+
+        /* ZONE DE L'ARBRE */
+        #tree-canvas {
+            display: flex; justify-content: center; align-items: flex-start;
+            gap: 20px; padding: 20px; overflow-x: auto;
         }
 
-        .generation-title {
-            width: 100%;
-            text-align: center;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: #7f8c8d;
-            margin-bottom: 10px;
-            font-size: 0.9em;
+        .branch-column {
+            display: flex; flex-direction: column; align-items: center;
+            min-width: 280px; gap: 20px;
         }
 
-        .person-card {
-            background: white;
-            border-left: 5px solid #3498db;
-            padding: 15px;
-            width: 250px;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+        /* CARTES INDIVIDUS */
+        .card {
+            background: white; width: 240px; padding: 12px;
+            border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 6px solid #ccc; position: relative;
+            transition: all 0.3s ease;
         }
 
-        .person-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .card:hover { transform: scale(1.02); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+        .card.M { border-left-color: var(--male); }
+        .card.F { border-left-color: var(--female); }
+
+        .gen-tag { 
+            position: absolute; top: -10px; right: 10px; 
+            background: #eee; font-size: 0.7em; padding: 2px 6px; border-radius: 10px;
         }
 
-        .person-card.female { border-left-color: #e74c3c; }
+        .name { font-weight: bold; color: var(--primary); display: block; margin-bottom: 4px; }
+        .job { font-size: 0.8em; color: #16a085; font-style: italic; display: block; }
+        .info { font-size: 0.75em; color: #7f8c8d; margin-top: 5px; display: block; }
+        
+        .connector { height: 20px; width: 2px; background: #cbd5e0; }
 
-        .name {
-            font-weight: bold;
-            display: block;
-            font-size: 1.1em;
-            color: #2c3e50;
-        }
-
-        .dates {
-            font-size: 0.85em;
-            color: #7f8c8d;
-            margin-bottom: 5px;
-        }
-
-        .job {
-            font-style: italic;
-            font-size: 0.9em;
-            color: #16a085;
-        }
-
-        .location {
-            font-size: 0.85em;
-            margin-top: 5px;
-            display: block;
-        }
-
-        hr { border: 0; border-top: 1px solid #ddd; margin: 10px 0; }
-
-        @media (max-width: 768px) {
-            .person-card { width: 100%; }
-        }
+        .hidden { display: none !important; }
     </style>
 </head>
 <body>
 
-    <h1>🌳 Lignée Tanguy - Quillec</h1>
+<div class="header-tools">
+    <div class="nav-group">
+        <strong>Générations :</strong>
+        <button onclick="filterGen(0, 3)" id="btn-0-3" class="gen-active">G0 - G3</button>
+        <button onclick="filterGen(4, 8)" id="btn-4-8">G4 - G8</button>
+        <button onclick="filterGen(9, 12)" id="btn-9-12">G9 - G12</button>
+    </div>
+    <div class="nav-group">
+        <strong>Filtrer par Branche :</strong>
+        <select id="familyFilter" onchange="renderTree()">
+            <option value="all">Toutes les lignées</option>
+            <option value="TT">TANGUY (TT)</option>
+            <option value="LL">LÉAUTÉ (LL)</option>
+            <option value="QQ">QUILLEC (QQ)</option>
+            <option value="PP">PAJOLLEC (PP)</option>
+        </select>
+    </div>
+</div>
 
-    <div class="tree-container">
-
-        <div class="generation">
-            <div class="generation-title">Génération Pivot (G0)</div>
-            <div class="person-card">
-                <span class="name">Dominique TANGUY</span>
-                <span class="dates">1948 - 2024</span>
-                <span class="job">Pharmacien</span>
-                <span class="location">📍 Pont-l'Abbé / Quimper</span>
-            </div>
-            <div class="person-card female">
-                <span class="name">Hélène QUILLEC</span>
-                <span class="dates">1949 - Présent</span>
-                <span class="location">📍 Vannes</span>
-            </div>
-        </div>
-
-        <div class="generation">
-            <div class="generation-title">Parents (G1)</div>
-            <div class="person-card">
-                <span class="name">Louis TANGUY</span>
-                <span class="dates">1917 - 1997</span>
-                <span class="job">Vétérinaire</span>
-                <span class="location">📍 Morlaix / Pont-l'Abbé</span>
-            </div>
-            <div class="person-card female">
-                <span class="name">Marie LÉAUTÉ</span>
-                <span class="dates">1918 - 1991</span>
-                <span class="job">Assistante Sociale</span>
-                <span class="location">📍 St-Aignan / Pont-l'Abbé</span>
-            </div>
-            <div class="person-card">
-                <span class="name">Pierre QUILLEC</span>
-                <span class="dates">1912 - 2015</span>
-                <span class="job">Médecin</span>
-                <span class="location">📍 Penmarch / Quimper</span>
-            </div>
-            <div class="person-card female">
-                <span class="name">Paule LE PAJOLLEC</span>
-                <span class="dates">1920 - 2005</span>
-                <span class="location">📍 Beuzec-Conq / Quimper</span>
-            </div>
-        </div>
-
-        <div class="generation">
-            <div class="generation-title">Grands-Parents (G2)</div>
-            <div class="person-card">
-                <span class="name">Louis TANGUY</span>
-                <span class="dates">1874 - 1932</span>
-                <span class="job">Relieur</span>
-            </div>
-            <div class="person-card female">
-                <span class="name">Marie LAUTROU</span>
-                <span class="dates">1878 - 1938</span>
-                <span class="job">Mercière</span>
-            </div>
-            <div class="person-card">
-                <span class="name">Pierre LÉAUTÉ</span>
-                <span class="dates">1886 - 1974</span>
-                <span class="job">Négociant Agricole</span>
-            </div>
-            <div class="person-card female">
-                <span class="name">Anne PERZO</span>
-                <span class="dates">1889 - 1963</span>
-                <span class="job">Hôtelière</span>
-            </div>
-            <div class="person-card">
-                <span class="name">Sébastien QUILLEC</span>
-                <span class="dates">1869 - 1926</span>
-                <span class="job">Boulanger</span>
-            </div>
-            <div class="person-card female">
-                <span class="name">Marie LE PEMP</span>
-                <span class="dates">1872 - 1926</span>
-                <span class="job">Commerçante</span>
-            </div>
-            <div class="person-card">
-                <span class="name">Antoine LE PAJOLLEC</span>
-                <span class="dates">1884 - 1970</span>
-                <span class="job">Maître Plâtrier</span>
-            </div>
-            <div class="person-card female">
-                <span class="name">Marie LE MANCHEC</span>
-                <span class="dates">1892 - 1973</span>
-            </div>
-        </div>
-
+<div id="tree-canvas">
     </div>
 
-    <footer style="text-align: center; margin-top: 50px; color: #95a5a6; font-size: 0.8em;">
-        Dernière mise à jour : Février 2024 - Site de généalogie familiale
-    </footer>
+<script>
+/** * DONNÉES SOURCES (Simulées à partir de votre CSV)
+ * Dans un usage réel, vous pourriez charger ce contenu via fetch('individus_nettoye.csv')
+ */
+const rawData = `2;G0;TT;dominique TANGUY;Pharmacien;15/08/1948;19/07/2024;Pont-l_Abbe;Quimper;;;
+3;G0;QQ;helene QUILLEC;;26/06/1949;dans tres longtemps;Vannes;;;;
+4;G1;TT;louis charles yves TANGUY;Veterinaire;14/12/1917;22/04/1997;Morlaix;Pont-l_Abbe;24/05/1945;Pontivy;;
+5;G1;LL;marie philomene LEAUTE;Assitante Sociale;04/05/1918;14/01/1991;Saint-Aignan;Pont-l_Abbe;24/05/1945;Pontivy;Diabetique
+6;G1;QQ;pierre marie QUILLEC;Medecin;13/03/1912;08/03/2015;Penmarch;Quimper;31/05/1946;Concarneau;Dossier militaire
+7;G1;PP;paule le PAJOLLEC;;20/05/1920;07/06/2005;Beuzec-Conq;Quimper;31/05/1946;Concarneau;
+8;G2;TT;louis TANGUY;Relieur;20/06/1874;07/03/1932;Sainte-Seve;Morlaix;06/08/1899;St-Martin;;
+9;G2;TL;marie louise LAUTROU;Mercière;30/01/1878;01/10/1938;Spezet;Morlaix;;;;
+10;G2;LL;pierre marie LEAUTE;Négociant;07/03/1886;20/12/1974;Pontivy;Pontivy;;;;
+11;G2;LP;anne marie PERZO;Hôtelière;19/11/1889;12/01/1963;Saint-Aignan;;;;;
+12;G2;QQ;sebastien quillec (LE);Boulanger;06/04/1869;21/01/1926;Ploneour;Penmarch;;;;
+13;G2;QP;marie anne le PEMP;Commercante;31/03/1872;18/10/1926;Plobannalec;Penmarch;;;;
+14;G2;PP;antoine le PAJOLLEC;Maître platrier;10/07/1884;20/01/1970;Saint-Nazaire;Concarneau;;;;
+15;G2;PM;marie jeanne le MANCHEC;;2/04/1892;22/12/1973;Beuzec-Conq;Concarneau;;;;
+16;G3;TT;pierre TANGUY;Cultivateur;20/11/1848;06/05/1897;St-Martin;St-Martin;;;;
+17;G3;TT;marguerite SALUDEN;Aubergiste;26/04/1853;23/02/1930;Sainte-Seve;Morlaix;;;;`;
+
+// Traitement des données
+const individuals = rawData.trim().split('\n').map(line => {
+    const fields = line.split(';');
+    return {
+        id: fields[0],
+        gen: parseInt(fields[1].replace('G', '')),
+        code: fields[2], // Ex: TT, QQ
+        name: fields[3],
+        job: fields[4],
+        birth: fields[5],
+        death: fields[6],
+        place: fields[7],
+        sex: (fields[3].toLowerCase().includes('marie') || fields[3].toLowerCase().includes('paule') || fields[3].toLowerCase().includes('marguerite') || fields[3].toLowerCase().includes('anne')) ? 'F' : 'M'
+    };
+});
+
+let currentMinGen = 0;
+let currentMaxGen = 3;
+
+function filterGen(min, max) {
+    currentMinGen = min;
+    currentMaxGen = max;
+    document.querySelectorAll('.gen-btn').forEach(b => b.classList.remove('gen-active'));
+    renderTree();
+}
+
+function createCard(person) {
+    return `
+        <div class="card ${person.sex}">
+            <span class="gen-tag">G${person.gen}</span>
+            <span class="name">${person.name.toUpperCase()}</span>
+            ${person.job ? `<span class="job">${person.job}</span>` : ''}
+            <span class="info">📅 ${person.birth} - ${person.death}</span>
+            <span class="info">📍 ${person.place}</span>
+        </div>
+    `;
+}
+
+function renderTree() {
+    const canvas = document.getElementById('tree-canvas');
+    const family = document.getElementById('familyFilter').value;
+    canvas.innerHTML = '';
+
+    // On regroupe par code de famille (TT, LL, etc.)
+    const branches = ['TT', 'LL', 'QQ', 'PP'];
+    
+    branches.forEach(bCode => {
+        if (family !== 'all' && !bCode.includes(family)) return;
+
+        const branchDiv = document.createElement('div');
+        branchDiv.className = 'branch-column';
+        
+        // Filtrer les individus de cette branche et dans la plage de génération
+        const branchMembers = individuals
+            .filter(i => i.code.startsWith(bCode[0]) && i.gen >= currentMinGen && i.gen <= currentMaxGen)
+            .sort((a, b) => a.gen - b.gen);
+
+        if (branchMembers.length === 0) return;
+
+        let lastGen = -1;
+        branchMembers.forEach(person => {
+            // Ajouter un connecteur visuel si on change de génération
+            if (lastGen !== -1 && person.gen !== lastGen) {
+                branchDiv.innerHTML += '<div class="connector"></div>';
+            }
+            branchDiv.innerHTML += createCard(person);
+            lastGen = person.gen;
+        });
+
+        canvas.appendChild(branchDiv);
+    });
+}
+
+// Premier rendu
+renderTree();
+</script>
 
 </body>
 </html>
