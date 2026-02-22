@@ -75,7 +75,7 @@
     </style>
 </head>
 <body>
-
+<div id="menu-container"></div>
 <div class="header-tools">
     <div class="nav-row">
         <strong>Générations :</strong>
@@ -180,6 +180,13 @@
 
     window.onload = loadCSV;
 </script>
-
+<script>
+    // Fonction pour charger le menu
+    fetch('menu.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('menu-container').innerHTML = data;
+        });
+</script>
 </body>
 </html>
