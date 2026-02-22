@@ -2,132 +2,196 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Généalogie - Lecture Gauche à Droite</title>
-    <script src="js/papaparse.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Généalogie Tanguy-Quillec</title>
     <style>
-        :root { --blue: #3498db; --orange: #e67e22; --dark: #2c3e50; --bg: #f0f2f5; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding: 20px; }
-        
-        .header { background: var(--dark); color: white; padding: 15px; border-radius: 8px; display: flex; gap: 20px; align-items: center; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        input { padding: 8px; border-radius: 4px; border: none; width: 80px; font-weight: bold; }
-        button { padding: 8px 15px; cursor: pointer; background: var(--blue); color: white; border: none; border-radius: 4px; font-weight: bold; }
-        button:hover { background: #2980b9; }
-
-        /* Structure de l'arbre en colonnes inversées */
-        .tree-container { display: flex; gap: 40px; justify-content: center; align-items: flex-start; padding: 20px; }
-        .generation-col { display: flex; flex-direction: column; gap: 30px; align-items: center; min-width: 240px; }
-        
-        .card { 
-            background: white; border: 1px solid #ddd; border-radius: 10px; padding: 15px; width: 220px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: relative; transition: all 0.3s ease;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
         }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: var(--blue); }
-        .card.root { border: 2px solid var(--orange); background: #fffaf5; }
-        
-        .sosa-tag { position: absolute; top: -12px; left: 10px; background: var(--dark); color: white; padding: 2px 10px; border-radius: 10px; font-size: 11px; font-weight: bold; }
-        .name { font-weight: bold; color: var(--dark); display: block; margin-bottom: 8px; font-size: 15px; }
-        .dates { font-size: 12px; color: #555; line-height: 1.4; }
-        .gen-title { font-weight: bold; color: #7f8c8d; margin-bottom: 20px; text-transform: uppercase; font-size: 12px; letter-spacing: 2px; border-bottom: 2px solid #bdc3c7; width: 100%; text-align: center; padding-bottom: 5px; }
-        
-        .empty { border: 2px dashed #ccc; background: rgba(255,255,255,0.5); color: #aaa; text-align: center; font-style: italic; display: flex; align-items: center; justify-content: center; height: 80px; }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+
+        .tree-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .generation {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .generation-title {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .person-card {
+            background: white;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            width: 250px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .person-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .person-card.female { border-left-color: #e74c3c; }
+
+        .name {
+            font-weight: bold;
+            display: block;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+
+        .dates {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .job {
+            font-style: italic;
+            font-size: 0.9em;
+            color: #16a085;
+        }
+
+        .location {
+            font-size: 0.85em;
+            margin-top: 5px;
+            display: block;
+        }
+
+        hr { border: 0; border-top: 1px solid #ddd; margin: 10px 0; }
+
+        @media (max-width: 768px) {
+            .person-card { width: 100%; }
+        }
     </style>
 </head>
 <body>
-<div id="menu-container"></div>
-<div class="header">
-    <strong>Généalogie Ascendante</strong>
-    <div>
-        Sosa racine : <input type="number" id="rootSosa" value="32">
-        <button onclick="chargerArbre()">Générer l'arbre</button>
+
+    <h1>🌳 Lignée Tanguy - Quillec</h1>
+
+    <div class="tree-container">
+
+        <div class="generation">
+            <div class="generation-title">Génération Pivot (G0)</div>
+            <div class="person-card">
+                <span class="name">Dominique TANGUY</span>
+                <span class="dates">1948 - 2024</span>
+                <span class="job">Pharmacien</span>
+                <span class="location">📍 Pont-l'Abbé / Quimper</span>
+            </div>
+            <div class="person-card female">
+                <span class="name">Hélène QUILLEC</span>
+                <span class="dates">1949 - Présent</span>
+                <span class="location">📍 Vannes</span>
+            </div>
+        </div>
+
+        <div class="generation">
+            <div class="generation-title">Parents (G1)</div>
+            <div class="person-card">
+                <span class="name">Louis TANGUY</span>
+                <span class="dates">1917 - 1997</span>
+                <span class="job">Vétérinaire</span>
+                <span class="location">📍 Morlaix / Pont-l'Abbé</span>
+            </div>
+            <div class="person-card female">
+                <span class="name">Marie LÉAUTÉ</span>
+                <span class="dates">1918 - 1991</span>
+                <span class="job">Assistante Sociale</span>
+                <span class="location">📍 St-Aignan / Pont-l'Abbé</span>
+            </div>
+            <div class="person-card">
+                <span class="name">Pierre QUILLEC</span>
+                <span class="dates">1912 - 2015</span>
+                <span class="job">Médecin</span>
+                <span class="location">📍 Penmarch / Quimper</span>
+            </div>
+            <div class="person-card female">
+                <span class="name">Paule LE PAJOLLEC</span>
+                <span class="dates">1920 - 2005</span>
+                <span class="location">📍 Beuzec-Conq / Quimper</span>
+            </div>
+        </div>
+
+        <div class="generation">
+            <div class="generation-title">Grands-Parents (G2)</div>
+            <div class="person-card">
+                <span class="name">Louis TANGUY</span>
+                <span class="dates">1874 - 1932</span>
+                <span class="job">Relieur</span>
+            </div>
+            <div class="person-card female">
+                <span class="name">Marie LAUTROU</span>
+                <span class="dates">1878 - 1938</span>
+                <span class="job">Mercière</span>
+            </div>
+            <div class="person-card">
+                <span class="name">Pierre LÉAUTÉ</span>
+                <span class="dates">1886 - 1974</span>
+                <span class="job">Négociant Agricole</span>
+            </div>
+            <div class="person-card female">
+                <span class="name">Anne PERZO</span>
+                <span class="dates">1889 - 1963</span>
+                <span class="job">Hôtelière</span>
+            </div>
+            <div class="person-card">
+                <span class="name">Sébastien QUILLEC</span>
+                <span class="dates">1869 - 1926</span>
+                <span class="job">Boulanger</span>
+            </div>
+            <div class="person-card female">
+                <span class="name">Marie LE PEMP</span>
+                <span class="dates">1872 - 1926</span>
+                <span class="job">Commerçante</span>
+            </div>
+            <div class="person-card">
+                <span class="name">Antoine LE PAJOLLEC</span>
+                <span class="dates">1884 - 1970</span>
+                <span class="job">Maître Plâtrier</span>
+            </div>
+            <div class="person-card female">
+                <span class="name">Marie LE MANCHEC</span>
+                <span class="dates">1892 - 1973</span>
+            </div>
+        </div>
+
     </div>
-    <div id="msg" style="font-size: 13px; opacity: 0.8;"></div>
-</div>
 
-<div class="tree-container">
-    <div class="generation-col" style="padding-top: 180px;">
-        <div class="gen-title">Individu (G1)</div>
-        <div id="slot-root"></div>
-    </div>
+    <footer style="text-align: center; margin-top: 50px; color: #95a5a6; font-size: 0.8em;">
+        Dernière mise à jour : Février 2024 - Site de généalogie familiale
+    </footer>
 
-    <div class="generation-col" style="padding-top: 80px;">
-        <div class="gen-title">Parents (G2)</div>
-        <div id="slot-p"></div>
-        <div id="slot-m"></div>
-    </div>
-
-    <div class="generation-col">
-        <div class="gen-title">Grands-Parents (G3)</div>
-        <div id="slot-pp"></div>
-        <div id="slot-pm"></div>
-        <div id="slot-mp"></div>
-        <div id="slot-mm"></div>
-    </div>
-</div>
-
-<script>
-    function chargerArbre() {
-        const root = parseInt(document.getElementById('rootSosa').value);
-        const msgDiv = document.getElementById('msg');
-        
-        // Initialisation/Nettoyage des emplacements
-        const slots = {
-            [root]: "slot-root",
-            [root*2]: "slot-p",
-            [root*2+1]: "slot-m",
-            [root*4]: "slot-pp",
-            [root*4+1]: "slot-pm",
-            [root*4+2]: "slot-mp",
-            [root*4+3]: "slot-mm"
-        };
-
-        Object.values(slots).forEach(id => {
-            document.getElementById(id).innerHTML = '<div class="card empty">Donnée absente</div>';
-        });
-
-        Papa.parse("individus_nettoye.csv", {
-            download: true,
-            header: true,
-            delimiter: ";",
-            skipEmptyLines: true,
-            complete: function(results) {
-                const data = results.data;
-                let trouves = 0;
-
-                data.forEach(personne => {
-                    const s = parseInt(personne.sosa);
-                    if (slots[s]) {
-                        trouves++;
-                        const container = document.getElementById(slots[s]);
-                        container.innerHTML = `
-                            <div class="card ${s === root ? 'root' : ''}">
-                                <span class="sosa-tag">Sosa ${s}</span>
-                                <span class="name">${personne.nom_prenom}</span>
-                                <div class="dates">
-                                    <b>Naissance :</b> ${personne.date_naissance || '?'}<br>
-                                    <b>Lieu :</b> ${personne.lieu_naissance || '-'}<br>
-                                    <span style="color:var(--blue); font-size:11px;">${personne.profession || ''}</span>
-                                </div>
-                            </div>
-                        `;
-                    }
-                });
-                msgDiv.innerText = trouves + " fiches affichées sur les 7 possibles.";
-            },
-            error: function() {
-                msgDiv.innerText = "Erreur de chargement du fichier CSV.";
-            }
-        });
-    }
-
-    window.onload = chargerArbre;
-</script>
-<script>
-    // Fonction pour charger le menu
-    fetch('menu.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('menu-container').innerHTML = data;
-        });
-</script>
 </body>
 </html>
