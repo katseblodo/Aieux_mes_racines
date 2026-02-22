@@ -53,7 +53,8 @@
 <script>
     async function init() {
         try {
-            const res = await fetch('souverains.json');
+           //force le chargement du nouveau fichier
+            const response = await fetch('souverains.json?v=' + Date.now());
             const data = await res.json();
             
             // On récupère toutes les dates de début uniques
