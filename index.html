@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Généalogie Tanguy-Quillec | Système Sosa</title>
+    <title>Généalogie Tanguy-Quillec | Navigation Fiches</title>
     <style>
         :root {
             --male: #3498db;
             --female: #e74c3c;
             --bg: #f4f7f6;
             --sosa-bg: #2c3e50;
+            --sosa-hover: #1abc9c;
         }
 
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding-top: 140px; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; padding-top: 140px; }
 
         /* HEADER */
         .header-tools {
@@ -33,7 +34,7 @@
 
         .generation-row {
             display: flex; justify-content: center; gap: 30px; width: 100%;
-            position: relative; padding: 30px 0;
+            position: relative; padding: 40px 0;
             border-bottom: 1px solid #e0e0e0;
         }
 
@@ -42,7 +43,7 @@
             font-weight: bold; color: #bdc3c7; font-size: 0.9em;
         }
 
-        /* CARTES AVEC BADGE SOSA */
+        /* CARTES */
         .card {
             background: white; width: 230px; padding: 15px; border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 6px solid #ccc;
@@ -53,12 +54,19 @@
         .card.M { border-top-color: var(--male); }
         .card.F { border-top-color: var(--female); }
 
-        .sosa-badge {
-            position: absolute; top: -12px; left: 15px;
+        /* BADGE SOSA CLIQUABLE */
+        .sosa-link {
+            position: absolute; top: -14px; left: 15px;
             background: var(--sosa-bg); color: white;
-            padding: 2px 10px; border-radius: 20px;
+            padding: 3px 12px; border-radius: 20px;
             font-size: 0.75em; font-weight: bold;
+            text-decoration: none;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .sosa-link:hover {
+            background: var(--sosa-hover);
         }
 
         .name { font-weight: bold; font-size: 0.95em; color: #2c3e50; display: block; margin-top: 5px; }
@@ -87,11 +95,12 @@
     </div>
 </div>
 
-<div id="tree-container">Chargement...</div>
+<div id="tree-container">Chargement des données...</div>
 
 <script>
     let allIndividuals = [];
     let minGen = 0, maxGen = 3;
+    const baseUrl = "https://katseblodo.github.io/Aieux_mes_racines/fiche_couple.html";
 
     async function loadCSV() {
         try {
@@ -100,7 +109,7 @@
             parseData(data);
             renderTree();
         } catch (e) {
-            document.getElementById('tree-container').innerHTML = "Erreur de chargement du CSV.";
+            document.getElementById('tree-container').innerHTML = "Erreur : Impossible de lire 'individus_nettoyés.csv'.";
         }
     }
 
@@ -109,11 +118,10 @@
         allIndividuals = lines.map(line => {
             const f = line.split(';');
             const name = f[3] || "";
-            // Détection du sexe
             const isFem = /marie|paule|anne|marguerite|helene|philomene|reine|jeanne/i.test(name);
             
             return {
-                sosa: f[0], // Colonne 1 : Le numéro Sosa
+                sosa: parseInt(f[0]), 
                 gen: parseInt(f[1]?.replace('G','') || 0),
                 code: f[2] || "",
                 name: name,
@@ -131,19 +139,23 @@
         container.innerHTML = '';
 
         for (let g = minGen; g <= maxGen; g++) {
-            const people = allIndividuals.filter(i => 
-                i.gen === g && (filter === 'all' || i.code.includes(filter))
-            );
+            // Filtrer et Trier par numéro Sosa (ordre croissant)
+            const people = allIndividuals
+                .filter(i => i.gen === g && (filter === 'all' || i.code.includes(filter)))
+                .sort((a, b) => a.sosa - b.sosa);
 
             if (people.length > 0) {
                 const row = document.createElement('div');
                 row.className = 'generation-row';
-                row.innerHTML = `<div class="gen-label">G${g}</div>`;
+                row.innerHTML = `<div class="gen-label">Génération ${g}</div>`;
 
                 people.forEach(p => {
+                    // Construction de l'URL avec le paramètre sosa
+                    const linkUrl = `${baseUrl}?sosa=${p.sosa}`;
+                    
                     row.innerHTML += `
                         <div class="card ${p.sex}">
-                            <div class="sosa-badge">Sosa n°${p.sosa}</div>
+                            <a href="${linkUrl}" class="sosa-link" title="Voir la fiche du couple">Sosa n°${p.sosa}</a>
                             <span class="name">${p.name.toUpperCase()}</span>
                             ${p.job ? `<span class="job">${p.job}</span>` : ''}
                             <div class="details">
