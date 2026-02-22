@@ -82,7 +82,40 @@ header {
     object-fit: cover;
     margin-bottom: 10px;
 }
+/* Couleurs de fond légères pour les cartes */
+.card.france .content { 
+    border-top: 5px solid #0055A4; 
+    background-color: #f0f7ff;
+}
+.card.bretagne .content { 
+    border-top: 5px solid #000000; 
+    background-color: #ffffff;
+}
+.card.angleterre .content { 
+    border-top: 5px solid #CE1124; 
+    background-color: #fffafa;
+}
 
+/* Style pour le badge de pays */
+.country-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.badge-france { background: #0055A4; color: white; }
+.badge-bretagne { background: #000000; color: white; border: 1px solid #ddd; }
+.badge-angleterre { background: #CE1124; color: white; }
+
+/* Animation au survol */
+.content:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+}
 /* Couleurs par pays */
 .bretagne .content { border-top: 5px solid #000; } /* Hermine */
 .france .content { border-top: 5px solid #2980b9; } /* Lys */
