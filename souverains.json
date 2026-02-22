@@ -391,6 +391,96 @@
     "evenement": "Grand chef militaire français, il devient duc à la fin de sa vie.",
     "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Arthur_III_de_Bretagne.jpg/200px-Arthur_III_de_Bretagne.jpg"
   },
+  {
+    "nom": "Charles VIII",
+    "titre": "Roi de France",
+    "debut": 1483,
+    "fin": 1498,
+    "pays": "france",
+    "maison": "Valois",
+    "evenement": "Envahit la Bretagne et épouse Anne de Bretagne de force à Langeais.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Charles_VIII_de_France.jpg/200px-Charles_VIII_de_France.jpg"
+  },
+  {
+    "nom": "François II",
+    "titre": "Duc de Bretagne",
+    "debut": 1458,
+    "fin": 1488,
+    "pays": "bretagne",
+    "maison": "Montfort",
+    "evenement": "Dernier duc homme. Il tente de résister à la France (Guerre Folle).",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Francois_II_Bretagne.jpg/200px-Francois_II_Bretagne.jpg"
+  },
+  {
+    "nom": "Henri VII",
+    "titre": "Roi d'Angleterre",
+    "debut": 1485,
+    "fin": 1509,
+    "pays": "angleterre",
+    "maison": "Tudor",
+    "evenement": "Met fin à la Guerre des Deux-Roses et fonde la dynastie Tudor.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Henry_VII.jpg/200px-Henry_VII.jpg"
+  },
+  {
+    "nom": "Anne de Bretagne",
+    "titre": "Duchesse et Reine",
+    "debut": 1488,
+    "fin": 1514,
+    "pays": "bretagne",
+    "maison": "Montfort",
+    "evenement": "Sacrée deux fois Reine de France, elle défend l'autonomie bretonne.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Anne_de_Bretagne_miniature.jpg/200px-Anne_de_Bretagne_miniature.jpg"
+  },
+  {
+    "nom": "Louis XII",
+    "titre": "Roi de France",
+    "debut": 1498,
+    "fin": 1515,
+    "pays": "france",
+    "maison": "Valois-Orléans",
+    "evenement": "Le 'Père du Peuple'. Second époux d'Anne de Bretagne.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Louis_XII_de_France.jpg/200px-Louis_XII_de_France.jpg"
+  },
+  {
+    "nom": "Henri VIII",
+    "titre": "Roi d'Angleterre",
+    "debut": 1509,
+    "fin": 1547,
+    "pays": "angleterre",
+    "maison": "Tudor",
+    "evenement": "Rupture avec Rome. Il transforme radicalement l'Angleterre.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Hans_Holbein_the_Younger_-_Henry_VIII_-_Google_Art_Project.jpg/200px-Hans_Holbein_the_Younger_-_Henry_VIII_-_Google_Art_Project.jpg"
+  },
+  {
+    "nom": "Claude de France",
+    "titre": "Duchesse de Bretagne",
+    "debut": 1514,
+    "fin": 1524,
+    "pays": "bretagne",
+    "maison": "Valois",
+    "evenement": "Fille d'Anne. Elle cède l'administration du duché à son mari François Ier.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Claude_de_france.jpg/200px-Claude_de_france.jpg"
+  },
+  {
+    "nom": "François Ier",
+    "titre": "Roi de France",
+    "debut": 1515,
+    "fin": 1547,
+    "pays": "france",
+    "maison": "Valois-Angoulême",
+    "evenement": "Signe l'Édit d'Union (1532) rattachant la Bretagne à la France.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Francois_Ier_Louvre.jpg/200px-Francois_Ier_Louvre.jpg"
+  },
+  {
+    "nom": "François III",
+    "titre": "Dernier Duc couronné",
+    "debut": 1524,
+    "fin": 1536,
+    "pays": "bretagne",
+    "maison": "Valois",
+    "evenement": "Fils de François Ier, sacré à Rennes. Sa mort précoce scelle l'Union.",
+    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Fran%C3%A7ois_III_de_Bretagne.jpg/200px-Fran%C3%A7ois_III_de_Bretagne.jpg"
+  },
 { "nom": "François II", "titre": "Duc de Bretagne", "debut": 1458, "fin": 1488, "pays": "bretagne", "maison": "Montfort", "evenement": "Bataille de Saint-Aubin-du-Cormier.", "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Francois_II_Bretagne.jpg/200px-Francois_II_Bretagne.jpg" },
   { "nom": "Louis XI le Prudent", "titre": "Roi de France", "debut": 1461, "fin": 1483, "pays": "france", "maison": "Valois", "evenement": "Brise la puissance des grands féodaux.", "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Louis_XI_de_France.jpg/200px-Louis_XI_de_France.jpg" },
   { "nom": "Henri VII Tudor", "titre": "Roi d'Angleterre", "debut": 1485, "fin": 1509, "pays": "angleterre", "maison": "Tudor", "evenement": "Fin de la Guerre des Deux-Roses.", "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Henry_VII.jpg/200px-Henry_VII.jpg" },
