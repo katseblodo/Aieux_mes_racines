@@ -3,34 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeline des Souverains</title>
-    <link rel="stylesheet" href="style-souverains.css">
-</head>
-<body>
-    <header>
-        <h1>Frise Chronologique des Souverains</h1>
-        <div class="filters">
-            <button onclick="filterTimeline('all')">Tous</button>
-            <button onclick="filterTimeline('bretagne')">Bretagne</button>
-            <button onclick="filterTimeline('france')">France</button>
-            <button onclick="filterTimeline('angleterre')">Angleterre</button>
-        </div>
-    </header>
+    <title>Timeline Comparée : Bretagne, France, Angleterre</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --br-color: #000000;
+            --fr-color: #0055A4;
+            --en-color: #CE1124;
+            --header-bg: #2c3e50;
+        }
 
-<div class="timeline-container" id="main-container">
-    <div class="timeline-column" id="col-bretagne">
-        <h2 class="col-title">🏴‍☠️ Bretagne</h2>
-        <div class="entries"></div>
-    </div>
-    <div class="timeline-column" id="col-france">
-        <h2 class="col-title">🇫🇷 France</h2>
-        <div class="entries"></div>
-    </div>
-    <div class="timeline-column" id="col-angleterre">
-        <h2 class="col-title">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre</h2>
-        <div class="entries"></div>
-    </div>
-</div>
-    <script src="js/script-souverains.js"></script>
-</body>
-</html>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .grid-header {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr 1fr;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 20px auto 0;
+            padding: 0 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .grid-header div {
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            color: white;
+        }
+
+        .h-date { color: #333 !important; }
+        .h-br { background: var(--br-color); }
+        .h-fr { background: var(--fr-color); }
+        .h-en { background: var(--en-color); }
+
+        #timeline-container {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 0 15px;
+        }
+
+        .timeline-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr 1fr;
+            gap: 15px;
+            border-bottom: 1px solid #ddd;
+            background: white;
+            transition: background 0.3s;
+        }
+
+        .timeline-row:hover { background: #fefefe; }
+
+        .year-col {
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #555;
+            border-right: 1px solid #ccc;
+        }
+
+        .cell {
+            padding: 15px;
+            min-height: 120px;
+            border-right: 1px inset #f0f0f0;
+        }
+
+        .card {
+            display: flex;
+            gap: 10px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .portrait {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            flex-shrink: 0;
+        }
+
+        .info h3 {
+            margin:
