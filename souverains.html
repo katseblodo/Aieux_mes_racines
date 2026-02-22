@@ -122,12 +122,8 @@ function render(data) {
             
             const s = data.find(item => item.pays === pays && item.debut === date);
             if (s) {
-                // Gestion portrait par défaut si absent
-                const portraitSrc = s.portrait || `https://ui-avatars.com/api/?name=${encodeURIComponent(s.nom)}&background=random`;
-                
-                cell.innerHTML = `
+               cell.innerHTML = `
                     <div class="card">
-                        <img src="${portraitSrc}" class="portrait" alt="${s.nom}">
                         <span class="name">${s.nom}</span>
                         <span class="maison">${s.maison}</span>
                         <div class="details">
