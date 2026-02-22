@@ -1,52 +1,54 @@
-let data = [];
-
 async function loadData() {
     const response = await fetch('souverains.json');
-    data = await response.json();
-    // Tri par date de début
-    data.sort((a, b) => a.debut - b.debut);
-    renderTimeline(data);
-}
-
-function renderTimeline(items) {
-    // On vide les 3 colonnes
-    const cols = {
-        'bretagne': document.querySelector('#col-bretagne .entries'),
-        'france': document.querySelector('#col-france .entries'),
-        'angleterre': document.querySelector('#col-angleterre .entries')
-    };
+    let data = await response.json();
     
-    Object.values(cols).forEach(el => el.innerHTML = '');
-
-    items.forEach(item => {
-        const targetCol = cols[item.pays];
-        if (!targetCol) return;
-
-        const card = document.createElement('div');
-        card.className = `card ${item.pays}`;
-        
-        card.innerHTML = `
-            <div class="content">
-                <span class="date-label">${item.debut} - ${item.fin}</span>
-                <h3>${item.nom}</h3>
-                <img src="${item.portrait}" style="width:60px; height:60px; float:right; border-radius:5px; margin-left:10px;">
-                <p><strong>${item.titre}</strong></p>
-                <p class="event"><small>${item.evenement}</small></p>
-                <p style="font-size:0.8em; color:gray;">Maison: ${item.maison}</p>
-            </div>
-        `;
-        targetCol.appendChild(card);
+    // 1. Récupérer toutes les dates de début et de fin uniques pour créer des "étages"
+    const dates = new Set();
+    data.forEach(d => {
+        dates.add(d.debut);
+        dates.add(d.fin);
     });
+    const sortedDates = Array.from(dates).sort((a, b) => a - b);
+
+    renderTimeline(data, sortedDates);
 }
 
-// La fonction filterTimeline reste la même, elle filtrera juste les données envoyées
-function filterTimeline(country) {
-    if (country === 'all') {
-        renderTimeline(data);
-    } else {
-        const filtered = data.filter(item => item.pays === country);
-        renderTimeline(filtered);
+function renderTimeline(data, sortedDates) {
+    const container = document.getElementById('main-container');
+    // On garde les en-têtes mais on vide le reste
+    document.querySelectorAll('.entries').forEach(el => el.innerHTML = '');
+
+    // 2. Créer des rangées par période
+    for (let i = 0; i < sortedDates.length - 1; i++) {
+        const start = sortedDates[i];
+        const end = sortedDates[i+1];
+
+        const row = document.createElement('div');
+        row.className = 'timeline-row';
+        row.innerHTML = `<div class="time-indicator">${start}</div>`;
+
+        // 3. Pour chaque pays, trouver qui règne pendant cet intervalle [start, end]
+        ['bretagne', 'france', 'angleterre'].forEach(pays => {
+            const col = document.createElement('div');
+            col.className = `col-cell ${pays}`;
+            
+            const souverain = data.find(s => 
+                s.pays === pays && (s.debut <= start && s.fin >= end)
+            );
+
+            if (souverain) {
+                // On n'affiche le nom que si c'est le DEBUT de son règne dans la frise 
+                // pour éviter les répétitions trop lourdes, ou on affiche un bloc continu.
+                col.innerHTML = `
+                    <div class="mini-card">
+                        <img src="${souverain.portrait}" class="thumb">
+                        <div class="info">
+                            <span class="name">${souverain.nom}</span>
+                        </div>
+                    </div>`;
+            }
+            row.appendChild(col);
+        });
+        container.appendChild(row);
     }
 }
-
-loadData();
