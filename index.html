@@ -104,12 +104,12 @@
 
     async function loadCSV() {
         try {
-            const response = await fetch('individus_nettoyés.csv');
+            const response = await fetch('individus_nettoye.csv');
             const data = await response.text();
             parseData(data);
             renderTree();
         } catch (e) {
-            document.getElementById('tree-container').innerHTML = "Erreur : Impossible de lire 'individus_nettoyés.csv'.";
+            document.getElementById('tree-container').innerHTML = "Erreur : Impossible de lire 'individus_nettoye.csv'.";
         }
     }
 
