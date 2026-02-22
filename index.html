@@ -3,151 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arbre Généalogique Tanguy-Quillec</title>
+    <title>Généalogie Dynamique | Tanguy-Quillec</title>
     <style>
         :root {
             --male: #3498db;
             --female: #e74c3c;
             --bg: #fdfdfd;
+            --line-color: #bdc3c7;
         }
 
-        body { font-family: 'Arial', sans-serif; background: var(--bg); margin: 0; padding-top: 120px; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; padding-top: 130px; }
 
-        /* HEADER FIXE */
+        /* HEADER */
         .header-tools {
             position: fixed; top: 0; width: 100%; background: #2c3e50;
             color: white; padding: 15px; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            display: flex; justify-content: center; gap: 30px; align-items: center;
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
         }
 
-        select, button { padding: 8px 15px; border-radius: 4px; border: none; cursor: pointer; }
+        .nav-row { display: flex; gap: 15px; align-items: center; }
+        button, select { padding: 8px 15px; border-radius: 4px; border: none; cursor: pointer; font-size: 0.9em; }
         .active-gen { background: #1abc9c; color: white; font-weight: bold; }
 
-        /* CONTENEUR DE L'ARBRE */
+        /* ARBRE ET CONNEXIONS */
         #tree-container {
-            display: flex; flex-direction: column; align-items: center; gap: 40px;
-            padding: 20px; min-width: fit-content;
+            display: flex; flex-direction: column; align-items: center; 
+            padding: 20px; min-width: fit-content; position: relative;
         }
 
-        /* LIGNES DE GÉNÉRATIONS */
         .generation-row {
-            display: flex; justify-content: center; gap: 20px; width: 100%;
-            position: relative; padding: 10px 0;
-            border-top: 1px dashed #ccc;
+            display: flex; justify-content: center; gap: 40px; width: 100%;
+            position: relative; padding: 30px 0;
         }
 
-        .generation-row::before {
-            content: attr(data-gen); position: absolute; left: 10px; top: 10px;
-            font-weight: bold; color: #95a5a6; font-size: 1.2em;
+        /* Lignes de connexion verticales */
+        .generation-row::after {
+            content: ''; position: absolute; bottom: -30px; left: 50%;
+            width: 2px; height: 30px; background: var(--line-color);
+        }
+        .generation-row:last-child::after { display: none; }
+
+        .gen-label {
+            position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+            font-weight: bold; color: #95a5a6; background: #eee;
+            padding: 5px 10px; border-radius: 4px; font-size: 0.8em;
         }
 
         /* CARTES */
         .card {
-            background: white; width: 220px; padding: 12px; border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-top: 5px solid #ccc;
-            transition: transform 0.2s; position: relative;
+            background: white; width: 220px; padding: 15px; border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 5px solid #ccc;
+            position: relative; z-index: 2;
         }
 
-        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
         .card.M { border-top-color: var(--male); }
         .card.F { border-top-color: var(--female); }
 
-        .name { font-weight: bold; font-size: 0.95em; display: block; margin-bottom: 5px; color: #2c3e50; }
-        .details { font-size: 0.8em; color: #7f8c8d; line-height: 1.4; }
-        .job { color: #16a085; font-style: italic; font-weight: bold; }
-        .code-tag { position: absolute; bottom: 5px; right: 5px; font-size: 0.7em; color: #bdc3c7; }
+        .name { font-weight: bold; font-size: 1em; display: block; color: #2c3e50; margin-bottom: 5px; }
+        .job { font-size: 0.85em; color: #16a085; font-style: italic; display: block; margin-bottom: 5px; }
+        .details { font-size: 0.75em; color: #7f8c8d; line-height: 1.4; }
+        
+        .error-msg { color: #e74c3c; background: #fadbd8; padding: 20px; border-radius: 8px; }
     </style>
 </head>
 <body>
 
 <div class="header-tools">
-    <div>
-        <strong>Vue :</strong>
-        <button onclick="changeView(0, 3)" id="btn1" class="active-gen">G0 à G3</button>
-        <button onclick="changeView(4, 7)" id="btn2">G4 à G7</button>
-        <button onclick="changeView(8, 12)" id="btn3">G8 à G12</button>
+    <div class="nav-row">
+        <strong>Période :</strong>
+        <button onclick="updateView(0, 3, this)" class="active-gen">G0 à G3</button>
+        <button onclick="updateView(4, 7, this)">G4 à G7</button>
+        <button onclick="updateView(8, 12, this)">G8 à G12</button>
     </div>
-    <div>
-        <strong>Filtrer Branche :</strong>
+    <div class="nav-row">
+        <strong>Branche :</strong>
         <select id="familyFilter" onchange="renderTree()">
-            <option value="all">Toutes les familles</option>
-            <option value="TT">TANGUY</option>
-            <option value="LL">LÉAUTÉ</option>
-            <option value="QQ">QUILLEC</option>
-            <option value="PP">PAJOLLEC</option>
+            <option value="all">Toutes les lignées</option>
+            <option value="TT">TANGUY (TT)</option>
+            <option value="LL">LÉAUTÉ (LL)</option>
+            <option value="QQ">QUILLEC (QQ)</option>
+            <option value="PP">PAJOLLEC (PP)</option>
         </select>
     </div>
 </div>
 
 <div id="tree-container">
-    </div>
+    <p>Chargement des données généalogiques...</p>
+</div>
 
 <script>
-const rawData = `2;G0;TT;dominique TANGUY;Pharmacien;15/08/1948;19/07/2024;Pont-l_Abbe;Quimper;;;
-3;G0;QQ;helene QUILLEC;;26/06/1949;Présent;Vannes;;;;
-4;G1;TT;louis charles yves TANGUY;Veterinaire;14/12/1917;22/04/1997;Morlaix;Pont-l_Abbe;24/05/1945;Pontivy;;
-5;G1;LL;marie philomene LEAUTE;Assitante Sociale;04/05/1918;14/01/1991;Saint-Aignan;Pont-l_Abbe;24/05/1945;Pontivy;Diabetique
-6;G1;QQ;pierre marie QUILLEC;Medecin;13/03/1912;08/03/2015;Penmarch;Quimper;31/05/1946;Concarneau;Dossier militaire
-7;G1;PP;paule le PAJOLLEC;;20/05/1920;07/06/2005;Beuzec-Conq;Quimper;31/05/1946;Concarneau;
-8;G2;TT;louis TANGUY;Relieur;20/06/1874;07/03/1932;Sainte-Seve;Morlaix;06/08/1899;St-Martin;;
-9;G2;TL;marie louise LAUTROU;Mercière;30/01/1878;01/10/1938;Spezet;Morlaix;;;;
-10;G2;LL;pierre marie LEAUTE;Laboureur Négociant;07/03/1886;20/12/1974;Pontivy;Pontivy;;;;
-11;G2;LP;anne marie PERZO;Hôtelière;19/11/1889;12/01/1963;Saint-Aignan;;;;;
-12;G2;QQ;sebastien QUILLEC;Boulanger;06/04/1869;21/01/1926;Ploneour;Penmarch;;;;
-13;G2;QP;marie anne le PEMP;Commerçante;31/03/1872;18/10/1926;Plobannalec;Penmarch;;;;
-14;G2;PP;antoine le PAJOLLEC;Chef d'entreprise;10/07/1884;20/01/1970;Saint-Nazaire;Concarneau;;;;
-15;G2;PM;marie jeanne le MANCHEC;;2/04/1892;22/12/1973;Beuzec-Conq;Concarneau;;;;
-16;G3;TT;pierre TANGUY;Cultivateur;20/11/1848;06/05/1897;St-Martin;St-Martin;;;;
-17;G3;TT;marguerite SALUDEN;Aubergiste;26/04/1853;23/02/1930;Sainte-Seve;Morlaix;;;;`;
+    let allIndividuals = [];
+    let minGen = 0;
+    let maxGen = 3;
 
-let minGen = 0, maxGen = 3;
-
-const individuals = rawData.trim().split('\n').map(line => {
-    const f = line.split(';');
-    // Détection simple du sexe pour la couleur
-    const isFem = (n) => /marie|paule|anne|marguerite|helene|philomene/i.test(n);
-    return { id: f[0], gen: parseInt(f[1].replace('G','')), code: f[2], name: f[3], job: f[4], dates: `${f[5]} - ${f[6]}`, place: f[7], sex: isFem(f[3]) ? 'F' : 'M' };
-});
-
-function changeView(min, max) {
-    minGen = min; maxGen = max;
-    document.querySelectorAll('.header-tools button').forEach(b => b.classList.remove('active-gen'));
-    event.target.classList.add('active-gen');
-    renderTree();
-}
-
-function renderTree() {
-    const container = document.getElementById('tree-container');
-    const filter = document.getElementById('familyFilter').value;
-    container.innerHTML = '';
-
-    for (let g = minGen; g <= maxGen; g++) {
-        const rowData = individuals.filter(i => i.gen === g && (filter === 'all' || i.code.includes(filter)));
-        
-        if (rowData.length > 0) {
-            const rowDiv = document.createElement('div');
-            rowDiv.className = 'generation-row';
-            rowDiv.setAttribute('data-gen', 'G' + g);
+    // 1. CHARGEMENT DU FICHIER CSV
+    async function loadCSV() {
+        try {
+            // Remplacez 'individus_nettoyés.csv' par le nom exact de votre fichier
+            const response = await fetch('individus_nettoyés.csv');
+            if (!response.ok) throw new Error("Fichier CSV non trouvé");
             
-            rowData.forEach(p => {
-                rowDiv.innerHTML += `
-                    <div class="card ${p.sex}">
-                        <span class="name">${p.name.toUpperCase()}</span>
-                        <div class="details">
-                            <span class="job">${p.job || ''}</span><br>
-                            📅 ${p.dates}<br>
-                            📍 ${p.place}
-                        </div>
-                        <span class="code-tag">${p.code}</span>
-                    </div>
-                `;
-            });
-            container.appendChild(rowDiv);
+            const data = await response.text();
+            parseData(data);
+            renderTree();
+        } catch (error) {
+            document.getElementById('tree-container').innerHTML = 
+                `<div class="error-msg">Erreur : ${error.message}<br>Assurez-vous que le fichier CSV est dans le même dossier et que vous utilisez un serveur local.</div>`;
         }
     }
-}
 
-renderTree();
+    // 2. PARSING DES DONNÉES
+    function parseData(csvText) {
+        const lines = csvText.trim().split('\n');
+        allIndividuals = lines.map(line => {
+            const f = line.split(';');
+            const name = f[3] || "";
+            // Détection du sexe basée sur les prénoms
+            const isFem = /marie|paule|anne|marguerite|helene|philomene|reine|jeanne/i.test(name);
+            
+            return {
+                id: f[0],
+                gen: parseInt(f[1]?.replace('G','') || 0),
+                code: f[2] || "",
+                name: name,
+                job: f[4] || "",
+                birth: f[5] || "",
+                death: f[6] || "",
+                place: f[7] || "",
+                sex: isFem ? 'F' : 'M'
+            };
+        });
+    }
+
+    // 3. AFFICHAGE
+    function renderTree() {
+        const container = document.getElementById('tree-container');
+        const filter = document.getElementById('familyFilter').value;
+        container.innerHTML = '';
+
+        for (let g = minGen; g <= maxGen; g++) {
+            const peopleInGen = allIndividuals.filter(i => 
+                i.gen === g && (filter === 'all' || i.code.includes(filter))
+            );
+
+            if (peopleInGen.length > 0) {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'generation-row';
+                rowDiv.innerHTML = `<div class="gen-label">Génération ${g}</div>`;
+
+                peopleInGen.forEach(p => {
+                    rowDiv.innerHTML += `
+                        <div class="card ${p.sex}">
+                            <span class="name">${p.name.toUpperCase()}</span>
+                            ${p.job ? `<span class="job">${p.job}</span>` : ''}
+                            <div class="details">
+                                📅 ${p.birth} — ${p.death}<br>
+                                📍 ${p.place}
+                            </div>
+                        </div>
+                    `;
+                });
+                container.appendChild(rowDiv);
+            }
+        }
+        
+        if (container.innerHTML === '') {
+            container.innerHTML = "<p>Aucun résultat pour cette sélection.</p>";
+        }
+    }
+
+    // 4. NAVIGATION
+    function updateView(min, max, btn) {
+        minGen = min;
+        maxGen = max;
+        document.querySelectorAll('.nav-row button').forEach(b => b.classList.remove('active-gen'));
+        btn.classList.add('active-gen');
+        renderTree();
+    }
+
+    // Lancement au chargement de la page
+    window.onload = loadCSV;
 </script>
 
 </body>
