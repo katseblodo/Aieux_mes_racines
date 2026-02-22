@@ -120,3 +120,50 @@ header {
 .bretagne .content { border-top: 5px solid #000; } /* Hermine */
 .france .content { border-top: 5px solid #2980b9; } /* Lys */
 .angleterre .content { border-top: 5px solid #c0392b; } /* Rose */
+
+.timeline-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+.timeline-column {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(0,0,0,0.02);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.col-title {
+    text-align: center;
+    position: sticky;
+    top: 60px; /* Juste sous le header */
+    background: #2c3e50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+/* On simplifie les cartes pour qu'elles rentrent dans les colonnes */
+.card {
+    width: 100% !important;
+    left: 0 !important;
+    padding: 10px 0;
+}
+
+.card::after { display: none; } /* On retire la bulle centrale de l'ancien design */
+
+.content {
+    border-left: 5px solid #ccc; /* Remplacé par la couleur du pays */
+    margin: 5px;
+}
+
+/* Responsive : si l'écran est petit, on empile les colonnes */
+@media (max-width: 900px) {
+    .timeline-container { flex-direction: column; }
+    .timeline-column { width: 100%; }
+}
