@@ -3,189 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Généalogie Dynamique | Tanguy-Quillec</title>
+    <title>Arbre Généalogique Tanguy-Quillec</title>
     <style>
         :root {
-            --primary: #2c3e50;
             --male: #3498db;
             --female: #e74c3c;
-            --bg: #f4f7f6;
+            --bg: #fdfdfd;
         }
 
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; padding-top: 100px; }
+        body { font-family: 'Arial', sans-serif; background: var(--bg); margin: 0; padding-top: 120px; }
 
-        /* BARRE DE NAVIGATION */
+        /* HEADER FIXE */
         .header-tools {
-            position: fixed; top: 0; width: 100%; background: white;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1); z-index: 1000;
-            padding: 15px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
+            position: fixed; top: 0; width: 100%; background: #2c3e50;
+            color: white; padding: 15px; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex; justify-content: center; gap: 30px; align-items: center;
         }
 
-        .nav-group { display: flex; align-items: center; gap: 10px; }
-        
-        select, button {
-            padding: 8px 12px; border: 1px solid #ddd; border-radius: 5px;
-            background: white; cursor: pointer;
+        select, button { padding: 8px 15px; border-radius: 4px; border: none; cursor: pointer; }
+        .active-gen { background: #1abc9c; color: white; font-weight: bold; }
+
+        /* CONTENEUR DE L'ARBRE */
+        #tree-container {
+            display: flex; flex-direction: column; align-items: center; gap: 40px;
+            padding: 20px; min-width: fit-content;
         }
 
-        .gen-active { background: var(--primary); color: white; }
-
-        /* ZONE DE L'ARBRE */
-        #tree-canvas {
-            display: flex; justify-content: center; align-items: flex-start;
-            gap: 20px; padding: 20px; overflow-x: auto;
+        /* LIGNES DE GÉNÉRATIONS */
+        .generation-row {
+            display: flex; justify-content: center; gap: 20px; width: 100%;
+            position: relative; padding: 10px 0;
+            border-top: 1px dashed #ccc;
         }
 
-        .branch-column {
-            display: flex; flex-direction: column; align-items: center;
-            min-width: 280px; gap: 20px;
+        .generation-row::before {
+            content: attr(data-gen); position: absolute; left: 10px; top: 10px;
+            font-weight: bold; color: #95a5a6; font-size: 1.2em;
         }
 
-        /* CARTES INDIVIDUS */
+        /* CARTES */
         .card {
-            background: white; width: 240px; padding: 12px;
-            border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 6px solid #ccc; position: relative;
-            transition: all 0.3s ease;
+            background: white; width: 220px; padding: 12px; border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-top: 5px solid #ccc;
+            transition: transform 0.2s; position: relative;
         }
 
-        .card:hover { transform: scale(1.02); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
-        .card.M { border-left-color: var(--male); }
-        .card.F { border-left-color: var(--female); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .card.M { border-top-color: var(--male); }
+        .card.F { border-top-color: var(--female); }
 
-        .gen-tag { 
-            position: absolute; top: -10px; right: 10px; 
-            background: #eee; font-size: 0.7em; padding: 2px 6px; border-radius: 10px;
-        }
-
-        .name { font-weight: bold; color: var(--primary); display: block; margin-bottom: 4px; }
-        .job { font-size: 0.8em; color: #16a085; font-style: italic; display: block; }
-        .info { font-size: 0.75em; color: #7f8c8d; margin-top: 5px; display: block; }
-        
-        .connector { height: 20px; width: 2px; background: #cbd5e0; }
-
-        .hidden { display: none !important; }
+        .name { font-weight: bold; font-size: 0.95em; display: block; margin-bottom: 5px; color: #2c3e50; }
+        .details { font-size: 0.8em; color: #7f8c8d; line-height: 1.4; }
+        .job { color: #16a085; font-style: italic; font-weight: bold; }
+        .code-tag { position: absolute; bottom: 5px; right: 5px; font-size: 0.7em; color: #bdc3c7; }
     </style>
 </head>
 <body>
 
 <div class="header-tools">
-    <div class="nav-group">
-        <strong>Générations :</strong>
-        <button onclick="filterGen(0, 3)" id="btn-0-3" class="gen-active">G0 - G3</button>
-        <button onclick="filterGen(4, 8)" id="btn-4-8">G4 - G8</button>
-        <button onclick="filterGen(9, 12)" id="btn-9-12">G9 - G12</button>
+    <div>
+        <strong>Vue :</strong>
+        <button onclick="changeView(0, 3)" id="btn1" class="active-gen">G0 à G3</button>
+        <button onclick="changeView(4, 7)" id="btn2">G4 à G7</button>
+        <button onclick="changeView(8, 12)" id="btn3">G8 à G12</button>
     </div>
-    <div class="nav-group">
-        <strong>Filtrer par Branche :</strong>
+    <div>
+        <strong>Filtrer Branche :</strong>
         <select id="familyFilter" onchange="renderTree()">
-            <option value="all">Toutes les lignées</option>
-            <option value="TT">TANGUY (TT)</option>
-            <option value="LL">LÉAUTÉ (LL)</option>
-            <option value="QQ">QUILLEC (QQ)</option>
-            <option value="PP">PAJOLLEC (PP)</option>
+            <option value="all">Toutes les familles</option>
+            <option value="TT">TANGUY</option>
+            <option value="LL">LÉAUTÉ</option>
+            <option value="QQ">QUILLEC</option>
+            <option value="PP">PAJOLLEC</option>
         </select>
     </div>
 </div>
 
-<div id="tree-canvas">
+<div id="tree-container">
     </div>
 
 <script>
-/** * DONNÉES SOURCES (Simulées à partir de votre CSV)
- * Dans un usage réel, vous pourriez charger ce contenu via fetch('individus_nettoye.csv')
- */
 const rawData = `2;G0;TT;dominique TANGUY;Pharmacien;15/08/1948;19/07/2024;Pont-l_Abbe;Quimper;;;
-3;G0;QQ;helene QUILLEC;;26/06/1949;dans tres longtemps;Vannes;;;;
+3;G0;QQ;helene QUILLEC;;26/06/1949;Présent;Vannes;;;;
 4;G1;TT;louis charles yves TANGUY;Veterinaire;14/12/1917;22/04/1997;Morlaix;Pont-l_Abbe;24/05/1945;Pontivy;;
 5;G1;LL;marie philomene LEAUTE;Assitante Sociale;04/05/1918;14/01/1991;Saint-Aignan;Pont-l_Abbe;24/05/1945;Pontivy;Diabetique
 6;G1;QQ;pierre marie QUILLEC;Medecin;13/03/1912;08/03/2015;Penmarch;Quimper;31/05/1946;Concarneau;Dossier militaire
 7;G1;PP;paule le PAJOLLEC;;20/05/1920;07/06/2005;Beuzec-Conq;Quimper;31/05/1946;Concarneau;
 8;G2;TT;louis TANGUY;Relieur;20/06/1874;07/03/1932;Sainte-Seve;Morlaix;06/08/1899;St-Martin;;
 9;G2;TL;marie louise LAUTROU;Mercière;30/01/1878;01/10/1938;Spezet;Morlaix;;;;
-10;G2;LL;pierre marie LEAUTE;Négociant;07/03/1886;20/12/1974;Pontivy;Pontivy;;;;
+10;G2;LL;pierre marie LEAUTE;Laboureur Négociant;07/03/1886;20/12/1974;Pontivy;Pontivy;;;;
 11;G2;LP;anne marie PERZO;Hôtelière;19/11/1889;12/01/1963;Saint-Aignan;;;;;
-12;G2;QQ;sebastien quillec (LE);Boulanger;06/04/1869;21/01/1926;Ploneour;Penmarch;;;;
-13;G2;QP;marie anne le PEMP;Commercante;31/03/1872;18/10/1926;Plobannalec;Penmarch;;;;
-14;G2;PP;antoine le PAJOLLEC;Maître platrier;10/07/1884;20/01/1970;Saint-Nazaire;Concarneau;;;;
+12;G2;QQ;sebastien QUILLEC;Boulanger;06/04/1869;21/01/1926;Ploneour;Penmarch;;;;
+13;G2;QP;marie anne le PEMP;Commerçante;31/03/1872;18/10/1926;Plobannalec;Penmarch;;;;
+14;G2;PP;antoine le PAJOLLEC;Chef d'entreprise;10/07/1884;20/01/1970;Saint-Nazaire;Concarneau;;;;
 15;G2;PM;marie jeanne le MANCHEC;;2/04/1892;22/12/1973;Beuzec-Conq;Concarneau;;;;
 16;G3;TT;pierre TANGUY;Cultivateur;20/11/1848;06/05/1897;St-Martin;St-Martin;;;;
 17;G3;TT;marguerite SALUDEN;Aubergiste;26/04/1853;23/02/1930;Sainte-Seve;Morlaix;;;;`;
 
-// Traitement des données
+let minGen = 0, maxGen = 3;
+
 const individuals = rawData.trim().split('\n').map(line => {
-    const fields = line.split(';');
-    return {
-        id: fields[0],
-        gen: parseInt(fields[1].replace('G', '')),
-        code: fields[2], // Ex: TT, QQ
-        name: fields[3],
-        job: fields[4],
-        birth: fields[5],
-        death: fields[6],
-        place: fields[7],
-        sex: (fields[3].toLowerCase().includes('marie') || fields[3].toLowerCase().includes('paule') || fields[3].toLowerCase().includes('marguerite') || fields[3].toLowerCase().includes('anne')) ? 'F' : 'M'
-    };
+    const f = line.split(';');
+    // Détection simple du sexe pour la couleur
+    const isFem = (n) => /marie|paule|anne|marguerite|helene|philomene/i.test(n);
+    return { id: f[0], gen: parseInt(f[1].replace('G','')), code: f[2], name: f[3], job: f[4], dates: `${f[5]} - ${f[6]}`, place: f[7], sex: isFem(f[3]) ? 'F' : 'M' };
 });
 
-let currentMinGen = 0;
-let currentMaxGen = 3;
-
-function filterGen(min, max) {
-    currentMinGen = min;
-    currentMaxGen = max;
-    document.querySelectorAll('.gen-btn').forEach(b => b.classList.remove('gen-active'));
+function changeView(min, max) {
+    minGen = min; maxGen = max;
+    document.querySelectorAll('.header-tools button').forEach(b => b.classList.remove('active-gen'));
+    event.target.classList.add('active-gen');
     renderTree();
 }
 
-function createCard(person) {
-    return `
-        <div class="card ${person.sex}">
-            <span class="gen-tag">G${person.gen}</span>
-            <span class="name">${person.name.toUpperCase()}</span>
-            ${person.job ? `<span class="job">${person.job}</span>` : ''}
-            <span class="info">📅 ${person.birth} - ${person.death}</span>
-            <span class="info">📍 ${person.place}</span>
-        </div>
-    `;
-}
-
 function renderTree() {
-    const canvas = document.getElementById('tree-canvas');
-    const family = document.getElementById('familyFilter').value;
-    canvas.innerHTML = '';
+    const container = document.getElementById('tree-container');
+    const filter = document.getElementById('familyFilter').value;
+    container.innerHTML = '';
 
-    // On regroupe par code de famille (TT, LL, etc.)
-    const branches = ['TT', 'LL', 'QQ', 'PP'];
-    
-    branches.forEach(bCode => {
-        if (family !== 'all' && !bCode.includes(family)) return;
-
-        const branchDiv = document.createElement('div');
-        branchDiv.className = 'branch-column';
+    for (let g = minGen; g <= maxGen; g++) {
+        const rowData = individuals.filter(i => i.gen === g && (filter === 'all' || i.code.includes(filter)));
         
-        // Filtrer les individus de cette branche et dans la plage de génération
-        const branchMembers = individuals
-            .filter(i => i.code.startsWith(bCode[0]) && i.gen >= currentMinGen && i.gen <= currentMaxGen)
-            .sort((a, b) => a.gen - b.gen);
-
-        if (branchMembers.length === 0) return;
-
-        let lastGen = -1;
-        branchMembers.forEach(person => {
-            // Ajouter un connecteur visuel si on change de génération
-            if (lastGen !== -1 && person.gen !== lastGen) {
-                branchDiv.innerHTML += '<div class="connector"></div>';
-            }
-            branchDiv.innerHTML += createCard(person);
-            lastGen = person.gen;
-        });
-
-        canvas.appendChild(branchDiv);
-    });
+        if (rowData.length > 0) {
+            const rowDiv = document.createElement('div');
+            rowDiv.className = 'generation-row';
+            rowDiv.setAttribute('data-gen', 'G' + g);
+            
+            rowData.forEach(p => {
+                rowDiv.innerHTML += `
+                    <div class="card ${p.sex}">
+                        <span class="name">${p.name.toUpperCase()}</span>
+                        <div class="details">
+                            <span class="job">${p.job || ''}</span><br>
+                            📅 ${p.dates}<br>
+                            📍 ${p.place}
+                        </div>
+                        <span class="code-tag">${p.code}</span>
+                    </div>
+                `;
+            });
+            container.appendChild(rowDiv);
+        }
+    }
 }
 
-// Premier rendu
 renderTree();
 </script>
 
