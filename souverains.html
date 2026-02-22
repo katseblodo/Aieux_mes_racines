@@ -32,8 +32,21 @@
         .year-label { background: #f8f9fa; display: flex; align-items: center; justify-content: center; font-weight: bold; border-right: 2px solid #dee2e6; color: #2c3e50; font-size: 1.1rem; }
         
         /* Cartes de souverains */
-        .cell { padding: 10px; min-height: 100px; border-right: 1px solid #eee; }
-        .card { font-size: 0.75rem; line-height: 1.3; position: relative; }
+.cell {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-right: 1px solid #eee;
+    background-color: #fff;
+}
+
+.card {
+    width: 100%;
+    /* Pour éviter que les cartes ne se collent trop */
+    border-bottom: 1px solid #f0f0f0; 
+    padding-bottom: 10px;
+}
         .portrait { width: 60px; height: 75px; float: right; margin-left: 8px; border-radius: 4px; object-fit: cover; border: 1px solid #ddd; background: #eee; }
         .name { font-size: 1rem; font-weight: bold; color: #2c3e50; display: block; margin-bottom: 2px; }
         .maison { color: #7f8c8d; font-style: italic; margin-bottom: 8px; display: block; font-size: 0.8rem; }
@@ -96,52 +109,62 @@ function generateMenu(data) {
 }
 
 function render(data) {
-    // On trie toutes les dates de début
-    const dates = [...new Set(data.map(s => s.debut))].sort((a, b) => a - b);
     const container = document.getElementById('container');
-    container.innerHTML = ""; // On vide le container
+    container.innerHTML = ""; 
 
-    dates.forEach(date => {
-        const row = document.createElement('div');
-        row.className = 'timeline-row anchor';
-        // On ajoute un ID spécial pour le menu tous les 100 ans
-        if (date % 100 === 0 || !document.getElementById('year-' + (Math.floor(date/100)*100))) {
-            row.id = 'year-' + (Math.floor(date/100)*100);
-        }
+    // On définit un intervalle (ex: 20 ans) pour regrouper les rois
+    const intervalle = 20;
+    
+    // On trouve la date de début et de fin globale
+    const minDate = Math.min(...data.map(s => s.debut));
+    const maxDate = Math.max(...data.map(s => s.debut));
 
-        // Colonne Année
-        const y = document.createElement('div');
-        y.className = 'year-label';
-        y.innerText = date;
-        row.appendChild(y);
+    // On génère les lignes par tranches
+    for (let t = Math.floor(minDate / intervalle) * intervalle; t <= maxDate; t += intervalle) {
+        
+        // On vérifie s'il y a au moins un roi qui commence dans cette tranche
+        const roisDeLaPeriode = data.filter(s => s.debut >= t && s.debut < t + intervalle);
+        
+        if (roisDeLaPeriode.length > 0) {
+            const row = document.createElement('div');
+            row.className = 'timeline-row anchor';
+            row.id = 'year-' + t;
 
-        // Colonnes Pays
-        ['bretagne', 'france', 'angleterre'].forEach(pays => {
-            const cell = document.createElement('div');
-            cell.className = 'cell';
-            
-            const s = data.find(item => item.pays === pays && item.debut === date);
-            if (s) {
-               cell.innerHTML = `
-                    <div class="card">
-                        <span class="name">${s.nom}</span>
-                        <span class="maison">${s.maison}</span>
-                        <div class="details">
-                            <span class="info-item">👑 <span class="label">Règne :</span> ${s.regne}</span>
-                            <span class="info-item">⏳ <span class="label">Vie :</span> ${s.vie}</span>
-                            <span class="info-item">📍 <span class="label">Né :</span> ${s.naissance || '---'}</span>
-                            <span class="info-item">☠️ <span class="label">Mort :</span> ${s.mort || '---'}</span>
+            // Colonne Période (ex: 1500 - 1520)
+            const y = document.createElement('div');
+            y.className = 'year-label';
+            y.innerHTML = `<span style="font-size:0.8rem; color:#7f8c8d">${t}</span>`;
+            row.appendChild(y);
+
+            // Colonnes Pays
+            ['bretagne', 'france', 'angleterre'].forEach(pays => {
+                const cell = document.createElement('div');
+                cell.className = 'cell';
+                
+                // On récupère tous les rois du pays commençant dans cette tranche
+                const souverainsDuPays = roisDeLaPeriode.filter(item => item.pays === pays);
+                
+                souverainsDuPays.forEach(s => {
+                    const portraitSrc = s.portrait || `https://ui-avatars.com/api/?name=${encodeURIComponent(s.nom)}&background=random`;
+                    cell.innerHTML += `
+                        <div class="card" style="margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px;">
+                            <img src="${portraitSrc}" class="portrait" alt="${s.nom}">
+                            <span class="name">${s.nom}</span>
+                            <span class="maison">${s.maison}</span>
+                            <div class="details">
+                                <span class="info-item">👑 <b>${s.regne}</b></span>
+                                <span class="info-item">⏳ <b>${s.vie}</b></span>
+                            </div>
+                            <div class="event">${s.evenement}</div>
                         </div>
-                        <div class="event">${s.evenement}</div>
-                    </div>
-                `;
-            }
-            row.appendChild(cell);
-        });
-        container.appendChild(row);
-    });
+                    `;
+                });
+                row.appendChild(cell);
+            });
+            container.appendChild(row);
+        }
+    }
 }
-
 // Initialisation
 init();
 
