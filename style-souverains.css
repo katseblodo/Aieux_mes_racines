@@ -222,6 +222,53 @@ header {
     font-size: 0.85em;
     font-weight: bold;
 }
+.timeline-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 1fr; /* Date + 3 colonnes égales */
+    gap: 15px;
+    margin-bottom: 10px;
+    align-items: start;
+}
+
+.date-sidebar {
+    background: #2c3e50;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    height: fit-content;
+}
+
+.col-cell {
+    min-height: 100px;
+    border-left: 1px dashed #ccc;
+    padding: 5px;
+}
+
+.mini-card.active {
+    background: white;
+    border: 1px solid #ddd;
+    border-top: 4px solid #333;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+.img-mini {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 5px 0;
+}
+
+/* Couleurs par pays sur les bordures hautes */
+.france .mini-card.active { border-top-color: #0055A4; }
+.bretagne .mini-card.active { border-top-color: #000; }
+.angleterre .mini-card.active { border-top-color: #CE1124; }
 
 /* Couleurs subtiles de fond pour les colonnes */
 .bretagne { background-color: #f9f9f9; }
