@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Généalogie Dynamique | Tanguy-Quillec</title>
+    <title> Aïeux, mes racines</title>
     <style>
         :root {
             --male: #3498db;
@@ -99,8 +99,8 @@
     // 1. CHARGEMENT DU FICHIER CSV
     async function loadCSV() {
         try {
-            // Remplacez 'individus_nettoyés.csv' par le nom exact de votre fichier
-            const response = await fetch('individus_nettoyés.csv');
+            // Nom du fichier avec mes aieux 'individus_nettoyé.csv'
+            const response = await fetch('individus_nettoye.csv');
             if (!response.ok) throw new Error("Fichier CSV non trouvé");
             
             const data = await response.text();
