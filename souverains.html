@@ -6,41 +6,58 @@
     <title>Timeline Royale - Alignée</title>
     <style>
         :root { --br: #000; --fr: #0055A4; --en: #CE1124; }
-        body { font-family: sans-serif; background: #f4f4f4; margin: 0; }
-        header { background: #2c3e50; color: white; text-align: center; padding: 20px; position: sticky; top: 0; z-index: 10; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f4f4; margin: 0; }
         
+        /* Menu et Header */
+        header { background: #2c3e50; color: white; text-align: center; padding: 15px; position: sticky; top: 0; z-index: 10; border-bottom: 3px solid #34495e; }
+        #nav-siecles { background: #ecf0f1; padding: 10px; text-align: center; position: sticky; top: 75px; z-index: 10; border-bottom: 1px solid #ddd; }
+        .btn-siecle { padding: 5px 12px; margin: 2px; border: none; background: #2c3e50; color: white; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+        .btn-siecle:hover { background: #34495e; }
+
+        /* Grille */
         .grid-header { 
             display: grid; grid-template-columns: 100px 1fr 1fr 1fr; 
-            max-width: 1200px; margin: 20px auto 0; position: sticky; top: 85px; z-index: 9;
-            color: white; font-weight: bold; text-align: center;
+            max-width: 1400px; margin: 0 auto; position: sticky; top: 115px; z-index: 9;
+            color: white; font-weight: bold; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .h-date { background: #7f8c8d; } .h-br { background: var(--br); } .h-fr { background: var(--fr); } .h-en { background: var(--en); }
+        .h-date { background: #7f8c8d; padding: 10px; } 
+        .h-br { background: var(--br); padding: 10px; } 
+        .h-fr { background: var(--fr); padding: 10px; } 
+        .h-en { background: var(--en); padding: 10px; }
 
         .timeline-row { 
             display: grid; grid-template-columns: 100px 1fr 1fr 1fr; 
-            max-width: 1200px; margin: 0 auto; background: white; border-bottom: 1px solid #ddd;
+            max-width: 1400px; margin: 0 auto; background: white; border-bottom: 1px solid #ddd;
         }
-        .year-label { background: #eee; display: flex; align-items: center; justify-content: center; font-weight: bold; border-right: 1px solid #ccc; }
-        .cell { 
-            padding: 5px; 
-            min-height: 10px;      
-            border-right: 1px solid #f9f9f9; 
-        }
-       .card { font-size: 0.75rem; line-height: 1.2; }
-        .portrait { width: 50px; height: 50px; float: right; margin-left: 10px; border-radius: 4px; }
-        .name { font-size: 0.9rem; font-weight: bold; color: #2c3e50; display: block; }
-        .maison { color: #7f8c8d; font-style: italic; margin-bottom: 5px; display: block; }
-        .details { margin-top: 5px; background: #f9f9f9; padding: 5px; border-radius: 3px; }
-        .details div { margin-bottom: 2px; }
-        .label { font-weight: bold; color: #34495e; }
-        .event { margin-top: 5px; font-size: 0.7rem; border-top: 1px solid #eee; padding-top: 5px; color: #444; }
-   </style>
+        .year-label { background: #f8f9fa; display: flex; align-items: center; justify-content: center; font-weight: bold; border-right: 2px solid #dee2e6; color: #2c3e50; font-size: 1.1rem; }
+        
+        /* Cartes de souverains */
+        .cell { padding: 10px; min-height: 100px; border-right: 1px solid #eee; }
+        .card { font-size: 0.75rem; line-height: 1.3; position: relative; }
+        .portrait { width: 60px; height: 75px; float: right; margin-left: 8px; border-radius: 4px; object-fit: cover; border: 1px solid #ddd; background: #eee; }
+        .name { font-size: 1rem; font-weight: bold; color: #2c3e50; display: block; margin-bottom: 2px; }
+        .maison { color: #7f8c8d; font-style: italic; margin-bottom: 8px; display: block; font-size: 0.8rem; }
+        
+        .details { background: #f9f9f9; padding: 8px; border-radius: 5px; border-left: 3px solid #ccc; }
+        .info-item { display: block; margin-bottom: 3px; color: #555; }
+        .label { font-weight: bold; color: #333; }
+        .event { margin-top: 8px; font-size: 0.75rem; color: #444; font-style: italic; line-height: 1.4; border-top: 1px solid #eee; padding-top: 5px; }
+
+        /* Ancre pour le menu */
+        .anchor { scroll-margin-top: 160px; }
+    </style>
 </head>
 <body>
+
 <div id="menu-container"></div>
+
 <header>
     <h1>Chronologie Royale Comparée</h1>
 </header>
+
+<div id="nav-siecles">
+    </div>
+
 <div class="grid-header">
     <div class="h-date">Année</div>
     <div class="h-br">Bretagne</div>
@@ -53,72 +70,91 @@
 <script>
 async function init() {
     try {
-        // On stocke le résultat du fetch dans "response"
         const response = await fetch('souverains.json?v=' + Date.now());
+        if (!response.ok) throw new Error("Erreur lors du chargement du fichier JSON");
         
-        // On transforme "response" en données JSON dans la variable "data"
-        const data = await response.json(); 
-        
-        console.log("Données chargées :", data); // Pour vérifier dans la console
-        render(data); // Appelle ta fonction d'affichage
+        const data = await response.json();
+        render(data);
+        generateMenu(data);
     } catch (e) {
-        console.error("Erreur de chargement JSON:", e);
-    }       
-            // On récupère toutes les dates de début uniques
-            const dates = [...new Set(data.map(s => s.debut))].sort((a, b) => a - b);
-            const container = document.getElementById('container');
-
-            dates.forEach(date => {
-                const row = document.createElement('div');
-                row.className = 'timeline-row';
-
-                // Colonne Date
-                const y = document.createElement('div');
-                y.className = 'year-label';
-                y.innerText = date;
-                row.appendChild(y);
-
-                // Colonnes Pays
-                ['bretagne', 'france', 'angleterre'].forEach(pays => {
-                    const cell = document.createElement('div');
-                    cell.className = 'cell';
-                    
-                    const s = data.find(item => item.pays === pays && item.debut === date);
-                    if (s) {
-                        cell.innerHTML = `
-                            <div class="card">
-                            <div>
-                                <span class="name">${s.nom}</span>
-                                <span class="maison" style="display:block">${s.maison}</span>
-                            </div>
-                        </div>
-                        <div class="info-box">
-                            <span class="info-item">👑 <span class="label">Règne:</span> ${s.regne}</span>
-                            <span class="info-item">⏳ <span class="label">Vie:</span> ${s.vie}</span>
-                            <span class="info-item">📍 <span class="label">Né à:</span> ${s.naissance || 'Inconnu'}</span>
-                            <span class="info-item">☠️ <span class="label">Mort à:</span> ${s.mort || 'Inconnu'}</span>
-                            <div class="event" style="margin-top:5px">${s.evenement}</div>
-                        </div>
-                        </div>
-                    `;
-                    }
-                    row.appendChild(cell);
-                });
-                container.appendChild(row);
-            });
-        } catch (e) {
-            console.error("Erreur de chargement JSON:", e);
-        }
+        document.getElementById('container').innerHTML = `<div style="text-align:center; padding:50px; color:red; font-weight:bold;">⚠️ Erreur de chargement des données : ${e.message}</div>`;
+        console.error(e);
     }
-    init();
-</script>
-    <script>
-    // Fonction pour charger le menu
-    fetch('menu.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('menu-container').innerHTML = data;
+}
+
+function generateMenu(data) {
+    const nav = document.getElementById('nav-siecles');
+    const siecles = [...new Set(data.map(s => Math.floor(s.debut / 100) * 100))].sort((a, b) => a - b);
+    
+    siecles.forEach(s => {
+        const btn = document.createElement('button');
+        btn.className = 'btn-siecle';
+        btn.innerText = s + 's';
+        btn.onclick = () => document.getElementById('year-' + s)?.scrollIntoView({ behavior: 'smooth' });
+        nav.appendChild(btn);
+    });
+}
+
+function render(data) {
+    // On trie toutes les dates de début
+    const dates = [...new Set(data.map(s => s.debut))].sort((a, b) => a - b);
+    const container = document.getElementById('container');
+    container.innerHTML = ""; // On vide le container
+
+    dates.forEach(date => {
+        const row = document.createElement('div');
+        row.className = 'timeline-row anchor';
+        // On ajoute un ID spécial pour le menu tous les 100 ans
+        if (date % 100 === 0 || !document.getElementById('year-' + (Math.floor(date/100)*100))) {
+            row.id = 'year-' + (Math.floor(date/100)*100);
+        }
+
+        // Colonne Année
+        const y = document.createElement('div');
+        y.className = 'year-label';
+        y.innerText = date;
+        row.appendChild(y);
+
+        // Colonnes Pays
+        ['bretagne', 'france', 'angleterre'].forEach(pays => {
+            const cell = document.createElement('div');
+            cell.className = 'cell';
+            
+            const s = data.find(item => item.pays === pays && item.debut === date);
+            if (s) {
+                // Gestion portrait par défaut si absent
+                const portraitSrc = s.portrait || `https://ui-avatars.com/api/?name=${encodeURIComponent(s.nom)}&background=random`;
+                
+                cell.innerHTML = `
+                    <div class="card">
+                        <img src="${portraitSrc}" class="portrait" alt="${s.nom}">
+                        <span class="name">${s.nom}</span>
+                        <span class="maison">${s.maison}</span>
+                        <div class="details">
+                            <span class="info-item">👑 <span class="label">Règne :</span> ${s.regne}</span>
+                            <span class="info-item">⏳ <span class="label">Vie :</span> ${s.vie}</span>
+                            <span class="info-item">📍 <span class="label">Né :</span> ${s.naissance || '---'}</span>
+                            <span class="info-item">☠️ <span class="label">Mort :</span> ${s.mort || '---'}</span>
+                        </div>
+                        <div class="event">${s.evenement}</div>
+                    </div>
+                `;
+            }
+            row.appendChild(cell);
         });
+        container.appendChild(row);
+    });
+}
+
+// Initialisation
+init();
+
+// Chargement du menu externe
+fetch('menu.html')
+    .then(res => res.text())
+    .then(html => { document.getElementById('menu-container').innerHTML = html; })
+    .catch(e => console.log("Pas de menu.html trouvé, ignoré."));
 </script>
+
 </body>
 </html>
