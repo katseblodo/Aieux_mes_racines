@@ -51,12 +51,19 @@
 <div id="container"></div>
 
 <script>
-    async function init() {
-        try {
-           //force le chargement du nouveau fichier
-            const response = await fetch('souverains.json?v=' + Date.now());
-            const data = await res.json();
-            
+async function init() {
+    try {
+        // On stocke le résultat du fetch dans "response"
+        const response = await fetch('souverains.json?v=' + Date.now());
+        
+        // On transforme "response" en données JSON dans la variable "data"
+        const data = await response.json(); 
+        
+        console.log("Données chargées :", data); // Pour vérifier dans la console
+        render(data); // Appelle ta fonction d'affichage
+    } catch (e) {
+        console.error("Erreur de chargement JSON:", e);
+    }       
             // On récupère toutes les dates de début uniques
             const dates = [...new Set(data.map(s => s.debut))].sort((a, b) => a - b);
             const container = document.getElementById('container');
