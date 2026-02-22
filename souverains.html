@@ -73,7 +73,8 @@
                     if (s) {
                         cell.innerHTML = `
                             <div class="card">
-                                <img src="${s.portrait}" class="portrait">
+                                // <img src="${s.portrait}" class="portrait">
+                                <img src="${s.portrait}" class="portrait" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(s.nom)}&background=random&color=fff'">
                                 <span class="name">${s.nom}</span>
                                 <div class="event">${s.evenement}</div>
                             </div>
