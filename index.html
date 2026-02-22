@@ -185,25 +185,34 @@
     }
 
     function parseData(csvText) {
-        const lines = csvText.trim().split('\n');
-        allIndividuals = lines.map(line => {
-            const f = line.split(';');
-            const name = f[3] || "";
-            // Détection simple du sexe par le prénom
-            const isFem = /marie|paule|anne|marguerite|helene|philomene|reine|jeanne|louise|yvonne/i.test(name);
-            
-            return {
-                sosa: parseInt(f[0]), 
-                gen: parseInt(f[1]?.replace('G','') || 0),
-                code: f[2] || "",
-                name: name,
-                job: f[4] || "",
-                dates: `${f[5] || '?'} — ${f[6] || '?'}`,
-                place: f[7] || "",
-                sex: isFem ? 'F' : 'M'
-            };
-        });
-    }
+    const lines = csvText.trim().split('\n');
+    allIndividuals = lines.map(line => {
+        const f = line.split(';');
+        const sosaNum = parseInt(f[0]);
+        
+        // RÈGLE : 1 est le sujet, les pairs (0, 2, 4...) sont des hommes, 
+        // les impairs (3, 5, 7...) sont des femmes.
+        // On considère que si sosa > 1, impair = Femme.
+        let sexDetected = 'M'; 
+        if (sosaNum > 1 && sosaNum % 2 !== 0) {
+            sexDetected = 'F';
+        } else if (sosaNum === 1) {
+            // Optionnel : gestion spécifique pour le SOSA 1 si vous connaissez son sexe
+            sexDetected = 'M'; 
+        }
+
+        return {
+            sosa: sosaNum, 
+            gen: parseInt(f[1]?.replace('G','') || 0),
+            code: f[2] || "",
+            name: f[3] || "",
+            job: f[4] || "",
+            dates: `${f[5]} — ${f[6]}`,
+            place: f[7] || "",
+            sex: sexDetected
+        };
+    });
+}
 
     function renderTree() {
         const container = document.getElementById('tree-container');
