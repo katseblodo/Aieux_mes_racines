@@ -98,10 +98,20 @@
                     if (s) {
                         cell.innerHTML = `
                             <div class="card">
+                            <div>
                                 <span class="name">${s.nom}</span>
-                                <div class="event">${s.evenement}</div>
+                                <span class="maison" style="display:block">${s.maison}</span>
                             </div>
-                        `;
+                        </div>
+                        <div class="info-box">
+                            <span class="info-item">👑 <span class="label">Règne:</span> ${s.regne}</span>
+                            <span class="info-item">⏳ <span class="label">Vie:</span> ${s.vie}</span>
+                            <span class="info-item">📍 <span class="label">Né à:</span> ${s.naissance || 'Inconnu'}</span>
+                            <span class="info-item">☠️ <span class="label">Mort à:</span> ${s.mort || 'Inconnu'}</span>
+                            <div class="event" style="margin-top:5px">${s.evenement}</div>
+                        </div>
+                        </div>
+                    `;
                     }
                     row.appendChild(cell);
                 });
