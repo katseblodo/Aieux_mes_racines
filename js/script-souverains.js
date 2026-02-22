@@ -1,54 +1,53 @@
 async function loadData() {
     const response = await fetch('souverains.json');
-    let data = await response.json();
-    
-    // 1. Récupérer toutes les dates de début et de fin uniques pour créer des "étages"
-    const dates = new Set();
-    data.forEach(d => {
-        dates.add(d.debut);
-        dates.add(d.fin);
-    });
-    const sortedDates = Array.from(dates).sort((a, b) => a - b);
-
-    renderTimeline(data, sortedDates);
+    const data = await response.json();
+    renderTimeline(data);
 }
 
-function renderTimeline(data, sortedDates) {
+function renderTimeline(data) {
     const container = document.getElementById('main-container');
-    // On garde les en-têtes mais on vide le reste
-    document.querySelectorAll('.entries').forEach(el => el.innerHTML = '');
+    container.innerHTML = ''; // On vide tout
 
-    // 2. Créer des rangées par période
-    for (let i = 0; i < sortedDates.length - 1; i++) {
-        const start = sortedDates[i];
-        const end = sortedDates[i+1];
+    // On trie par date de début
+    data.sort((a, b) => a.debut - b.debut);
 
+    // On crée des groupes par tranches de 50 ou 100 ans pour l'alignement
+    // Ou plus simple : on crée une ligne par souverain dans l'ordre chronologique global
+    data.forEach(souverain => {
         const row = document.createElement('div');
         row.className = 'timeline-row';
-        row.innerHTML = `<div class="time-indicator">${start}</div>`;
+        
+        // On crée 3 colonnes vides
+        const cols = {
+            'bretagne': document.createElement('div'),
+            'france': document.createElement('div'),
+            'angleterre': document.createElement('div')
+        };
 
-        // 3. Pour chaque pays, trouver qui règne pendant cet intervalle [start, end]
-        ['bretagne', 'france', 'angleterre'].forEach(pays => {
-            const col = document.createElement('div');
-            col.className = `col-cell ${pays}`;
-            
-            const souverain = data.find(s => 
-                s.pays === pays && (s.debut <= start && s.fin >= end)
-            );
+        Object.keys(cols).forEach(p => cols[p].className = 'col-cell');
 
-            if (souverain) {
-                // On n'affiche le nom que si c'est le DEBUT de son règne dans la frise 
-                // pour éviter les répétitions trop lourdes, ou on affiche un bloc continu.
-                col.innerHTML = `
-                    <div class="mini-card">
-                        <img src="${souverain.portrait}" class="thumb">
-                        <div class="info">
-                            <span class="name">${souverain.nom}</span>
-                        </div>
-                    </div>`;
-            }
-            row.appendChild(col);
-        });
+        // On remplit la colonne concernée
+        cols[souverain.pays].innerHTML = `
+            <div class="mini-card active">
+                <span class="dates">${souverain.debut} - ${souverain.fin}</span>
+                <img src="${souverain.portrait}" class="img-mini">
+                <div class="textes">
+                    <strong>${souverain.nom}</strong>
+                    <p>${souverain.evenement || ''}</p>
+                </div>
+            </div>
+        `;
+
+        // Ajout de la date à gauche
+        const dateLabel = document.createElement('div');
+        dateLabel.className = 'date-sidebar';
+        dateLabel.innerText = souverain.debut;
+
+        row.appendChild(dateLabel);
+        row.appendChild(cols['bretagne']);
+        row.appendChild(cols['france']);
+        row.appendChild(cols['angleterre']);
         container.appendChild(row);
-    }
+    });
 }
+loadData();
