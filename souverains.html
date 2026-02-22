@@ -1,29 +1,25 @@
-[
-  {
-    "nom": "Clovis Ier",
-    "titre": "Roi des Francs",
-    "debut": 481,
-    "fin": 511,
-    "pays": "france",
-    "maison": "Mérovingiens",
-    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Clovis_Ier.jpg/220px-Clovis_Ier.jpg"
-  },
-  {
-    "nom": "Nominoë",
-    "titre": "Duc / Roi de Bretagne",
-    "debut": 845,
-    "fin": 851,
-    "pays": "bretagne",
-    "maison": "Nominoë",
-    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Statue_Nominoe_Bains_sur_Oust.jpg/220px-Statue_Nominoe_Bains_sur_Oust.jpg"
-  },
-  {
-    "nom": "Guillaume le Conquérant",
-    "titre": "Roi d'Angleterre",
-    "debut": 1066,
-    "fin": 1087,
-    "pays": "angleterre",
-    "maison": "Normandie",
-    "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/William_I_of_England.jpg/220px-William_I_of_England.jpg"
-  }
-]
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline des Souverains</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Frise Chronologique des Souverains</h1>
+        <div class="filters">
+            <button onclick="filterTimeline('all')">Tous</button>
+            <button onclick="filterTimeline('bretagne')">Bretagne</button>
+            <button onclick="filterTimeline('france')">France</button>
+            <button onclick="filterTimeline('angleterre')">Angleterre</button>
+        </div>
+    </header>
+
+    <div class="timeline" id="timeline">
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
