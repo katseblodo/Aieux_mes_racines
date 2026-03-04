@@ -2,29 +2,70 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Aïeux mes Racines - Pemp-Quillec</title>
-    
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css">
+    <style>
+        .galerie-cousins {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .carte-cousin {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            background: white;
+        }
+        .carte-cousin:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .carte-cousin img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover; /* Affiche un aperçu */
+            border-bottom: 1px solid #eee;
+        }
+    </style>
 </head>
 <body>
 
-<div id="menu-container"></div>
+    <h1>Mes Branches de Cousins</h1>
 
-<div class="container">
-    <h1>Cousins à la mode Bretonne</h1>
-<div class="genealogie-container" style="width: 100%; overflow: auto; border: 1px solid #ccc; padding: 10px; background: #fff;">
-    <h2 style="text-align: center; font-family: sans-serif;">Branche Pemp-Quillec</h2>
-    
-    <img src="cousins/pemp_quillec.svg" alt="Arbre généalogique Pemp-Quillec" style="min-width: 1000px; width: 100%;">
-    
-    <p style="text-align: center; color: #666; font-size: 0.8em;">
-        (Faites défiler horizontalement si l'arbre est large)
-    </p>
-</div>
+    <div id="galerie" class="galerie-cousins">
+        <div class="carte-cousin">
+            <img src="cousins/pemp_quillec.png" alt="Branche Pemp-Quillec">
+            <h3>Pemp-Quillec</h3>
+        </div>
 
-<p style="font-family: sans-serif; font-size: 0.9em; color: #666; margin-top: 10px;">
-    <i>Astuce : Utilisez la molette de la souris pour zoomer et cliquez-glissez pour vous déplacer dans l'arbre.</i>
-</p>
-</div>
+        <div class="carte-cousin">
+            <img src="cousins/pajollec.png" alt="Branche Pajollec">
+            <h3>Pajollec</h3>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js"></script>
+    <script>
+        // Initialise la navigation et le zoom sur la galerie
+        const gallery = new Viewer(document.getElementById('galerie'), {
+            toolbar: {
+                zoomIn: 4,
+                zoomOut: 4,
+                oneToOne: 4,
+                reset: 4,
+                prev: 4,
+                play: { show: false },
+                next: 4,
+                rotateLeft: 4,
+                rotateRight: 4,
+                flipHorizontal: 4,
+                flipVertical: 4,
+            },
+        });
+    </script>
 </body>
 </html>
