@@ -1,95 +1,31 @@
-/**
- * GESTIONNAIRE DE RECHERCHE GÉNÉALOGIQUE
- * Logique de calcul Sosa et structuration JSON
- */
-
-let individuCourant = {};
-
-/**
- * Charge un individu à partir du SOSA et calcule son entourage
- */
-function chargerSosa(sosa) {
-    sosa = parseInt(sosa);
-    const pereSosa = sosa * 2;
-    const mereSosa = (sosa * 2) + 1;
-    const conjointSosa = (sosa % 2 === 0) ? sosa + 1 : sosa - 1;
-    const enfantSosa = Math.floor(sosa / 2);
-
-    // Initialisation de la structure JSON de l'individu
-    individuCourant = {
-        sosa: sosa,
-        nom: "", // A remplir ou charger du CSV
-        liens: {
-            pere: pereSosa,
-            mere: mereSosa,
-            conjoint: conjointSosa,
-            enfants: enfantSosa > 0 ? [enfantSosa] : []
-        },
-        recensements: [],
-        fratrie: []
-    };
-
-    updateUI();
+:root {
+    --bg: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --text: #e0e0e0;
+    --accent: #f39c12;
+    --border: #444;
 }
 
-/**
- * Génère la grille de recensement basée sur les dates de vie
- */
-function genererGrilleRecensement(anneeNaissance, anneeDeces) {
-    const tableBody = document.getElementById('recensement-body');
-    tableBody.innerHTML = "";
-    const fin = anneeDeces || new Date().getFullYear();
-    
-    for (let annee = 1836; annee <= 1936; annee += 5) {
-        if (annee === 1871) annee = 1872;
-        if (annee >= anneeNaissance && annee <= fin) {
-            const row = `<tr>
-                <td>${annee}</td>
-                <td><input type="text" placeholder="Ville/Quartier" onchange="updateCensus(${annee}, 'lieu', this.value)"></td>
-                <td><input type="text" placeholder="Page/Vue" onchange="updateCensus(${annee}, 'page', this.value)"></td>
-                <td><input type="text" placeholder="Infos (métier, foyer...)" onchange="updateCensus(${annee}, 'notes', this.value)"></td>
-            </tr>`;
-            tableBody.innerHTML += row;
-        }
-    }
-}
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); margin: 0; display: flex; flex-direction: column; height: 100vh; }
 
-/**
- * Met à jour les données de recensement dans l'objet JSON
- */
-function updateCensus(annee, champ, valeur) {
-    let entry = individuCourant.recensements.find(r => r.annee === annee);
-    if (!entry) {
-        entry = { annee: annee };
-        individuCourant.recensements.push(entry);
-    }
-    entry[champ] = valeur;
-    actualiserJSON();
-}
+header { background: #111; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--accent); }
 
-/**
- * Ajoute un frère ou une sœur (stocké dans le futur JSON des parents)
- */
-function ajouterFrereSoeur() {
-    const nom = prompt("Nom du frère/sœur :");
-    if (nom) {
-        individuCourant.fratrie.push({ nom: nom });
-        actualiserFratrieUI();
-    }
-}
+.main-layout { display: grid; grid-template-columns: 320px 1fr 350px; gap: 20px; padding: 20px; overflow: hidden; }
 
-/**
- * Affiche le JSON en temps réel pour copier/coller
- */
-function actualiserJSON() {
-    document.getElementById('json-output').value = JSON.stringify(individuCourant, null, 4);
-}
+.panel { background: var(--card-bg); border-radius: 8px; padding: 15px; border: 1px solid var(--border); overflow-y: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 
-// Fonctions UI simplifiées pour l'exemple
-function updateUI() {
-    document.getElementById('sosa-title').innerText = "Individu SOSA " + individuCourant.sosa;
-    document.getElementById('pere-link').innerText = "Père (Sosa " + individuCourant.liens.pere + ")";
-    document.getElementById('mere-link').innerText = "Mère (Sosa " + individuCourant.liens.mere + ")";
-    document.getElementById('conjoint-link').innerText = "Conjoint (Sosa " + individuCourant.liens.conjoint + ")";
-    actualiserJSON();
-}
+h3 { color: var(--accent); text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; margin-top: 0; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+
+/* Formulaires */
+.field-group { margin-bottom: 15px; }
+label { display: block; font-size: 0.75em; color: #888; margin-bottom: 4px; }
+input, textarea, select { width: 100%; background: #1e1e1e; border: 1px solid var(--border); color: white; padding: 8px; border-radius: 4px; box-sizing: border-box; }
+input:focus { border-color: var(--accent); outline: none; }
+
+/* Tableaux */
+table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin-top: 10px; }
+th { text-align: left; color: var(--accent); padding: 8px; border-bottom: 2px solid var(--border); }
+td { padding: 8px; border-bottom: 1px solid var(--border); }
+
+.sosa-tag { background: var(--accent); color: black; font-weight: bold; padding: 2px 6px; border-radius: 3px; font-size: 0.8em; }
+.btn-action { background: var(--accent); color: black; border: none; padding: 10px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; }
