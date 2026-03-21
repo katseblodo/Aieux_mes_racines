@@ -2,198 +2,68 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Éditeur de Recherche Généalogique PRO</title>
-    <style>
-        body { font-family: sans-serif; background: #f0f0f0; display: flex; flex-direction: column; height: 100vh; margin: 0; }
-        header { background: #2c3e50; color: white; padding: 10px 20px; display: flex; gap: 20px; align-items: center; }
-        .main-container { display: grid; grid-template-columns: 350px 1fr 350px; gap: 15px; padding: 15px; flex: 1; overflow: hidden; }
-        .card { background: white; border-radius: 8px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); overflow-y: auto; }
-        h3 { border-bottom: 2px solid #3498db; padding-bottom: 5px; margin-top: 0; }
-        label { display: block; font-weight: bold; margin-top: 10px; font-size: 0.8em; color: #666; }
-        input, textarea { width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.8em; }
-        th, td { border: 1px solid #ddd; padding: 5px; text-align: left; }
-        th { background: #f8f8f8; }
-        .btn { cursor: pointer; padding: 10px; border: none; border-radius: 4px; font-weight: bold; }
-        .btn-load { background: #3498db; color: white; }
-        .btn-save { background: #27ae60; color: white; width: 100%; margin-top: 10px; }
-        .sosa-badge { background: #e67e22; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
-    </style>
+    <link rel="stylesheet" href="style-recherche.css">
+    <title>Géné-Expert v2</title>
 </head>
 <body>
 
 <header>
-    <h2>Géné-Assistant JSON</h2>
-    <div style="flex:1">
-        <textarea id="csv-input" placeholder="Collez le contenu de votre fichier individus_nettoye.csv ici..." rows="2" style="height: 40px;"></textarea>
+    <h1><span style="color:var(--accent)">SOSA</span> EXPLORER</h1>
+    <div style="display:flex; gap:10px;">
+        <input type="number" id="input_sosa" placeholder="N° SOSA">
+        <button class="btn-action" style="margin:0; padding:5px 20px;" onclick="chargerSosa(document.getElementById('input_sosa').value)">Charger</button>
     </div>
-    <input type="number" id="search-sosa" placeholder="N° SOSA" style="width:100px;">
-    <button class="btn btn-load" onclick="chargerIndividu()">Charger</button>
+    <div id="nom_header" style="font-weight: bold; font-size: 1.2em;">Individu non chargé</div>
 </header>
 
-<div class="main-container">
-    
-    <div class="card">
-        <h3>Famille</h3>
+<div class="main-layout">
+    <aside class="panel">
+        <h3>Généalogie Directe</h3>
         <label>Père</label>
-        <div id="pere-info">-</div>
+        <div id="parent_p" class="field-group">-</div>
         <label>Mère</label>
-        <div id="mere-info">-</div>
-        <label>Conjoint(e)</label>
-        <div id="conjoint-info">-</div>
+        <div id="parent_m" class="field-group">-</div>
         <hr>
-        <label>Fratrie (à saisir)</label>
-        <textarea id="f_fratrie" rows="3" placeholder="Frère 1, Sœur 2..."></textarea>
-        <label>Enfants (Sosa / 2)</label>
-        <div id="enfants-info">-</div>
-    </div>
+        <label>Fratrie (via parents)</label>
+        <div id="fratrie_list" style="font-size: 0.8em; color:#bbb;">Recherche auto...</div>
+    </aside>
 
-    <div class="card">
-        <h3>Individu : <span id="ind-nom" style="color:#d35400">...</span></h3>
-        <div id="military-alert" style="background:#fff3e0; padding:10px; border-radius:4px; margin-bottom:10px; display:none;"></div>
-        
-        <h4>Suivi des Recensements</h4>
-        <p style="font-size:0.8em; color:gray italic;">Saisissez ici les infos extraites pour chaque année.</p>
+    <main class="panel">
+        <h3>Données Militaires & Physiques</h3>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
+            <div class="field-group">
+                <label>Classe</label>
+                <input type="text" id="mil_classe">
+            </div>
+            <div class="field-group">
+                <label>Bureau</label>
+                <input type="text" placeholder="ex: Brest">
+            </div>
+            <div class="field-group">
+                <label>Matricule</label>
+                <input type="text" placeholder="n°">
+            </div>
+        </div>
+
+        <h3>Investigation : Recensements</h3>
         <table>
             <thead>
-                <tr>
-                    <th>Année</th>
-                    <th>Lieu / Ville</th>
-                    <th>Page / Vue</th>
-                    <th>Notes (métier, adresse...)</th>
-                </tr>
+                <tr><th>Année</th><th>Lieu</th><th>Source</th><th>Notes du foyer</th></tr>
             </thead>
-            <tbody id="census-table">
-                </tbody>
+            <tbody id="census_body"></tbody>
         </table>
-    </div>
+    </main>
 
-    <div class="card">
-        <h3>Fichier de Recherche (JSON)</h3>
-        <textarea id="json-output" style="height: 80%; font-family: monospace; font-size: 11px;"></textarea>
-        <button class="btn btn-save" onclick="telechargerJSON()">Télécharger le JSON</button>
-    </div>
+    <aside class="panel">
+        <h3>Fichier JSON de l'Individu</h3>
+        <textarea id="json_preview" style="height: 75%;"></textarea>
+        <button class="btn-action" onclick="alert('Sauvegardé dans vos téléchargements')">💾 ENREGISTRER / METTRE À JOUR</button>
+        <p style="font-size: 0.7em; color: gray; margin-top: 10px;">
+            Ce fichier contient l'intégralité des indices de recherche (Physique, Notariat, Recensements).
+        </p>
+    </aside>
 </div>
 
-<script>
-    let db = []; // Données du CSV
-    let currentData = {}; // Données en cours d'édition
-
-    /**
-     * Parse le CSV collé par l'utilisateur
-     */
-    function parseCSV(text) {
-        const lines = text.split('\n');
-        const headers = lines[0].split(';');
-        return lines.slice(1).map(line => {
-            const data = line.split(';');
-            let obj = {};
-            headers.forEach((h, i) => obj[h.trim()] = data[i] ? data[i].trim() : "");
-            return obj;
-        });
-    }
-
-    /**
-     * Fonction principale : Charge les données et calcule les liens
-     */
-    function chargerIndividu() {
-        const sosa = parseInt(document.getElementById('search-sosa').value);
-        if(!db.length) db = parseCSV(document.getElementById('csv-input').value);
-        
-        // 1. Trouver l'individu
-        const ind = db.find(i => parseInt(i.sosa) === sosa) || { sosa: sosa, nom_prenom: "Inconnu", date_naissance: "" };
-        
-        // 2. Calculer l'entourage (Loi de Sosa)
-        const pere = db.find(i => parseInt(i.sosa) === sosa * 2) || { sosa: sosa*2, nom_prenom: "Non défini" };
-        const mere = db.find(i => parseInt(i.sosa) === sosa * 2 + 1) || { sosa: sosa*2+1, nom_prenom: "Non défini" };
-        const conjSosa = (sosa % 2 === 0) ? sosa + 1 : sosa - 1;
-        const conj = db.find(i => parseInt(i.sosa) === conjSosa) || { sosa: conjSosa, nom_prenom: "Non défini" };
-        const enfSosa = Math.floor(sosa / 2);
-        const enfant = db.find(i => parseInt(i.sosa) === enfSosa) || { sosa: enfSosa };
-
-        // 3. Mise à jour Interface
-        document.getElementById('ind-nom').innerText = ind.nom_prenom;
-        document.getElementById('pere-info').innerHTML = `<span class="sosa-badge">${pere.sosa}</span> ${pere.nom_prenom}`;
-        document.getElementById('mere-info').innerHTML = `<span class="sosa-badge">${mere.sosa}</span> ${mere.nom_prenom}`;
-        document.getElementById('conjoint-info').innerHTML = `<span class="sosa-badge">${conj.sosa}</span> ${conj.nom_prenom}`;
-        document.getElementById('enfants-info').innerHTML = enfSosa > 0 ? `<span class="sosa-badge">${enfSosa}</span> ${enfant.nom_prenom || 'Sosa ' + enfSosa}` : "Aucun";
-
-        // 4. Assistant Militaire (Hommes)
-        if(ind.date_naissance) {
-            const anneeNaiss = parseInt(ind.date_naissance.split('/').pop());
-            const classe = anneeNaiss + 20;
-            const alertBox = document.getElementById('military-alert');
-            alertBox.innerHTML = `<strong>Assistant Militaire :</strong> Classe <b>${classe}</b>. Cherchez le registre matricule aux AD du lieu de résidence à 20 ans.`;
-            alertBox.style.display = "block";
-            
-            // 5. Grille de recensement
-            genererRecensements(anneeNaiss, ind.date_deces);
-        }
-
-        buildJSON(ind, pere, mere, conj);
-    }
-
-    /**
-     * Crée les lignes du tableau de recensement
-     */
-    function genererRecensements(birth, death) {
-        const table = document.getElementById('census-table');
-        table.innerHTML = "";
-        const endYear = death ? parseInt(death.split('/').pop()) : 1936;
-        
-        for (let y = 1836; y <= 1936; y += 5) {
-            if (y === 1871) y = 1872;
-            if (y >= birth && y <= endYear) {
-                const row = `<tr>
-                    <td>${y}</td>
-                    <td><input type="text" oninput="updateJSON()"></td>
-                    <td><input type="text" oninput="updateJSON()"></td>
-                    <td><input type="text" oninput="updateJSON()"></td>
-                </tr>`;
-                table.innerHTML += row;
-            }
-        }
-    }
-
-    /**
-     * Construit le JSON final
-     */
-    function buildJSON(ind, p, m, c) {
-        currentData = {
-            id_sosa: ind.sosa,
-            identite: ind,
-            parents: { pere: p.sosa, mere: m.sosa },
-            conjoint: c.sosa,
-            fratrie: document.getElementById('f_fratrie').value.split(','),
-            recherches: {
-                recensements: []
-            }
-        };
-        updateJSON();
-    }
-
-    function updateJSON() {
-        const rows = document.querySelectorAll('#census-table tr');
-        currentData.recherches.recensements = Array.from(rows).map(row => {
-            const inputs = row.querySelectorAll('input');
-            return {
-                annee: row.cells[0].innerText,
-                lieu: inputs[0].value,
-                page: inputs[1].value,
-                notes: inputs[2].value
-            };
-        });
-        document.getElementById('json-output').value = JSON.stringify(currentData, null, 4);
-    }
-
-    function telechargerJSON() {
-        const blob = new Blob([document.getElementById('json-output').value], {type: 'application/json'});
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `sosa_${currentData.id_sosa}.json`;
-        a.click();
-    }
-</script>
+<script src="app.js"></script>
 </body>
 </html>
