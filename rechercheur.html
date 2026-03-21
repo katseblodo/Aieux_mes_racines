@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Éditeur de Recherche Généalogique</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+    <header>
+        <h1>Gestionnaire de Recherche : <span id="ind-nom">Nom de l'Individu</span></h1>
+    </header>
+
+    <main class="grid-container">
+        <section class="family-column">
+            <h3>Origines</h3>
+            <div id="parents-zone"></div>
+            <div id="fratrie-zone">
+                <h4>Fratrie (chargée via parents)</h4>
+                <ul id="fratrie-list"></ul>
+            </div>
+        </section>
+
+        <section class="main-info">
+            <div class="card">
+                <h3>Identité</h3>
+                <p id="ind-dates"></p>
+                <p>Profession : <span id="ind-profession"></span></p>
+                <div id="conjoint-zone"></div>
+            </div>
+
+            <div class="card research-helper">
+                <h3>Assistant de Recherche Automatique</h3>
+                <div id="military-helper"></div>
+                <div id="census-helper"></div>
+            </div>
+        </section>
+
+        <section class="descendants-column">
+            <h3>Descendance</h3>
+            <ul id="enfants-list"></ul>
+            
+            <div class="json-save">
+                <h3>Statut de Recherche (JSON)</h3>
+                <textarea id="json-output" rows="10"></textarea>
+                <button onclick="saveIndividualData()">Enregistrer les modifications</button>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
