@@ -2,52 +2,84 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Éditeur de Recherche Généalogique</title>
-    <link rel="stylesheet" href="style-recherche.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Généalogie - Éditeur de Recherche</title>
 </head>
 <body>
 
-<div id="app">
-    <header>
-        <h1>Gestionnaire de Recherche : <span id="ind-nom">Nom de l'Individu</span></h1>
-    </header>
+<header>
+    <h1>Expert Généalogiste : Éditeur de Recherche</h1>
+    <div>
+        <input type="number" id="search-sosa" placeholder="SOSA ex: 6">
+        <button onclick="chargerIndividu()">Charger / Créer</button>
+    </div>
+</header>
 
-    <main class="grid-container">
-        <section class="family-column">
-            <h3>Origines</h3>
-            <div id="parents-zone"></div>
-            <div id="fratrie-zone">
-                <h4>Fratrie (chargée via parents)</h4>
-                <ul id="fratrie-list"></ul>
-            </div>
-        </section>
+<div class="container">
+    <aside>
+        <div class="card">
+            <h3>Entourage</h3>
+            <label>Parents</label>
+            <div id="parent-links">...</div>
+            <label>Fratrie (via parents)</label>
+            <ul id="fratrie-list"></ul>
+            <label>Conjoint(e)</label>
+            <input type="text" id="f_conjoint">
+        </div>
+    </aside>
 
-        <section class="main-info">
-            <div class="card">
-                <h3>Identité</h3>
-                <p id="ind-dates"></p>
-                <p>Profession : <span id="ind-profession"></span></p>
-                <div id="conjoint-zone"></div>
+    <main>
+        <div class="card">
+            <h3>Fiche Individu (données CSV + compléments)</h3>
+            <div class="form-group">
+                <label>Nom & Prénoms</label>
+                <input type="text" id="f_nom">
             </div>
+            <div class="form-group">
+                <label>Profession</label>
+                <input type="text" id="f_prof">
+            </div>
+            <div style="display:flex; gap:10px;">
+                <div class="form-group">
+                    <label>Date Naissance</label>
+                    <input type="text" id="f_naiss_date">
+                </div>
+                <div class="form-group">
+                    <label>Lieu</label>
+                    <input type="text" id="f_naiss_lieu">
+                </div>
+            </div>
+        </div>
 
-            <div class="card research-helper">
-                <h3>Assistant de Recherche Automatique</h3>
-                <div id="military-helper"></div>
-                <div id="census-helper"></div>
+        <div class="card">
+            <h3>Assistant de Recherche Stratégique</h3>
+            <div class="helper-box" id="militaire-advice">
+                Saisissez un SOSA pour voir les conseils militaires.
             </div>
-        </section>
-
-        <section class="descendants-column">
-            <h3>Descendance</h3>
-            <ul id="enfants-list"></ul>
-            
-            <div class="json-save">
-                <h3>Statut de Recherche (JSON)</h3>
-                <textarea id="json-output" rows="10"></textarea>
-                <button onclick="saveIndividualData()">Enregistrer les modifications</button>
+            <div class="helper-box">
+                <strong>Recensements à vérifier :</strong>
+                <p id="recensement-list">...</p>
             </div>
-        </section>
+        </div>
     </main>
+
+    <section>
+        <div class="card">
+            <h3>Statut de Recherche (JSON)</h3>
+            <textarea id="json-output" rows="15" readonly></textarea>
+            <p style="font-size:0.7em; color:gray;">Copiez ce contenu pour créer votre fichier .json individuel.</p>
+            <button class="btn-save" onclick="alert('JSON généré !')">Valider la recherche</button>
+        </div>
+        
+        <div class="card">
+            <h3>Vérification AD en ligne</h3>
+            <select id="ad-selector">
+                <option value="29">Finistère (29)</option>
+                <option value="56">Morbihan (56)</option>
+            </select>
+            <button onclick="window.open('https://archives.finistere.fr/')" style="margin-top:5px; width:100%;">Aller aux Archives</button>
+        </div>
+    </section>
 </div>
 
 <script src="app.js"></script>
