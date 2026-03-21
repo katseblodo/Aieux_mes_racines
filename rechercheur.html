@@ -2,68 +2,266 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style-recherche.css">
-    <title>Géné-Expert v2</title>
+    <title>Géné-Expert v4 - Éditeur de Recherche</title>
+    <style>
+        /* CSS EXTERNE (Intégré ici pour la version 1 page) */
+        :root {
+            --bg: #1a1c20;
+            --panel: #252a31;
+            --header: #0f1216;
+            --accent: #e67e22;
+            --text: #e0e6ed;
+            --border: #3d4450;
+            --input-bg: #14171a;
+        }
+
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; display: flex; flex-direction: column; height: 100vh; }
+        
+        header { 
+            background: var(--header); padding: 15px 30px; border-bottom: 3px solid var(--accent);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .big-name { font-size: 1.8em; font-weight: bold; color: var(--accent); text-transform: uppercase; }
+        .sosa-badge { background: var(--accent); color: #000; padding: 2px 10px; border-radius: 4px; font-size: 0.6em; margin-left: 10px; vertical-align: middle;}
+
+        .main-layout { display: grid; grid-template-columns: 320px 1fr 400px; gap: 15px; padding: 15px; flex: 1; overflow: hidden; }
+        .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+
+        h3 { border-left: 4px solid var(--accent); padding-left: 10px; font-size: 0.9em; text-transform: uppercase; margin: 0 0 10px 0; color: #fff; }
+        
+        .field-group { margin-bottom: 10px; }
+        label { display: block; font-size: 0.75em; color: #8b949e; margin-bottom: 4px; }
+        input, textarea, select { 
+            width: 100%; background: var(--input-bg); border: 1px solid var(--border); 
+            color: #fff; padding: 8px; border-radius: 4px; box-sizing: border-box; 
+        }
+        input:focus { border-color: var(--accent); outline: none; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
+        th { background: rgba(255,255,255,0.05); color: var(--accent); padding: 8px; text-align: left; border-bottom: 1px solid var(--border); }
+        td { padding: 6px; border-bottom: 1px solid var(--border); }
+
+        .btn { cursor: pointer; border: none; border-radius: 4px; font-weight: bold; padding: 8px 15px; transition: 0.2s; }
+        .btn-load { background: var(--accent); color: #000; }
+        .btn-add { background: #2ea44f; color: #fff; font-size: 0.8em; margin-bottom: 10px; }
+        .btn-save { background: #238636; color: #fff; width: 100%; padding: 15px; font-size: 1.1em; margin-top: auto; }
+
+        .rel-card { background: var(--input-bg); border: 1px solid var(--border); padding: 8px; border-radius: 4px; margin-bottom: 8px; font-size: 0.9em; }
+        .rel-sosa { color: var(--accent); font-weight: bold; margin-right: 5px; }
+
+        #json-output { flex: 1; font-family: 'Cascadia Code', monospace; font-size: 0.75em; background: #000; color: #4af626; resize: none; border: 1px solid var(--border); padding: 10px; }
+    </style>
 </head>
 <body>
 
 <header>
-    <h1><span style="color:var(--accent)">SOSA</span> EXPLORER</h1>
-    <div style="display:flex; gap:10px;">
-        <input type="number" id="input_sosa" placeholder="N° SOSA">
-        <button class="btn-action" style="margin:0; padding:5px 20px;" onclick="chargerSosa(document.getElementById('input_sosa').value)">Charger</button>
+    <div>
+        <span class="big-name" id="display-name">SOSA EXPLORER</span>
     </div>
-    <div id="nom_header" style="font-weight: bold; font-size: 1.2em;">Individu non chargé</div>
+    <div style="display:flex; gap:10px;">
+        <input type="number" id="input-sosa" placeholder="N° SOSA" style="width:120px;">
+        <button class="btn btn-load" onclick="chargerSosa()">CHARGER</button>
+    </div>
 </header>
 
 <div class="main-layout">
     <aside class="panel">
-        <h3>Généalogie Directe</h3>
-        <label>Père</label>
-        <div id="parent_p" class="field-group">-</div>
-        <label>Mère</label>
-        <div id="parent_m" class="field-group">-</div>
-        <hr>
-        <label>Fratrie (via parents)</label>
-        <div id="fratrie_list" style="font-size: 0.8em; color:#bbb;">Recherche auto...</div>
+        <h3>Ascendance (Parents)</h3>
+        <div id="pere-box" class="rel-card">Père : -</div>
+        <div id="mere-box" class="rel-card">Mère : -</div>
+
+        <h3>Conjoint(e)</h3>
+        <div id="conjoint-box" class="rel-card">Conjoint : -</div>
+
+        <h3>État Civil & Profession</h3>
+        <div class="field-group">
+            <label>Profession Générale</label>
+            <input type="text" id="f-prof-gen" oninput="updateBase('profession_generale', this.value)">
+        </div>
+        <div class="field-group">
+            <label>Notes / Infos Complémentaires</label>
+            <textarea id="f-infos" rows="4" oninput="updateBase('infos_complementaires', this.value)"></textarea>
+        </div>
     </aside>
 
     <main class="panel">
-        <h3>Données Militaires & Physiques</h3>
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
-            <div class="field-group">
-                <label>Classe</label>
-                <input type="text" id="mil_classe">
-            </div>
-            <div class="field-group">
-                <label>Bureau</label>
-                <input type="text" placeholder="ex: Brest">
-            </div>
-            <div class="field-group">
-                <label>Matricule</label>
-                <input type="text" placeholder="n°">
-            </div>
-        </div>
-
-        <h3>Investigation : Recensements</h3>
+        <h3>Investigation : Recensements (Niveaux de vie)</h3>
         <table>
             <thead>
-                <tr><th>Année</th><th>Lieu</th><th>Source</th><th>Notes du foyer</th></tr>
+                <tr>
+                    <th style="width:60px">Année</th>
+                    <th>Ville / Lieu</th>
+                    <th>Métier alors déclaré</th>
+                    <th style="width:80px">Source/Vue</th>
+                </tr>
             </thead>
-            <tbody id="census_body"></tbody>
+            <tbody id="census-table"></tbody>
         </table>
+
+        <h3>Descendance (Saisie des enfants)</h3>
+        <button class="btn btn-add" onclick="ajouterEnfant()">+ Ajouter un enfant</button>
+        <div style="overflow-x:auto">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom Prénom</th>
+                        <th>Naissance (Date/Lieu)</th>
+                        <th>Mariage (Date/Lieu/Conjoint)</th>
+                        <th>Décès (Date/Lieu)</th>
+                    </tr>
+                </thead>
+                <tbody id="children-table"></tbody>
+            </table>
+        </div>
     </main>
 
-    <aside class="panel">
-        <h3>Fichier JSON de l'Individu</h3>
-        <textarea id="json_preview" style="height: 75%;"></textarea>
-        <button class="btn-action" onclick="alert('Sauvegardé dans vos téléchargements')">💾 ENREGISTRER / METTRE À JOUR</button>
-        <p style="font-size: 0.7em; color: gray; margin-top: 10px;">
-            Ce fichier contient l'intégralité des indices de recherche (Physique, Notariat, Recensements).
-        </p>
+    <section class="panel">
+        <h3>Données de recherche (JSON)</h3>
+        <textarea id="json-output" readonly></textarea>
+        <button class="btn btn-save" onclick="exporterJSON()">ENREGISTRER LE JSON</button>
     </aside>
 </div>
 
-<script src="app.js"></script>
+<script>
+    /**
+     * LOGIQUE DE L'OUTIL
+     */
+    let csvData = [];
+    let currentJSON = {};
+
+    // Chargement automatique du CSV à la racine
+    window.onload = async () => {
+        try {
+            const response = await fetch('individus_nettoye.csv');
+            const text = await response.text();
+            csvData = parseCSV(text);
+            console.log("Base CSV chargée.");
+        } catch (e) {
+            console.error("Fichier CSV introuvable à la racine.");
+        }
+    };
+
+    function parseCSV(text) {
+        const lines = text.trim().split('\n');
+        const headers = lines[0].split(';');
+        return lines.slice(1).map(line => {
+            const v = line.split(';');
+            let obj = {};
+            headers.forEach((h, i) => obj[h.trim()] = v[i] ? v[i].trim() : "");
+            return obj;
+        });
+    }
+
+    function chargerSosa() {
+        const sosa = parseInt(document.getElementById('input-sosa').value);
+        const ind = csvData.find(i => parseInt(i.sosa) === sosa) || { sosa: sosa, nom_prenom: "INCONNU" };
+        
+        // Logique SOSA : Parents et Enfant direct
+        const sosaPere = sosa * 2;
+        const sosaMere = sosa * 2 + 1;
+        const sosaConj = (sosa % 2 === 0) ? sosa + 1 : sosa - 1;
+        const sosaEnf = Math.floor(sosa / 2);
+
+        const pere = csvData.find(i => parseInt(i.sosa) === sosaPere) || { sosa: sosaPere, nom_prenom: "Non listé" };
+        const mere = csvData.find(i => parseInt(i.sosa) === sosaMere) || { sosa: sosaMere, nom_prenom: "Non listé" };
+        const conj = csvData.find(i => parseInt(i.sosa) === sosaConj) || { sosa: sosaConj, nom_prenom: "Non listé" };
+
+        // Initialisation de l'objet JSON complet
+        currentJSON = {
+            sosa: sosa,
+            nom_prenom: ind.nom_prenom,
+            dates_clefs: {
+                naissance: { date: ind.date_naissance || "", lieu: ind.lieu_naissance || "" },
+                mariage: { date: ind.date_mariage || "", lieu: ind.lieu_mariage || "" },
+                deces: { date: ind.date_deces || "", lieu: ind.lieu_deces || "" }
+            },
+            profession_generale: ind.profession || "",
+            infos_complementaires: ind.infos_complementaires || "",
+            parents: {
+                pere: { sosa: sosaPere, nom: pere.nom_prenom },
+                mere: { sosa: sosaMere, nom: mere.nom_prenom }
+            },
+            conjoint: { sosa: sosaConj, nom: conj.nom_prenom },
+            recensements: [],
+            enfants: []
+        };
+
+        refreshUI();
+    }
+
+    function refreshUI() {
+        const ind = currentJSON;
+        document.getElementById('display-name').innerHTML = `${ind.nom_prenom} <span class="sosa-badge">SOSA ${ind.sosa}</span>`;
+        document.getElementById('pere-box').innerHTML = `<span class="rel-sosa">${ind.parents.pere.sosa}</span> ${ind.parents.pere.nom}`;
+        document.getElementById('mere-box').innerHTML = `<span class="rel-sosa">${ind.parents.mere.sosa}</span> ${ind.parents.mere.nom}`;
+        document.getElementById('conjoint-box').innerHTML = `<span class="rel-sosa">${ind.conjoint.sosa}</span> ${ind.conjoint.nom}`;
+        document.getElementById('f-prof-gen').value = ind.profession_generale;
+        document.getElementById('f-infos').value = ind.infos_complementaires;
+
+        // Génération tableau recensements selon dates de vie
+        const birth = parseInt(ind.dates_clefs.naissance.date.split('/').pop()) || 1830;
+        const death = parseInt(ind.dates_clefs.deces.date.split('/').pop()) || 1940;
+        
+        const tbody = document.getElementById('census-table');
+        tbody.innerHTML = "";
+        const annees = [1836, 1841, 1846, 1851, 1856, 1861, 1866, 1872, 1876, 1881, 1886, 1891, 1896, 1901, 1906, 1911, 1921, 1926, 1931, 1936];
+        
+        annees.forEach(a => {
+            if (a >= birth && a <= death) {
+                tbody.innerHTML += `<tr>
+                    <td>${a}</td>
+                    <td><input type="text" oninput="updateCensus(${a}, 'lieu', this.value)"></td>
+                    <td><input type="text" oninput="updateCensus(${a}, 'job', this.value)"></td>
+                    <td><input type="text" oninput="updateCensus(${a}, 'ref', this.value)"></td>
+                </tr>`;
+            }
+        });
+
+        updateJSONView();
+    }
+
+    // Mise à jour des données JSON
+    function updateBase(key, val) { currentJSON[key] = val; updateJSONView(); }
+
+    function updateCensus(annee, key, val) {
+        let r = currentJSON.recensements.find(x => x.annee === annee);
+        if(!r) { r = { annee: annee }; currentJSON.recensements.push(r); }
+        r[key] = val;
+        updateJSONView();
+    }
+
+    function ajouterEnfant() {
+        const id = Date.now();
+        const row = `<tr id="enf-${id}">
+            <td><input type="text" placeholder="Nom Prénom" oninput="updateEnfant('${id}', 'nom', this.value)"></td>
+            <td><input type="text" placeholder="N: Date/Lieu" oninput="updateEnfant('${id}', 'n', this.value)"></td>
+            <td><input type="text" placeholder="M: Date/Lieu/Conj" oninput="updateEnfant('${id}', 'm', this.value)"></td>
+            <td><input type="text" placeholder="D: Date/Lieu" oninput="updateEnfant('${id}', 'd', this.value)"></td>
+        </tr>`;
+        document.getElementById('children-table').innerHTML += row;
+    }
+
+    function updateEnfant(id, key, val) {
+        let e = currentJSON.enfants.find(x => x.id === id);
+        if(!e) { e = { id: id }; currentJSON.enfants.push(e); }
+        e[key] = val;
+        updateJSONView();
+    }
+
+    function updateJSONView() {
+        document.getElementById('json-output').value = JSON.stringify(currentJSON, null, 4);
+    }
+
+    function exporterJSON() {
+        const data = document.getElementById('json-output').value;
+        const blob = new Blob([data], {type: 'application/json'});
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `sosa_${currentJSON.sosa}_${currentJSON.nom_prenom.replace(/ /g, '_')}.json`;
+        a.click();
+    }
+</script>
+
 </body>
 </html>
