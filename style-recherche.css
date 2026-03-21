@@ -1,70 +1,39 @@
-/* Palette de couleurs : Institutionnel / Archive */
 :root {
-    --bg-color: #f0f2f5;
-    --panel-bg: #ffffff;
-    --accent-color: #2c3e50;
-    --highlight: #e67e22;
-    --success: #27ae60;
-    --border: #dcdde1;
+    --primary: #2c3e50;
+    --accent: #d35400;
+    --bg: #f4f7f6;
+    --card: #ffffff;
+    --text: #333;
 }
 
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: var(--bg-color);
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); margin: 0; }
+
+.container { display: grid; grid-template-columns: 350px 1fr 300px; gap: 20px; padding: 20px; }
+
+header { 
+    background: var(--primary); color: white; padding: 1rem 2rem; 
+    display: flex; justify-content: space-between; align-items: center;
 }
 
-#app-container {
-    width: 95%;
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: 300px 1fr 300px;
-    gap: 20px;
+.card { background: var(--card); border-radius: 8px; padding: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
+
+h3 { border-bottom: 2px solid var(--bg); padding-bottom: 5px; color: var(--primary); }
+
+/* Formulaire */
+.form-group { margin-bottom: 12px; }
+label { display: block; font-size: 0.85em; font-weight: bold; color: #666; }
+input, textarea, select { 
+    width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; 
 }
 
-.panel {
-    background: var(--panel-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+/* Alertes de recherche */
+.helper-box { 
+    background: #fff8e1; border-left: 4px solid var(--accent); padding: 10px; margin-bottom: 10px; font-size: 0.9em;
 }
 
-/* En-tête de l'individu */
-.main-panel header {
-    border-bottom: 2px solid var(--accent-color);
-    margin-bottom: 20px;
-}
+.status-check { display: flex; align-items: center; justify-content: space-between; padding: 5px 0; }
 
-.sosa-badge {
-    background: var(--accent-color);
-    color: white;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.9em;
+button.btn-save { 
+    background: var(--accent); color: white; border: none; padding: 10px; 
+    width: 100%; border-radius: 4px; cursor: pointer; font-weight: bold;
 }
-
-/* Zone d'alertes de recherche */
-.research-alert {
-    background: #fff3e0;
-    border-left: 4px solid var(--highlight);
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 0.9em;
-}
-
-.military-box {
-    background: #e3f2fd;
-    border-left: 4px solid #1e88e5;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-/* Formulaire et listes */
-ul { list-style: none; padding: 0; }
-li { padding: 5px 0; border-bottom: 1px dotted #ccc; }
-label { font-weight: bold; display: block; margin-top: 10px; }
-input, textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
