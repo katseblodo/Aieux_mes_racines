@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Chronique de Jean Joseph Félix Quillec (1831-1908)</title>
+    <style>
+        body { font-family: 'Georgia', serif; line-height: 1.6; color: #333; max-width: 900px; margin: auto; padding: 20px; background-color: #f4f1ea; }
+        header { text-align: center; border-bottom: 2px solid #8b4513; padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { color: #8b4513; margin-bottom: 5px; }
+        h2 { color: #5d2e0a; border-left: 5px solid #d4af37; padding-left: 15px; margin-top: 35px; }
+        
+        /* Conteneurs Visuels */
+        .visual-container { background: white; border: 1px solid #ccc; padding: 20px; border-radius: 8px; margin: 30px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        .visual-title { text-align: center; font-family: 'Verdana', sans-serif; text-transform: uppercase; font-size: 0.9em; color: #777; margin-bottom: 15px; }
+        
+        /* Style de l'Arbre */
+        .tree-level { display: flex; justify-content: space-around; margin-bottom: 20px; flex-wrap: wrap; }
+        .tree-node { border: 1px solid #8b4513; border-radius: 5px; padding: 10px; width: 220px; text-align: center; background-color: #fff9f0; margin: 5px; }
+        .tree-node b { color: #8b4513; display: block; margin-bottom: 5px; }
+        .tree-info { font-size: 0.85em; color: #555; }
+        
+        /* Style de la Carte */
+        .map-placeholder { width: 100%; height: 400px; background-color: #e0f2f1; border: 2px solid #8b4513; display: flex; align-items: center; justify-content: center; font-style: italic; color: #555; position: relative; overflow: hidden; }
+        /* Simulation simplifiée des lieux Bigoudens */
+        .map-point { position: absolute; width: 12px; height: 12px; background-color: red; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 5px rgba(0,0,0,0.5); }
+        .map-label { position: absolute; font-size: 0.8em; font-weight: bold; color: #333; background: rgba(255,255,255,0.8); padding: 2px 5px; border-radius: 3px; }
+
+        /* Autres styles */
+        .contexte { font-style: italic; background: #e9e4d9; padding: 15px; border-radius: 5px; margin: 20px 0; border: 1px solid #ccc; }
+        .date-tag { font-weight: bold; color: #8b4513; }
+        footer { margin-top: 50px; font-size: 0.8em; text-align: center; color: #777; border-top: 1px solid #ccc; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Jean Joseph Félix Quillec</h1>
+    <p><em>Une vie au cœur du Pays Bigouden (1831 - 1908)</em></p>
+</header>
+
+<section>
+    <h2>Origines et une Naissance sous l'Ombre du Deuil</h2>
+    <p>
+        <span class="date-tag">30 mai 1831 :</span> Jean Joseph Félix (JJF) voit le jour à la ferme de <strong>Kerraoul</strong>, en Combrit. 
+        Son destin est marqué dès avant sa naissance par une tragédie familiale : son père, Pierre Quillec, meurt brutalement à l'âge de 35 ans à Pont-l'Abbé, sept mois seulement avant sa venue au monde.
+    </p>
+    <p>
+        Sa mère, <strong>Marie Josèphe Le Failler</strong>, originaire de Tréguennec, se retrouve veuve pour la seconde fois à seulement 29 ans. JJF naît dans une famille "recomposée" avant l'heure, entouré de demi-frères et sœurs issus des premiers mariages de ses parents.
+    </p>
+</section>
+
+<div class="visual-container">
+    <div class="visual-title">Ascendance et Descendance Directe de JJF Quillec</div>
+    
+    <div class="tree-level">
+        <div class="tree-node">
+            <b>Jean QUILLEC</b>
+            <span class="tree-info">† av. 1827<br>Loc'h (Combrit)</span>
+        </div>
+        <div class="tree-node">
+            <b>Marie-Jeanne CALVAR</b>
+            <span class="tree-info">† ap. 1827<br>Combrit</span>
+        </div>
+        <div class="tree-node">
+            <b>Joseph LE FAILLER</b>
+            <span class="tree-info">† av. 1854<br>Tréguennec</span>
+        </div>
+        <div class="tree-node">
+            <b>Josèphe LE GOUILL</b>
+            <span class="tree-info">† av. 1854<br>Tréguennec</span>
+        </div>
+    </div>
+    
+    <div class="tree-level">
+        <div class="tree-node" style="width: 300px;">
+            <b>Pierre QUILLEC</b>
+            <span class="tree-info">~1796 - 1830 (Pont-l'Abbé)<br>Cultivateur à Kerraoul (Combrit)</span>
+        </div>
+        <div class="tree-node" style="width: 300px;">
+            <b>Marie Josèphe LE FAILLER</b>
+            <span class="tree-info">~1802 - ap. 1854<br>Originaire de Tréguennec</span>
+        </div>
+    </div>
+    
+    <div class="tree-level">
+        <div class="tree-node" style="width: 400px; border-width: 3px; background-color: #fff2d0;">
+            <b style="font-size: 1.2em;">Jean Joseph Félix QUILLEC</b>
+            <span class="tree-info">1831 (Combrit) - 1908 (Plonéour-Lanvern)<br>Cultivateur</span>
+        </div>
+    </div>
+    
+    <div class="tree-level">
+        <div class="tree-node">
+            <b>Jean Joseph</b>
+            <span class="tree-info">° 1857<br>Trégonda (Loctudy)</span>
+        </div>
+        <div class="tree-node">
+            <b>Marie-Louise</b>
+            <span class="tree-info">° 1860<br>Kerzulec (Plonéour)</span>
+        </div>
+        <div class="tree-node">
+            <b>Sébastien</b>
+            <span class="tree-info">° 1869<br>Kerguellou (Plonéour)</span>
+        </div>
+    </div>
+</div>
+
+<section>
+    <h2>Une Enfance à Kerraoul</h2>
+    <p>
+        JJF grandit à Kerraoul, une ferme importante située à la limite de Tréméoc et Pont-l'Abbé. Son enfance est celle d'un fils de cultivateur bigouden, rythmée par les travaux de la terre. Bien qu'orphelin de père, il évolue dans un réseau familial dense : son grand-père maternel, Joseph Le Failler, vit non loin à Tréguennec, et son oncle Jean-Louis Le Nours est très présent pour la famille.
+    </p>
+</section>
+
+<div class="visual-container">
+    <div class="visual-title">Carte Narrative : Parcours Bigouden de JJF Quillec</div>
+    <div class="map-placeholder">
+        <div style="position: absolute; bottom: 0; left: 0; width: 40%; height: 70%; background-color: #b2ebf2; border-radius: 0 50% 0 0;"></div> <div style="position: absolute; top: 10%; right: 10%; width: 20%; height: 80%; background-color: #81d4fa; border-radius: 50% 0 0 50%;"></div> <div class="map-point" style="top: 35%; right: 35%;"></div>
+        <div class="map-label" style="top: 32%; right: 37%;">1. Kerraoul (Combrit)<br>1831 - ~1855</div>
+
+        <div class="map-point" style="top: 55%; left: 30%;"></div>
+        <div class="map-label" style="top: 52%; left: 33%;">2. Tréguennec (Famille Mère)</div>
+
+        <div class="map-point" style="top: 60%; right: 45%;"></div>
+        <div class="map-label" style="top: 63%; right: 47%;">3. Loctudy (~1857)</div>
+
+        <div class="map-point" style="top: 30%; left: 40%;"></div>
+        <div class="map-label" style="top: 27%; left: 43%;">4. Kerzulec (Plonéour)<br>~1860</div>
+
+        <div class="map-point" style="top: 25%; left: 35%;"></div>
+        <div class="map-label" style="top: 22%; left: 38%;">5. Kerguellou (~1869)<br>et Fin de Vie (†1908)</div>
+        
+        <div style="position: absolute; bottom: 10px; right: 10px; font-size: 0.7em; color: #999;">Représentation schématique</div>
+    </div>
+</div>
+
+<section>
+    <h2>Le Service Militaire et la Profession</h2>
+    <p>
+        <span class="date-tag">1851 :</span> À 20 ans, il remplit ses obligations militaires. Ce passage est souvent, pour les jeunes ruraux de l'époque, l'unique occasion de quitter leur paroisse et de découvrir un monde au-delà du Pays Bigouden.
+    </p>
+    <p>
+        De retour à la vie civile, il embrasse la profession de <strong>cultivateur</strong>. Il suit les traces de ses ancêtres, mais la gestion des terres semble complexe, marquée par les successions entre ses nombreux demi-frères et sœurs. Son parcours témoigne d'une stabilité géographique forte, gravitant entre Combrit et Plonéour-Lanvern.
+    </p>
+</section>
+
+<footer>
+    <p>Sources : Archives familiales Quillec (SOSA 24) - Relevés CGF - Documents de recherche personnels.</p>
+</footer>
+
+</body>
+</html>
