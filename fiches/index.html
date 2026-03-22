@@ -17,22 +17,19 @@
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Chronique des Bigoudens</h1>
-    <p>Index généré automatiquement via GitHub API</p>
-</header>
+<div id="menu-container"></div>
 
 <div id="index-container" class="index-grid">
     <p class="loader">Chargement des fiches en cours...</p>
 </div>
 
 <script>
+ // Chargement menu
+fetch('menu.html').then(r => r.text()).then(d => document.getElementById('menu-container').innerHTML = d);
     // --- CONFIGURATION ---
 const USER = 'katseblodo'; 
-    const REPO = 'Aieux_mes_racines';
-    // ---------------------
-
+const REPO = 'Aieux_mes_racines';
+// ---------------------
     const API_URL = `https://api.github.com/repos/${USER}/${REPO}/contents/fiches/`;
     const container = document.getElementById('index-container');
 
