@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Géné-Expert v6 - Station de Recherche & Timeline</title>
+    <title>Géné-Expert v6 - GitHub Edition</title>
     <style>
         :root {
             --bg: #121418; --panel: #1e2227; --accent: #d4af37;
@@ -12,23 +12,25 @@
         
         header { background: #000; padding: 10px 25px; border-bottom: 3px solid var(--accent); display: flex; justify-content: space-between; align-items: center; }
         .sosa-main { font-size: 1.8em; font-weight: bold; color: var(--accent); }
+        .status-badge { font-size: 0.7em; padding: 2px 6px; border-radius: 10px; margin-left: 10px; vertical-align: middle; }
+        .status-json { background: var(--success); color: white; }
+        .status-csv { background: var(--info); color: white; }
         
         .wrapper { display: grid; grid-template-columns: 350px 1fr 380px; gap: 12px; padding: 12px; flex: 1; overflow: hidden; }
         .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
         
         h3 { border-bottom: 1px solid var(--accent); color: var(--accent); font-size: 0.85em; text-transform: uppercase; margin: 5px 0; padding-bottom: 3px; }
-        .card-sub { background: rgba(0,0,0,0.2); border: 1px solid var(--border); padding: 8px; border-radius: 4px; }
+        .card-sub { background: rgba(0,0,0,0.2); border: 1px solid var(--border); padding: 8px; border-radius: 4px; margin-bottom: 5px; }
 
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
         label { display: block; font-size: 0.7em; color: #888; margin-bottom: 2px; text-transform: uppercase; font-weight: bold;}
         input, textarea { width: 100%; background: #000; border: 1px solid var(--border); color: #fff; padding: 5px; border-radius: 3px; box-sizing: border-box; }
         
-        /* Timeline Style */
         .timeline-container { border-top: 2px solid var(--border); padding: 15px; background: #0f1114; height: 180px; overflow-x: auto; white-space: nowrap; }
         .timeline-track { display: inline-flex; gap: 20px; align-items: flex-start; padding-top: 10px; }
         .event-card { min-width: 150px; background: #252a31; border-left: 3px solid var(--info); padding: 8px; border-radius: 4px; white-space: normal; font-size: 0.8em; }
-        .event-card.bad { border-left-color: #e74c3c; } /* Epidemies/Froid */
-        .event-card.hist { border-left-color: var(--accent); } /* Histoire */
+        .event-card.bad { border-left-color: #e74c3c; }
+        .event-card.hist { border-left-color: var(--accent); }
         .event-date { font-weight: bold; color: #fff; display: block; margin-bottom: 3px; }
 
         table { width: 100%; border-collapse: collapse; font-size: 0.8em; }
@@ -38,12 +40,16 @@
         #json-output { flex: 1; font-family: 'Consolas', monospace; background: #000; color: #00ff00; font-size: 10px; padding: 8px; border: none; resize: none; }
         .btn { cursor: pointer; border: none; border-radius: 4px; padding: 8px 12px; font-weight: bold; }
         .btn-gold { background: var(--accent); color: black; }
+        .nav-parent { font-size: 0.9em; color: var(--accent); cursor: pointer; text-decoration: underline; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="sosa-main" id="header-name">GÉNÉ-EXPERT v6</div>
+    <div>
+        <span class="sosa-main" id="header-name">GÉNÉ-EXPERT v6</span>
+        <span id="source-indicator"></span>
+    </div>
     <div style="display:flex; gap:10px;">
         <input type="number" id="input-sosa" placeholder="N° SOSA" style="width:80px;">
         <button class="btn btn-gold" onclick="chargerSosa()">ANALYSER</button>
@@ -55,73 +61,71 @@
         <h3>1. Vie & Carrière</h3>
         <div class="card-sub">
             <label>Naissance</label>
-            <div class="grid-2"><input type="text" id="n-date"><input type="text" id="n-lieu"></div>
-            <label style="margin-top:4px">Job initial</label><input type="text" id="prof-naiss">
+            <div class="grid-2"><input type="text" id="n-date" oninput="updateVal('dates.n.date', this.value)"><input type="text" id="n-lieu" oninput="updateVal('dates.n.lieu', this.value)"></div>
+            <label style="margin-top:4px">Job initial</label><input type="text" id="prof-naiss" oninput="updateVal('dates.n.job', this.value)">
         </div>
         <div class="card-sub">
             <label>Mariage</label>
-            <div class="grid-2"><input type="text" id="m-date"><input type="text" id="m-lieu"></div>
-            <label style="margin-top:4px">Job au mariage</label><input type="text" id="prof-mar">
+            <div class="grid-2"><input type="text" id="m-date" oninput="updateVal('dates.m.date', this.value)"><input type="text" id="m-lieu" oninput="updateVal('dates.m.lieu', this.value)"></div>
+            <label style="margin-top:4px">Job au mariage</label><input type="text" id="prof-mar" oninput="updateVal('dates.m.job', this.value)">
         </div>
         <div class="card-sub">
             <label>Décès</label>
-            <div class="grid-2"><input type="text" id="d-date"><input type="text" id="d-lieu"></div>
-            <label style="margin-top:4px">Dernier Job / Retraite</label><input type="text" id="prof-dec">
+            <div class="grid-2"><input type="text" id="d-date" oninput="updateVal('dates.d.date', this.value)"><input type="text" id="d-lieu" oninput="updateVal('dates.d.lieu', this.value)"></div>
+            <label style="margin-top:4px">Dernier Job / Retraite</label><input type="text" id="prof-dec" oninput="updateVal('dates.d.job', this.value)">
         </div>
         <h3>2. Dossier Militaire</h3>
         <div class="card-sub">
             <div class="grid-2">
-                <div><label>Classe</label><input type="text" id="mil-classe"></div>
-                <div><label>Matricule</label><input type="text" id="mil-mat"></div>
+                <div><label>Classe</label><input type="text" id="mil-classe" oninput="updateVal('mil.classe', this.value)"></div>
+                <div><label>Matricule</label><input type="text" id="mil-mat" oninput="updateVal('mil.mat', this.value)"></div>
             </div>
-            <label style="margin-top:4px">Bureau</label><input type="text" id="mil-bur">
+            <label style="margin-top:4px">Bureau</label><input type="text" id="mil-bur" oninput="updateVal('mil.bur', this.value)">
         </div>
+        <h3>3. Parents (SOSA)</h3>
+        <div class="card-sub" id="parents-info" style="font-size: 0.9em; line-height: 1.6em;">
+            </div>
     </aside>
 
     <main class="panel">
-        <h3>3. Chronologie des Recensements</h3>
+        <h3>4. Chronologie des Recensements</h3>
         <table id="census-table-full">
             <thead><tr><th>Année</th><th>Domicile</th><th>Profession</th><th>Cote</th></tr></thead>
             <tbody id="census-body"></tbody>
         </table>
 
-        <h3>4. Descendance</h3>
-        <button class="btn" style="background:#2ea44f; color:white; scale:0.8; origin:left;" onclick="ajouterEnfant()">+ Enfant</button>
+        <h3>5. Descendance</h3>
+        <button class="btn" style="background:#2ea44f; color:white; scale:0.8; origin:left;" onclick="ajouterEnfant()">+ Enfant Manuel</button>
         <div id="children-list"></div>
     </main>
 
     <aside class="panel">
-        <h3>5. Fiche JSON</h3>
+        <h3>6. Fiche JSON (Export)</h3>
         <textarea id="json-output" readonly></textarea>
         <button class="btn btn-gold" style="width:100%" onclick="exporterJSON()">💾 SAUVEGARDER</button>
-        <h3>6. Notes de Recherche</h3>
-        <textarea id="f-notes" style="height:60px"></textarea>
+        <h3>7. Notes de Recherche</h3>
+        <textarea id="f-notes" style="height:150px" oninput="updateVal('notes', this.value)"></textarea>
     </aside>
 </div>
 
 <div class="timeline-container">
-    <h3 style="margin-bottom:10px; font-size:0.7em;">🌍 Contexte Historique & Climatique (Source: CGF.bzh & Wikipédia)</h3>
-    <div class="timeline-track" id="timeline-content">
-        </div>
+    <h3 style="margin-bottom:10px; font-size:0.7em;">🌍 Contexte Historique & Climatique</h3>
+    <div class="timeline-track" id="timeline-content"></div>
 </div>
 
 <script>
     let csvData = [];
     let cur = {};
 
-    // Données contextuelles (Inspirées du CGF et de l'histoire du 29)
     const contextData = [
         { y: 1709, t: "Grand Hiver", d: "Froid extrême, famines en Bretagne.", c: "bad" },
         { y: 1793, t: "Révolte des Chouans", d: "Troubles majeurs en Bretagne.", c: "hist" },
         { y: 1832, t: "Épidémie de Choléra", d: "Touche durement les ports du Finistère.", c: "bad" },
         { y: 1848, t: "IIe République", d: "Suffrage universel masculin.", c: "hist" },
-        { y: 1854, t: "Choléra", d: "Nouvelle vague épidémique en Bretagne.", c: "bad" },
         { y: 1870, t: "Guerre Franco-Prussienne", d: "Camp de Conlie (soldats bretons).", c: "hist" },
-        { y: 1880, t: "Crise de la Sardine", d: "Famine dans les ports (Douarnenez, Penmarch).", c: "bad" },
         { y: 1914, t: "Grande Guerre", d: "Mobilisation générale.", c: "hist" },
         { y: 1918, t: "Grippe Espagnole", d: "Forte mortalité dans le Finistère.", c: "bad" },
-        { y: 1939, t: "Seconde Guerre Mondiale", d: "Occupation et Résistance.", c: "hist" },
-        { y: 1944, t: "Libération", d: "Combats pour Brest et Lorient.", c: "hist" }
+        { y: 1939, t: "Seconde Guerre Mondiale", d: "Occupation et Résistance.", c: "hist" }
     ];
 
     window.onload = async () => {
@@ -129,7 +133,7 @@
             const res = await fetch('individus_nettoye.csv');
             const t = await res.text();
             csvData = parseCSV(t);
-        } catch (e) { alert("Placez 'individus_nettoye.csv' à côté du fichier HTML."); }
+        } catch (e) { alert("Erreur chargement CSV. Vérifiez la présence du fichier."); }
     };
 
     function parseCSV(t) {
@@ -143,20 +147,54 @@
         });
     }
 
-    function chargerSosa() {
-        const sosa = parseInt(document.getElementById('input-sosa').value);
-        const ind = csvData.find(i => parseInt(i.sosa) === sosa) || { sosa: sosa, nom_prenom: "INCONNU" };
+    async function chargerSosa(sosaOverride = null) {
+        const sosa = sosaOverride || parseInt(document.getElementById('input-sosa').value);
+        if(!sosa) return;
         
-        cur = {
-            sosa: sosa, nom: ind.nom_prenom,
+        let localData = null;
+        let csvInd = csvData.find(i => parseInt(i.sosa) === sosa);
+        const indicator = document.getElementById('source-indicator');
+
+        // Tentative Fetch JSON sur GitHub
+        try {
+            const res = await fetch(`individus_jason/SOSA_${sosa}.json`);
+            if (res.ok) {
+                localData = await res.json();
+                indicator.innerHTML = `<span class="status-badge status-json">JSON Chargé</span>`;
+            } else {
+                indicator.innerHTML = `<span class="status-badge status-csv">Mode CSV</span>`;
+            }
+        } catch (e) { console.log("Pas de JSON trouvé."); }
+
+        if (!localData && !csvInd) { alert("SOSA inconnu."); return; }
+
+        // Initialisation / Fusion
+        cur = localData || {
+            sosa: sosa, nom: csvInd.nom_prenom,
             dates: {
-                n: { date: ind.date_naissance || "", lieu: ind.lieu_naissance || "", job: "" },
-                m: { date: ind.date_mariage || "", lieu: ind.lieu_mariage || "", job: "" },
-                d: { date: ind.date_deces || "", lieu: ind.lieu_deces || "", job: "" }
+                n: { date: csvInd.date_naissance, lieu: csvInd.lieu_naissance, job: "" },
+                m: { date: csvInd.date_mariage, lieu: csvInd.lieu_mariage, job: "" },
+                d: { date: csvInd.date_deces, lieu: csvInd.lieu_deces, job: "" }
             },
             mil: { classe: "", bur: "", mat: "" },
-            recensements: [], enfants: [], notes: ind.infos_complementaires || ""
+            recensements: [], enfants: [], notes: csvInd.infos_complementaires || ""
         };
+
+        // Calcul automatique Parents et Enfant (SOSA)
+        const sosaP = sosa * 2; const sosaM = sosa * 2 + 1; const sosaE = Math.floor(sosa / 2);
+        const p = csvData.find(i => parseInt(i.sosa) === sosaP);
+        const m = csvData.find(i => parseInt(i.sosa) === sosaM);
+        const e = csvData.find(i => parseInt(i.sosa) === sosaE);
+
+        cur.parents = { 
+            pere: p ? { sosa: sosaP, nom: p.nom_prenom } : "Inconnu",
+            mere: m ? { sosa: sosaM, nom: m.nom_prenom } : "Inconnu"
+        };
+
+        if(e && sosa > 1 && cur.enfants.length === 0) {
+            cur.enfants.push({ id: Date.now(), n: e.nom_prenom, j: "SOSA " + sosaE });
+        }
+
         refreshUI();
     }
 
@@ -164,39 +202,45 @@
         document.getElementById('header-name').innerText = cur.nom + " (SOSA " + cur.sosa + ")";
         document.getElementById('n-date').value = cur.dates.n.date;
         document.getElementById('n-lieu').value = cur.dates.n.lieu;
+        document.getElementById('prof-naiss').value = cur.dates.n.job;
         document.getElementById('m-date').value = cur.dates.m.date;
         document.getElementById('m-lieu').value = cur.dates.m.lieu;
+        document.getElementById('prof-mar').value = cur.dates.m.job;
         document.getElementById('d-date').value = cur.dates.d.date;
         document.getElementById('d-lieu').value = cur.dates.d.lieu;
+        document.getElementById('prof-dec').value = cur.dates.d.job;
+        document.getElementById('mil-classe').value = cur.mil.classe;
+        document.getElementById('mil-mat').value = cur.mil.mat;
+        document.getElementById('mil-bur').value = cur.mil.bur;
+        document.getElementById('f-notes').value = cur.notes;
+
+        // UI Parents
+        document.getElementById('parents-info').innerHTML = `
+            <b>Père :</b> ${cur.parents.pere.nom || "Inconnu"} <span class="nav-parent" onclick="chargerSosa(${cur.parents.pere.sosa})">(Aller)</span><br>
+            <b>Mère :</b> ${cur.parents.mere.nom || "Inconnu"} <span class="nav-parent" onclick="chargerSosa(${cur.parents.mere.sosa})">(Aller)</span>
+        `;
+
+        // UI Enfants
+        const childDiv = document.getElementById('children-list');
+        childDiv.innerHTML = "";
+        cur.enfants.forEach(enf => {
+            childDiv.innerHTML += `<div class="card-sub">${enf.n} - <i>${enf.j}</i></div>`;
+        });
 
         const anneeN = parseInt(cur.dates.n.date.split('/').pop());
         const anneeD = parseInt(cur.dates.d.date.split('/').pop()) || 1950;
         
-        if (cur.sosa % 2 === 0 && anneeN) document.getElementById('mil-classe').value = anneeN + 20;
-
         genererRecensements(anneeN, anneeD);
         genererTimeline(anneeN, anneeD);
         upJSON();
     }
 
-    function genererTimeline(start, end) {
-        const track = document.getElementById('timeline-content');
-        track.innerHTML = "";
-        
-        // Ajout naissance et décès
-        track.innerHTML += `<div class="event-card hist"><span class="event-date">🐣 ${start}</span>Naissance de l'individu</div>`;
-
-        contextData.forEach(ev => {
-            if (ev.y >= start && ev.y <= end) {
-                track.innerHTML += `
-                    <div class="event-card ${ev.c}">
-                        <span class="event-date">${ev.y}</span>
-                        <strong>${ev.t}</strong><br>${ev.d}
-                    </div>`;
-            }
-        });
-
-        track.innerHTML += `<div class="event-card hist"><span class="event-date">⚰️ ${end}</span>Décès de l'individu</div>`;
+    function updateVal(path, val) {
+        const keys = path.split('.');
+        let lastKey = keys.pop();
+        let target = keys.reduce((o, k) => o[k], cur);
+        target[lastKey] = val;
+        upJSON();
     }
 
     function genererRecensements(start, end) {
@@ -205,38 +249,40 @@
         const annees = [1836, 1851, 1872, 1881, 1891, 1901, 1906, 1911, 1921, 1931, 1936];
         annees.forEach(y => {
             if (y >= start && y <= end) {
+                let r = cur.recensements.find(x => x.y === y) || {l:"", j:"", r:""};
                 tbody.innerHTML += `<tr>
                     <td>${y}</td>
-                    <td><input type="text" oninput="upRec(${y}, 'l', this.value)"></td>
-                    <td><input type="text" oninput="upRec(${y}, 'j', this.value)"></td>
-                    <td><input type="text" oninput="upRec(${y}, 'r', this.value)"></td>
+                    <td><input type="text" value="${r.l}" oninput="upRec(${y}, 'l', this.value)"></td>
+                    <td><input type="text" value="${r.j}" oninput="upRec(${y}, 'j', this.value)"></td>
+                    <td><input type="text" value="${r.r}" oninput="upRec(${y}, 'r', this.value)"></td>
                 </tr>`;
             }
         });
     }
 
-    function ajouterEnfant() {
-        const id = Date.now();
-        const div = document.createElement('div');
-        div.className = "card-sub";
-        div.innerHTML = `<input type="text" placeholder="Prénom Nom" oninput="upEnf(${id},'n',this.value)"><input type="text" placeholder="Profession" oninput="upEnf(${id},'j',this.value)">`;
-        document.getElementById('children-list').appendChild(div);
-    }
-
     function upRec(y, k, v) { 
         let r = cur.recensements.find(x => x.y === y);
-        if(!r){r={y:y}; cur.recensements.push(r);} r[k]=v; upJSON(); 
+        if(!r){r={y:y, l:"", j:"", r:""}; cur.recensements.push(r);} r[k]=v; upJSON(); 
     }
-    function upEnf(id, k, v) { 
-        let e = cur.enfants.find(x => x.id === id);
-        if(!e){e={id:id}; cur.enfants.push(e);} e[k]=v; upJSON(); 
-    }
+
     function upJSON() { document.getElementById('json-output').value = JSON.stringify(cur, null, 4); }
+
     function exporterJSON() {
         const b = new Blob([document.getElementById('json-output').value], {type:'application/json'});
         const a = document.createElement('a');
         a.href = URL.createObjectURL(b);
         a.download = `SOSA_${cur.sosa}.json`; a.click();
+    }
+
+    function genererTimeline(start, end) {
+        const track = document.getElementById('timeline-content');
+        track.innerHTML = `<div class="event-card hist"><span class="event-date">🐣 ${start}</span>Naissance</div>`;
+        contextData.forEach(ev => {
+            if (ev.y >= start && ev.y <= end) {
+                track.innerHTML += `<div class="event-card ${ev.c}"><span class="event-date">${ev.y}</span><strong>${ev.t}</strong><br>${ev.d}</div>`;
+            }
+        });
+        track.innerHTML += `<div class="event-card hist"><span class="event-date">⚰️ ${end}</span>Décès</div>`;
     }
 </script>
 </body>
