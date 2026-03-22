@@ -5,167 +5,110 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- LE NOUVEAU STYLE "ORANGE & NOIR, HISTORIQUE" --- */
+<style>
+        /* --- THÈME NOIR & ORANGE APPLIQUÉ UNIQUEMENT AU MENU --- */
         :root { 
-            --bg: #0a0a0a;           /* Noir profond pour le fond */
-            --nav-bg: #1a1a1a;       /* Gris très sombre pour la barre */
-            --dropdown-bg: #262626;  /* Gris sombre pour le menu déroulant */
-            --text-main: #e0e0e0;    /* Gris clair pour le texte principal */
-            --orange-main: #ff6600;  /* Orange vif historique */
-            --orange-hover: #ff9933; /* Orange plus clair au survol */
-            --border-color: #404040; /* Gris moyen pour les séparations */
+            --nav-bg: #1a1a1a;       /* Noir/Gris très sombre pour la barre */
+            --dropdown-bg: #262626;  /* Fond du menu déroulant */
+            --text-nav: #e0e0e0;     /* Texte clair dans le menu */
+            --orange-main: #ff6600;  /* Orange Bigouden */
+            --orange-hover: #ff9933; 
+            --nav-border: #404040;
             
-            /* Police Celtique/Ancienne pour le titre */
             --font-bigouden: 'Cinzel Decorative', cursive; 
-            /* Police Sérieuse et Historique pour le reste (empattement) */
-            --font-main: 'Georgia', serif; 
-        }
-        
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg);
-            color: var(--text-main);
-            margin: 0;
+            --font-serif: 'Georgia', serif; 
         }
 
+        /* On supprime le style sur body pour ne pas affecter la page entière */
+        
         .main-nav {
             background: var(--nav-bg);
-            padding: 15px 30px;
+            padding: 10px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            /* Bordure double style "Reliure Ancienne" */
             border-bottom: 4px double var(--orange-main); 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            /* On force la police et la couleur ici pour ne pas hériter de la page */
+            font-family: var(--font-serif);
+            color: var(--text-nav);
         }
         
-        .nav-brand {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
         .nav-brand h1 { 
             margin: 0; 
             font-family: var(--font-bigouden);
-            font-size: 28px; 
+            font-size: 26px; 
             color: var(--orange-main); 
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .nav-brand span { 
-            font-size: 14px; 
-            font-style: italic; 
-            color: #b0b0b0; /* Gris moyen */
+            font-size: 13px; 
+            color: #b0b0b0;
             font-weight: bold;
-            margin-top: -5px;
         }
         
         .nav-links { 
             display: flex; 
-            gap: 15px; 
+            gap: 10px; 
             align-items: center;
-            flex-wrap: wrap;
         }
         
-        /* Boutons principaux */
+        /* Boutons du menu */
         .nav-links a,
         .dropdown-btn { 
-            color: var(--text-main);
+            color: var(--text-nav) !important; /* Force la couleur pour éviter les conflits */
             text-decoration: none; 
             font-weight: bold;
-            padding: 10px 18px; 
-            border-radius: 4px;
-            border: 1px solid transparent;
-            transition: all 0.3s;
+            padding: 8px 15px; 
             background: transparent;
-            font-family: var(--font-main);
-            font-size: 16px;
+            border: 1px solid transparent;
+            font-family: var(--font-serif);
+            font-size: 15px;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            transition: 0.3s;
         }
         
-        /* Survol des boutons principaux */
         .nav-links a:hover,
         .dropdown-btn:hover { 
-            background: #2a2a2a; 
+            color: var(--orange-main) !important;
             border-color: var(--orange-main);
-            color: var(--orange-main);
+            background: rgba(255, 102, 0, 0.05);
         }
 
-        /* --- VOS PROPRES STYLES DE DROPDOWN (Adaptés en Orange & Noir) --- */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+        /* --- MENU DÉROULANT --- */
+        .dropdown { position: relative; display: inline-block; }
 
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: var(--dropdown-bg);
             min-width: 220px;
-            box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.7);
-            z-index: 1000;
-            border: 2px solid var(--orange-main); /* Bordure Orange */
-            border-radius: 4px;
+            box-shadow: 0px 8px 24px rgba(0,0,0,0.5);
+            z-index: 9999;
+            border: 2px solid var(--orange-main);
             top: 100%;
-            right: 0; /* Aligné à droite */
-            max-height: 400px;
-            overflow-y: auto;
+            right: 0;
         }
 
-        /* Liens dans le menu déroulant */
         .dropdown-content a {
-            color: var(--text-main);
-            padding: 14px 18px;
+            color: var(--text-nav) !important;
+            padding: 12px 16px;
             text-decoration: none;
             display: block;
-            border-bottom: 1px solid var(--border-color);
-            border-radius: 0;
-            font-weight: normal;
-            text-transform: none; /* Pas de majuscules ici */
-            letter-spacing: normal;
+            border-bottom: 1px solid var(--nav-border);
+            text-transform: none;
         }
 
-        .dropdown-content a:last-child {
-            border-bottom: none;
-        }
-
-        /* Survol des liens dans le menu déroulant */
         .dropdown-content a:hover {
-            background-color: #333333;
-            color: var(--orange-hover);
-            border-color: transparent;
+            background-color: #333;
+            color: var(--orange-hover) !important;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        .separator {
-            height: 1px;
-            background-color: var(--border-color);
-            margin: 0;
-        }
-        
-        .empty {
-            padding: 20px;
-            color: #999;
-            font-style: italic;
-            text-align: center;
-            background-color: var(--dropdown-bg);
-        }
-        
-        /* Style pour l'icône de document */
-        .fiche-name {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .empty { padding: 15px; color: #999; text-align: center; background: var(--dropdown-bg); }
     </style>
 </head>
 <body>
@@ -183,6 +126,7 @@
         <a href="recherche.html">🔍 Recherche</a>
         <a href="synthese.html">🌳 En Chiffres</a>
         <a href="souverains.html">👑 Souverains</a>  
+        <a href="rechercheur.html">En Cours</a>  
         <a href="http://cathtanguy.free.fr/genealogie/">🔗 Site d'origine</a>
     </div>
 </div>
