@@ -130,41 +130,41 @@
         }
     </style>
 </head>
-<body>
 
-<nav class="main-nav">
+    <body>
+
+<div class="main-nav">
     <div class="nav-brand">
-        <h1>Chronique des Bigoudens</h1>
-        <span>Archives de la famille</span>
+        <h1>Aïeux, mes racines</h1>
+        <span>Site de généalogie de Catherine Tanguy</span>
     </div>
-    
     <div class="nav-links">
-        <a href="index.html">Accueil</a>
-        <a href="arbre.html">Arbre Généalogique</a>
-        
-        <div class="dropdown">
-            <button class="dropdown-btn">Fiches Détaillées ▼</button>
-            <div class="dropdown-content" id="fiches-menu">
-                <div class="empty">Chargement...</div>
-            </div>
-        </div>
+        <a href="index.html">🌳 L'Arbre</a>
+        <a href="fiche_couple.html">🌳 Exploration</a>
+        <a href="carte.html">🌍 Carte Globale</a>
+        <a href="fiches/index.html"> 📋 Fiches</a>
+        <a href="fiche_couple.html">👥 Fiche Couple</a>
+        <a href="recherche.html">🔍 Recherche</a>
+        <a href="synthese.html">🌳 En Chiffres</a>
+        <a href="souverains.html">👑 Souverains</a>  
+        <a href="http://cathtanguy.free.fr/genealogie/">🔗 Site d'origine</a>
     </div>
-</nav>
+</div>
 
 <script>
+// Fonction pour charger les fiches depuis le répertoire
 async function loadFiches() {
     const fichesMenu = document.getElementById('fiches-menu');
     
     try {
-        // Remplacer par l'URL réelle de votre API ou dossier contenant les fichiers JSON/HTML
-        const response = await fetch('api/files'); 
+        // Utilise l'API GitHub pour lister les fichiers du répertoire fiches
+        const response = await fetch('https://api.github.com/repos/katseblodo/Aieux_mes_racines/contents/fiches');
+        const files = await response.json();
         
-        // Simulation pour l'exemple (à retirer une fois connecté à votre vraie source)
-        const files = [
-            {name: 'jjf_quillec.html'},
-            {name: 'sebastien_quillec.html'},
-            {name: 'jean_guitot.html'}
-        ];
+        // Vérifier si la réponse est un tableau (liste de fichiers)
+        if (!Array.isArray(files)) {
+            throw new Error('Format de réponse invalide');
+        }
         
         // Filtrer les fichiers HTML et trier par nom
         const htmlFiles = files
