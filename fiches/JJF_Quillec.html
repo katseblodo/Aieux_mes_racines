@@ -2,120 +2,128 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Chronique de Jean Joseph Félix Quillec (1831-1908)</title>
+    <title>Jean Joseph Félix Quillec (1831-1908) - Chronique Bigoudène</title>
     <style>
-        body { font-family: 'Georgia', serif; line-height: 1.8; color: #333; max-width: 950px; margin: auto; padding: 30px; background-color: #f8f6f0; }
-        header { text-align: center; border-bottom: 3px solid #8b4513; padding-bottom: 25px; margin-bottom: 40px; }
-        h1 { color: #8b4513; margin-bottom: 5px; font-size: 2.5em; }
-        h2 { color: #5d2e0a; border-left: 5px solid #d4af37; padding-left: 15px; margin-top: 45px; text-transform: uppercase; font-size: 1.3em; }
-        h3 { color: #8b4513; margin-top: 25px; font-style: italic; }
+        body { font-family: 'Georgia', serif; line-height: 1.7; color: #2c3e50; max-width: 900px; margin: auto; padding: 30px; background-color: #fdfcf9; }
+        header { text-align: center; border-bottom: 4px double #8b4513; padding-bottom: 20px; margin-bottom: 40px; }
+        h1 { color: #8b4513; font-size: 2.4em; margin-bottom: 0; }
+        .sosa-title { font-variant: small-caps; font-weight: bold; color: #5d2e0a; }
+        h2 { background: #8b4513; color: white; padding: 8px 15px; font-size: 1.2em; margin-top: 40px; border-radius: 3px; }
         
-        .tree-container { background: white; border: 2px solid #8b4513; padding: 25px; border-radius: 8px; margin: 40px 0; box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
-        .tree-level { display: flex; justify-content: space-around; margin-bottom: 25px; flex-wrap: wrap; }
-        .tree-node { border: 1px solid #ccc; border-radius: 5px; padding: 12px; width: 240px; text-align: center; background-color: #fffcf5; margin: 8px; position: relative; }
-        .tree-node b { color: #8b4513; display: block; margin-bottom: 5px; font-size: 1.1em; }
-        .tree-info { font-size: 0.85em; color: #555; }
-        .sosa-tag { position: absolute; top: -10px; right: -10px; background: #d4af37; color: white; font-size: 0.7em; padding: 3px 6px; border-radius: 10px; font-weight: bold; }
+        /* Arbre Généalogique */
+        .tree-box { background: #fff; border: 1px solid #d4af37; padding: 20px; border-radius: 8px; margin: 30px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .tree-row { display: flex; justify-content: space-around; margin-bottom: 15px; flex-wrap: wrap; }
+        .node { border: 1px solid #8b4513; padding: 10px; width: 260px; text-align: center; background: #fffaf0; position: relative; border-radius: 4px; margin: 5px; }
+        .node b { display: block; color: #8b4513; }
+        .sosa-tag { position: absolute; top: -10px; left: -10px; background: #d4af37; color: white; padding: 2px 6px; font-size: 0.7em; border-radius: 5px; font-weight: bold; }
         
-        .contexte { font-style: italic; background: #eeeae0; padding: 20px; border-radius: 5px; margin: 25px 0; border: 1px solid #ccc; border-left: 5px solid #ccc; }
-        .date-tag { font-weight: bold; color: #8b4513; }
-        .lieu-tag { color: #555; font-weight: bold; }
-        .prof-tag { font-style: italic; color: #27ae60; }
-        
-        ul.descendance { list-style-type: none; padding-left: 0; }
-        ul.descendance li { background: #fff; border: 1px solid #eee; margin-bottom: 8px; padding: 10px; border-radius: 4px; }
+        .highlight { border-left: 5px solid #d4af37; background: #f4f1ea; padding: 15px; margin: 20px 0; font-style: italic; }
+        .date { font-weight: bold; color: #8b4513; }
+        footer { margin-top: 50px; border-top: 1px solid #ccc; padding-top: 20px; font-size: 0.85em; color: #666; text-align: center; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Jean Joseph Félix QUILLEC</h1>
-    <p><em>(SOSA 24)</em></p>
-    <p>Cultivateur en Pays Bigouden<br><strong>1831 — 1908</strong></p>
+    <p class="sosa-title">SOSA 24</p>
+    <p><em>Cultivateur à Kerraoul et Plonéour</em></p>
 </header>
 
-<div class="tree-container">
-    <div style="text-align: center; font-weight: bold; color: #5d2e0a; margin-bottom: 20px;">ASCENDANCE ET UNION (SOSA)</div>
+<div class="tree-box">
+    <div style="text-align: center; margin-bottom: 20px; font-weight: bold;">GÉNÉALOGIE DIRECTE</div>
     
-    <div class="tree-level">
-        <div class="tree-node">
-            <span class="sosa-tag">SOSA 48</span>
-            <b>Pierre QUILLEC</b>
-            <span class="tree-info">° 1795 (<lieu-tag>Combrit</lieu-tag>)<br>† 1830 (<lieu-tag>Pont-l'Abbé</lieu-tag>)</span>
+    <div class="tree-row">
+        <div class="node">
+            <span class="sosa-tag">96</span><b>Jean QUILLEC</b><small>† 1811 Combrit</small>
         </div>
-        <div class="tree-node">
-            <span class="sosa-tag">SOSA 49</span>
-            <b>Marie Josèphe LE FAILLER</b>
-            <span class="tree-info">° 1802 (<lieu-tag>Tréguennec</lieu-tag>)<br>† ap. 1854</span>
+        <div class="node">
+            <span class="sosa-tag">97</span><b>Marie-Jeanne CALVAR</b><small>† ap. 1827</small>
         </div>
-    </div>
-    
-    <div class="tree-level">
-        <div class="tree-node" style="width: 400px; border: 2px solid #d4af37;">
-            <span class="sosa-tag" style="background: #8b4513;">SOSA 24</span>
-            <b>Jean Joseph Félix QUILLEC</b>
-            <span class="tree-info">° 31/05/1831 (<lieu-tag>Combrit</lieu-tag>)<br>† 22/12/1908 (<lieu-tag>Pont-l'Abbé</lieu-tag>)</span>
+        <div class="node">
+            <span class="sosa-tag">98</span><b>Joseph LE FAILLER</b><small>† 1832 Tréguennec</small>
+        </div>
+        <div class="node">
+            <span class="sosa-tag">99</span><b>Anne-Josèphe LE GOUILL</b><small>† 1832 Tréguennec</small>
         </div>
     </div>
-    
-    <div class="tree-level">
-        <div class="tree-node" style="width: 350px; border-style: dashed;">
-            <span class="sosa-tag" style="background: #3498db;">SOSA 25</span>
+
+    <div class="tree-row">
+        <div class="node" style="width: 350px; background: #fdf5e6;">
+            <span class="sosa-tag">48</span><b>Pierre QUILLEC</b>
+            <small>1795 Combrit - 1830 Pont-l'Abbé<br>Cultivateur à Kerraoul</small>
+        </div>
+        <div class="node" style="width: 350px; background: #fdf5e6;">
+            <span class="sosa-tag">49</span><b>Marie Josèphe LE FAILLER</b>
+            <small>1802 Tréguennec - ap. 1854<br>Veuve Calvez puis Quillec puis Guitot</small>
+        </div>
+    </div>
+
+    <div class="tree-row">
+        <div class="node" style="width: 500px; border-width: 3px; background: #fff;">
+            <span class="sosa-tag" style="background: #8b4513;">24</span>
+            <b style="font-size: 1.2em;">Jean Joseph Félix QUILLEC</b>
+            <small>1831 (Combrit) - 1908 (Pont-l'Abbé)</small>
+        </div>
+    </div>
+
+    <div class="tree-row">
+        <div class="node" style="border-style: dashed; width: 400px;">
+            <span class="sosa-tag" style="background: #3498db;">25</span>
             <b>Anne COIC</b>
-            <span class="tree-info">° 29/08/1840 (<lieu-tag>Plonéour</lieu-tag>)<br>† 03/03/1873 (<lieu-tag>Plonéour</lieu-tag>)<br>x 14/05/1868 (<lieu-tag>Plonéour</lieu-tag>)</span>
+            <small>1840 Plonéour - 1873 Plonéour<br>Mariage le 14/05/1868</small>
         </div>
     </div>
 </div>
 
 <section>
-    <h2>Une naissance marquée par le deuil</h2>
+    <h2>I. Une naissance posthume à Kerraoul</h2>
     <p>
-        <span class="date-tag">31 mai 1831 :</span> Jean Joseph Félix naît à <lieu-tag>Keraoul</lieu-tag>, en <lieu-tag>Combrit</lieu-tag>. C'est un enfant posthume : son père, <strong>Pierre Quillec</strong>, est décédé sept mois plus tôt, le 26 septembre 1830, à l'âge de 35 ans.
+        <span class="date">31 mai 1831 :</span> Jean Joseph Félix (JJF) voit le jour à la ferme de <strong>Kerraoul</strong>, à Combrit. Son destin est marqué dès l'origine par l'absence : son père, Pierre Quillec (Sosa 48), est décédé sept mois avant sa naissance, le 26 septembre 1830.
     </p>
     <p>
-        Sa mère, <strong>Marie Josèphe Le Failler</strong>, se retrouve veuve pour la seconde fois à seulement 29 ans. Elle doit alors gérer le domaine de Keraoul tout en élevant JJF et sa sœur aînée Anne, née en 1826. Rapidement, elle se remarie avec Jean Guitot, un veuf déjà père de dix enfants, créant une immense famille recomposée à Keraoul.
+        Il grandit dans une "maison-monde". Sa mère, <strong>Marie Josèphe Le Failler</strong>, veuve courageuse, se remarie en 1832 avec Jean Guitot. Kerraoul devient alors le foyer d'une famille impressionnante où cohabitent les enfants des trois lits de sa mère (Calvez, Quillec, Guitot) et ceux du premier mariage de son beau-père.
     </p>
-</section>
-
-<section>
-    <h2>Vie professionnelle et Territoires</h2>
-    <p>
-        Fidèle à la tradition familiale, JJF devient <prof-tag>Cultivateur</prof-tag>. Après avoir grandi à <lieu-tag>Keraoul</lieu-tag>, un domaine d'origine noble dominant la rivière de Pont-l'Abbé, son parcours le mène vers <lieu-tag>Plonéour-Lanvern</lieu-tag>.
-    </p>
-    <div class="contexte">
-        Ce déplacement géographique est lié à son mariage et à l'exploitation de nouvelles terres, notamment à <strong>Tregonda</strong> et <strong>Kerguellou</strong>, où il s'installera durablement.
+    <div class="highlight">
+        <strong>Le milieu de vie :</strong> Kerraoul est un domaine de premier plan, situé sur une hauteur dominant la ria de Pont-l'Abbé. JJF y vit une enfance entourée de demi-frères et sœurs, dans une ambiance de travail agricole intense propre aux grandes exploitations bigoudènes.
     </div>
 </section>
 
 <section>
-    <h2>Union et Descendance</h2>
+    <h2>II. Jeunesse et service militaire (1851)</h2>
     <p>
-        <span class="date-tag">14 mai 1868 :</span> À 36 ans, il épouse <strong>Anne COIC</strong> (SOSA 25) à <lieu-tag>Plonéour-Lanvern</lieu-tag>. Elle est la fille d'Alain Coic et de Marie Catherine Le Guellec. 
-    </p>
-    <p>De cette union naissent plusieurs enfants qui marqueront la lignée :</p>
-    <ul class="descendance">
-        <li><strong>Sébastien Quillec (SOSA 12) :</strong> né en 1869 à Plonéour. Il deviendra boulanger et s'installera à Penmarch.</li>
-        <li><strong>Marie-Louise Quillec :</strong> née en 1860 (avant le mariage officiel ou d'une précédente union à vérifier).</li>
-        <li><strong>Jean Joseph Quillec :</strong> né en 1857, il deviendra propriétaire à Tregonda.</li>
-    </ul>
-    <p>
-        Son épouse Anne décède prématurément en 1873, à l'âge de 32 ans, laissant JJF veuf avec de jeunes enfants à charge.
+        À 20 ans, en <span class="date">1851</span>, JJF effectue son service militaire. C'est l'époque où les jeunes hommes quittent pour la première fois leur horizon de clocher. De retour à Combrit, il reprend son statut de cultivateur, mais la mort de sa mère en 1854 et les partages successoraux de Kerraoul marquent un tournant dans sa vie.
     </p>
 </section>
 
 <section>
-    <h2>Fin de vie</h2>
+    <h2>III. L'ancrage à Plonéour-Lanvern</h2>
     <p>
-        Jean Joseph Félix Quillec s'éteint le <span class="date-tag">22 décembre 1908</span> à l'Hôtel-Dieu de <lieu-tag>Pont-l'Abbé</lieu-tag>, à l'âge de 77 ans. Il a traversé le XIXe siècle en témoin des mutations agricoles du Pays Bigouden.
+        Bien que né à Combrit, c'est à <strong>Plonéour-Lanvern</strong> que JJF va fonder sa propre lignée. Le <span class="date">14 mai 1868</span>, il y épouse <strong>Anne Coic</strong> (Sosa 25).
+    </p>
+    <p>Le couple s'installe comme cultivateurs, et la famille s'agrandit rapidement :</p>
+    <ul>
+        <li><strong>Sébastien Quillec (Sosa 12) :</strong> né le 6 mai 1869 à Plonéour. Il quittera plus tard la terre pour devenir boulanger à Penmarch.</li>
+        <li><strong>Marie Louise :</strong> née en 1860, elle témoigne de la continuité des liens familiaux dans la paroisse.</li>
+        <li><strong>Jean Joseph :</strong> né en 1857, futur propriétaire à Tregonda.</li>
+    </ul>
+    <p>
+        La tragédie frappe à nouveau en <span class="date">1873</span> quand son épouse Anne Coic décède à seulement 32 ans, laissant JJF veuf avec de jeunes enfants, dont Sébastien qui n'a que 4 ans.
+    </p>
+</section>
+
+<section>
+    <h2>IV. Un parcours de résilience et de fin de vie</h2>
+    <p>
+        JJF continue de cultiver les terres bigoudènes, passant de Kerraoul à Tregonda, puis Kerguellou. Son parcours reflète les mutations de la paysannerie de l'époque : l'évolution vers une propriété plus morcelée mais plus spécialisée.
+    </p>
+    <p>
+        Il finit ses jours à <strong>Pont-l'Abbé</strong>, où il s'éteint le <span class="date">22 décembre 1908</span> à l'Hôtel-Dieu. Il laisse derrière lui une descendance solide, dont son fils Sébastien qui portera le nom Quillec vers de nouveaux horizons à Penmarch.
     </p>
 </section>
 
 <footer>
-    <p>Sources : <br>
-        • Fichier CSV "individus_nettoye (1)" (SOSA 24, 25, 48, 49).<br>
-        • Document "JJF QUillec Sosa 24.odt" (Détails sur Keraoul et la fratrie).<br>
-        • Données de votre site "Aïeux, mes racines" (Confirmation de l'épouse Anne Coic).
-    </p>
+    <p>Sources exploitées : Dossier JJF Quillec Sosa 24 (ODT/ODP) • Inventaire famille Sosa 24 (ODS) • Fiche Militaire Sébastien Quillec • Archives de l'État Civil du Finistère.</p>
 </footer>
 
 </body>
