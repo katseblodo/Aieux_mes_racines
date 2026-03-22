@@ -1,0 +1,33 @@
+ <style>
+        body { font-family: 'Georgia', serif; line-height: 1.8; color: #2c3e50; max-width: 900px; margin: auto; padding: 40px; background-color: #fdfcf9; }
+        header { text-align: center; border-bottom: 5px double #8b4513; padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { color: #8b4513; font-size: 2.5em; margin-bottom: 10px; }
+        .sosa-main { font-size: 1.3em; font-weight: bold; color: #d4af37; text-transform: uppercase; }
+        h2 { color: #5d2e0a; border-left: 6px solid #d4af37; padding-left: 15px; margin-top: 40px; text-transform: uppercase; font-size: 1.2em; background: #f4f1ea; padding: 8px 15px; }
+        
+        /* Arbre Généalogique Réduit */
+        .tree-mini { background: white; border: 1px solid #8b4513; padding: 15px; border-radius: 8px; margin: 20px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.05); font-size: 0.9em; }
+        .tree-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: center; }
+        .tree-node { border: 1px solid #ccc; padding: 8px; background: #fffaf0; border-radius: 4px; }
+        .tree-node b { display: block; color: #8b4513; font-size: 0.95em; }
+        .sosa-tag { color: #d4af37; font-weight: bold; font-size: 0.8em; }
+        .connector { grid-column: span 4; text-align: center; padding: 5px 0; color: #8b4513; font-weight: bold; }
+        
+        .highlight { background: #eeeae0; padding: 20px; border-radius: 8px; margin: 25px 0; border-left: 5px solid #8b4513; }
+        
+        /* Zone à compléter */
+        .todo-box { 
+            border: 2px dashed #d4af37; 
+            background: #fff; 
+            padding: 20px; 
+            margin: 20px 0; 
+            border-radius: 8px; 
+            font-style: italic; 
+            color: #7f8c8d;
+            text-align: center;
+        }
+        .todo-box b { color: #d4af37; text-transform: uppercase; font-size: 0.9em; }
+
+        .date { font-weight: bold; color: #8b4513; }
+        footer { margin-top: 50px; border-top: 1px solid #8b4513; padding-top: 15px; font-size: 0.85em; color: #666; }
+    </style>
