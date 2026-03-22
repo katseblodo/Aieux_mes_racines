@@ -2,18 +2,31 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    
     <style>
+        /* --- LE NOUVEAU STYLE "ORANGE & NOIR, HISTORIQUE" --- */
         :root { 
-            --main-text: #2c3e50; 
-            --brown: #8b4513;
-            --gold: #d4af37;
-            --bg: #fdfcf9; /* Fond parchemin */
-            --nav-bg: #fffaf0; /* Fond clair pour le menu */
+            --bg: #0a0a0a;           /* Noir profond pour le fond */
+            --nav-bg: #1a1a1a;       /* Gris très sombre pour la barre */
+            --dropdown-bg: #262626;  /* Gris sombre pour le menu déroulant */
+            --text-main: #e0e0e0;    /* Gris clair pour le texte principal */
+            --orange-main: #ff6600;  /* Orange vif historique */
+            --orange-hover: #ff9933; /* Orange plus clair au survol */
+            --border-color: #404040; /* Gris moyen pour les séparations */
+            
+            /* Police Celtique/Ancienne pour le titre */
+            --font-bigouden: 'Cinzel Decorative', cursive; 
+            /* Police Sérieuse et Historique pour le reste (empattement) */
+            --font-main: 'Georgia', serif; 
         }
         
         body {
-            font-family: 'Georgia', serif; /* Police historique */
+            font-family: var(--font-main);
             background-color: var(--bg);
+            color: var(--text-main);
             margin: 0;
         }
 
@@ -23,22 +36,32 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 5px double var(--brown); /* Bordure style JJF */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            /* Bordure double style "Reliure Ancienne" */
+            border-bottom: 4px double var(--orange-main); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
         
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         .nav-brand h1 { 
             margin: 0; 
-            font-size: 24px; 
-            color: var(--brown); 
-            text-transform: uppercase;
+            font-family: var(--font-bigouden);
+            font-size: 28px; 
+            color: var(--orange-main); 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
         }
         
         .nav-brand span { 
             font-size: 14px; 
             font-style: italic; 
-            color: var(--gold); 
+            color: #b0b0b0; /* Gris moyen */
             font-weight: bold;
+            margin-top: -5px;
         }
         
         .nav-links { 
@@ -48,29 +71,33 @@
             flex-wrap: wrap;
         }
         
+        /* Boutons principaux */
         .nav-links a,
         .dropdown-btn { 
-            color: var(--brown);
+            color: var(--text-main);
             text-decoration: none; 
             font-weight: bold;
-            padding: 8px 15px; 
+            padding: 10px 18px; 
             border-radius: 4px;
             border: 1px solid transparent;
             transition: all 0.3s;
             background: transparent;
-            font-family: 'Georgia', serif;
+            font-family: var(--font-main);
             font-size: 16px;
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
+        /* Survol des boutons principaux */
         .nav-links a:hover,
         .dropdown-btn:hover { 
-            background: var(--bg); 
-            border-color: var(--gold);
-            color: #5d2e0a;
+            background: #2a2a2a; 
+            border-color: var(--orange-main);
+            color: var(--orange-main);
         }
 
-        /* --- VOS PROPRES STYLES DE DROPDOWN (Adaptés en couleurs) --- */
+        /* --- VOS PROPRES STYLES DE DROPDOWN (Adaptés en Orange & Noir) --- */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -79,35 +106,39 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-            z-index: 1;
-            border: 1px solid var(--brown);
+            background-color: var(--dropdown-bg);
+            min-width: 220px;
+            box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.7);
+            z-index: 1000;
+            border: 2px solid var(--orange-main); /* Bordure Orange */
             border-radius: 4px;
             top: 100%;
-            left: 0;
+            right: 0; /* Aligné à droite */
             max-height: 400px;
             overflow-y: auto;
         }
 
+        /* Liens dans le menu déroulant */
         .dropdown-content a {
-            color: var(--main-text);
-            padding: 12px 16px;
+            color: var(--text-main);
+            padding: 14px 18px;
             text-decoration: none;
             display: block;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--border-color);
             border-radius: 0;
             font-weight: normal;
+            text-transform: none; /* Pas de majuscules ici */
+            letter-spacing: normal;
         }
 
         .dropdown-content a:last-child {
             border-bottom: none;
         }
 
+        /* Survol des liens dans le menu déroulant */
         .dropdown-content a:hover {
-            background-color: #f4f1ea;
-            color: var(--brown);
+            background-color: #333333;
+            color: var(--orange-hover);
             border-color: transparent;
         }
 
@@ -117,21 +148,27 @@
 
         .separator {
             height: 1px;
-            background-color: #eee;
+            background-color: var(--border-color);
             margin: 0;
         }
         
         .empty {
-            padding: 15px;
+            padding: 20px;
             color: #999;
             font-style: italic;
             text-align: center;
+            background-color: var(--dropdown-bg);
+        }
+        
+        /* Style pour l'icône de document */
+        .fiche-name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
     </style>
 </head>
-
-    <body>
-
+<body>
 <div class="main-nav">
     <div class="nav-brand">
         <h1>Aïeux, mes racines</h1>
