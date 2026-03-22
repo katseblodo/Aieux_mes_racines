@@ -1,0 +1,45 @@
+{
+    "sosa": 12,
+    "nom": "sebastien quillec (LE)",
+    "dates": {
+        "n": {
+            "date": "06/04/1869",
+            "lieu": "Tregonda, Ploneour",
+            "job": ""
+        },
+        "m": {
+            "date": "18/11/1896 Plobannalec",
+            "lieu": "",
+            "job": ""
+        },
+        "d": {
+            "date": "21/01/1926",
+            "lieu": "Penmarch",
+            "job": ""
+        }
+    },
+    "mil": {
+        "classe": "1889",
+        "bur": "Quimper",
+        "mat": "70"
+    },
+    "recensements": [],
+    "enfants": [
+        {
+            "id": 1774169707270,
+            "n": "pierre marie QUILLEC",
+            "j": "SOSA 6"
+        }
+    ],
+    "notes": "[MILITAIRE] Classe: 1889| Bureau: Quimper | Matricule: 70| Détails: instruction 0, ajourné pour faiblesse en 1890 et 1891, bon en 1892, 148e d'infanterie, père de six enfants, non mobilisé.",
+    "parents": {
+        "pere": {
+            "sosa": 24,
+            "nom": "jean, joseph, felix quillec (LE)"
+        },
+        "mere": {
+            "sosa": 25,
+            "nom": "anne COIC"
+        }
+    }
+}
