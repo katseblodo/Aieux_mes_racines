@@ -1,32 +1,175 @@
-<style>
-    .main-nav {
-        background: #2c3e50;
-        color: white;
-        padding: 15px 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        margin-bottom: 20px;
-        font-family: 'Segoe UI', sans-serif;
-    }
-    .nav-brand h1 { margin: 0; font-size: 22px; color: #3498db; }
-    .nav-brand span { font-size: 13px; font-style: italic; opacity: 0.8; }
-    .nav-links { display: flex; gap: 15px; }
-    .nav-links a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 8px 12px;
-        border-radius: 5px;
-        font-size: 14px;
-        transition: 0.3s;
-    }
-    .nav-links a:hover { background: #34495e; color: #3498db; }
-    @media (max-width: 768px) {
-        .main-nav { flex-direction: column; text-align: center; gap: 10px; padding: 10px; }
-    }
-</style>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root { 
+            --blue: #3498db; 
+            --dark: #2c3e50; 
+            --brown: #8b4513;
+            --gold: #d4af37;
+            --bg: #f4f7f6;
+            --light-bg: #fdfcf9;
+        }
+        
+        .main-nav {
+            background: var(--dark);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .nav-brand h1 { 
+            margin: 0; 
+            font-size: 22px; 
+            color: var(--blue); 
+        }
+        
+        .nav-brand span { 
+            font-size: 13px; 
+            font-style: italic; 
+            opacity: 0.8; 
+        }
+        
+        .nav-links { 
+            display: flex; 
+            gap: 15px; 
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a,
+        .dropdown-btn {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+        
+        .nav-links a:hover,
+        .dropdown-btn:hover { 
+            background: #34495e; 
+            color: var(--blue); 
+        }
+        
+        /* ========== MENU DÉROULANT DES FICHES ========== */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .dropdown-btn::after {
+            content: ' ▼';
+            font-size: 10px;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: #34495e;
+            min-width: 300px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            padding: 12px 0;
+            z-index: 1000;
+            border-radius: 5px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .dropdown-content a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: normal;
+            font-size: 13px;
+            transition: 0.2s;
+            border-left: 3px solid transparent;
+        }
+        
+        .dropdown-content a:hover {
+            color: var(--blue);
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 3px solid var(--blue);
+            padding-left: 17px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content .loading,
+        .dropdown-content .empty {
+            padding: 12px 20px;
+            color: #bdc3c7;
+            font-size: 13px;
+            text-align: center;
+        }
+        
+        .dropdown-content .separator {
+            height: 1px;
+            background: #2c3e50;
+            margin: 8px 0;
+        }
+        
+        .dropdown-content .fiche-name {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        @media (max-width: 768px) {
+            .main-nav { 
+                flex-direction: column; 
+                text-align: center; 
+                gap: 10px; 
+                padding: 10px; 
+            }
+            .nav-links { 
+                flex-direction: column; 
+                width: 100%;
+                gap: 5px;
+            }
+            
+            .dropdown-content {
+                position: fixed;
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                min-width: 80vw;
+                top: auto;
+                bottom: auto;
+            }
+        }
+    </style>
+</head>
+<body>
 
 <div class="main-nav">
     <div class="nav-brand">
@@ -40,9 +183,73 @@
         <a href="fiche_couple.html">👥 Fiche Couple</a>
         <a href="recherche.html">🔍 Recherche</a>
         <a href="synthese.html">🌳 En Chiffres</a>
-        <a href="souverains.html">👑Souverains</a>
-        <!-- <a href="manquant.html">🔍 Manquants</a> 
-        <a href="editer_individu.html" class="edit-link">📝 Édition</a> -->
-        <a href="http://cathtanguy.free.fr/genealogie/">site d'origine</a>
+        <a href="souverains.html">👑 Souverains</a>
+        
+        <!-- Menu déroulant des fiches -->
+        <div class="dropdown">
+            <button class="dropdown-btn">📋 Fiches</button>
+            <div class="dropdown-content" id="fiches-menu">
+                <div class="loading">Chargement...</div>
+            </div>
+        </div>
+        
+        <a href="http://cathtanguy.free.fr/genealogie/">🔗 Site d'origine</a>
     </div>
 </div>
+
+<script>
+// Fonction pour charger les fiches depuis le répertoire
+async function loadFiches() {
+    const fichesMenu = document.getElementById('fiches-menu');
+    
+    try {
+        // Utilise l'API GitHub pour lister les fichiers du répertoire fiches
+        const response = await fetch('https://api.github.com/repos/katseblodo/Aieux_mes_racines/contents/fiches');
+        const files = await response.json();
+        
+        // Vérifier si la réponse est un tableau (liste de fichiers)
+        if (!Array.isArray(files)) {
+            throw new Error('Format de réponse invalide');
+        }
+        
+        // Filtrer les fichiers HTML et trier par nom
+        const htmlFiles = files
+            .filter(file => file.name.endsWith('.html'))
+            .sort((a, b) => a.name.localeCompare(b.name));
+        
+        if (htmlFiles.length === 0) {
+            fichesMenu.innerHTML = '<div class="empty">Aucune fiche disponible</div>';
+            return;
+        }
+        
+        // Créer les liens pour chaque fiche
+        const ficheLinks = htmlFiles
+            .map(file => {
+                // Formater le nom : remplacer les underscores par des espaces et supprimer .html
+                const nomFormate = file.name
+                    .replace('.html', '')
+                    .replace(/_/g, ' ')
+                    .replace(/\b\w/g, char => char.toUpperCase()); // Capitaliser chaque mot
+                
+                return `
+                    <a href="fiches/${file.name}" target="_blank" title="${nomFormate}">
+                        <span class="fiche-name">📄 ${nomFormate}</span>
+                    </a>
+                `;
+            })
+            .join('<div class="separator"></div>');
+        
+        fichesMenu.innerHTML = ficheLinks;
+        
+    } catch (error) {
+        console.error('Erreur lors du chargement des fiches:', error);
+        fichesMenu.innerHTML = '<div class="empty">⚠️ Erreur de chargement</div>';
+    }
+}
+
+// Charger les fiches au chargement de la page
+document.addEventListener('DOMContentLoaded', loadFiches);
+</script>
+
+</body>
+</html>
