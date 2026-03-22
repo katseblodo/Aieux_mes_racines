@@ -10,7 +10,7 @@
         .sosa-main { font-size: 1.3em; font-weight: bold; color: #d4af37; text-transform: uppercase; }
         h2 { color: #5d2e0a; border-left: 6px solid #d4af37; padding-left: 15px; margin-top: 40px; text-transform: uppercase; font-size: 1.2em; background: #f4f1ea; padding: 8px 15px; }
         
-        /* Arbre Généalogique Compact */
+        /* Arbre Généalogique Réduit */
         .tree-mini { background: white; border: 1px solid #8b4513; padding: 15px; border-radius: 8px; margin: 20px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.05); font-size: 0.9em; }
         .tree-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: center; }
         .tree-node { border: 1px solid #ccc; padding: 8px; background: #fffaf0; border-radius: 4px; }
@@ -18,8 +18,21 @@
         .sosa-tag { color: #d4af37; font-weight: bold; font-size: 0.8em; }
         .connector { grid-column: span 4; text-align: center; padding: 5px 0; color: #8b4513; font-weight: bold; }
         
-        .biographie { text-align: justify; }
         .highlight { background: #eeeae0; padding: 20px; border-radius: 8px; margin: 25px 0; border-left: 5px solid #8b4513; }
+        
+        /* Zone à compléter */
+        .todo-box { 
+            border: 2px dashed #d4af37; 
+            background: #fff; 
+            padding: 20px; 
+            margin: 20px 0; 
+            border-radius: 8px; 
+            font-style: italic; 
+            color: #7f8c8d;
+            text-align: center;
+        }
+        .todo-box b { color: #d4af37; text-transform: uppercase; font-size: 0.9em; }
+
         .date { font-weight: bold; color: #8b4513; }
         footer { margin-top: 50px; border-top: 1px solid #8b4513; padding-top: 15px; font-size: 0.85em; color: #666; }
     </style>
@@ -29,29 +42,28 @@
 <header>
     <h1>Jean Joseph Félix QUILLEC</h1>
     <p class="sosa-main">SOSA 24</p>
-    <p><em>Cultivateur de Kerraoul (1831 — 1908)</em></p>
+    <p><em>L'héritier de Kerraoul et le patriarche de Plonéour</em></p>
 </header>
 
-<section class="biographie">
-    <h2>I. Une Naissance et une Lignée de Caractère</h2>
+<section>
+    <h2>I. L'Enfant de Kerraoul</h2>
     <p>
-        <span class="date">31 mai 1831 :</span> Jean Joseph Félix naît à la ferme de <strong>Kerraoul</strong>, à Combrit. Il est un enfant "du destin" : son père, <strong>Pierre Quillec</strong> (Sosa 48), est décédé huit mois plus tôt, en septembre 1830. Sa mère, <strong>Marie Josèphe Le Failler</strong> (Sosa 49), se retrouve veuve à 29 ans pour la seconde fois. Il porte en lui l'héritage de grandes familles de cultivateurs bigoudens, dont la puissance sociale repose sur l'exploitation de domaines comme Le Loch, Kerraoul ou Tréguennec.
+        <span class="date">31 mai 1831 :</span> Jean Joseph Félix naît à <strong>Kerraoul</strong> (Combrit). Son arrivée au monde est marquée par l'absence : son père, <strong>Pierre Quillec</strong> (Sosa 48), s'est éteint huit mois plus tôt. 
+    </p>
+    <p>
+        Il grandit sous la protection de sa mère <strong>Marie Josèphe Le Failler</strong> (Sosa 49) et de son beau-père <strong>Jean Guitot</strong>. Kerraoul est alors une exploitation bourdonnante de vie où s'entremêlent les fratries Calvez, Quillec et Guitot. Cette enfance au milieu d'une famille nombreuse et solidaire forge son caractère de cultivateur.
     </p>
 
     <div class="tree-mini">
         <div class="tree-grid">
-            <div class="tree-node"><span class="sosa-tag">96</span><b>Pierre Yves QUILLEC</b><small>† 1819 Combrit</small></div>
-            <div class="tree-node"><span class="sosa-tag">97</span><b>Anne GAORER</b><small>† 1827 Combrit</small></div>
-            <div class="tree-node"><span class="sosa-tag">98</span><b>Joseph LE FAILLER</b><small>† 1832 Tréguennec</small></div>
-            <div class="tree-node"><span class="sosa-tag">99</span><b>Marie LAGADIC</b><small>† 1844 Tréguennec</small></div>
-            
+            <div class="tree-node"><span class="sosa-tag">96</span><b>Pierre Yves QUILLEC</b><small>† 1819</small></div>
+            <div class="tree-node"><span class="sosa-tag">97</span><b>Anne GAORER</b><small>† 1827</small></div>
+            <div class="tree-node"><span class="sosa-tag">98</span><b>Joseph LE FAILLER</b><small>† 1832</small></div>
+            <div class="tree-node"><span class="sosa-tag">99</span><b>Marie LAGADIC</b><small>† 1844</small></div>
             <div class="connector">⬇</div>
-            
             <div class="tree-node" style="grid-column: span 2;"><span class="sosa-tag">48</span><b>Pierre QUILLEC</b><small>1795-1830</small></div>
             <div class="tree-node" style="grid-column: span 2;"><span class="sosa-tag">49</span><b>Marie Josèphe LE FAILLER</b><small>1802-ap.1854</small></div>
-            
             <div class="connector">⬇</div>
-            
             <div class="tree-node" style="grid-column: span 2; border: 2px solid #8b4513;">
                 <span class="sosa-tag">24</span><b>J. Joseph Félix QUILLEC</b><small>1831-1908</small>
             </div>
@@ -59,39 +71,54 @@
                 <span class="sosa-tag">25</span><b>Anne COIC</b><small>1840-1873</small>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 10px; font-size: 0.8em; color: #666;">
-            <em>Note : Anne Gaorer (97) était veuve Deniel et aînée de son mari de 12 ans.</em>
-        </div>
     </div>
-
-    <h2>II. Kerraoul : La Ruche du Beau-père Jean Guitot</h2>
-    <p>
-        En 1832, l'arrivée de <strong>Jean Guitot</strong> à Kerraoul change tout. En épousant Marie-Josèphe Le Failler, il devient le protecteur de Jean Joseph Félix. Guitot n'arrive pas seul : il est veuf de Marie-Jeanne Riou et amène avec lui ses dix enfants. Kerraoul devient un microcosme fascinant où cohabitent les enfants Calvez (du 1er lit), Quillec (2ème lit) et Guitot (3ème lit). 
-    </p>
-    <p>
-        C'est dans cette effervescence de la "famille élargie" que JJF apprend son métier. À Combrit, les alliances sont stratégiques : on s'entraide entre oncles et cousins (les Rioual, les Le Nours, les Calvar) pour maintenir la prospérité du domaine face aux aléas du XIXe siècle.
-    </p>
 
     <div class="highlight">
-        <strong>Zoom sur l'ascendance maternelle :</strong> La branche Le Failler est elle-même issue d'une paysannerie aisée. On y retrouve <strong>Jeanne LE BERRE (Sosa 101)</strong>, épouse d'Alain Lagadic, qui ancre la famille dans les terres de Tréguennec et Plonéour, apportant des liens de parenté avec les lignées Coic et Lagadic.
+        <strong>Note généalogique :</strong> Du côté maternel, la lignée s'enracine via <strong>Jeanne LE BERRE (Sosa 101)</strong>, unissant les familles Lagadic et Coic, piliers de la terre à Tréguennec.
+    </div>
+</section>
+
+<section>
+    <h2>II. L'Installation à Plonéour-Lanvern (1868-1873)</h2>
+    <p>
+        Après son service militaire (<span class="date">1851</span>), Jean Joseph Félix s'établit comme cultivateur. Le <span class="date">14 mai 1868</span>, il épouse <strong>Anne Coic</strong> à Plonéour. Le couple s'installe à <strong>Tregonda</strong>. C'est le début d'une période de fondation :
+    </p>
+    <ul>
+        <li><strong>1869 :</strong> Naissance de Sébastien (Sosa 12), futur boulanger.</li>
+        <li><strong>1873 :</strong> Premier grand drame de sa vie d'adulte avec le décès d'Anne, le laissant veuf à 42 ans avec de jeunes enfants.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>III. Les Années de Maturité : Le Patriarche</h2>
+    <p>
+        Entre 1873 et son décès en 1908, Jean Joseph Félix gère son exploitation à <strong>Kerguellou</strong>. C'est durant cette période qu'il devient le pivot de la famille, assistant au départ de ses fils pour de nouveaux horizons.
+    </p>
+
+    <div class="todo-box">
+        <b>À compléter avec les informations issues des recensements (1876-1906)</b><br>
+        Détails sur la composition du foyer à Kerguellou : qui l'aidait à la ferme après le veuvage ? Présence de domestiques ou de membres de la parenté (Guitot/Le Failler) ?
     </div>
 
-    <h2>III. De Combrit à Plonéour : Une Vie de Labeur</h2>
     <p>
-        Après son service militaire en <span class="date">1851</span>, JJF quitte progressivement Kerraoul. Bien que profondément attaché à Combrit, les opportunités foncières le poussent vers <strong>Plonéour-Lanvern</strong>. Le <span class="date">14 mai 1868</span>, il y fonde son foyer avec <strong>Anne Coic</strong>.
-    </p>
-    <p>
-        Ils exploitent les terres de <strong>Tregonda</strong> puis de <strong>Kerguellou</strong>. Sa vie est faite de résilience : il perd son épouse Anne en 1873, alors qu'elle n'a que 32 ans, et doit élever seul ses enfants, dont <strong>Sébastien (Sosa 12)</strong>, né en 1869, qui deviendra plus tard le célèbre boulanger de Penmarch.
+        Il est le témoin privilégié de l'ascension de ses enfants. Bien que cultivateur, il voit son fils Sébastien rompre avec la tradition terrienne pour s'installer à Penmarch.
     </p>
 
-    <h2>IV. L'Adieu au Pays Bigouden</h2>
+    <div class="todo-box">
+        <b>À compléter avec les informations issues des registres de mariage et naissance</b><br>
+        Rechercher sa signature et son rôle de témoin aux mariages de ses enfants et aux naissances de ses premiers petits-enfants à Plonéour.
+    </div>
+</section>
+
+<section>
+    <h2>IV. Le Crépuscule d'un Bigouden</h2>
     <p>
-        Jean Joseph Félix s'éteint le <span class="date">22 décembre 1908</span> à l'Hôtel-Dieu de Pont-l'Abbé. Il laisse derrière lui l'image d'un cultivateur solide, témoin du passage de la Bretagne féodale à l'ère moderne. Son nom, "Le Quilliec", simplifié en "Quillec", restera gravé dans la mémoire de Kerraoul et Tregonda.
+        Il s'éteint le <span class="date">22 décembre 1908</span> à l'Hôtel-Dieu de Pont-l'Abbé. Son parcours symbolise la transition de la famille Quillec : née dans les grands domaines de Combrit, elle s'est consolidée à Plonéour avant de s'essaimer vers les ports de pêche.
     </p>
 </section>
 
 <footer>
-    <p>Sources : Documents personnels Quillec • Archives du Finistère (Combrit & Plonéour) • Données SOSA 97 (A. Gaorer), 99 (M. Lagadic) et 101 (J. Le Berre).</p>
+    <p>Sources : Documents SOSA 24 • Archives du Finistère • Fonds familial Quillec.</p>
 </footer>
 
 </body>
