@@ -1,0 +1,29 @@
+{
+    "sosa": 23,
+    "nom": "marie mathurine morzadec (LE)",
+    "dates": {
+        "n": {
+            "date": "19/11/1859",
+            "lieu": "Saint-Aignan",
+            "job": ""
+        },
+        "m": {
+            "date": "13/09/1885",
+            "lieu": "Saint-Aignan",
+            "job": ""
+        },
+        "d": {
+            "date": "26/01/1940",
+            "lieu": "Pontivy",
+            "job": ""
+        }
+    },
+    "mil": {
+        "classe": "",
+        "bur": "",
+        "mat": ""
+    },
+    "recensements": [],
+    "enfants": [],
+    "notes": ""
+}
