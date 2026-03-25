@@ -2,88 +2,207 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Les Mamies de Mamie Paule</title>
+    <title>Les Mamies de Mamie Paule : Chroniques de Marie-Reine Quélard et Marie Jeanne Cotten</title>
     <style>
-        body { font-family: 'Georgia', serif; line-height: 1.8; color: #2c3e50; max-width: 950px; margin: auto; padding: 40px; background-color: #fdfcf9; }
+        /* Reproduction fidèle du style Georgia/Sépia de l'exemple Quillec */
+        body { font-family: 'Georgia', serif; line-height: 1.8; color: #2c3e50; max-width: 1000px; margin: auto; padding: 40px; background-color: #fdfcf9; }
         header { text-align: center; border-bottom: 5px double #8b4513; padding-bottom: 20px; margin-bottom: 30px; }
-        h1 { color: #8b4513; font-size: 2.2em; margin-bottom: 10px; }
-        .intro-box { font-style: italic; text-align: center; margin-bottom: 40px; color: #5d2e0a; }
-        h2 { color: #fff; border-left: 6px solid #d4af37; margin-top: 40px; text-transform: uppercase; font-size: 1.3em; background: #8b4513; padding: 10px 15px; }
-        h3 { color: #8b4513; border-bottom: 1px solid #d4af37; padding-bottom: 5px; margin-top: 30px; }
+        h1 { color: #8b4513; font-size: 2.5em; margin-bottom: 10px; }
+        .sosa-main { font-size: 1.3em; font-weight: bold; color: #d4af37; text-transform: uppercase; }
         
-        .portrait-frame { text-align: center; margin: 25px 0; }
-        .portrait-frame img { max-width: 400px; border: 10px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border-radius: 2px; }
+        h2 { color: #fff; border-left: 6px solid #d4af37; margin-top: 40px; text-transform: uppercase; font-size: 1.4em; background: #8b4513; padding: 10px 15px; border-radius: 4px; }
+        h3 { color: #5d2e0a; border-bottom: 1px solid #d4af37; padding-bottom: 5px; margin-top: 30px; font-size: 1.2em; }
         
-        .highlight { background: #eeeae0; padding: 20px; border-radius: 8px; margin: 25px 0; border-left: 5px solid #d4af37; font-size: 0.95em; }
+        /* Style des portraits */
+        .portrait-frame { text-align: center; margin: 30px 0; }
+        .portrait-frame img { max-width: 450px; border: 12px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border-radius: 2px; }
+        .caption { font-style: italic; font-size: 0.9em; color: #666; margin-top: 10px; }
+
+        /* Style des Chronologies en barre (Inspiré de votre demande) */
+        .chrono-bar { background: #f4f1ea; border: 1px solid #d4af37; padding: 15px; border-radius: 8px; margin: 20px 0; font-family: sans-serif; font-size: 0.9em; }
+        .chrono-item { display: flex; margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+        .chrono-date { font-weight: bold; color: #8b4513; width: 120px; flex-shrink: 0; }
+        .chrono-event { color: #333; }
+
+        /* Style des Arbres Généalogiques (Fidèle à l'exemple) */
+        .tree-mini { background: white; border: 1px solid #8b4513; padding: 15px; border-radius: 8px; margin: 25px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.05); font-size: 0.9em; }
+        .tree-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: center; }
+        .tree-node { border: 1px solid #ccc; padding: 8px; background: #fffaf0; border-radius: 4px; }
+        .tree-node b { display: block; color: #8b4513; font-size: 0.95em; }
+        .sosa-tag { color: #d4af37; font-weight: bold; font-size: 0.8em; }
+        .connector { grid-column: span 4; text-align: center; padding: 5px 0; color: #8b4513; font-weight: bold; }
+        
+        /* Style des Citations/Actes */
+        .quote-box { background: #fff; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px inset #eee; font-style: italic; font-size: 0.95em; }
+        
+        .highlight { background: #eeeae0; padding: 20px; border-radius: 8px; margin: 25px 0; border-left: 5px solid #8b4513; }
+        
+        /* Style des Zones à Compléter / Conseils de Recherche (Fidèle à l'exemple) */
+        .todo-box { 
+            border: 2px dashed #d4af37; 
+            background: #fff; 
+            padding: 20px; 
+            margin: 25px 0; 
+            border-radius: 8px; 
+            font-style: italic; 
+            color: #7f8c8d;
+            text-align: center;
+        }
+        .todo-box b { color: #d4af37; text-transform: uppercase; font-size: 0.9em; display: block; margin-bottom: 10px; }
+
         .date { font-weight: bold; color: #8b4513; }
-        .quote { font-style: italic; background: #fff; padding: 15px; border: 1px inset #eee; display: block; margin: 10px 0; }
-        
         footer { margin-top: 50px; border-top: 1px solid #8b4513; padding-top: 15px; font-size: 0.85em; color: #666; text-align: center; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Les histoires de Marie-Reine et Marie Jeanne</h1>
-    <p>Chroniques des grands-mères de Paule Le Pajollec</p>
+    <h1>Histoires des Mamies de Paule Le Pajollec</h1>
+    <p class="sosa-main">Marie-Reine Quélard & Marie Jeanne Cotten</p>
 </header>
 
-<div class="intro-box">
-    "Écrire l’histoire des mamies de ma mamie Paule... retracer 2 histoires, avec les grands événements qu’elles ont vécu, ceux de l’Histoire et ceux de leurs histoires."
-</div>
+<section class="highlight">
+    <strong>Présentation :</strong><br>
+    "Écrire l’histoire des mamies de ma mamie Paule Le Pajollec. Je vais donc retracer 2 histoires, avec les grands événements qu’elles ont vécu, ceux de l’Histoire et ceux de leurs histoires. Se sont-elles croisées ? ou plus ? Étaient-elles présentes au mariage de mamie ?"
+</section>
 
 <section>
-    <h2>Branche Paternelle : Marie-Reine Quélard</h2>
+    <h2>I. Branche Paternelle : Marie-Reine Quélard</h2>
+    <p class="sosa-main">SOSA 26</p>
     
     <div class="portrait-frame">
-        <img src="portrait_marie_reine.jpg" alt="Marie-Reine Quélard">
-        <p><em>Marie-Reine Quélard, née à Noyal-Muzillac</em></p>
+        <img src="image_5.png" alt="Portrait symbolique de Marie-Reine Quélard">
+        <p class="caption">Reconstitution symbolique de Marie-Reine Quélard (vers 1880), domestique dans le Morbihan.</p>
     </div>
 
-    <h3>Naissance et Racines (1860)</h3>
-    <p><span class="date">21/04/1860 :</span> Naissance à Noyal-Muzillac, village de Kertady.</p>
-    <div class="quote">
-        “L’an Mil huit cent soixante... est comparu Guillaume Quélard, journalier... et de Françoise Benoit, son épouse... prénoms de Marie Reine.”
+    <h3>Naissance et Contexte Familial (1860)</h3>
+    <p>
+        Marie-Reine naît le <span class="date">21 avril 1860</span> à Noyal-Muzillac (Morbihan), au village de Kertady. Kertady se situe entre le Grand Cadillac et le moulin de la Grée, à l’ouest. Bien que le cadastre de 1833 (Section C de Logorenne) l'identifie clairement, le lieu semble aujourd'hui avoir disparu.
+    </p>
+
+    <div class="quote-box">
+        <strong>Transcription de l'Acte de Naissance (Noyal-Muzillac, 1860) :</strong><br>
+        “L’an Mil huit cent soixante, le 22 avril à 8 heures du matin... est comparu Guillaume Quélard, journalier, âgé de 34 ans, natif de la commune de Berric... né hier soir à 9h, en cette commune, dans sa maison au village de Kertady, de lui déclarant et de Françoise Benoit, son épouse, âgée de vingt cinq ans... Marie Reine...”
     </div>
-
-    <p>Ses parents, <strong>Guillaume Quélard</strong> (journalier) et <strong>Françoise Benoit</strong> (lingère), se sont mariés en 1857. Marie-Reine est le premier enfant du couple. Sa petite enfance est marquée par le deuil : son père décède alors qu'elle n'a que 7 ans, et son petit frère meurt en 1870.</p>
-
-    <h3>La vie à Saint-Nazaire</h3>
-    <p>En 1880, Marie-Reine est domestique à Ambon lorsqu'elle donne naissance à Marie-Sainte. En 1883, elle rejoint l'effervescence de Saint-Nazaire où elle épouse <strong>Jean François Le Pajollec</strong>.</p>
-    <p>Entre 1884 et 1897, elle donne naissance à sept enfants. En 1901, on retrouve la famille rue de la Berthauderie. Devenue veuve en 1908, elle assume le rôle de chef de famille, entourée de ses fils marins et de ses filles tailleuses.</p>
 
     <div class="highlight">
-        <strong>Contexte Historique :</strong> En 1860, sous Napoléon III, la France entre dans sa phase libérale et la Bretagne voit arriver les grands chantiers du rail et des canaux.
+        <strong>Note sur les parents :</strong> Ses parents se sont mariés à Noyal-Muzillac le 12/11/1857. Guillaume Quélard est journalier/domestique à Kermabalan, fils de Joseph Quélard et Julienne Jallé. Marie Françoise Benoit est lingère à Logorenne, fille de Vincent Benoit (tailleur d’habits) et Louise Le Medec.
+    </div>
+
+    <h3>La Fratrie et les Premières Épreuves</h3>
+    <p>
+        Marie-Reine semble être le premier enfant. Ses parents perdent deux enfants en bas âge : Guillaume (1862-1864) et Jean-Marie (1867-1870). Son père, Guillaume, décède en 1867 alors qu'elle n'a que 7 ans, la laissant avec son petit frère de 3 mois. Sa mère se remarie en 1874 avec Joseph Le Corre, un Lorientais.
+    </p>
+
+    <div class="tree-mini">
+        <div class="tree-grid">
+            <div class="tree-node"><span class="sosa-tag">104</span><b>Joseph QUÉLARD</b><small>Laboureur, Questembert</small></div>
+            <div class="tree-node"><span class="sosa-tag">105</span><b>Julienne JALLÉ</b><small>Berric</small></div>
+            <div class="tree-node"><span class="sosa-tag">106</span><b>Vincent BENOIT</b><small>Tailleur d'habits, Noyal-Muzillac</small></div>
+            <div class="tree-node"><span class="sosa-tag">107</span><b>Louise LE MEDEC</b><small>Cultivatrice, Ambon</small></div>
+            <div class="connector">⬇</div>
+            <div class="tree-node" style="grid-column: span 2;"><span class="sosa-tag">52</span><b>Guillaume QUÉLARD</b><small>1826-1867, Journalier</small></div>
+            <div class="tree-node" style="grid-column: span 2;"><span class="sosa-tag">53</span><b>Marie Françoise BENOIT</b><small>1834-?, Lingère</small></div>
+            <div class="connector">⬇</div>
+            <div class="tree-node" style="grid-column: span 4; border: 2px solid #8b4513;">
+                <span class="sosa-tag">26</span><b>Marie-Reine QUÉLARD</b><small>1860-ap.1913</small>
+            </div>
+        </div>
+    </div>
+
+    <h3>Migration vers Saint-Nazaire et Vie Active</h3>
+    <p>
+        En 1880, Marie-Reine est domestique à Pradioff (Ambon), où elle donne naissance à une fille naturelle, Marie-Sainte Quélard. Joseph Le Corre, journalier et époux de sa mère, est déclaré comme "oncle" de l'enfant.
+    </p>
+    <p>
+        Elle rejoint ensuite Saint-Nazaire, ville en pleine explosion industrielle. Le <span class="date">6 août 1883</span>, elle y épouse <strong>Jean François LE PAJOLEC</strong> (Sosa 27), né à Noyal-Muzillac. La famille s'installe à Toutes-Aides, rue de la Berthauderie.
+    </p>
+
+    <div class="chrono-bar">
+        <strong>Chronologie Quélard / Le Pajollec :</strong>
+        <div class="chrono-item"><span class="chrono-date">21/04/1860</span><span class="chrono-event">Naissance de Marie-Reine, Noyal-Muzillac.</span></div>
+        <div class="chrono-item"><span class="chrono-date">24/12/1880</span><span class="chrono-event">Naissance de Marie Sainte QUELARD, Ambon.</span></div>
+        <div class="chrono-item"><span class="chrono-date">06/08/1883</span><span class="chrono-event">Mariage avec Jean François LE PAJOLEC, Saint-Nazaire.</span></div>
+        <div class="chrono-item"><span class="chrono-date">10/07/1884</span><span class="chrono-event">Naissance d'Antoine Marie LE PAJOLLEC (Sosa 13).</span></div>
+        <div class="chrono-item"><span class="chrono-date">08/06/1886</span><span class="chrono-event">Naissance de Jean LE PAJOLLEC.</span></div>
+        <div class="chrono-item"><span class="chrono-date">28/01/1888</span><span class="chrono-event">Naissance de Marie Louisa LE PAJOLLEC.</span></div>
+        <div class="chrono-item"><span class="chrono-date">Vers 1891</span><span class="chrono-event">Naissance de Louis LE PAJOLLEC.</span></div>
+        <div class="chrono-item"><span class="chrono-date">1897</span><span class="chrono-event">Naissance de Clément LE PAJOLLEC.</span></div>
+    </div>
+
+    <h3>Maturité et Épreuves de Guerre</h3>
+    <p>
+        Devenue veuve en 1908 (son époux décède à 60 ans), Marie-Reine est chef de famille lors du recensement de 1911 à Toutes-Aides. Elle gère un foyer où cohabitent ses fils marins et sa fille tailleuse-patronne. Elle est présente et consentante au mariage de son fils Jean en 1910 et à celui d'Antoine Marie à Beuzec-Conq le <span class="date">29/03/1913</span>.
+    </p>
+
+    <div class="quote-box">
+        <strong>Note de Guerre (1914) :</strong> Marie-Reine voit ses quatre garçons mobilisés : Antoine (30 ans, plâtrier, prisonnier en Allemagne dès sept 1914), Jean (28 ans), Louis (22 ans, blessé plusieurs fois) et Clément (17 ans, incorporé en 1916).
+    </div>
+
+    <div class="todo-box">
+        <b>Conseils de Recherche : Branche Quélard</b>
+        Vérifier les tables décennales de Saint-Nazaire post-1912 pour trouver le décès de Marie-Reine Quélard. Analyser les registres militaires de ses fils (registre matricule Quimper ou Lorient) pour plus de détails sur leurs parcours de guerre. Chercher le mariage de Marie Sainte ou Marie Louisa.
     </div>
 </section>
 
 <section>
-    <h2>Branche Maternelle : Marie Jeanne Cotten</h2>
+    <h2>II. Branche Maternelle : Marie Jeanne Cotten</h2>
+    <p class="sosa-main">SOSA 15</p>
     
     <div class="portrait-frame">
-        <img src="portrait_marie_jeanne.jpg" alt="Marie Jeanne Cotten">
-        <p><em>Marie Jeanne Cotten, la force de la Cornouaille</em></p>
+        <img src="image_6.png" alt="Portrait symbolique de Marie Jeanne Cotten">
+        <p class="caption">Reconstitution symbolique de Marie Jeanne Cotten (vers 1890), cabaretière/commerçante en Cornouaille.</p>
     </div>
 
-    <h3>Naissance à Pleuven (1865)</h3>
-    <p><span class="date">23/10/1865 :</span> Naissance à Ty goarem Kergrimerr, fille de Jean-Pierre Cotten et Jeanne-Marie Nedelec.</p>
-    
-    <h3>Les épreuves et la mer</h3>
-    <p>La vie de Marie Jeanne est intimement liée aux drames de la mer. Son premier époux, <strong>François Peron</strong>, disparaît tragiquement en février 1886 lors du naufrage de la chaloupe <em>L’Anastasie</em> au large de Penmarch.</p>
-    <div class="quote">
-        "Un jugement fixe du 5 au 6 février 1886 le décès de 5 hommes... la chaloupe allait à la pêche à la drague dans la baie d’Audierne."
+    <h3>Racines à Pleuven et Concarneau (1865)</h3>
+    <p>
+        Marie Jeanne Cotten naît le <span class="date">23 octobre 1865</span> à Tygoarem Kergrimerr, à Pleuven. Ses parents, Jean-Pierre Cotten (Sosa 30, cultivateur/journalier) et Jeanne-Marie Nedelec (Sosa 31, cultivatrice), se sont mariés à Fouesnant en 1863. Elle est le premier enfant.
+    </p>
+    <p>
+        Sa mère, Jeanne-Marie, perd successivement ses quatre parents entre 1863 et 1872. La fratrie de Marie Jeanne compte plusieurs enfants nés à Fouesnant ou Concarneau. L'un de ses frères, Jean Cotten, né en 1879, aura un parcours singulier menant à Saigon.
+    </p>
+
+    <div class="tree-mini">
+        <div class="tree-grid">
+            <div class="tree-node"><span class="sosa-tag">120</span><b>Henri LE COTTEN</b><small>† ap.1863, St-Yvi/Fouesnant</small></div>
+            <div class="tree-node"><span class="sosa-tag">121</span><b>Marie Jeanne COLAS</b><small>† ap.1863, Beuzec/Fouesnant</small></div>
+            <div class="tree-node"><span class="sosa-tag">122</span><b>Guillaume NEDELEC</b><small>† ap.1863, Meunier, Châteauneuf</small></div>
+            <div class="tree-node"><span class="sosa-tag">123</span><b>Corentine LE DANTIC</b><small>† ap.1863, Clohars-Fouesnant</small></div>
+            <div class="connector">⬇</div>
+            <div class="tree-node" style="grid-column: span 2;"><span class="sosa-tag">60</span><b>Jean-Pierre COTTEN</b><small>1835-?, Journalier</small></div>
+            <div class="tree-node" style="grid-column: span 2;"><span class="sosa-tag">61</span><b>Jeanne-Marie NEDELEC</b><small>1837-?, Cultivatrice</small></div>
+            <div class="connector">⬇</div>
+            <div class="tree-node" style="grid-column: span 4; border: 2px solid #8b4513;">
+                <span class="sosa-tag">15</span><b>Marie Jeanne COTTEN</b><small>1865-195x, Commerçante</small>
+            </div>
+        </div>
     </div>
 
-    <h3>Second mariage et héritage (1891)</h3>
-    <p>Elle se remarie en 1891 avec <strong>Joseph Le Manchec</strong> à Elliant. De cette union naissent Marie Jeanne (1892) et Jean Joseph (1894). L'histoire familiale s'évade même vers Saigon avec Jean Cotten, premier maître charpentier sur le <em>Léon Gambetta</em>, d'où proviennent les précieux objets asiatiques de la famille.</p>
+    <h3>Drames de Mer et Reconstruction (1884-1891)</h3>
+    <p>
+        Marie Jeanne se marie une première fois en 1884 à Concarneau avec <strong>François PERON</strong>, marin-pêcheur. Un enfant naît en 1885. L'année 1886 est une année noire : François Peron disparaît tragiquement lors du naufrage de la chaloupe de pêche <em>L’Anastasie</em>, perdue corps et biens dans la baie d’Audierne le 5 ou 6 février 1886. Marie Jeanne perd sa fille la même année.
+    </p>
+    <p>
+        Elle se reconstruit et se remarie le <span class="date">27 mai 1891</span> à Elliant avec <strong>Joseph LE MANCHEC</strong> (Sosa 14), originaire d'Elliant. Le couple s'installe comme commerçants à Beuzec-Conq, Avenue de la Gare.
+    </p>
+
+    <div class="quote-box">
+        <strong>Extrait de l'Acte de Mariage Le Manchec-Cotten (Beuzec-Conq, 1913) :</strong><br>
+        "...fille de Joseph, Commerçant, âgé de 46 ans, présent et de Marie Jeanne COTTEN, Commerçante, âgée de 47 ans, présente... Les mariés, le père de la mariée et les témoins signent l'acte."
+    </div>
 
     <div class="highlight">
-        <strong>Note :</strong> C'est de cette branche que vient la bague de maman et les souvenirs d'Indochine.
+        <strong>Héritage d'Indochine :</strong> Son frère, Jean Cotten, premier maître charpentier sur le croiseur-cuirassé <em>Léon Gambetta</em> (naufragé en 1915), s'est marié à Saigon en 1906. C’est de là que viennent la bague de maman et les objets asiatiques de la famille.
+    </div>
+
+    <div class="todo-box">
+        <b>Conseils de Recherche : Branche Cotten / Le Manchec</b>
+        Chercher l'acte de décès de Marie Jeanne Cotten à Concarneau (entre 1955 et 1959). Analyser le registre matricule militaire de Joseph Le Manchec (registre 1885, probablement Quimper ou Lorient, car Concarneau dépend parfois de Lorient). Approfondir la carrière de Jean Cotten en Indochine (Fonds de la Marine).
     </div>
 </section>
 
 <footer>
-    <p>Sources : Registres d'état civil du Morbihan, Finistère et Loire-Atlantique • Archives Nationales • Mémoire familiale.</p>
+    <p>Sources : Registres d'état civil (Noyal-Muzillac, Ambon, Saint-Nazaire, Pleuven, Concarneau, Beuzec-Conq, Fouesnant, Elliant) • Recensements (Saint-Nazaire) • Mémoire familiale de Paule Le Pajollec.</p>
 </footer>
 
 </body>
