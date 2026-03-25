@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+<style>
+        /* --- THÈME NOIR & ORANGE APPLIQUÉ UNIQUEMENT AU MENU --- */
+        :root { 
+            --nav-bg: #1a1a1a;       /* Noir/Gris très sombre pour la barre */
+            --dropdown-bg: #262626;  /* Fond du menu déroulant */
+            --text-nav: #e0e0e0;     /* Texte clair dans le menu */
+            --orange-main: #ff6600;  /* Orange Bigouden */
+            --orange-hover: #ff9933; 
+            --nav-border: #404040;
+            
+            --font-bigouden: 'Cinzel Decorative', cursive; 
+            --font-serif: 'Georgia', serif; 
+        }
+
+        /* On supprime le style sur body pour ne pas affecter la page entière */
+        
+        .main-nav {
+            background: var(--nav-bg);
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px double var(--orange-main); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            /* On force la police et la couleur ici pour ne pas hériter de la page */
+            font-family: var(--font-serif);
+            color: var(--text-nav);
+        }
+        
+        .nav-brand h1 { 
+            margin: 0; 
+            font-family: var(--font-bigouden);
+            font-size: 26px; 
+            color: var(--orange-main); 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .nav-brand span { 
+            font-size: 13px; 
+            color: #b0b0b0;
+            font-weight: bold;
+        }
+        
+        .nav-links { 
+            display: flex; 
+            gap: 10px; 
+            align-items: center;
+        }
+        
+        /* Boutons du menu */
+        .nav-links a,
+        .dropdown-btn { 
+            color: var(--text-nav) !important; /* Force la couleur pour éviter les conflits */
+            text-decoration: none; 
+            font-weight: bold;
+            padding: 8px 15px; 
+            background: transparent;
+            border: 1px solid transparent;
+            font-family: var(--font-serif);
+            font-size: 15px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover,
+        .dropdown-btn:hover { 
+            color: var(--orange-main) !important;
+            border-color: var(--orange-main);
+            background: rgba(255, 102, 0, 0.05);
+        }
+
+        /* --- MENU DÉROULANT --- */
+        .dropdown { position: relative; display: inline-block; }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--dropdown-bg);
+            min-width: 220px;
+            box-shadow: 0px 8px 24px rgba(0,0,0,0.5);
+            z-index: 9999;
+            border: 2px solid var(--orange-main);
+            top: 100%;
+            right: 0;
+        }
+
+        .dropdown-content a {
+            color: var(--text-nav) !important;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid var(--nav-border);
+            text-transform: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #333;
+            color: var(--orange-hover) !important;
+        }
+
+        .dropdown:hover .dropdown-content { display: block; }
+
+        .empty { padding: 15px; color: #999; text-align: center; background: var(--dropdown-bg); }
+    </style>
+</head>
+<body>
+<div class="main-nav">
+    <div class="nav-brand">
+        <h1>Aïeux, mes racines</h1>
+        <span>Site de généalogie de Catherine Tanguy</span>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">🌳 L'Arbre</a>
+        <a href="fiche_couple.html">🌳 Exploration</a>
+        <a href="carte.html">🌍 Carte Globale</a>
+        <a href="fiches/index.html"> 📋 Fiches</a>
+        <a href="fiche_couple.html">👥 Fiche Couple</a>
+        <a href="recherche.html">🔍 Recherche</a>
+        <a href="synthese.html">🌳 En Chiffres</a>
+        <a href="souverains.html">👑 Souverains</a>  
+        <a href="rechercheur.html">En Cours</a>  
+        <a href="http://cathtanguy.free.fr/genealogie/">🔗 Site d'origine</a>
+    </div>
+</div>
+
+<script>
+// Fonction pour charger les fiches depuis le répertoire
+async function loadFiches() {
+    const fichesMenu = document.getElementById('fiches-menu');
+    
+    try {
+        // Utilise l'API GitHub pour lister les fichiers du répertoire fiches
+        const response = await fetch('https://api.github.com/repos/katseblodo/Aieux_mes_racines/contents/fiches');
+        const files = await response.json();
+        
+        // Vérifier si la réponse est un tableau (liste de fichiers)
+        if (!Array.isArray(files)) {
+            throw new Error('Format de réponse invalide');
+        }
+        
+        // Filtrer les fichiers HTML et trier par nom
+        const htmlFiles = files
+            .filter(file => file.name.endsWith('.html'))
+            .sort((a, b) => a.name.localeCompare(b.name));
+        
+        if (htmlFiles.length === 0) {
+            fichesMenu.innerHTML = '<div class="empty">Aucune fiche disponible</div>';
+            return;
+        }
+        
+        // Créer les liens pour chaque fiche
+        const ficheLinks = htmlFiles
+            .map(file => {
+                // Formater le nom : remplacer les underscores par des espaces et supprimer .html
+                const nomFormate = file.name
+                    .replace('.html', '')
+                    .replace(/_/g, ' ')
+                    .replace(/\b\w/g, char => char.toUpperCase()); // Capitaliser chaque mot
+                
+                return `
+                    <a href="fiches/${file.name}" target="_blank" title="${nomFormate}">
+                        <span class="fiche-name">📄 ${nomFormate}</span>
+                    </a>
+                `;
+            })
+            .join('<div class="separator"></div>');
+        
+        fichesMenu.innerHTML = ficheLinks;
+        
+    } catch (error) {
+        console.error('Erreur lors du chargement des fiches:', error);
+        fichesMenu.innerHTML = '<div class="empty">⚠️ Erreur de chargement</div>';
+    }
+}
+
+// Charger les fiches au chargement de la page
+document.addEventListener('DOMContentLoaded', loadFiches);
+</script>
+
+</body>
+</html>
