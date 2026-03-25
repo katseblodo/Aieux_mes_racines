@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mariage Pajollec - Manchec</title>
+    <style>
+        /* Style Georgia/Sépia fidèle à l'exemple JJF Quillec */
+        body { font-family: 'Georgia', serif; line-height: 1.8; color: #2c3e50; max-width: 1000px; margin: auto; padding: 40px; background-color: #fdfcf9; }
+        header { text-align: center; border-bottom: 5px double #8b4513; padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { color: #8b4513; font-size: 2.5em; margin-bottom: 10px; }
+        .sosa-main { font-size: 1.3em; font-weight: bold; color: #d4af37; text-transform: uppercase; }
+        
+        h2 { color: #fff; border-left: 6px solid #d4af37; margin-top: 40px; text-transform: uppercase; font-size: 1.4em; background: #8b4513; padding: 10px 15px; border-radius: 4px; }
+        h3 { color: #5d2e0a; border-bottom: 1px solid #d4af37; padding-bottom: 5px; margin-top: 30px; font-size: 1.2em; }
+        
+        /* Style des photos originales fournies par l'utilisateur */
+        .photo-frame { text-align: center; margin: 30px 0; }
+        .photo-frame img { max-width: 100%; border: 12px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border-radius: 2px; }
+        .caption { font-style: italic; font-size: 0.9em; color: #666; margin-top: 10px; }
+
+        /* Arbre Généalogique Style JJF Quillec */
+        .tree-mini { background: white; border: 1px solid #8b4513; padding: 15px; border-radius: 8px; margin: 25px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.05); font-size: 0.9em; }
+        .tree-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: center; }
+        .tree-node { border: 1px solid #ccc; padding: 8px; background: #fffaf0; border-radius: 4px; }
+        .tree-node b { display: block; color: #8b4513; font-size: 0.95em; }
+        .sosa-tag { color: #d4af37; font-weight: bold; font-size: 0.8em; }
+        .connector { grid-column: span 4; text-align: center; padding: 5px 0; color: #8b4513; font-weight: bold; }
+        
+        /* Citations et Actes */
+        .quote-box { background: #fff; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px inset #eee; font-style: italic; font-size: 0.95em; }
+        
+        /* Cadre de Contexte Historique Style JJF Quillec */
+        .highlight { background: #eeeae0; padding: 20px; border-radius: 8px; margin: 25px 0; border-left: 5px solid #8b4513; }
+        
+        /* Zones de Conseil de Recherche Style JJF Quillec */
+        .todo-box { 
+            border: 2px dashed #d4af37; 
+            background: #fff; 
+            padding: 20px; 
+            margin: 25px 0; 
+            border-radius: 8px; 
+            font-style: italic; 
+            color: #7f8c8d;
+            text-align: center;
+        }
+        .todo-box b { color: #d4af37; text-transform: uppercase; font-size: 0.9em; display: block; margin-bottom: 10px; }
+
+        .date { font-weight: bold; color: #8b4513; }
+        footer { margin-top: 50px; border-top: 1px solid #8b4513; padding-top: 15px; font-size: 0.85em; color: #666; text-align: center; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mariage Pajollec - Manchec</h1>
+    <p class="sosa-main">Marie-Reine Quélard & Marie Jeanne Cotten</p>
+</header>
+
+<section class="highlight">
+    <strong>Présentation :</strong><br>
+    "Rencontrés durant le chantier du Dourdy"
+</section>
+
+<section>
+    <h2>I. Antoine Le Pajollec(SOSA 13)</h2>
+    
+    <div class="photo-frame">
+        <img src="image_c1ba4a.png" alt="Portrait">
+        <p class="caption">Portrait.</p>
+    </div>
+
+    <h3>Naissance à </h3>
+    <p>
+        Antoine naît le <span class="date">2xxx</span> à N </p>
+
+    <div class="quote-box">
+        <strong>Transcription de l'Acte de Naissance  :</strong><br>
+        “.”
+    </div>
+
+    <h3>Fratrien</h3>
+    <p>Texte</p>
+
+    <div class="tree-mini">
+        <div class="tree-grid">
+            <div class="tree-node"><span class="sosa-tag">104</span><b>Joseph QUÉLARD</b><small>Questembert</small></div>
+            <div class="tree-node"><span class="sosa-tag">105</span><b>Julienne JALLÉ</b><small>Berric</small></div>
+            <div class="tree-node"><span class="sosa-tag">106</span><b>Vincent BENOIT</b><small>Noyal-Muzillac</small></div>
+            <div class="tree-node"><span class="sosa-tag">107</span><b>Louise LE MEDEC</b><small>Ambon</small></div>
+            <div class="connector">⬇</div>
+            <div class="tree-node" style="grid-column: span 2;"><span class="sosa-tag">52</span><b>Guillaume QUÉLARD</b><small>1826-1867</small></div>
+            <div class="tree-node" style="grid-column: span 2;"><span class="sosa-tag">53</span><b>Marie Françoise BENOIT</b><small>1834-?</small></div>
+            <div class="connector">⬇</div>
+            <div class="tree-node" style="grid-column: span 4; border: 2px solid #8b4513;">
+                <span class="sosa-tag">26</span><b>Marie-Reine QUÉLARD</b><small>1860-ap.1913</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>II. </h2>
+
+    <div class="quote-box">
+        <strong>Présentation et Naissance :</strong><br>
+        «  »<br><br>
+        <strong>Marie Jeanne (SOSA 14) :</strong><br>
+        Elle naît le <span class="date">XXX</span> à .
+    </div>
+
+</section>
+
+<section>
+    <h2>III. Le Croisement des Destins : La Photo de Mariage</h2>
+    <p>
+        Le mariage d'Antoine Marie Le Pajollec (fils de Marie-Reine) et de Marie Jeanne Le Manchec (fille de Marie Jeanne Cotten) en 1913 marque le croisement des deux branches. Nous avons la chance de posséder une photo de ce moment, réunissant les deux mamies de mamie Paule.
+    </p>
+        <div class="quote-box">
+        <strong>Mariage d'Antoine et Présence de Marie-Reine :</strong><br>
+        Antoine Marie épouse <strong>Marie Jeanne Le Manchec</strong> à Beuzec-Conq le <span class="date">29/03/1913</span>. L'acte précise qu'Antoine est plâtrier, majeur, domicilié à Toutes-Aides, fils de feu Jean François et de Marie Reine QUELARD, âgée de 54 ans, présente.
+    </div>
+
+    <div class="photo-frame">
+        <img src="/images/mariage_Pajollec_Manchec.png" alt="Photo originale du mariage Le Pajollec - Le Manchec">
+        <p class="caption">Photo originale du mariage d'Antoine Marie Le Pajollec et Marie Jeanne Le Manchec (Beuzec-Conq, 29/03/1913).<br>
+        <strong>Marie-Reine Quélard</strong> et <strong>Marie Jeanne Cotten</strong> sont présentes parmi les convives, réunissant ainsi les deux mamies de mamie Paule Le Pajollec.</p>
+    </div>
+</section>
+
+<footer>
+    <p>Sources : Registres d'état civil, Recensements, Documents familliaux.</p>
+</footer>
+
+</body>
+</html>
