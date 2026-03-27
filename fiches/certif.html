@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes Ancêtres et le Certificat d'Études</title>
+    <style>
+        body { font-family: 'Georgia', serif; line-height: 1.6; color: #2c3e50; max-width: 1000px; margin: auto; padding: 40px; background-color: #fdfcf9; }
+        header { text-align: center; border-bottom: 5px double #8b4513; padding-bottom: 20px; margin-bottom: 40px; }
+        h1 { color: #8b4513; font-size: 2.5em; margin-bottom: 5px; }
+        .sosa-main { font-size: 1.2em; font-weight: bold; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; }
+        
+        h2 { color: #5d2e0a; border-left: 6px solid #d4af37; padding-left: 15px; margin-top: 50px; text-transform: uppercase; font-size: 1.3em; background: #f4f1ea; padding: 10px 15px; }
+        h3 { color: #8b4513; border-bottom: 1px solid #d4af37; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Tableau Récapitulatif */
+        .summary-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        .summary-table th { background: #8b4513; color: white; padding: 12px; text-align: left; }
+        .summary-table td { border: 1px solid #ddd; padding: 10px; font-size: 0.9em; }
+        .summary-table tr:nth-child(even) { background-color: #fdfcf9; }
+
+        /* Fiches individuelles */
+        .fiche-examen { background: white; border: 1px solid #8b4513; padding: 25px; border-radius: 8px; margin-bottom: 40px; page-break-inside: avoid; }
+        .info-candidat { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; font-style: italic; }
+        
+        .table-notes { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .table-notes th { background: #f4f1ea; color: #5d2e0a; border: 1px solid #8b4513; padding: 8px; font-size: 0.85em; }
+        .table-notes td { border: 1px solid #8b4513; padding: 8px; }
+        
+        input { width: 95%; border: 1px dashed #d4af37; padding: 4px; font-family: 'Georgia', serif; background: transparent; }
+        
+        .mention { margin-top: 15px; text-align: right; font-weight: bold; color: #8b4513; }
+        
+        @media print {
+            .no-print { display: none; }
+            body { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mes Ancêtres et le Certificat d'Études</h1>
+    <p class="sosa-main">Campagne de recherche : Archives du Finistère (1889 - 1940)</p>
+</header>
+
+<section>
+    <h2>I. Tableau de Synthèse des Recherches</h2>
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th>Individu</th>
+                <th>Naissance</th>
+                <th>Année d'Examen</th>
+                <th>Lieu de Recherche</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><b>Louis Charles Yves TANGUY</b></td><td>1917</td><td>1929</td><td>Morlaix</td><td>À chercher</td></tr>
+            <tr><td><b>Marie Philomène LEAUTE</b></td><td>1918</td><td>1930</td><td>Pont-l'Abbé / Pontivy</td><td>À chercher</td></tr>
+            <tr><td><b>Pierre Marie QUILLEC</b></td><td>1912</td><td>1924</td><td>Quimper / Penmarch</td><td>À chercher</td></tr>
+            <tr><td><b>Paule LE PAJOLLEC</b></td><td>1920</td><td>1932</td><td>Concarneau / Beuzec</td><td>À chercher</td></tr>
+            <tr><td><b>Marie Louise LAUTROU</b></td><td>1878</td><td>1890</td><td>Spézet / Morlaix</td><td>À chercher</td></tr>
+            <tr><td><b>Marie Jeanne LE MANCHEC</b></td><td>1892</td><td>1904</td><td>Beuzec-Conq</td><td>À chercher</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<section>
+    <h2>II. Fiches Individuelles à Compléter</h2>
+
+    <div class="fiche-examen">
+        <h3>Louis Charles Yves TANGUY (1917-1997)</h3>
+        <div class="info-candidat">
+            <div><b>Lieu de naissance :</b> Morlaix</div>
+            <div><b>Année estimée du CEP :</b> 1929</div>
+        </div>
+        <table class="table-notes">
+            <tr><th>Matière</th><th>Note /10</th><th>Commentaires (Archives)</th></tr>
+            <tr><td>Dictée / Orthographe</td><td><input type="text"></td><td><input type="text"></td></tr>
+            <tr><td>Calcul / Problèmes</td><td><input type="text"></td><td><input type="text"></td></tr>
+            <tr><td>Rédaction</td><td><input type="text"></td><td><input type="text"></td></tr>
+            <tr><td>Sciences / Histoire-Géo</td><td><input type="text"></td><td><input type="text"></td></tr>
+        </table>
+        <div class="mention">Résultat : <input type="text" style="width:150px" placeholder="Admis / Mention"></div>
+    </div>
+
+    <div class="fiche-examen">
+        <h3>Marie Philomène LEAUTE (1918-1991)</h3>
+        <div class="info-candidat">
+            <div><b>Lieu de naissance :</b> Saint-Aignan</div>
+            <div><b>Année estimée du CEP :</b> 1930</div>
+        </div>
+        <table class="table-notes">
+            <tr><th>Matière</th><th>Note /10</th><th>Commentaires (Archives)</th></tr>
+            <tr><td>Dictée / Orthographe</td><td><input type="text"></td><td><input type="text"></td></tr>
+            <tr><td>Calcul / Problèmes</td><td><input type="text"></td><td><input type="text"></td></tr>
+            <tr><td>Rédaction</td><td><input type="text"></td><td><input type="text"></td></tr>
+            <tr><td>Couture / Travaux manuels</td><td><input type="text"></td><td><input type="text"></td></tr>
+        </table>
+        <div class="mention">Résultat : <input type="text" style="width:150px" placeholder="Admis / Mention"></div>
+    </div>
+
+    <div class="fiche-examen">
+        <h3>Pierre Marie QUILLEC (1912-2015)</h3>
+        <div class="info-candidat">
+            <div><b>Lieu de naissance :</b> Penmarch</div>
+            <div><b>Année estimée du CEP :</b> 1924</div>
+        </div>
+        <table class="table-notes">
+            <tr><th>Matière</th><th>Note /10</th><th>Commentaires (Archives)</th></tr>
+            <tr><td>Dictée / Orthographe</td><td><input type="text"></td><td><input type="text"></td></tr>
+            <tr><td>Calcul / Problèmes</td><td><input type="text"></td><td><input type="text"></td></tr>
+            <tr><td>Rédaction</td><td><input type="text"></td><td><input type="text"></td></tr>
+            <tr><td>Leçon de choses</td><td><input type="text"></td><td><input type="text"></td></tr>
+        </table>
+        <div class="mention">Résultat : <input type="text" style="width:150px" placeholder="Admis / Mention"></div>
+    </div>
+
+    <div class="fiche-examen">
+        <h3>Paule LE PAJOLLEC (1920-2005)</h3>
+        <div class="info-candidat">
+            <div><b>Lieu de naissance :</b> Beuzec-Conq</div>
+            <div><b>Année estimée du CEP :</b> 1932</div>
+        </div>
+        <table class="table-notes">
+            <tr><th>Matière</th><th>Note /10</th><th>Commentaires (Archives)</th></tr>
+            <tr><td>Dictée / Orthographe</td><td><input type="text"></td><td><input type="text"></td></tr>
+            <tr><td>Calcul / Problèmes</td><td><input type="text"></td><td><input type="text"></td></tr>
+            <tr><td>Rédaction</td><td><input type="text"></td><td><input type="text"></td></tr>
+            <tr><td>Dessin / Couture</td><td><input type="text"></td><td><input type="text"></td></tr>
+        </table>
+        <div class="mention">Résultat : <input type="text" style="width:150px" placeholder="Admis / Mention"></div>
+    </div>
+
+</section>
+
+<button class="no-print" onclick="window.print()" style="position: fixed; bottom: 20px; right: 20px; padding: 15px; background: #8b4513; color: white; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">Imprimer mon dossier de recherche</button>
+
+</body>
+</html>
