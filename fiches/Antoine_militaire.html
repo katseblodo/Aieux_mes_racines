@@ -15,7 +15,7 @@
         }
 
         .container {
-            max-width: 950px;
+            max-width: 1000px;
             margin: 0 auto;
             background: #fff;
             padding: 40px;
@@ -55,50 +55,62 @@
         h2 { color: #5d2e0d; font-size: 1.2em; margin-top: 5px; }
         .archive-ref { font-style: italic; color: #666; font-size: 0.85em; }
 
-        .portrait-wrapper { text-align: center; margin: 20px 0; }
+        /* Style Portrait */
+        .portrait-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
         .portrait-img {
-            max-width: 280px;
-            border: 8px solid #fff;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            border-radius: 2px;
+            max-width: 250px;
+            border: 5px solid #fff;
             outline: 1px solid #dcd7ca;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Arbre Généalogique Étendu */
-        .tree-container {
-            margin: 30px 0;
-            padding: 20px;
-            background: #fdfcf9;
-            border: 1px solid #dcd7ca;
+        /* Liens documents */
+        .document-link {
+            display: inline-block;
+            margin: 15px 5px;
+            padding: 8px 15px;
+            background: #f4f1ea;
+            color: #8b4513;
+            text-decoration: none;
+            border: 1px solid #8b4513;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: all 0.3s;
         }
-        .tree {
+        .document-link:hover { background: #8b4513; color: white; }
+
+        /* Arbre Généalogique Visuel */
+        .tree-section {
+            background: #fdfcf9;
+            padding: 20px;
+            border: 1px solid #dcd7ca;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .tree-grid {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            min-width: 800px;
         }
-        .tree-level {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            width: 100%;
-            flex-wrap: wrap;
-        }
-        .tree-card {
+        .tree-row { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
+        .node {
             border: 1px solid #8b4513;
             padding: 8px;
             background: white;
-            min-width: 140px;
             text-align: center;
-            font-size: 0.85em;
+            font-size: 0.8em;
+            width: 130px;
             box-shadow: 2px 2px 0px #8b4513;
         }
-        .tree-card strong { color: #8b4513; display: block; }
-        .tree-card span { font-size: 0.75em; color: #666; text-transform: uppercase; }
-        .main-subject { background: #f9f7f2; border: 2px solid #8b4513; transform: scale(1.05); }
-        .sibling-card { border: 1px dashed #8b4513; opacity: 0.9; background: #fffcf5; }
-        
-        .connector-v { width: 2px; height: 15px; background: #8b4513; }
+        .node strong { display: block; color: #8b4513; }
+        .node.main { background: #f9f7f2; border: 2px solid #8b4513; font-weight: bold; width: 150px; }
+        .node.sibling { border-style: dashed; background: #fffcf5; }
+        .connector { height: 15px; width: 2px; background: #8b4513; }
 
         .section-title {
             background: #f0ede5;
@@ -107,7 +119,8 @@
             margin-top: 35px;
             font-variant: small-caps;
             font-weight: bold;
-            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
         }
 
         .grid-info {
@@ -121,6 +134,15 @@
         .label { font-weight: bold; color: #777; display: block; font-size: 0.75em; text-transform: uppercase; }
         .value { font-size: 1.05em; color: #222; }
 
+        .residence-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+        .residence-table th, .residence-table td { border: 1px solid #dcd7ca; padding: 10px; text-align: left; }
+        .residence-table th { background-color: #f9f7f2; color: #8b4513; }
+
         .biography {
             margin-top: 40px;
             padding: 30px;
@@ -129,7 +151,14 @@
             font-family: Georgia, serif;
             line-height: 1.8;
         }
-        .biography h3 { font-style: normal; color: #8b4513; margin-top: 0; border-bottom: 1px solid #c0b283; padding-bottom: 10px; }
+        .biography h3 { color: #8b4513; margin-top: 0; border-bottom: 1px solid #c0b283; }
+
+        .timeline { border-left: 2px solid #c0b283; margin-left: 20px; padding-left: 20px; margin-top: 20px; }
+        .timeline-item { margin-bottom: 12px; position: relative; }
+        .timeline-item::before {
+            content: ""; position: absolute; left: -27px; top: 6px; width: 10px; height: 10px; background: #8b4513; border-radius: 50%;
+        }
+        .date { font-weight: bold; color: #8b4513; margin-right: 10px; }
 
         footer { text-align: center; margin-top: 50px; font-size: 0.8em; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
         .highlight { color: #8b4513; font-weight: bold; }
@@ -144,72 +173,85 @@
         <h1>Antoine Marie LE PAJOLLEC</h1>
         <h2>Maître Plâtrier & Soldat du 118e RI</h2>
         <p class="archive-ref">Classe 1900 — Matricule n°2285 (Quimper)</p>
+        <div style="margin-top:10px;">
+            <a href="image_7da361.jpg" target="_blank" class="document-link">📄 Fiche Militaire</a>
+            <a href="#" class="document-link">💍 Acte de Mariage</a>
+            <a href="#" class="document-link">👶 Acte Antoinette</a>
+        </div>
     </div>
 
-    <div class="portrait-wrapper">
-        <img src="IMG_1388.jpg" alt="Portrait d'Antoine Marie LE PAJOLLEC" class="portrait-img">
+    <div class="portrait-container">
+        <img src="IMG_1388.jpg" alt="Antoine Marie LE PAJOLLEC" class="portrait-img">
     </div>
 
-    <div class="section-title">Structure Familiale (Fratrie incluse)</div>
-    <div class="tree-container">
-        <div class="tree">
-            <div class="tree-level">
-                <div class="tree-card"><span>Père</span><strong>Jean François LE PAJOLLEC</strong><small>† 1908</small></div>
-                <div class="tree-card"><span>Mère</span><strong>Marie Reine QUELARD</strong><small>1860-1919</small></div>
+    <div class="section-title">Généalogie & Fratrie</div>
+    <div class="tree-section">
+        <div class="tree-grid">
+            <div class="tree-row">
+                <div class="node"><span>Père</span><strong>Jean François</strong><small>† 1908</small></div>
+                <div class="node"><span>Mère</span><strong>Marie Reine QUELARD</strong><small>1860-1919</small></div>
             </div>
-
-            <div class="connector-v"></div>
-
-            <div class="tree-level">
-                <div class="tree-card sibling-card"><span>Sœur</span><strong>Marie-Sainte</strong><small>° 1880</small></div>
-                <div class="tree-card main-subject"><span>Sujet</span><strong>Antoine Marie</strong><small>1884-1919 (Rapat.)</small></div>
-                <div class="tree-card sibling-card"><span>Frère</span><strong>Jean</strong><small>° 1886</small></div>
-                <div class="tree-card sibling-card"><span>Sœur</span><strong>Marie Louisa</strong><small>1888-1905</small></div>
-                <div class="tree-card sibling-card"><span>Sœur</span><strong>Maria Antoinette</strong><small>° 1891</small></div>
-                <div class="tree-card sibling-card"><span>Frère</span><strong>Louis</strong><small>° 1892</small></div>
-                <div class="tree-card sibling-card"><span>Frère</span><strong>Clément</strong><small>° 1897</small></div>
+            <div class="connector"></div>
+            <div class="tree-row">
+                <div class="node sibling"><span>Sœur</span><strong>Marie-Sainte</strong><small>° 1880</small></div>
+                <div class="node main"><span>SUJET</span><strong>Antoine Marie</strong><small>1880-1919</small></div>
+                <div class="node sibling"><span>Frère</span><strong>Jean</strong><small>° 1886</small></div>
+                <div class="node sibling"><span>Sœur</span><strong>Marie Louisa</strong><small>† 1905</small></div>
+                <div class="node sibling"><span>Sœur</span><strong>Maria Ant.</strong><small>° 1891</small></div>
+                <div class="node sibling"><span>Frère</span><strong>Louis</strong><small>° 1892</small></div>
+                <div class="node sibling"><span>Frère</span><strong>Clément</strong><small>° 1897</small></div>
             </div>
-
-            <div class="connector-v"></div>
-
-            <div class="tree-level">
-                <div class="tree-card"><span>Épouse</span><strong>Marie Jeanne LE MANCHEC</strong></div>
-                <div class="tree-card"><span>Fille</span><strong>Antoinette Marie</strong><small>1914-1991</small></div>
+            <div class="connector"></div>
+            <div class="tree-row">
+                <div class="node"><span>Épouse (1913)</span><strong>Marie Jeanne LE MANCHEC</strong></div>
+                <div class="node"><span>Fille</span><strong>Antoinette Marie</strong><small>1914-1991</small></div>
             </div>
         </div>
     </div>
 
-    <div class="section-title">Identité & Fratrie</div>
+    <div class="section-title">Identité & Origines</div>
     <div class="grid-info">
         <div class="info-box">
             <span class="label">Naissance</span>
-            <span class="value">10/07/1884 — Saint-Nazaire (44)</span>
+            <span class="value">10/07/1880 — Saint-Nazaire (44)</span>
         </div>
         <div class="info-box">
-            <span class="label">Composition de la fratrie</span>
-            <span class="value">Aîné des fils d'une famille de 7 enfants.</span>
+            <span class="label">Profession</span>
+            <span class="value">Maître Plâtrier</span>
         </div>
         <div class="info-box" style="grid-column: span 2;">
-            <span class="label">Ses frères et sœurs</span>
-            <span class="value">
-                <strong>Jean</strong> (Marin, °1886), <strong>Louis</strong> (Marin, °1892), <strong>Clément</strong> (Serrurier, °1897).<br>
-                Sœurs : Marie-Sainte, Marie Louisa (†1905) et Maria Antoinette.
-            </span>
+            <span class="label">Notes sur la Fratrie</span>
+            <span class="value">Aîné des garçons. Ses trois frères (Jean, Louis, Clément) furent également mobilisés. Jean fut aussi fait prisonnier de guerre.</span>
         </div>
+    </div>
+
+    <div class="section-title">Parcours Militaire & Captivité</div>
+    <div class="timeline">
+        <div class="timeline-item"><span class="date">1901-1903</span> Service au 136e Régiment d'Infanterie.</div>
+        <div class="timeline-item"><span class="date">03/08/1914</span> Mobilisation au <span class="highlight">118e RI</span> (Quimper).</div>
+        <div class="timeline-item"><span class="date">07/09/1914</span> <span style="color: #d9534f; font-weight: bold;">Capture par l'ennemi.</span> Détenu au camp de <span class="highlight">Minden</span>.</div>
+        <div class="timeline-item"><span class="date">02/01/1919</span> Rapatriement après 52 mois de captivité.</div>
     </div>
 
     <div class="biography">
-        <h3>Chronique d'une famille nazairienne</h3>
+        <h3>Chronique d'un destin contrarié</h3>
         <p>
-            Antoine Marie grandit au sein d'une famille nombreuse à Saint-Nazaire, principalement dans le quartier de la <strong>Berthauderie</strong>. Fils de Jean François et Marie-Reine, il est entouré de trois frères — <strong>Jean, Louis et Clément</strong> — et de trois sœurs. En 1908, au décès de leur père, la famille reste soudée autour de Marie-Reine, qui devient chef de famille à Toutes-Aides.
+            Antoine Marie Le Pajollec grandit au sein d'une fratrie soudée de sept enfants à Saint-Nazaire. Fils de Jean François et Marie-Reine Quélard, il est l'aîné des fils. En 1913, il s'établit à Concarneau pour épouser <strong>Marie Jeanne Le Manchec</strong>.
         </p>
         <p>
-            Alors qu'Antoine s'établit comme maître plâtrier à Concarneau après son mariage en 1913, ses frères Jean et Louis embrassent la carrière de marins, tandis que le jeune Clément devient serrurier. Lors de la mobilisation de 1914, Marie-Reine voit ses quatre fils partir servir la patrie, Antoine au 118e RI et Jean notamment, qui sera également fait prisonnier.
+            Le destin de la famille bascule en 1914. Alors que son épouse attend leur premier enfant, Antoine est mobilisé. Le 7 septembre, il est capturé. Sa fille <strong>Antoinette</strong> naît quelques jours plus tard, sans qu'il ne puisse la voir. Marie-Reine, sa mère, voit ses quatre fils (Antoine, Jean, Louis et Clément) partir au combat. La captivité d'Antoine à <strong>Minden</strong> durera toute la guerre. Ce n'est qu'en janvier 1919 qu'il pourra enfin serrer sa fille, alors âgée de 4 ans, dans ses bras.
         </p>
     </div>
 
+    <div class="section-title">Géographie de l'exil</div>
+    <div style="text-align: center; margin-top: 15px;">
+        <div style="display: inline-block; border: 2px solid #8b4513; padding: 5px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <img src="/Aieux_mes_racines/fiches/images/plan_minden.png" alt="Plan Minden" style="max-width: 100%; height: auto;">
+        </div>
+    </div>
+
     <footer>
-        Sources : Registres Saint-Nazaire & Beuzec-Conq | Dossier Famille Le Pajollec - Mis à jour en 2024
+        Relevés CGF & Archives Familiales | Famille Le Pajollec — 2024
     </footer>
 </div>
 
