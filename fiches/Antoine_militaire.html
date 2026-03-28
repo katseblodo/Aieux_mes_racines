@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiche Militaire - Antoine Marie LE PAJOLLEC</title>
+    <title>Fiche Militaire & Familiale - Antoine Marie LE PAJOLLEC</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,146 +15,209 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             background: #fff;
             padding: 40px;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             border: 1px solid #dcd7ca;
+            position: relative;
         }
+
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: #8b4513;
+            font-size: 1.5em;
+            background: #f9f7f2;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid #dcd7ca;
+            transition: all 0.3s ease;
+        }
+        .home-btn:hover { background: #8b4513; color: #fff; transform: scale(1.1); }
 
         .header-archive {
             text-align: center;
             border-bottom: 2px solid #8b4513;
             margin-bottom: 30px;
             padding-bottom: 20px;
+            margin-top: 20px;
         }
 
-        h1 { color: #8b4513; margin-bottom: 5px; text-transform: uppercase; }
-        .archive-ref { font-style: italic; color: #666; font-size: 0.9em; }
+        h1 { color: #8b4513; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { color: #5d2e0d; font-size: 1.2em; margin-top: 5px; }
+        .archive-ref { font-style: italic; color: #666; font-size: 0.85em; }
 
         .document-link {
             display: inline-block;
-            margin: 20px 0;
-            padding: 10px 20px;
-            background: #8b4513;
-            color: white;
+            margin: 15px 5px;
+            padding: 8px 15px;
+            background: #f4f1ea;
+            color: #8b4513;
             text-decoration: none;
+            border: 1px solid #8b4513;
             border-radius: 4px;
+            font-size: 0.9em;
             font-weight: bold;
+            transition: all 0.3s;
         }
+        .document-link:hover { background: #8b4513; color: white; }
 
         .section-title {
             background: #f0ede5;
             padding: 10px;
             border-left: 5px solid #8b4513;
-            margin-top: 30px;
+            margin-top: 35px;
             font-variant: small-caps;
             font-weight: bold;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
         }
 
         .grid-info {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 15px;
             margin-top: 15px;
         }
 
-        .info-box {
-            border: 1px solid #eee;
-            padding: 15px;
-            background: #fafafa;
-        }
+        .info-box { border: 1px solid #eee; padding: 12px; background: #fafafa; }
+        .label { font-weight: bold; color: #777; display: block; font-size: 0.75em; text-transform: uppercase; }
+        .value { font-size: 1.05em; color: #222; }
 
-        .label { font-weight: bold; color: #555; display: block; font-size: 0.8em; text-transform: uppercase; }
-        .value { font-size: 1.1em; color: #222; }
+        .residence-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+        .residence-table th, .residence-table td { border: 1px solid #dcd7ca; padding: 10px; text-align: left; }
+        .residence-table th { background-color: #f9f7f2; color: #8b4513; }
+        .residence-table tr:hover { background-color: #fdfcf9; }
 
         .biography {
             margin-top: 40px;
-            padding: 25px;
+            padding: 30px;
             background: #fdfcf9;
             border: 1px dashed #c0b283;
-            font-serif: Georgia, serif;
+            font-family: Georgia, serif;
+            line-height: 1.8;
         }
+        .biography h3 { font-style: normal; color: #8b4513; margin-top: 0; border-bottom: 1px solid #c0b283; padding-bottom: 10px; }
 
-        .timeline {
-            border-left: 2px solid #c0b283;
-            margin-left: 20px;
-            padding-left: 20px;
+        .timeline { border-left: 2px solid #c0b283; margin-left: 20px; padding-left: 20px; margin-top: 20px; }
+        .timeline-item { margin-bottom: 12px; position: relative; }
+        .timeline-item::before {
+            content: ""; position: absolute; left: -27px; top: 6px; width: 10px; height: 10px; background: #8b4513; border-radius: 50%;
         }
+        .date { font-weight: bold; color: #8b4513; margin-right: 10px; }
 
-        .timeline-item { margin-bottom: 15px; }
-        .date { font-weight: bold; color: #8b4513; }
+        footer { text-align: center; margin-top: 50px; font-size: 0.8em; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
+        
+        .highlight { color: #8b4513; font-weight: bold; }
 
-        footer { text-align: center; margin-top: 50px; font-size: 0.8em; color: #999; }
+        @media (max-width: 600px) {
+            .grid-info { grid-template-columns: 1fr; }
+            .container { padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <a href="index.html" class="home-btn" title="Retour à l'accueil">🏠</a>
+
     <div class="header-archive">
         <h1>Antoine Marie LE PAJOLLEC</h1>
-        <p class="archive-ref">Registre Matricule - Classe 1900 - Matricule n°2285<br>Subdivision de Quimper / Saint-Nazaire</p>
-        <a href="image_7da361.jpg" target="_blank" class="document-link">Consulter l'archive originale</a>
+        <h2>Maître Plâtrier & Soldat du 118e RI</h2>
+        <p class="archive-ref">Classe 1900 — Matricule n°2285 (Quimper) | Acte de Mariage M-1913-2900900</p>
+        <div style="margin-top:10px;">
+            <a href="image_7da361.jpg" target="_blank" class="document-link">📄 Fiche Militaire</a>
+            <a href="#" class="document-link">💍 Acte de Mariage</a>
+            <a href="#" class="document-link">👶 Acte Antoinette</a>
+        </div>
     </div>
 
-    <div class="section-title">État Civil & Signalement</div>
+    <div class="section-title">Identité & Origines</div>
     <div class="grid-info">
         <div class="info-box">
-            <span class="label">Né le</span>
-            <span class="value">10 juillet 1880 à Saint-Nazaire</span>
+            <span class="label">Naissance</span>
+            <span class="value">10/07/1880 — Saint-Nazaire (44)</span>
+        </div>
+        <div class="info-box">
+            <span class="label">Parents</span>
+            <span class="value">Jean François (†1908) & Marie Reine QUELARD</span>
         </div>
         <div class="info-box">
             <span class="label">Profession</span>
-            <span class="value">Plâtrier</span>
+            <span class="value">Maître Plâtrier</span>
         </div>
         <div class="info-box">
-            <span class="label">Filiation</span>
-            <span class="value">Fils de Jean François & Marie Reine Quillivic</span>
-        </div>
-        <div class="info-box">
-            <span class="label">Instruction</span>
-            <span class="value">Degré 3 (Sait lire, écrire et compter)</span>
+            <span class="label">Signalement</span>
+            <span class="value">1m60, cheveux châtains, yeux gris</span>
         </div>
     </div>
 
-    <div class="section-title">États de Services & Mutations</div>
-    <div class="timeline">
-        <div class="timeline-item">
-            <span class="date">8 Octobre 1901 :</span> Incorporé au 136e Régiment d'Infanterie (Service actif).
+    <div class="section-title">Alliance & Famille</div>
+    <div class="grid-info">
+        <div class="info-box" style="grid-column: span 2;">
+            <span class="label">Mariage le 29/03/1913 à Beuzec-Conq</span>
+            <span class="value">Épouse : <span class="highlight">Marie Jeanne LE MANCHEC</span> (née en 1892 à Beuzec-Conq)</span>
+            <p style="font-size: 0.9em; color: #666; margin: 5px 0;">Fille de Joseph Le Manchec et Marie Jeanne Cotten, commerçants à l'Avenue de la Gare.</p>
         </div>
-        <div class="timeline-item">
-            <span class="date">18 Septembre 1903 :</span> Passage dans la réserve avec certificat de bonne conduite.
-        </div>
-        <div class="timeline-item">
-            <span class="date">3 Août 1914 :</span> Rappelé à l'activité par décret de mobilisation générale. Rejoint le 118e Régiment d'Infanterie.
-        </div>
-        <div class="timeline-item">
-            <span class="date">7 Septembre 1914 :</span> Fait prisonnier de guerre à Minden (Allemagne).
-        </div>
-        <div class="timeline-item">
-            <span class="date">2 Janvier 1919 :</span> Rapatrié d'Allemagne après 4 ans de captivité.
-        </div>
-        <div class="timeline-item">
-            <span class="date">21 Mars 1919 :</span> Démobilisé, se retire à Concarneau.
+        <div class="info-box" style="grid-column: span 2; border-left: 4px solid #8b4513;">
+            <span class="label">Enfant</span>
+            <span class="value"><span class="highlight">Antoinette Marie LE PAJOLLEC</span> (1914-1991)</span>
+            <p style="font-size: 0.9em; color: #666; margin: 5px 0;">Née le 24/09/1914 à Beuzec-Conq, alors que son père est déjà prisonnier en Allemagne.</p>
         </div>
     </div>
+
+    <div class="section-title">Parcours Militaire & Captivité</div>
+    <div class="timeline">
+        <div class="timeline-item"><span class="date">1901-1903</span> Service au 136e Régiment d'Infanterie.</div>
+        <div class="timeline-item"><span class="date">03/08/1914</span> Mobilisation générale : rejoint le <span class="highlight">118e RI</span>.</div>
+        <div class="timeline-item"><span class="date">07/09/1914</span> <span style="color: #d9534f; font-weight: bold;">Capture par l'ennemi.</span> Début de la captivité à <span class="highlight">Minden</span> (Allemagne).</div>
+        <div class="timeline-item"><span class="date">02/01/1919</span> Rapatriement après 52 mois de captivité.</div>
+        <div class="timeline-item"><span class="date">21/03/1919</span> Démobilisation et retour définitif à Concarneau.</div>
+    </div>
+
+    <div class="section-title">Domiciles Successifs</div>
+    <table class="residence-table">
+        <thead>
+            <tr><th>Date</th><th>Lieu</th><th>Adresse / Notes</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1908</td><td>Quimper</td><td>36, rue des Reguaires</td></tr>
+            <tr><td>1910</td><td>Concarneau</td><td>Place de la Mairie</td></tr>
+            <tr><td>1913</td><td>Beuzec-Conq</td><td>Avenue de la Gare (Domicile de l'épouse)</td></tr>
+            <tr><td>1913-1919</td><td>Concarneau</td><td>40, rue de la Gare</td></tr>
+        </tbody>
+    </table>
 
     <div class="biography">
-        <h3>Récit d'un destin : Du plâtre aux barbelés</h3>
+        <h3>Chronique d'un destin contrarié</h3>
         <p>
-            Antoine Marie Le Pajollec était un homme de l'Atlantique. Né à Saint-Nazaire et plâtrier de métier, il appartient à cette génération qui a connu la transition brutale du XIXe siècle vers l'horreur de la Grande Guerre. Bien que dispensé initialement comme aîné d'une famille nombreuse, il effectue son service au 136e RI au début du siècle.
+            L'année 1913 marque un tournant heureux pour Antoine Marie Le Pajollec. Maître plâtrier accompli, il unit sa destinée à celle de <strong>Marie Jeanne Le Manchec</strong> le 29 mars à Beuzec-Conq. La famille s'installe à Concarneau, tandis que sa belle-famille tient commerce sur l'Avenue de la Gare.
         </p>
         <p>
-            Lorsque le tocsin sonne en août 1914, Antoine a 34 ans. Il quitte Concarneau pour rejoindre le 118e RI. Son expérience du front sera courte mais intense : moins d'un mois après son arrivée aux armées, il est capturé lors des combats chaotiques de septembre 1914. 
+            Mais le bonheur est de courte durée. En août 1914, le tocsin résonne. Antoine part au front avec le 118e RI, laissant sa jeune épouse enceinte. Le sort est cruel : le <strong>7 septembre 1914</strong>, Antoine tombe aux mains des Allemands. Dix-sept jours plus tard, le 24 septembre, sa fille <strong>Antoinette Marie</strong> naît à Beuzec-Conq.
         </p>
         <p>
-            Sa guerre se passera derrière les fils de fer du camp de Minden en Westphalie. Durant 52 mois, il sera loin des siens, survivant à la promiscuité et aux privations des camps allemands. Il ne retrouvera la Bretagne qu'au début de l'année 1919, portant en lui les stigmates de quatre années de silence et d'exil.
+            Antoine ne connaîtra sa fille qu'à l'âge de 4 ans. Durant toute la guerre, il survit dans le camp de <strong>Minden</strong>, loin du port de Concarneau et des siens. Ce n'est qu'en janvier 1919 qu'il peut enfin serrer pour la première fois son enfant dans ses bras et reprendre son métier de plâtrier. Ce parcours témoigne de la résilience d'un homme dont la vie familiale fut brutalement mise entre parenthèses par l'histoire.
         </p>
     </div>
 
     <footer>
-        Dossier généalogique familial - Sources : Archives Départementales
+        Relevés CGF : M-1913-2900900-60537-03809 | N-1914-2900900-26848-00097<br>
+        Généalogie de la Famille Le Pajollec — Mis à jour en 2024
     </footer>
 </div>
 
