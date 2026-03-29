@@ -191,7 +191,7 @@ const REPO = 'Aieux_mes_racines';
             // 3. Pour chaque fichier, récupérer son titre
             for (const file of htmlFiles) {
                 try {
-                    const pageRes = await fetch(file.name);
+                    const pageRes = await fetch("/fiches/"file.name);
                     const pageText = await pageRes.text();
                     
                     const parser = new DOMParser();
