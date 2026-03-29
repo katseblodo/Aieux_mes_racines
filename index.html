@@ -170,18 +170,15 @@ const REPO = 'Aieux_mes_racines';
             console.error(error);
         }
     }
-    async function generateDynamicIndexFiches() {
-        const card = document.createElement('a');
-        card.href = "fiches/index.html";
-        card.className = 'card';
-        card.innerHTML = `<h3>Fiches individus</h3><span class="file-info">/fiches/index.html</span>`;
-        container.appendChild(card);
-    }
 
     generateDynamicIndex();
 </script>
-    <div id="card">
-<h3>Fiches individus</h3><span class="file-info">/fiches/index.html</span>
+    <div id="index-container" class="index-grid">
+    
+    <div id="card"> 
+<h3>Fiches individus</h3><a href=a href="https://katseblodo.github.io/Aieux_mes_racines/outils/index.html"><span class="file-info">"/fiches/index.html"</span></a>
         </div>
+
+</div>
 </body>
 </html>
