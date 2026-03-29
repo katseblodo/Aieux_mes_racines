@@ -172,54 +172,11 @@ const REPO = 'Aieux_mes_racines';
         }
     }
     async function generateDynamicIndexFiches() {
-        try {
-            // 1. Récupérer la liste des fichiers via l'API GitHub
-            const response = await fetch(API_FICHES);
-            const files = await response.json();
-
-            container.innerHTML = ''; // Nettoyage du loader
-
-            // 2. Filtrer les fichiers
-            const htmlFiles = files.filter(file => 
-                file.name.endsWith('.html') && 
-                file.name !== 'index.html' &&
-                file.name !== 'nav.html' &&
-                file.name !== 'menu.html' &&
-                file.type === 'file'
-            );
-
-            // 3. Pour chaque fichier, récupérer son titre
-            for (const file of htmlFiles) {
-                try {
-                    const pageRes = await fetch("/fiches/"file.name);
-                    const pageText = await pageRes.text();
-                    
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(pageText, 'text/html');
-                    
-                    // On cherche le <title> ou le <h1>
-                    const title = doc.querySelector('title')?.innerText 
-                               || doc.querySelector('h1')?.innerText 
-                               || file.name;
-
-                    // 4. Créer la carte
-                    const card = document.createElement('a');
-                    card.href = file.name;
-                    card.className = 'card';
-                    card.innerHTML = `
-                        <h3>${title}</h3>
-                        <span class="file-info">fiches/${file.name}</span>
-                    `;
-                    container.appendChild(card);
-
-                } catch (e) {
-                    console.error("Erreur lecture fichier:", file.name);
-                }
-            }
-        } catch (error) {
-            container.innerHTML = "<p>Erreur de connexion à l'API GitHub. Vérifiez la configuration.</p>";
-            console.error(error);
-        }
+        const card = document.createElement('a');
+        card.href = file.name;
+        card.className = 'card';
+        card.innerHTML = `<h3>Fiches individus</h3><span class="file-info">/fiches/index.html</span>`;
+        container.appendChild(card);
     }
 
     generateDynamicIndex();
