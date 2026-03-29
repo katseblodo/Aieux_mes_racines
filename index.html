@@ -17,14 +17,91 @@
     </style>  
 </head>
 <body>
-    <header class="bigouden-banner">
-    <div class="bigouden-content">
+<style>
+    /* Configuration du bandeau "Racines Finistériennes" */
+    .header-bigouden {
+        background-color: #fdfaf1; /* Crème très léger, type papier à dessin */
+        padding: 40px 20px;
+        text-align: center;
+        border-top: 5px solid #ff4500; /* Ligne rouge-orangée vive */
+        border-bottom: 3px double #bfa04a; /* Double trait doré rappelant le fil de soie */
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Motif décoratif de coin inspiré des broderies d'angle */
+    .header-bigouden::before {
+        content: "◈";
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #ffcc00; /* Jaune d'or */
+        font-size: 1.2em;
+        opacity: 0.7;
+    }
+
+    .header-bigouden h1 {
+        font-family: 'Playfair Display', 'Georgia', serif;
+        font-size: 2.8em;
+        font-weight: 700;
+        color: #4a2c2a; /* Sépia très sombre, presque noir velours */
+        margin: 0;
+        letter-spacing: -1px;
+    }
+
+    .author-signature {
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 1.1em;
+        color: #cd5c5c; /* Rouge brique doux */
+        margin: 10px 0 5px 0;
+        font-style: italic;
+        letter-spacing: 1px;
+    }
+
+    .tagline-frieze {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    /* Les traits de chaque côté de la tagline imitent un galon brodé */
+    .tagline-frieze::before, .tagline-frieze::after {
+        content: "";
+        flex: 1;
+        max-width: 100px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #ffcc00, #ff4500, transparent);
+    }
+
+    .site-tagline {
+        font-family: 'Verdana', sans-serif;
+        font-size: 0.75em;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #bfa04a; /* Or mat */
+        font-weight: bold;
+    }
+
+    /* Effet au survol pour donner vie au bandeau */
+    .header-bigouden:hover h1 {
+        color: #000;
+        transition: color 0.5s ease;
+    }
+</style>
+
+<header class="header-bigouden">
+    <div class="header-content">
         <h1>Aïeux, mes racines</h1>
-        <div class="author-line">
-            <p class="site-author">par Catherine Tanguy</p>
-            <p class="site-tagline">Généalogie & Patrimoine du Finistère</p>
+        <p class="author-signature">par Catherine Tanguy</p>
+        <div class="tagline-frieze">
+            <span class="site-tagline">Généalogie & Patrimoine du Finistère</span>
         </div>
     </div>
+</header>
  <!--a href="https://katseblodo.github.io/Aieux_mes_racines/outils/index.html" class="home-btn" title="Retour aux outils">🛠️</a -->
 
 <div id="menu-container"></div>
