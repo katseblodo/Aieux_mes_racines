@@ -14,9 +14,77 @@
         .card h3 { margin: 0; color: #8b4513; font-size: 1.1em; }
         .card .file-info { font-size: 0.75em; color: #999; margin-top: auto; padding-top: 10px; font-family: monospace; }
         .loader { text-align: center; padding: 50px; font-style: italic; color: #8b4513; }
-    </style>
-</head>
+        
+    /* Style du Bandeau de Présentation */
+    .hero-banner {
+        background: #1a1a1a; /* Fond sombre rappelant le velours du costume */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('image_e0417c.jpg');
+        background-size: cover;
+        background-position: center;
+        color: #ffd700; /* Jaune d'or pour le texte principal */
+        padding: 80px 20px;
+        text-align: center;
+        border-bottom: 6px solid #ff4500; /* Bordure orange/rouge vive */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        position: relative;
+    }
+
+    .hero-banner::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: repeating-linear-gradient(90deg, #ffd700, #ffd700 20px, #ff4500 20px, #ff4500 40px);
+        /* Petit rappel du rythme des broderies */
+    }
+
+    .hero-content h1 {
+        font-family: 'Georgia', serif;
+        font-size: 3.5em;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+        color: #ffd700;
+    }
+
+    .hero-content .site-author {
+        font-size: 1.4em;
+        color: #ffa500; /* Orange chaud */
+        margin-top: 10px;
+        font-style: italic;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .hero-content .site-tagline {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 5px 20px;
+        border: 1px solid #ffd700;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.9em;
+        background: rgba(139, 0, 0, 0.4); /* Rappel du rouge sombre */
+    }
+
+    @media (max-width: 600px) {
+        .hero-content h1 { font-size: 2.2em; }
+        .hero-banner { padding: 50px 10px; }
+    }
+</style>
 <body>
+<header class="hero-banner">
+    <div class="hero-content">
+        <h1>Aïeux, mes racines</h1>
+        <p class="site-author">par Catherine Tanguy</p>
+        <p class="site-tagline">Généalogie & Patrimoine du Finistère</p>
+    </div>
+</header>
+
+
 <div id="menu-container"></div>
 
 <div id="index-container" class="index-grid">
@@ -25,7 +93,7 @@
 
 <script>
  // Chargement menu
-fetch('menu.html').then(r => r.text()).then(d => document.getElementById('menu-container').innerHTML = d);
+//fetch('menu.html').then(r => r.text()).then(d => document.getElementById('menu-container').innerHTML = d);
     // --- CONFIGURATION ---
 const USER = 'katseblodo'; 
 const REPO = 'Aieux_mes_racines';
