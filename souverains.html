@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronologie Royale : De Waroch à Claude de France</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --color-br: #000000;
+            --color-fr: #0055A4;
+            --color-en: #CE1124;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            font-family: 'EB Garamond', serif;
+            color: #2c1810;
+        }
+
+        .parchment {
+            background: #f4e4bc;
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.1), 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #d4c4a8;
+            min-height: 100vh;
+        }
+
+        .title-gold {
+            font-family: 'Cinzel Decorative', cursive;
+            color: #8a6d3b;
+            text-shadow: 1px 1px 0px #fff;
+        }
+
+        .sticky-header {
+            background: rgba(244, 228, 188, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 2px solid #8a6d3b;
+        }
+
+        .btn-siecle {
+            font-family: 'Cinzel Decorative', cursive;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            font-size: 0.65rem;
+        }
+
+        .btn-siecle:hover, .btn-siecle.active {
+            background: #8a6d3b;
+            color: #f4e4bc;
+            border-color: #4a3728;
+        }
+
+        .grid-timeline {
+            display: grid;
+            grid-template-columns: 70px 1fr 1fr 1fr;
+            gap: 1px;
+            background: #d4c4a8;
+        }
+
+        .cell {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 10px;
+            min-height: 80px;
+        }
+
+        .header-cell {
+            background: #4a3728;
+            color: #f4e4bc;
+            font-family: 'Cinzel Decorative', cursive;
+            text-align: center;
+            padding: 8px;
+            position: sticky;
+            top: 170px;
+            z-index: 10;
+            font-size: 0.8rem;
+        }
+
+        .century-cell {
+            background: #8a6d3b;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            font-size: 0.75rem;
+        }
+
+        .sovereign-card {
+            background: white;
+            border-left: 3px solid #8a6d3b;
+            margin-bottom: 6px;
+            padding: 6px;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            font-size: 0.8rem;
+        }
+
+        .br-border { border-left-color: var(--color-br); }
+        .fr-border { border-left-color: var(--color-fr); }
+        .en-border { border-left-color: var(--color-en); }
+
+        .tag {
+            font-size: 0.5rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 1px 4px;
+            border-radius: 2px;
+            margin-bottom: 2px;
+            display: inline-block;
+        }
+
+        .conflict-tag {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #f87171;
+        }
+    </style>
+</head>
+<body class="p-0">
+
+    <div class="parchment mx-auto max-w-7xl shadow-2xl">
+        
+        <div class="sticky top-0 z-20 sticky-header pt-4 pb-2 px-6">
+            <div class="text-center mb-4">
+                <h1 class="title-gold text-2xl md:text-3xl">Grand Armorial des Souverains</h1>
+                <p class="italic text-stone-600 text-xs">Concordance exhaustive du VIe au XVIe Siècle</p>
+            </div>
+
+            <div id="nav-siecles" class="flex flex-wrap justify-center gap-1 border-t border-stone-300 pt-2">
+                <!-- Navigation -->
+            </div>
+        </div>
+
+        <div class="px-2 md:px-4 pb-12 mt-2">
+            <div class="grid-timeline rounded border border-[#d4c4a8]">
+                <div class="header-cell">S.</div>
+                <div class="header-cell border-l border-[#634a31]"><i class="fa-solid fa-shield-halved mr-1"></i>Bretagne</div>
+                <div class="header-cell border-l border-[#634a31]"><i class="fa-solid fa-certificate mr-1"></i>France</div>
+                <div class="header-cell border-l border-[#634a31]"><i class="fa-solid fa-crown mr-1"></i>Angleterre</div>
+
+                <div id="timeline-body" class="contents">
+                    <!-- Contenu dynamique -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const data = [
+            // VIe Siècle
+            { siecle: 6, pays: "BRE", nom: "Waroch Ier", maison: "Broërec", regne: "500-550", vie: "-" },
+            { siecle: 6, pays: "BRE", nom: "Canao Ier", maison: "Broërec", regne: "550-560", vie: "-560" },
+            { siecle: 6, pays: "FRA", nom: "Clovis Ier", maison: "Mérovingiens", regne: "481-511", vie: "466-511" },
+            { siecle: 6, pays: "FRA", nom: "Childebert Ier", maison: "Mérovingiens", regne: "511-558", vie: "496-558" },
+            { siecle: 6, pays: "FRA", nom: "Clotaire Ier", maison: "Mérovingiens", regne: "558-561", vie: "v.497-561" },
+            { siecle: 6, pays: "ANG", nom: "Cerdic", maison: "Wessex", regne: "519-534", vie: "-" },
+            { siecle: 6, pays: "ANG", nom: "Cynric", maison: "Wessex", regne: "534-560", vie: "-" },
+
+            // VIIe Siècle
+            { siecle: 7, pays: "BRE", nom: "Judicaël", maison: "Domnonée", regne: "610-640", vie: "v.590-658" },
+            { siecle: 7, pays: "FRA", nom: "Clotaire II", maison: "Mérovingiens", regne: "584-629", vie: "584-629" },
+            { siecle: 7, pays: "FRA", nom: "Dagobert Ier", maison: "Mérovingiens", regne: "629-639", vie: "602-639" },
+            { siecle: 7, pays: "FRA", nom: "Clovis II", maison: "Mérovingiens", regne: "639-657", vie: "635-657" },
+            { siecle: 7, pays: "ANG", nom: "Cynegils", maison: "Wessex", regne: "611-643", vie: "-" },
+            { siecle: 7, pays: "ANG", nom: "Cenwalh", maison: "Wessex", regne: "643-672", vie: "-" },
+
+            // VIIIe Siècle
+            { siecle: 8, pays: "BRE", nom: "Budic", maison: "Cornouaille", regne: "v.700", vie: "-" },
+            { siecle: 8, pays: "FRA", nom: "Charles Martel", maison: "Carolingiens (Maire)", regne: "718-741", vie: "688-741" },
+            { siecle: 8, pays: "FRA", nom: "Pépin le Bref", maison: "Carolingiens", regne: "751-768", vie: "714-768" },
+            { siecle: 8, pays: "FRA", nom: "Charlemagne", maison: "Carolingiens", regne: "768-814", vie: "742-814" },
+            { siecle: 8, pays: "ANG", nom: "Ine", maison: "Wessex", regne: "688-726", vie: "-" },
+            { siecle: 8, pays: "ANG", nom: "Offa", maison: "Mercie", regne: "757-796", vie: "-" },
+
+            // IXe Siècle
+            { siecle: 9, pays: "BRE", nom: "Nominoë", maison: "Père de la Patrie", regne: "845-851", vie: "800-851" },
+            { siecle: 9, pays: "BRE", nom: "Erispoë", maison: "Premier Roi", regne: "851-857", vie: "-857" },
+            { siecle: 9, pays: "BRE", nom: "Salomon", maison: "Roi de Bretagne", regne: "857-874", vie: "825-874" },
+            { siecle: 9, pays: "FRA", nom: "Louis le Pieux", maison: "Carolingiens", regne: "814-840", vie: "778-840" },
+            { siecle: 9, pays: "FRA", nom: "Charles le Chauve", maison: "Carolingiens", regne: "840-877", vie: "823-877" },
+            { siecle: 9, pays: "FRA", nom: "Eudes Ier", maison: "Robertiens", regne: "888-898", vie: "852-898" },
+            { siecle: 9, pays: "ANG", nom: "Egbert", maison: "Wessex", regne: "802-839", vie: "770-839" },
+            { siecle: 9, pays: "ANG", nom: "Alfred le Grand", maison: "Wessex", regne: "871-899", vie: "849-899" },
+
+            // Xe Siècle
+            { siecle: 10, pays: "BRE", nom: "Alain Barbetorte", maison: "Poher", regne: "936-952", vie: "900-952" },
+            { siecle: 10, pays: "FRA", nom: "Charles III le Simple", maison: "Carolingiens", regne: "898-922", vie: "879-929" },
+            { siecle: 10, pays: "FRA", nom: "Louis IV d'Outremer", maison: "Carolingiens", regne: "936-954", vie: "920-954" },
+            { siecle: 10, pays: "FRA", nom: "Hugues Capet", maison: "Capétiens", regne: "987-996", vie: "941-996" },
+            { siecle: 10, pays: "ANG", nom: "Athelstan", maison: "Wessex", regne: "924-939", vie: "895-939" },
+            { siecle: 10, pays: "ANG", nom: "Edgar le Pacifique", maison: "Wessex", regne: "959-975", vie: "943-975" },
+
+            // XIe Siècle
+            { siecle: 11, pays: "BRE", nom: "Alain III", maison: "Rennes", regne: "1008-1040", vie: "997-1040" },
+            { siecle: 11, pays: "BRE", nom: "Hoël II", maison: "Cornouaille", regne: "1066-1084", vie: "1030-1084" },
+            { siecle: 11, pays: "FRA", nom: "Robert II le Pieux", maison: "Capétiens", regne: "996-1031", vie: "972-1031" },
+            { siecle: 11, pays: "FRA", nom: "Henri Ier", maison: "Capétiens", regne: "1031-1060", vie: "1008-1060" },
+            { siecle: 11, pays: "FRA", nom: "Philippe Ier", maison: "Capétiens", regne: "1060-1108", vie: "1052-1108" },
+            { siecle: 11, pays: "ANG", nom: "Knut le Grand", maison: "Danemark", regne: "1016-1035", vie: "v.994-1035" },
+            { siecle: 11, pays: "ANG", nom: "Édouard le Confesseur", maison: "Wessex", regne: "1042-1066", vie: "1003-1066" },
+            { siecle: 11, pays: "ANG", nom: "Guillaume le Conquérant", maison: "Normandie", regne: "1066-1087", vie: "1027-1087" },
+
+            // XIIe Siècle
+            { siecle: 12, pays: "BRE", nom: "Conan III le Gros", maison: "Cornouaille", regne: "1112-1148", vie: "1095-1148" },
+            { siecle: 12, pays: "BRE", nom: "Conan IV le Petit", maison: "Penthièvre", regne: "1156-1166", vie: "1138-1171" },
+            { siecle: 12, pays: "BRE", nom: "Constance", maison: "Penthièvre", regne: "1166-1201", vie: "1161-1201" },
+            { siecle: 12, pays: "FRA", nom: "Louis VI le Gros", maison: "Capétiens", regne: "1108-1137", vie: "1081-1137" },
+            { siecle: 12, pays: "FRA", nom: "Louis VII le Jeune", maison: "Capétiens", regne: "1137-1180", vie: "1120-1180" },
+            { siecle: 12, pays: "FRA", nom: "Philippe II Auguste", maison: "Capétiens", regne: "1180-1223", vie: "1165-1223" },
+            { siecle: 12, pays: "ANG", nom: "Henri Ier Beauclerc", maison: "Normandie", regne: "1100-1135", vie: "1068-1135" },
+            { siecle: 12, pays: "ANG", nom: "Étienne de Blois", maison: "Blois", regne: "1135-1154", vie: "1096-1154" },
+            { siecle: 12, pays: "ANG", nom: "Henri II Plantagenêt", maison: "Plantagenêt", regne: "1154-1189", vie: "1133-1189" },
+            { siecle: 12, pays: "ANG", nom: "Richard Cœur de Lion", maison: "Plantagenêt", regne: "1189-1199", vie: "1157-1199" },
+
+            // XIIIe Siècle
+            { siecle: 13, pays: "BRE", nom: "Pierre Ier Mauclerc", maison: "Dreux", regne: "1213-1237", vie: "1187-1250" },
+            { siecle: 13, pays: "BRE", nom: "Jean Ier le Roux", maison: "Dreux", regne: "1237-1286", vie: "1217-1286" },
+            { siecle: 13, pays: "BRE", nom: "Jean II", maison: "Dreux", regne: "1286-1305", vie: "1239-1305" },
+            { siecle: 13, pays: "FRA", nom: "Louis VIII le Lion", maison: "Capétiens", regne: "1223-1226", vie: "1187-1226" },
+            { siecle: 13, pays: "FRA", nom: "Louis IX (St Louis)", maison: "Capétiens", regne: "1226-1270", vie: "1214-1270" },
+            { siecle: 13, pays: "FRA", nom: "Philippe III le Hardi", maison: "Capétiens", regne: "1270-1285", vie: "1245-1285" },
+            { siecle: 13, pays: "FRA", nom: "Philippe IV le Bel", maison: "Capétiens", regne: "1285-1314", vie: "1268-1314" },
+            { siecle: 13, pays: "ANG", nom: "Jean sans Terre", maison: "Plantagenêt", regne: "1199-1216", vie: "1166-1216" },
+            { siecle: 13, pays: "ANG", nom: "Henri III", maison: "Plantagenêt", regne: "1216-1272", vie: "1207-1272" },
+            { siecle: 13, pays: "ANG", nom: "Édouard Ier", maison: "Plantagenêt", regne: "1272-1307", vie: "1239-1307" },
+
+            // XIVe Siècle
+            { siecle: 14, pays: "BRE", nom: "Jean III le Bon", maison: "Dreux", regne: "1312-1341", vie: "1286-1341" },
+            { siecle: 14, pays: "BRE", nom: "Jean de Montfort", maison: "Montfort", regne: "1341-1345", vie: "1294-1345", conflict: true },
+            { siecle: 14, pays: "BRE", nom: "Jeanne de Penthièvre", maison: "Penthièvre", regne: "1341-1364", vie: "1319-1384", conflict: true },
+            { siecle: 14, pays: "BRE", nom: "Jean IV le Conquérant", maison: "Montfort", regne: "1364-1399", vie: "1339-1399" },
+            { siecle: 14, pays: "FRA", nom: "Louis X le Hutin", maison: "Capétiens", regne: "1314-1316", vie: "1289-1316" },
+            { siecle: 14, pays: "FRA", nom: "Philippe VI", maison: "Valois", regne: "1328-1350", vie: "1293-1350" },
+            { siecle: 14, pays: "FRA", nom: "Jean II le Bon", maison: "Valois", regne: "1350-1364", vie: "1319-1364" },
+            { siecle: 14, pays: "FRA", nom: "Charles V le Sage", maison: "Valois", regne: "1364-1380", vie: "1338-1380" },
+            { siecle: 14, pays: "FRA", nom: "Charles VI le Fol", maison: "Valois", regne: "1380-1422", vie: "1368-1422" },
+            { siecle: 14, pays: "ANG", nom: "Édouard II", maison: "Plantagenêt", regne: "1307-1327", vie: "1284-1327" },
+            { siecle: 14, pays: "ANG", nom: "Édouard III", maison: "Plantagenêt", regne: "1327-1377", vie: "1312-1377" },
+            { siecle: 14, pays: "ANG", nom: "Richard II", maison: "Plantagenêt", regne: "1377-1399", vie: "1367-1400" },
+
+            // XVe Siècle
+            { siecle: 15, pays: "BRE", nom: "Jean V le Sage", maison: "Montfort", regne: "1399-1442", vie: "1389-1442" },
+            { siecle: 15, pays: "BRE", nom: "François II", maison: "Montfort", regne: "1458-1488", vie: "1433-1488" },
+            { siecle: 15, pays: "BRE", nom: "Anne de Bretagne", maison: "Duchesse", regne: "1488-1514", vie: "1477-1514" },
+            { siecle: 15, pays: "FRA", nom: "Charles VII le Victorieux", maison: "Valois", regne: "1422-1461", vie: "1403-1461" },
+            { siecle: 15, pays: "FRA", nom: "Louis XI", maison: "Valois", regne: "1461-1483", vie: "1423-1483" },
+            { siecle: 15, pays: "FRA", nom: "Charles VIII", maison: "Valois", regne: "1483-1498", vie: "1470-1498" },
+            { siecle: 15, pays: "ANG", nom: "Henri V", maison: "Lancastre", regne: "1413-1422", vie: "1386-1422" },
+            { siecle: 15, pays: "ANG", nom: "Henri VI", maison: "Lancastre", regne: "1422-1461", vie: "1421-1471" },
+            { siecle: 15, pays: "ANG", nom: "Édouard IV", maison: "York", regne: "1461-1483", vie: "1442-1483" },
+            { siecle: 15, pays: "ANG", nom: "Richard III", maison: "York", regne: "1483-1485", vie: "1452-1485" },
+            { siecle: 15, pays: "ANG", nom: "Henri VII", maison: "Tudor", regne: "1485-1509", vie: "1457-1509" },
+
+            // XVIe Siècle
+            { siecle: 16, pays: "BRE", nom: "Claude de France", maison: "Fille d'Anne", regne: "1514-1524", vie: "1499-1524" },
+            { siecle: 16, pays: "FRA", nom: "Louis XII", maison: "Valois-Orléans", regne: "1498-1515", vie: "1462-1515" },
+            { siecle: 16, pays: "FRA", nom: "François Ier", maison: "Valois-Angoulême", regne: "1515-1547", vie: "1494-1547" },
+            { siecle: 16, pays: "ANG", nom: "Henri VIII", maison: "Tudor", regne: "1509-1547", vie: "1491-1547" },
+            { siecle: 16, pays: "ANG", nom: "Élisabeth Ire", maison: "Tudor", regne: "1558-1603", vie: "1533-1603" }
+        ];
+
+        function init() {
+            const nav = document.getElementById('nav-siecles');
+            const body = document.getElementById('timeline-body');
+            const siecles = [...new Set(data.map(d => d.siecle))].sort((a,b) => a-b);
+
+            siecles.forEach(s => {
+                const btn = document.createElement('button');
+                btn.className = "btn-siecle px-2 py-1 rounded";
+                btn.innerText = s + "e S.";
+                btn.onclick = () => {
+                    document.querySelectorAll('.btn-siecle').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    document.getElementById("S" + s).scrollIntoView({ behavior: 'smooth', block: 'center' });
+                };
+                nav.appendChild(btn);
+
+                const sCell = document.createElement('div');
+                sCell.id = "S" + s;
+                sCell.className = "century-cell";
+                sCell.innerHTML = `<span>${s}<sup>e</sup> Siècle</span>`;
+                body.appendChild(sCell);
+
+                ["BRE", "FRA", "ANG"].forEach(p => {
+                    const cell = document.createElement('div');
+                    cell.className = "cell";
+                    const list = data.filter(d => d.siecle === s && d.pays === p);
+                    
+                    if (list.length === 0) {
+                        cell.innerHTML = '<div class="text-[9px] text-stone-400 italic text-center opacity-40 mt-4">Période non renseignée</div>';
+                    }
+
+                    list.forEach(sov => {
+                        const border = p === "BRE" ? "br-border" : (p === "FRA" ? "fr-border" : "en-border");
+                        const tag = p === "BRE" ? "bg-stone-200 text-stone-800" : (p === "FRA" ? "bg-blue-100 text-blue-800" : "bg-red-100 text-red-800");
+                        
+                        cell.innerHTML += `
+                            <div class="sovereign-card ${border}">
+                                <div class="flex justify-between">
+                                    <span class="tag ${tag}">${sov.maison}</span>
+                                    ${sov.conflict ? '<span class="tag conflict-tag">Succession</span>' : ''}
+                                </div>
+                                <p class="font-bold text-[12px] leading-tight">${sov.nom}</p>
+                                <div class="text-[9px] text-stone-500 leading-none mt-1">
+                                    <p>Reg : ${sov.regne}</p>
+                                    ${sov.vie !== "-" ? `<p>Vie : ${sov.vie}</p>` : ''}
+                                </div>
+                            </div>
+                        `;
+                    });
+                    body.appendChild(cell);
+                });
+            });
+        }
+        window.onload = init;
+    </script>
+</body>
+</html>
