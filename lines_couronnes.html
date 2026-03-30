@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos liens avec les Couronnes de Bretagne et d'Europe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        :root {
+            --breizh-black: #000000;
+            --breizh-white: #ffffff;
+            --royal-gold: #d4af37;
+            --parchment: #f4f1ea;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .medieval-title {
+            font-family: 'Cinzel', serif;
+        }
+
+        .gene-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gene-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .generation-tag {
+            background: #1e293b;
+            color: #f8fafc;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .active-modal {
+            display: flex;
+        }
+
+        .search-bar:focus {
+            ring: 2px;
+            ring-color: #d4af37;
+            border-color: #d4af37;
+        }
+
+        .badge-count {
+            background: #d4af37;
+            color: black;
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body class="text-slate-900">
+
+    <!-- Header -->
+<header class="header-bigouden">
+    <div class="header-content">
+        <h1>Aïeux, mes racines</h1>
+        <p class="author-signature">par Catherine Tanguy</p>
+        <div class="tagline-frieze">
+            <span class="site-tagline">Généalogie & histoires familialles.</span>
+        </div>
+    </div>
+</header>
+
+    <!-- Toolbar -->
+    <section class="sticky top-0 z-40 bg-white/90 backdrop-blur shadow-md border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <!-- Search -->
+            <div class="relative w-full md:w-96">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text" id="searchInput" onkeyup="handleSearch()" placeholder="Chercher un nom (Rohan, Le Borgne, Plantagenêt...)" 
+                class="search-bar w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
+            </div>
+            
+            <!-- Filters -->
+            <div class="flex flex-wrap justify-center gap-2">
+                <button onclick="filterCards('all')" class="filter-btn active px-4 py-2 bg-slate-800 text-white rounded-lg text-sm font-semibold transition hover:bg-slate-700">Tous</button>
+                <button onclick="filterCards('royal')" class="filter-btn px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-semibold hover:bg-gray-50">Dynasties <span class="badge-count">3</span></button>
+                <button onclick="filterCards('breton')" class="filter-btn px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-semibold hover:bg-gray-50">Bretagne <span class="badge-count">4</span></button>
+                <button onclick="filterCards('leborgne')" class="filter-btn px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-semibold hover:bg-gray-50">Le Borgne <span class="badge-count">3</span></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        
+        <!-- Grid of Records (Dynamically populated with data from your 10 images) -->
+        <div id="cardsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- img23: Cousinage Royal -->
+            <div class="gene-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200" data-category="royal" data-search="Elisabeth II Pierre Quillec Henri III Beatrice Plantagenêt">
+                <div class="h-52 bg-gradient-to-br from-yellow-50 to-amber-100 flex items-center justify-center relative p-4">
+                    <span class="absolute top-4 right-4 generation-tag">G26 - G02</span>
+                    <i class="fa-solid fa-crown text-6xl text-yellow-600/50"></i>
+                    <p class="absolute bottom-4 left-4 text-[10px] font-mono text-gray-400">RÉF: IMG23.PNG</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="medieval-title font-bold text-xl mb-2 text-slate-800">Cousinage Élisabeth II & Quillec</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Démonstration du lien au 26ème degré entre la Reine d'Angleterre et la lignée Quillec via Henri III Plantagenêt.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Ascendance Royale</span>
+                        <button onclick="openDetails('img23')" class="text-yellow-700 font-bold text-sm hover:text-black transition">EXAMINER →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- img22: Le Borgne 14 -->
+            <div class="gene-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200" data-category="breton" data-search="Guy de Thouars Constance de Bretagne Poitiers Lusignan">
+                <div class="h-52 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center relative p-4">
+                    <span class="absolute top-4 right-4 generation-tag">G31 - G27</span>
+                    <i class="fa-solid fa-shield-halved text-6xl text-blue-800/40"></i>
+                    <p class="absolute bottom-4 left-4 text-[10px] font-mono text-gray-400">RÉF: IMG22.PNG</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="medieval-title font-bold text-xl mb-2 text-slate-800">Ascendance Le Borgne 14</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Jonction Thouars-Bretagne. Guy de Thouars, régent de Bretagne, et sa descendance vers les seigneurs de Poitou.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Duché de Bretagne</span>
+                        <button onclick="openDetails('img22')" class="text-blue-700 font-bold text-sm hover:text-black transition">EXAMINER →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- img21: Le Borgne 15 -->
+            <div class="gene-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200" data-category="breton" data-search="Maison de Bretagne Dreux Penthièvre Avaugour">
+                <div class="h-52 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center relative p-4">
+                    <span class="absolute top-4 right-4 generation-tag">G29 - G25</span>
+                    <i class="fa-solid fa-chess-rook text-6xl text-slate-400"></i>
+                    <p class="absolute bottom-4 left-4 text-[10px] font-mono text-gray-400">RÉF: IMG21.PNG</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="medieval-title font-bold text-xl mb-2 text-slate-800">Ascendance Le Borgne 15</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Focus sur la Maison de Dreux et les Comtes de Penthièvre. Branche d'Avaugour et Henri de Bretagne.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Maison de Dreux</span>
+                        <button onclick="openDetails('img21')" class="text-slate-700 font-bold text-sm hover:text-black transition">EXAMINER →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- img20: Cornouaille / Poher -->
+            <div class="gene-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200" data-category="breton" data-search="Alain de Poher Cornouaille Quimper Vannes">
+                <div class="h-52 bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center relative p-4">
+                    <span class="absolute top-4 right-4 generation-tag">G37 - G31</span>
+                    <i class="fa-solid fa-scroll text-6xl text-emerald-800/30"></i>
+                    <p class="absolute bottom-4 left-4 text-[10px] font-mono text-gray-400">RÉF: IMG20.PNG</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="medieval-title font-bold text-xl mb-2 text-slate-800">Origines : Poher & Cornouaille</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Sources : Abbé Rohrbacher. Les racines profondes de la Bretagne : Alain Comte de Poher (860) et les évêques-comtes.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Ancienne Bretagne</span>
+                        <button onclick="openDetails('img20')" class="text-emerald-700 font-bold text-sm hover:text-black transition">EXAMINER →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- img19: Vikings & Normandie -->
+            <div class="gene-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200" data-category="royal" data-search="Rollon Longue Epee Normandie Guillaume">
+                <div class="h-52 bg-gradient-to-br from-red-50 to-orange-100 flex items-center justify-center relative p-4">
+                    <span class="absolute top-4 right-4 generation-tag">G35 - G29</span>
+                    <i class="fa-solid fa-anchor text-6xl text-red-800/30"></i>
+                    <p class="absolute bottom-4 left-4 text-[10px] font-mono text-gray-400">RÉF: IMG19.PNG</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="medieval-title font-bold text-xl mb-2 text-slate-800">Lignée des Ducs de Normandie</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">De Rollon à Guillaume le Conquérant. Lien avec les comtes de Penthièvre via les mariages diplomatiques.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Normandie</span>
+                        <button onclick="openDetails('img19')" class="text-red-700 font-bold text-sm hover:text-black transition">EXAMINER →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- img18: Le Borgne 12 -->
+            <div class="gene-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200" data-category="leborgne" data-search="Le Borgne Kervidou Coëtivy">
+                <div class="h-52 bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center relative p-4">
+                    <span class="absolute top-4 right-4 generation-tag">G21 - G14</span>
+                    <i class="fa-solid fa-vihara text-6xl text-purple-800/30"></i>
+                    <p class="absolute bottom-4 left-4 text-[10px] font-mono text-gray-400">RÉF: IMG18.PNG</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="medieval-title font-bold text-xl mb-2 text-slate-800">Ascendance Le Borgne 12</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Seigneurs de Kervidou et de Coëtivy. Transition vers les branches plus récentes de la noblesse léonarde.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Noblesse Bretonne</span>
+                        <button onclick="openDetails('img18')" class="text-purple-700 font-bold text-sm hover:text-black transition">EXAMINER →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- img17: Le Borgne 13 -->
+            <div class="gene-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200" data-category="leborgne" data-search="Le Borgne Coetjunval">
+                <div class="h-52 bg-gradient-to-br from-cyan-50 to-cyan-100 flex items-center justify-center relative p-4">
+                    <span class="absolute top-4 right-4 generation-tag">G25 - G20</span>
+                    <i class="fa-solid fa-mountain-sun text-6xl text-cyan-800/30"></i>
+                    <p class="absolute bottom-4 left-4 text-[10px] font-mono text-gray-400">RÉF: IMG17.PNG</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="medieval-title font-bold text-xl mb-2 text-slate-800">Ascendance Le Borgne 13</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Focus sur la branche de Coëtjunval et les alliances avec la maison de Kergroadès.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Manoirs de Bretagne</span>
+                        <button onclick="openDetails('img17')" class="text-cyan-700 font-bold text-sm hover:text-black transition">EXAMINER →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- img16: Le Borgne 11 -->
+            <div class="gene-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200" data-category="royal" data-search="Henri Ier Beauclerc Angleterre Plantagenet Normandie">
+                <div class="h-52 bg-gradient-to-br from-rose-50 to-rose-100 flex items-center justify-center relative p-4">
+                    <span class="absolute top-4 right-4 generation-tag">G32 - G26</span>
+                    <i class="fa-solid fa-landmark-flag text-6xl text-rose-800/30"></i>
+                    <p class="absolute bottom-4 left-4 text-[10px] font-mono text-gray-400">RÉF: IMG16.PNG</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="medieval-title font-bold text-xl mb-2 text-slate-800">Ascendance Le Borgne 11</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Lien avec Henri Ier Beauclerc, Roi d'Angleterre. Développement de la descendance illégitime prestigieuse.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Royaume d'Angleterre</span>
+                        <button onclick="openDetails('img16')" class="text-rose-700 font-bold text-sm hover:text-black transition">EXAMINER →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- img15: Rohan / Le Borgne 10 -->
+            <div class="gene-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200" data-category="leborgne" data-search="Rohan Porhoët La Roche-Bernard">
+                <div class="h-52 bg-gradient-to-br from-stone-100 to-stone-200 flex items-center justify-center relative p-4">
+                    <span class="absolute top-4 right-4 generation-tag">G30 - G24</span>
+                    <i class="fa-solid fa-building-columns text-6xl text-stone-800/30"></i>
+                    <p class="absolute bottom-4 left-4 text-[10px] font-mono text-gray-400">RÉF: IMG15.PNG</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="medieval-title font-bold text-xl mb-2 text-slate-800">Maison de Rohan & Porhoët</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Généalogie de la Maison de Rohan. Alain de Rohan et les fondements de cette puissance féodale.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Seigneurs de Rohan</span>
+                        <button onclick="openDetails('img15')" class="text-stone-700 font-bold text-sm hover:text-black transition">EXAMINER →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- img14: Le Borgne 16 -->
+            <div class="gene-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200" data-category="breton" data-search="Léon Cornouaille Penthièvre Dreux">
+                <div class="h-52 bg-gradient-to-br from-teal-50 to-teal-100 flex items-center justify-center relative p-4">
+                    <span class="absolute top-4 right-4 generation-tag">G28 - G22</span>
+                    <i class="fa-solid fa-map-location-dot text-6xl text-teal-800/30"></i>
+                    <p class="absolute bottom-4 left-4 text-[10px] font-mono text-gray-400">RÉF: IMG14.PNG</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="medieval-title font-bold text-xl mb-2 text-slate-800">Ascendance Le Borgne 16</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Synthèse des liens entre le Léon, la Cornouaille et le Penthièvre au XIIIème siècle.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Géographie Historique</span>
+                        <button onclick="openDetails('img14')" class="text-teal-700 font-bold text-sm hover:text-black transition">EXAMINER →</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal for Detailed View -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <div class="bg-white rounded-2xl max-w-5xl w-full mx-4 overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300" onclick="event.stopPropagation()">
+            <!-- Modal Header -->
+            <div class="bg-slate-900 text-white p-6 flex justify-between items-center">
+                <div>
+                    <h2 id="modalTitle" class="text-2xl font-bold medieval-title">Détail du Feuillet</h2>
+                    <p id="modalRef" class="text-xs text-yellow-500 uppercase tracking-widest mt-1"></p>
+                </div>
+                <button onclick="closeModal()" class="text-3xl hover:text-yellow-500 transition">&times;</button>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row h-[70vh]">
+                <!-- Image Viewer Placeholder -->
+                <div class="lg:w-2/3 bg-slate-100 flex items-center justify-center border-r border-gray-200 overflow-hidden relative group">
+                    <div class="text-center p-8">
+                        <i class="fa-solid fa-image text-6xl text-gray-300 mb-4"></i>
+                        <p class="text-gray-500 italic">Visualisation du document : <span id="imgNameLabel"></span></p>
+                        <p class="text-xs text-gray-400 mt-2">Utilisez les fichiers sources img14-img23 pour voir les détails manuscrits.</p>
+                    </div>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 rounded-full cursor-not-allowed">Agrandir (Image Source)</span>
+                    </div>
+                </div>
+
+                <!-- Data Sidebar -->
+                <div class="lg:w-1/3 p-6 overflow-y-auto bg-white">
+                    <div class="mb-6">
+                        <h4 class="text-xs font-bold text-gray-400 uppercase mb-3 border-b pb-1">Personnages de cette branche</h4>
+                        <ul id="modalPeople" class="space-y-2">
+                            <!-- JS populated -->
+                        </ul>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="text-xs font-bold text-gray-400 uppercase mb-3 border-b pb-1">Notes du Chercheur</h4>
+                        <div id="modalNotes" class="text-sm text-gray-600 space-y-3">
+                            <!-- JS populated -->
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t">
+                        <p class="text-[10px] text-gray-400 italic text-center">
+                            Données issues du travail de "Genelogiste Historien Breiz" <br>
+                            Toute reproduction soumise à autorisation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-16 mt-20 border-t-4 border-yellow-600">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+            <div>
+                <h3 class="medieval-title text-xl mb-4 text-yellow-500">Navigation</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li class="hover:text-white cursor-pointer transition">Accueil des Archives</li>
+                    <li class="hover:text-white cursor-pointer transition">Maison de Rohan</li>
+                    <li class="hover:text-white cursor-pointer transition">Maison de Bretagne</li>
+                    <li class="hover:text-white cursor-pointer transition">Cousinage Royal</li>
+                </ul>
+            </div>
+            <div class="text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Flag_of_Brittany_%28Gwenn_ha_du%29.svg/1200px-Flag_of_Brittany_%28Gwenn_ha_du%29.svg.png" 
+                alt="Breizh" class="h-12 mx-auto mb-4 opacity-50 grayscale hover:grayscale-0 transition">
+                <p class="text-sm text-gray-500 italic">Travail de synthèse basé sur 37 générations de recherches historiques.</p>
+            </div>
+            <div class="md:text-right">
+                <h3 class="medieval-title text-xl mb-4 text-yellow-500">Contact</h3>
+                <p class="text-gray-400 mb-4">Partagez vos corrections ou compléments pour enrichir l'arbre.</p>
+                <button class="bg-yellow-600 text-black px-6 py-2 rounded font-bold hover:bg-yellow-500 transition">S'inscrire à l'Archive</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Database simulation from your images
+        const geneData = {
+            'img23': {
+                ref: 'IMG23.PNG',
+                title: 'Lien Élisabeth II & Pierre Quillec',
+                people: ['Henri III Plantagenêt', 'Béatrice d\'Angleterre', 'Jean II de Bretagne', 'Élisabeth II', 'Pierre Quillec'],
+                notes: 'Démonstration mathématique d\'un lien au 26ème degré. Les mariages croisés entre les couronnes d\'Angleterre et le Duché de Bretagne sont le point pivot.'
+            },
+            'img22': {
+                ref: 'IMG22.PNG',
+                title: 'Ascendance Le Borgne 14',
+                people: ['Guy de Thouars', 'Constance de Bretagne', 'Eustache de Poitiers', 'Hugues X de Lusignan'],
+                notes: 'Le document souligne le rôle de Guy de Thouars comme Régent de Bretagne. Influence majeure du Poitou dans la lignée bretonne.'
+            },
+            'img20': {
+                ref: 'IMG20.PNG',
+                title: 'Comtes de Poher & Cornouaille',
+                people: ['Alain de Poher (860)', 'Budic', 'Benoît de Cornouaille', 'Orscand de Vannes'],
+                notes: 'Source citée : Histoire de l\'Église par l\'Abbé Rohrbacher. Remonte aux origines des dynasties comtales bretonnes avant l\'unification du Duché.'
+            },
+            'img19': {
+                ref: 'IMG19.PNG',
+                title: 'Ducs de Normandie',
+                people: ['Rollon', 'Guillaume Longue-Épée', 'Richard Ier Sans Peur', 'Geoffroy de Penthièvre'],
+                notes: 'Lien structurel entre la Normandie et la Bretagne (Penthièvre). Les mariages renforcent la stabilité des frontières du Duché.'
+            },
+            'img15': {
+                ref: 'IMG15.PNG',
+                title: 'Maison de Rohan & Porhoët',
+                people: ['Alain de Rohan', 'Constance de Rohan', 'Eudon de Porhoët', 'Seigneurs de La Roche-Bernard'],
+                notes: 'Analyse des branches cadettes des Rohan. Focus sur le Porhoët et les alliances stratégiques du sud de la Bretagne.'
+            }
+            // Other images would be mapped here similarly...
+        };
+
+        function filterCards(category) {
+            // Update UI Active State
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active', 'bg-slate-800', 'text-white'));
+            event.currentTarget.classList.add('active', 'bg-slate-800', 'text-white');
+
+            const cards = document.querySelectorAll('.gene-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.gene-card');
+            
+            cards.forEach(card => {
+                const searchContent = card.getAttribute('data-search').toLowerCase();
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                
+                if (searchContent.includes(query) || title.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openDetails(id) {
+            const data = geneData[id] || { 
+                ref: id.toUpperCase() + '.PNG', 
+                title: 'Détail de l\'archive', 
+                people: ['Données en cours d\'extraction'], 
+                notes: 'Cette section de l\'arbre détaille les alliances de la branche concernée.' 
+            };
+            
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalRef').innerText = 'Référence : ' + data.ref;
+            document.getElementById('imgNameLabel').innerText = data.ref;
+            
+            // Populating People
+            const peopleList = document.getElementById('modalPeople');
+            peopleList.innerHTML = data.people.map(p => 
+                `<li class="flex items-center gap-2 text-slate-700 font-medium">
+                    <i class="fa-solid fa-user-check text-yellow-600 text-xs"></i> ${p}
+                 </li>`
+            ).join('');
+
+            // Populating Notes
+            document.getElementById('modalNotes').innerHTML = `<p>${data.notes}</p>`;
+            
+            document.getElementById('imageModal').classList.add('active-modal');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('active-modal');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
