@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cousinage Élisabeth II & Quillec</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap');
+
+        body {
+            background-color: #1a1a1a;
+            font-family: 'EB Garamond', serif;
+            color: #2c1810;
+        }
+
+        .parchment {
+            background: #f4e4bc;
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.2), 0 20px 40px rgba(0,0,0,0.5);
+            border: 1px solid #d4c4a8;
+        }
+
+        .title-gold {
+            font-family: 'Cinzel Decorative', cursive;
+            color: #8a6d3b;
+            text-shadow: 1px 1px 0px #fff;
+        }
+
+        .gene-line {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 8px;
+            border-left: 1px solid #8a6d3b;
+        }
+
+        .gene-line::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 8px;
+            width: 7px;
+            height: 7px;
+            background: #8a6d3b;
+            border-radius: 50%;
+        }
+
+        .gen-number {
+            font-size: 0.65rem;
+            font-weight: bold;
+            color: #8a6d3b;
+            position: absolute;
+            left: -35px;
+            width: 25px;
+            text-align: right;
+            top: 6px;
+        }
+
+        .branch-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 0.9rem;
+            color: #4a3728;
+            border-bottom: 2px solid #8a6d3b;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+
+        .highlight-node {
+            background: rgba(138, 109, 59, 0.1);
+            border: 1px solid #8a6d3b;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="py-12 px-4">
+
+    <div class="max-w-5xl mx-auto parchment p-6 md:p-12 rounded-sm shadow-2xl">
+        
+        <!-- Header -->
+        <div class="text-center mb-12 border-b-2 border-double border-stone-400 pb-6">
+            <h1 class="title-gold text-2xl md:text-4xl mb-2">Tableau de l'Ascendance Royale</h1>
+            <h2 class="text-lg italic text-stone-600">Démonstration des 26 Degrés (Réf: IMG 23)</h2>
+        </div>
+
+        <!-- Joint Root -->
+        <div class="flex justify-center mb-10">
+            <div class="text-center bg-white/40 p-4 border-2 border-[#8a6d3b] rounded-lg shadow-md">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-stone-500">Génération 26 — Ancêtre Commun</span>
+                <p class="text-xl font-bold text-red-900">HENRI III PLANTAGENÊT</p>
+                <p class="text-sm italic">Roi d'Angleterre (1207 - 1272)</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 relative">
+            
+            <!-- Connection Line for Mobile -->
+            <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-stone-300 -translate-x-1/2"></div>
+
+            <!-- Left Branch: United Kingdom -->
+            <div>
+                <h3 class="branch-title"><i class="fa-solid fa-crown mr-2"></i> Branche régnante (Windsor)</h3>
+                <div class="ml-8">
+                    <div class="gene-line"><span class="gen-number">25</span><p class="font-bold">Édouard Ier</p></div>
+                    <div class="gene-line"><span class="gen-number">24</span><p>Édouard II</p></div>
+                    <div class="gene-line"><span class="gen-number">23</span><p>Édouard III</p></div>
+                    <div class="gene-line"><span class="gen-number">22</span><p>Edmond de Langley</p></div>
+                    <div class="gene-line"><span class="gen-number">21</span><p>Richard de Conisburgh</p></div>
+                    <div class="gene-line"><span class="gen-number">20</span><p>Richard Plantagenêt</p></div>
+                    <div class="gene-line"><span class="gen-number">19</span><p>Édouard IV</p></div>
+                    <div class="gene-line"><span class="gen-number">18</span><p>Élisabeth d'York</p></div>
+                    <div class="gene-line"><span class="gen-number">17</span><p>Marguerite Tudor</p></div>
+                    <div class="gene-line"><span class="gen-number">16</span><p>Jacques V d'Écosse</p></div>
+                    <div class="gene-line"><span class="gen-number">15</span><p>Marie Stuart</p></div>
+                    <div class="gene-line"><span class="gen-number">14</span><p>Jacques Ier</p></div>
+                    <div class="gene-line"><span class="gen-number">13</span><p>Élisabeth Stuart</p></div>
+                    <div class="gene-line"><span class="gen-number">12</span><p>Sophie du Palatinat</p></div>
+                    <div class="gene-line"><span class="gen-number">11</span><p>George Ier</p></div>
+                    <div class="gene-line"><span class="gen-number">10</span><p>George II</p></div>
+                    <div class="gene-line"><span class="gen-number">09</span><p>Frédéric de Galles</p></div>
+                    <div class="gene-line"><span class="gen-number">08</span><p>George III</p></div>
+                    <div class="gene-line"><span class="gen-number">07</span><p>Édouard de Kent</p></div>
+                    <div class="gene-line"><span class="gen-number">06</span><p>Victoria</p></div>
+                    <div class="gene-line"><span class="gen-number">05</span><p>Édouard VII</p></div>
+                    <div class="gene-line"><span class="gen-number">04</span><p>George V</p></div>
+                    <div class="gene-line"><span class="gen-number">03</span><p>George VI</p></div>
+                    <div class="gene-line bg-yellow-600/10 rounded-r-lg">
+                        <span class="gen-number text-red-700">02</span>
+                        <p class="font-bold text-red-800">Élisabeth II (Reine)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Branch: Bretagne / Le Borgne -->
+            <div>
+                <h3 class="branch-title"><i class="fa-solid fa-shield-halved mr-2"></i> Branche Bretonne (Le Borgne)</h3>
+                <div class="ml-8">
+                    <div class="gene-line"><span class="gen-number">25</span><p class="font-bold text-blue-900">BÉATRICE d'Angleterre</p><p class="text-[10px] -mt-1 italic">x Jean II de Bretagne</p></div>
+                    <div class="gene-line"><span class="gen-number">24</span><p>Arthur II de Bretagne</p></div>
+                    <div class="gene-line"><span class="gen-number">23</span><p>Guy de Bretagne (Comte de Penthièvre)</p></div>
+                    <div class="gene-line"><span class="gen-number">22</span><p>Jeanne de Penthièvre (la Boiteuse)</p></div>
+                    <div class="gene-line"><span class="gen-number">21</span><p>Jean Ier de Châtillon</p></div>
+                    <div class="gene-line"><span class="gen-number">20</span><p>Charles de Penthièvre</p></div>
+                    <div class="gene-line"><span class="gen-number">19</span><p>Nicole de Penthièvre</p></div>
+                    <div class="gene-line"><span class="gen-number">18</span><p>Jean d'Albret (Vicomte de Tartas)</p></div>
+                    <div class="gene-line"><span class="gen-number">17</span><p>Charlotte d'Albret</p></div>
+                    <div class="gene-line"><span class="gen-number">16</span><p>Louise Borgia</p></div>
+                    <div class="gene-line"><span class="gen-number">15</span><p>Claude de la Trémoille</p></div>
+                    <div class="gene-line"><span class="gen-number">14</span><p>Henri de la Trémoille</p></div>
+                    <div class="gene-line"><span class="gen-number">13</span><p>Marie-Charlotte de la Trémoille</p></div>
+                    <div class="gene-line"><span class="gen-number">12</span><p>Bernhard de Saxe-Weimar</p></div>
+                    <div class="gene-line text-stone-400 italic text-xs"><p>... Passage vers les lignées Léonardes ...</p></div>
+                    <div class="gene-line"><span class="gen-number">08</span><p>Marie-Yvonne Le Borgne</p></div>
+                    <div class="gene-line"><span class="gen-number">07</span><p>Jean-François Le Borgne</p></div>
+                    <div class="gene-line"><span class="gen-number">06</span><p>Yves-Marie Le Borgne</p></div>
+                    <div class="gene-line"><span class="gen-number">05</span><p>Marie-Anne Le Borgne</p></div>
+                    <div class="gene-line"><span class="gen-number">04</span><p>Jean-Louis Quillec</p></div>
+                    <div class="gene-line"><span class="gen-number">03</span><p>Alain Quillec</p></div>
+                    <div class="gene-line bg-blue-600/10 rounded-r-lg">
+                        <span class="gen-number text-blue-700">02</span>
+                        <p class="font-bold text-blue-800">Pierre Quillec</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scientific Note -->
+        <div class="mt-12 p-4 bg-stone-800 text-stone-200 rounded-lg text-sm">
+            <p><i class="fa-solid fa-info-circle mr-2 text-yellow-500"></i> <strong>Note Technique :</strong> Ce tableau reconstitue la double descente à partir du tronc commun Plantagenêt. On observe la divergence entre la branche aînée masculine (Édouard I) et la branche cadette féminine (Béatrice) qui ancre la lignée dans la noblesse bretonne via le mariage avec Jean II.</p>
+        </div>
+
+        <div class="mt-6 text-center text-[10px] text-stone-400 italic">
+            Document généré à partir des notes manuscrites de "Genelogiste Historien Breiz"
+        </div>
+    </div>
+
+</body>
+</html>
