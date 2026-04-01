@@ -92,19 +92,6 @@
             </div>
         </section>
 
-        <section class="bg-stone-800 text-white p-8 rounded-lg mb-16">
-            <h2 class="text-2xl font-serif font-bold mb-6 text-amber-400">Chronique : La vente de 1921</h2>
-            <p class="mb-4 leading-relaxed">
-                Le 28 janvier 1921, devant Maître Le Duigou à Muzillac, une page se tourne. Les héritiers Le Pajollec mettent aux enchères les biens de <span class="text-amber-400 font-bold">Logorène</span>. 
-            </p>
-            <p class="mb-4 leading-relaxed">
-                Cet acte notarié est une véritable "photographie" de la famille au sortir de la Grande Guerre. Il nous révèle la dispersion géographique : Antoine à Concarneau, Marie à Paris, et le reste de la fratrie (Jean, Antoinette, Louis, Clément) à Saint-Nazaire.
-            </p>
-            <div class="bg-stone-700 p-4 rounded text-sm italic">
-                "Ce document est précieux car il énumère les membres présents ou représentés, palliant l'absence de registres de recensement consultables pour cette année."
-            </div>
-        </section>
-
         <section class="mb-16">
             <h2 class="text-3xl font-serif font-bold mb-8 text-amber-900">L'Héritage lointain (Générations 6 à 9)</h2>
             <div class="overflow-x-auto">
@@ -146,6 +133,138 @@
                 </table>
             </div>
         </section>
+
+       <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f1ea; color: #333; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; color: white; padding: 80px 20px; text-align: center; }
+        
+        .sosa-badge { background-color: #8b4513; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-right: 5px; }
+        .lieu-badge { background-color: #e5e7eb; color: #4b5563; padding: 1px 5px; border-radius: 4px; font-size: 0.7rem; }
+
+        /* Arbre Vertical Stylisé */
+        .ancestry-column { position: relative; padding-left: 30px; border-left: 2px solid #d1d5db; margin-left: 10px; }
+        .gen-title { font-weight: bold; color: #8b4513; text-transform: uppercase; font-size: 0.8rem; margin-top: 20px; letter-spacing: 0.1em; }
+        .person-card { background: white; border: 1px solid #e5e7eb; padding: 10px; border-radius: 6px; margin: 10px 0; position: relative; box-shadow: 2px 2px 5px rgba(0,0,0,0.05); }
+        .person-card::before { content: ''; position: absolute; left: -32px; top: 50%; width: 30px; height: 2px; background: #d1d5db; }
+        
+        .branch-title { border-bottom: 3px solid #8b4513; display: inline-block; padding-bottom: 5px; margin-bottom: 20px; }
+        .noyal-highlight { border-left: 4px solid #f59e0b; background-color: #fffbeb; }
+    </style>
+</head>
+<body>
+
+    <header class="p-4 bg-white shadow-sm flex justify-between items-center">
+        <a href="index.html" title="Retour à l'accueil" class="text-2xl text-amber-900"><i class="fas fa-home"></i></a>
+        <h1 class="text-xl font-bold uppercase tracking-widest text-amber-900">Aïeux : Mes Racines</h1>
+        <div></div>
+    </header>
+
+    <section class="hero">
+        <h1 class="text-4xl md:text-6xl font-serif font-bold mb-4">Noyal-Muzillac</h1>
+        <p class="text-xl italic opacity-90">De la Bretagne rurale aux chantiers de l'Atlantique</p>
+    </section>
+
+    <main class="max-w-6xl mx-auto p-6 md:p-12">
+        
+        <section class="mb-20 text-center">
+            <h2 class="text-3xl font-serif font-bold mb-6 branch-title">L'Héritage des 6 Générations</h2>
+            <p class="text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Voici la remontée du temps pour les deux branches ancrées à Noyal-Muzillac. 
+                On observe ici le passage d'une famille de laboureurs et de tailleurs d'habits au XVIIe siècle vers les métiers qualifiés du bâtiment au XIXe siècle.
+            </p>
+        </section>
+
+        <div class="grid lg:grid-cols-2 gap-16">
+            
+            <!-- BRANCHE LE PAJOLLEC -->
+            <div>
+                <h3 class="text-2xl font-serif font-bold text-blue-900 mb-8"><i class="fas fa-stream mr-2"></i>Lignée LE PAJOLLEC</h3>
+                <div class="ancestry-column">
+                    
+                    <div class="gen-title">Gén. 1 (SOSA 28) - Le Départ</div>
+                    <div class="person-card noyal-highlight">
+                        <span class="sosa-badge">28</span> <strong>Jean François LE PAJOLLEC</strong> (1847-1908)<br>
+                        <span class="text-xs">Maçon / Perceur • <span class="lieu-badge">Noyal (Cosquer-Grace)</span></span>
+                    </div>
+
+                    <div class="gen-title">Gén. 2 (SOSA 56)</div>
+                    <div class="person-card noyal-highlight">
+                        <span class="sosa-badge">56</span> <strong>Pierre LE PAJOLLEC</strong> (1819-1856)<br>
+                        <span class="text-xs">Cantonnier • <span class="lieu-badge">Muzillac / Noyal</span></span>
+                    </div>
+
+                    <div class="gen-title">Gén. 3 (SOSA 112)</div>
+                    <div class="person-card">
+                        <span class="sosa-badge">112</span> <strong>François LE PAJOLLEC</strong> (1777-1828)<br>
+                        <span class="text-xs">Laboureur • <span class="lieu-badge">Sulniac / Muzillac</span></span>
+                    </div>
+
+                    <div class="gen-title">Gén. 4 (SOSA 224)</div>
+                    <div class="person-card">
+                        <span class="sosa-badge">224</span> <strong>Mathurin LE PAJOLEC</strong> (1743-1816)<br>
+                        <span class="text-xs">Laboureur • <span class="lieu-badge">Berric</span></span>
+                    </div>
+
+                    <div class="gen-title">Gén. 5 (SOSA 448)</div>
+                    <div class="person-card">
+                        <span class="sosa-badge">448</span> <strong>Pierre LE PAJOLEC</strong> (1713-1783)<br>
+                        <span class="text-xs">Homme de labeur • <span class="lieu-badge">Sulniac</span></span>
+                    </div>
+
+                    <div class="gen-title">Gén. 6 (SOSA 896) - L'Origine</div>
+                    <div class="person-card">
+                        <span class="sosa-badge">896</span> <strong>Charles LE PAJOLEC</strong> (1654-1733)<br>
+                        <span class="text-xs">Laboureur • <span class="lieu-badge">Sulniac</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BRANCHE BENOIT / QUÉLARD -->
+            <div>
+                <h3 class="text-2xl font-serif font-bold text-amber-900 mb-8"><i class="fas fa-leaf mr-2"></i>Lignée BENOIT / QUÉLARD</h3>
+                <div class="ancestry-column" style="border-color: #8b4513;">
+                    
+                    <div class="gen-title">Gén. 1 (SOSA 29) - L'Héritière</div>
+                    <div class="person-card noyal-highlight">
+                        <span class="sosa-badge">29</span> <strong>Marie Reine QUÉLARD</strong> (1860-1919)<br>
+                        <span class="text-xs">Employée • <span class="lieu-badge">Noyal (Kertady)</span></span>
+                    </div>
+
+                    <div class="gen-title">Gén. 2 (SOSA 59)</div>
+                    <div class="person-card noyal-highlight">
+                        <span class="sosa-badge">59</span> <strong>Marie Françoise BENOIT</strong> (1834-?)<br>
+                        <span class="text-xs">Lingère • <span class="lieu-badge">Noyal (Larhennic)</span></span>
+                    </div>
+
+                    <div class="gen-title">Gén. 3 (SOSA 118)</div>
+                    <div class="person-card noyal-highlight">
+                        <span class="sosa-badge">118</span> <strong>Vincent Louis BENOIT</strong> (1805-1874)<br>
+                        <span class="text-xs">Tailleur d'habits • <span class="lieu-badge">Noyal-Muzillac</span></span>
+                    </div>
+
+                    <div class="gen-title">Gén. 4 (SOSA 236)</div>
+                    <div class="person-card noyal-highlight">
+                        <span class="sosa-badge">236</span> <strong>Vincent BENOIST</strong> (1754-1830)<br>
+                        <span class="text-xs">Tailleur d'habits • <span class="lieu-badge">Noyal-Muzillac</span></span>
+                    </div>
+
+                    <div class="gen-title">Gén. 5 (SOSA 472)</div>
+                    <div class="person-card noyal-highlight">
+                        <span class="sosa-badge">472</span> <strong>François BENOIST</strong> (1705-1791)<br>
+                        <span class="text-xs">Tailleur d'habits • <span class="lieu-badge">Noyal-Muzillac</span></span>
+                    </div>
+
+                    <div class="gen-title">Gén. 6 (SOSA 910) - Le Patriarche</div>
+                    <div class="person-card noyal-highlight">
+                        <span class="sosa-badge">910</span> <strong>Jean BENOIST</strong> (1691-1766)<br>
+                        <span class="text-xs">Laboureur • <span class="lieu-badge">Noyal (Petit Cadillac)</span></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
     </main>
 
