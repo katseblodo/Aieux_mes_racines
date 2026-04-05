@@ -3,193 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marie-Louise LAUTROU (1878-1938)</title>
+    <title>Marie-Louise LAUTROU (1878-1938) - Fiche Complète</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700&display=swap');
         
         body {
             font-family: 'Crimson Pro', serif;
-            background-color: #fdfaf6;
-            color: #2d2d2d;
+            background-color: #f3f2ef;
+            color: #1a1a1a;
         }
-        h1, h2, h3 {
+
+        .header-bg {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1510673398445-94f476ef2cbc?q=80&w=2072&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .sidebar-title {
             font-family: 'Playfair Display', serif;
+            border-bottom: 1px solid #d1d5db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
             color: #5d4037;
         }
-        .ancestor-card {
-            border-left: 4px solid #8d6e63;
-            background: #fff;
+
+        .prose p {
+            margin-bottom: 1.5rem;
+            text-indent: 2rem;
         }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -9px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #8d6e63;
-        }
-        .badge-sosa {
+
+        .coiffe-badge {
             background-color: #8d6e63;
             color: white;
             padding: 2px 8px;
             border-radius: 4px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="bg-[#f8f9fa]">
 
-    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden border border-gray-100">
-        <!-- En-tête -->
-        <header class="bg-[#5d4037] text-white p-8 text-center">
-            <p class="uppercase tracking-widest text-sm mb-2">Génération 2 — Sosa 9</p>
-            <h1 class="text-4xl md:text-5xl mb-2">Marie-Louise LAUTROU</h1>
-            <p class="text-xl italic opacity-90">1878 — 1938</p>
-        </header>
+    <!-- En-tête -->
+    <header class="header-bg text-white py-20 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="uppercase tracking-[0.3em] text-sm opacity-80 mb-4 block font-sans">Archives Familiales</span>
+            <h1 class="text-6xl font-serif mb-4">Marie-Louise LAUTROU</h1>
+            <p class="text-2xl italic opacity-90 font-serif">1878 — 1938</p>
+            <div class="mt-8 flex justify-center gap-4">
+                <span class="border border-white/40 px-4 py-1 rounded-full text-xs uppercase tracking-widest font-sans">Sosa 9</span>
+                <span class="border border-white/40 px-4 py-1 rounded-full text-xs uppercase tracking-widest font-sans">Génération 2</span>
+            </div>
+        </div>
+    </header>
 
-        <div class="p-6 md:p-10">
-            <!-- Résumé Intro -->
-            <div class="flex flex-col md:flex-row gap-8 mb-12 italic text-lg leading-relaxed border-b pb-8">
-                <div class="md:w-2/3">
-                    <p>
-                        "Dans ce petit document, j’ai essayé de retracer la vie de mon ancêtre : la mère de mon Grand-Père Louis TANGUY... Elle voit le jour à Spézet, grandit dans les ruelles de Morlaix et devient une figure commerçante de la rue Gambetta."
+    <main class="max-w-6xl mx-auto py-12 px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Panneau Latéral (Style Antoine) -->
+            <aside class="lg:col-span-4 space-y-8">
+                <div class="bg-white p-8 shadow-sm border border-gray-100 rounded-sm">
+                    <div class="flex justify-center mb-8">
+                        <div class="w-full aspect-[3/4] bg-gray-50 border-2 border-dashed border-gray-200 flex flex-col items-center justify-center overflow-hidden p-6 text-center">
+                            <i class="fa-regular fa-image text-gray-300 text-4xl mb-4"></i>
+                            <span class="text-gray-400 italic text-sm">[Portrait de Marie-Louise en coiffe "queue de langouste" de Morlaix]</span>
+                        </div>
+                    </div>
+                    
+                    <h2 class="sidebar-title text-xl uppercase tracking-tighter">État Civil</h2>
+                    <ul class="space-y-4 text-md">
+                        <li class="flex justify-between border-b border-gray-50 pb-2">
+                            <span class="text-gray-500 font-sans text-xs uppercase">Naissance</span>
+                            <span class="font-bold">30 janv. 1878</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-50 pb-2 text-right">
+                            <span class="text-gray-500 font-sans text-xs uppercase">Lieu</span>
+                            <span class="font-bold">Spézet (29)</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-50 pb-2">
+                            <span class="text-gray-500 font-sans text-xs uppercase">Décès</span>
+                            <span class="font-bold">01 oct. 1938</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-50 pb-2">
+                            <span class="text-gray-500 font-sans text-xs uppercase">Profession</span>
+                            <span class="font-bold">Mercière</span>
+                        </li>
+                    </ul>
+
+                    <h2 class="sidebar-title text-xl uppercase tracking-tighter mt-10">Famille Proche</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Père</p>
+                            <p class="font-bold text-[#5d4037]">Charles Dieudonné LAUTROU</p>
+                            <p class="text-xs text-gray-500 italic">Forgeron puis Chauffeur vapeur</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Mère</p>
+                            <p class="font-bold text-[#5d4037]">Marguerite COCHENNEC</p>
+                            <p class="text-xs text-gray-500 italic">Morte à 37 ans</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Époux</p>
+                            <p class="font-bold text-[#5d4037]">Louis TANGUY</p>
+                            <p class="text-xs text-gray-500 italic">Relieur d'art</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#5d4037] text-white p-6 shadow-sm rounded-sm">
+                    <h3 class="font-serif text-lg mb-2">Note de l'historien</h3>
+                    <p class="text-sm opacity-80 leading-relaxed italic">
+                        Marie-Louise représente cette transition entre la Bretagne rurale des Montagnes Noires et l'artisanat urbain de la ville de Morlaix au tournant du siècle.
                     </p>
                 </div>
-                <div class="md:w-1/3 flex justify-center">
-                    <div class="w-40 h-40 bg-gray-100 rounded-full border-4 border-[#8d6e63] flex items-center justify-center overflow-hidden">
-                        <!-- Placeholder pour la photo de coiffe "Queue de langouste" -->
-                        <span class="text-gray-400 text-center text-xs p-2">Photo : Marie-Louise en coiffe de Morlaix</span>
-                    </div>
-                </div>
-            </div>
+            </aside>
 
-            <!-- Informations clés -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <div class="ancestor-card p-4 shadow-sm">
-                    <h2 class="text-xl font-bold mb-4 flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
-                        Naissance & Origines
-                    </h2>
-                    <ul class="space-y-2">
-                        <li><strong>Née le :</strong> 30 janvier 1878</li>
-                        <li><strong>À :</strong> Spézet (29)</li>
-                        <li><strong>Père :</strong> Charles Dieudonné LAUTROU (Forgeron, Chauffeur)</li>
-                        <li><strong>Mère :</strong> Marguerite COCHENNEC</li>
-                    </ul>
-                </div>
-                <div class="ancestor-card p-4 shadow-sm">
-                    <h2 class="text-xl font-bold mb-4 flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>
-                        Union & Vie Civile
-                    </h2>
-                    <ul class="space-y-2">
-                        <li><strong>Époux :</strong> Louis TANGUY (Relieur)</li>
-                        <li><strong>Mariage :</strong> 1899 à Morlaix</li>
-                        <li><strong>Profession :</strong> Commerçante (Mercerie)</li>
-                        <li><strong>Domicile :</strong> 89 Rue Gambetta, Morlaix</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Chronologie -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold mb-6 border-b-2 border-[#8d6e63] inline-block pb-1">Chronologie de Vie</h2>
-                <div class="ml-4 border-l-2 border-gray-200 pl-8 space-y-8 relative">
+            <!-- Contenu Principal : Texte Intégral -->
+            <div class="lg:col-span-8">
+                <article class="bg-white p-10 shadow-sm border border-gray-100 rounded-sm">
+                    <h2 class="text-4xl font-serif mb-10 text-[#5d4037] border-b pb-4 italic">Biographie Complète</h2>
                     
-                    <div class="timeline-item relative">
-                        <h3 class="font-bold text-[#8d6e63]">1878 — La naissance à Spézet</h3>
-                        <p class="text-gray-600">Naissance chez ses grands-parents maternels. Son père est forgeron, originaire de Plounévézel.</p>
+                    <div class="prose prose-lg max-w-none text-gray-800 leading-relaxed text-justify">
+                        
+                        <p>Tout commence avec Charles Dieudonné Lautrou, né en 1845 à Plounévézel. Il est le fils de François-Marie Lautrou et de Marie-Louise Henry. Forgeron de métier, une profession exigeante qui demande force et précision, Charles décide de quitter sa terre natale pour s'installer à Spézet aux alentours de l'année 1874. C'est dans ce bourg qu'il fonde son foyer en épousant Marguerite Cochennec. C’est dans ce contexte rural, laborieux et authentique des Montagnes Noires que naît Marie-Louise.</p>
+
+                        <p>Le 30 Janvier 1878, à 4 heures du matin, Marie-Louise voit le jour au domicile de ses grands-parents maternels, François Cochennec et Marguerite Le Naour, à Spézet. Premier enfant du couple, elle reçoit les prénoms de sa grand-mère paternelle, respectant scrupuleusement la tradition familiale de transmission des prénoms au sein de la lignée de Plounévézel.</p>
+
+                        <p>Peu avant 1880, la famille Lautrou décide de quitter les paysages accidentés du centre Bretagne pour s'installer à Morlaix, attirée par l'effervescence et les opportunités de l'activité urbaine. Ils emménagent Rue Courte, au cœur du quartier Saint-Mathieu. C'est dans ce microcosme animé que Marie-Louise passe ses premières années, grandissant à quelques pas de l'église et côtoyant quotidiennement ses voisins, les familles Saluden et Tanguy, qui tiennent l'auberge située juste en face de leur domicile. Ces liens de voisinage préfigurent déjà son avenir.</p>
+
+                        <p>Toutefois, son enfance est précocement marquée par la fragilité de l'existence et une succession de deuils éprouvants. Marie-Louise voit naître et s'éteindre deux de ses sœurs en bas âge : Jeanne-Marie, née en 1880, qui ne survit que deux mois, puis Augustine, née l'année suivante en 1881, qui s'éteint après seulement une année de vie. Suite à ces tragédies, Marie-Louise demeure la seule enfant de la maison pendant douze longues années, une solitude qui forgera sans doute son tempérament sérieux et protecteur.</p>
+
+                        <p>Le 16 octobre 1891, le foyer est frappé par un choc majeur : sa mère, Marguerite Cochennec, décède prématurément à l'âge de 37 ans. Marie-Louise n'a que 13 ans. Quelques mois avant ce drame, une petite sœur était née : Augustine Marie Madeleine. La jeune Louise se retrouve alors investie d'une responsabilité d'adulte, secondant son père Charles pour élever le nourrisson. Son père a alors changé de profession, délaissant la forge pour devenir chauffeur de machine à vapeur, un métier emblématique de la révolution industrielle. Cette période de deuil partagé et de soins apportés à sa petite sœur créera entre les deux femmes un lien indéfectible qui durera toute leur vie.</p>
+
+                        <p>Le 18 avril 1899, Marie-Louise unit sa destinée à celle de Louis Tanguy lors d'une cérémonie célébrée à Morlaix. C'est l'aboutissement d'une romance entre voisins de la Rue Courte, puisque Louis est le fils des aubergistes d'en face. Louis exerce le noble métier de relieur de livres, un artisanat de précision. Les témoins de leur union reflètent l'entourage proche : son père Charles Lautrou, son cousin germain Charles Le Borgne venu de Plounévézel, ainsi que les oncles de l'époux, Louis Saluden et Jean-Marie Tanguy, lui-même relieur à Brest. À cette occasion, Marie-Louise arbore avec fierté la coiffe traditionnelle de Morlaix, dite "queue de langouste", affirmant son ancrage dans la cité léonarde.</p>
+
+                        <p>En 1908, le couple franchit une étape décisive pour leur avenir social et professionnel en faisant l'acquisition de l'immeuble situé au 89 Rue Gambetta. C'est à cette adresse que Marie-Louise va s'épanouir en tant que commerçante indépendante. Elle y tient une mercerie réputée, gérant avec rigueur les fournitures de couture, tandis que Louis installe son atelier de reliure dans l'arrière-boutique donnant sur la cour. La maison vit au rythme des clients de la mercerie et du travail du cuir et du papier.</p>
+
+                        <p>Entre 1900 et 1917, la famille s'agrandit avec la naissance de cinq enfants : Marguerite en 1900, Maurice en 1904 (qui succédera à son père à l'établi), Louis-Jean en 1905 (qui meurt hélas en 1907 à l'âge de 2 ans), Marie-Louise en 1910, et enfin Louis, surnommé "Loulou", né en 1917 en pleine tourmente mondiale. Ce dernier, votre futur grand-père, apporte une lueur d'espoir au foyer pendant les années sombres.</p>
+
+                        <p>Durant la Grande Guerre de 1914-1918, Louis Tanguy est exempté de front en raison de sa santé fragile et de son asthme chronique. Marie-Louise porte alors la charge mentale et physique de la famille et du commerce dans un climat d'angoisse. Elle assiste au sacrifice de sa parentèle : ses cousins germains Auguste Tanguy, Louis Saluden, Jean-Marie Tanguy et François-Marie Saluden tombent tous au champ d'honneur. Malgré ces pertes, elle maintient l'unité familiale, comme en témoigne la photographie de 1912 où l'on voit les Tanguy et les Saluden réunis autour de la grand-mère.</p>
+
+                        <p>Le 8 novembre 1932, Louis s'éteint à l'âge de 56 ans, terrassé par une ultime crise d'asthme. Marie-Louise, veuve à 54 ans, poursuit courageusement l'activité de la mercerie. En 1937, elle s'autorise un voyage marquant au Mans pour rendre visite à sa sœur Augustine. Les clichés de ce séjour montrent une femme sereine, toujours fidèle à sa coiffe bretonne malgré l'éloignement. Elle s'éteint finalement le 1er octobre 1938 à l'âge de 60 ans, peu après avoir eu l'immense fierté de voir son fils Louis réussir brillamment son Baccalauréat. Elle est inhumée au cimetière Saint-Charles de Morlaix, emportant avec elle le souvenir d'une vie de labeur, de dignité et de dévouement familial.</p>
+                        
                     </div>
-
-                    <div class="timeline-item relative">
-                        <h3 class="font-bold text-[#8d6e63]">1880-1890 — L'enfance rue Courte</h3>
-                        <p class="text-gray-600">Grandit à Morlaix. Elle voit naître et mourir plusieurs sœurs (Jeanne-Marie, Augustine). Elle finit par rester fille unique durant 12 ans.</p>
+                </article>
+                
+                <!-- Section Chronologique Courte pour le rappel visuel -->
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 border shadow-sm rounded-sm">
+                        <span class="text-xs font-sans text-gray-400 uppercase tracking-widest">1878</span>
+                        <h4 class="font-serif text-lg font-bold">Naissance</h4>
+                        <p class="text-sm text-gray-600">A Spézet, berceau des Lautrou.</p>
                     </div>
-
-                    <div class="timeline-item relative">
-                        <h3 class="font-bold text-[#8d6e63]">1891 — Le deuil maternel</h3>
-                        <p class="text-gray-600">Sa mère Marguerite décède alors que Marie-Louise n'a que 13 ans. Elle aide probablement son père à s'occuper de sa jeune sœur Augustine Marie Madeleine.</p>
+                    <div class="bg-white p-6 border shadow-sm rounded-sm">
+                        <span class="text-xs font-sans text-gray-400 uppercase tracking-widest">1908</span>
+                        <h4 class="font-serif text-lg font-bold">Commerce</h4>
+                        <p class="text-sm text-gray-600">Installation Rue Gambetta.</p>
                     </div>
-
-                    <div class="timeline-item relative">
-                        <h3 class="font-bold text-[#8d6e63]">1899 — Le mariage avec Louis Tanguy</h3>
-                        <p class="text-gray-600">Épouse son voisin Louis, relieur. Ils s'installent d'abord chez sa belle-mère aubergiste avant de rejoindre la Rue Gambetta.</p>
-                    </div>
-
-                    <div class="timeline-item relative">
-                        <h3 class="font-bold text-[#8d6e63]">1900-1917 — La famille s'agrandit</h3>
-                        <p class="text-gray-600">Naissance de Marguerite, Maurice, Louis-Jean (décédé jeune) et Marie-Louise. En 1917, naissance du "petit dernier", Louis (dit Loulou).</p>
-                    </div>
-
-                    <div class="timeline-item relative">
-                        <h3 class="font-bold text-[#8d6e63]">1914-1918 — La Grande Guerre</h3>
-                        <p class="text-gray-600">Son mari est exempté pour santé fragile. Elle gère la maison et son commerce pendant que les cousins Saluden et Tanguy partent au front (plusieurs n'en reviendront pas).</p>
-                    </div>
-
-                    <div class="timeline-item relative">
-                        <h3 class="font-bold text-[#8d6e63]">1932 — Le veuvage</h3>
-                        <p class="text-gray-600">Décès de Louis d'une crise d'asthme. Elle devient chef de famille et gère la mercerie tandis que son fils Maurice reprend l'atelier de reliure.</p>
-                    </div>
-
-                    <div class="timeline-item relative">
-                        <h3 class="font-bold text-[#8d6e63]">1938 — L'adieu</h3>
-                        <p class="text-gray-600">Elle s'éteint le 1er octobre 1938 à 60 ans, peu après le succès de son fils Louis au baccalauréat.</p>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Arbre simplifié -->
-            <section class="mb-12 bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <h2 class="text-2xl font-bold mb-6 text-center">Ascendance Simplifiée</h2>
-                <div class="flex flex-col items-center">
-                    <div class="grid grid-cols-2 gap-4 w-full max-w-2xl text-center">
-                        <div class="p-2 border bg-white shadow-sm rounded">
-                            <p class="text-xs text-gray-500">GP Maternel</p>
-                            <p class="font-bold">François COCHENNEC</p>
-                        </div>
-                        <div class="p-2 border bg-white shadow-sm rounded">
-                            <p class="text-xs text-gray-500">GM Maternelle</p>
-                            <p class="font-bold">Marguerite LE NAOUR</p>
-                        </div>
-                        <div class="col-span-2 flex justify-center py-2">
-                            <div class="w-px h-4 bg-gray-300"></div>
-                        </div>
-                        <div class="col-span-2 p-3 border bg-white shadow-md rounded-lg border-[#8d6e63]">
-                            <p class="text-xs text-gray-500">Mère</p>
-                            <p class="font-bold text-lg">Marguerite COCHENNEC (1854-1891)</p>
-                        </div>
+                    <div class="bg-white p-6 border shadow-sm rounded-sm">
+                        <span class="text-xs font-sans text-gray-400 uppercase tracking-widest">1938</span>
+                        <h4 class="font-serif text-lg font-bold">Fin de vie</h4>
+                        <p class="text-sm text-gray-600">Inhumation à Saint-Charles.</p>
                     </div>
                 </div>
-            </section>
-
-            <!-- Galerie / Photos mentionnées -->
-            <section>
-                <h2 class="text-2xl font-bold mb-6 border-b-2 border-[#8d6e63] inline-block pb-1">Souvenirs Photographiques</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-gray-100 p-2 rounded shadow-sm text-center">
-                        <div class="h-32 bg-gray-200 mb-2 flex items-center justify-center italic text-xs text-gray-500">[Photo de famille 1912]</div>
-                        <p class="text-xs italic">Marie-Louise, Louis et les enfants avec la grand-mère Saluden.</p>
-                    </div>
-                    <div class="bg-gray-100 p-2 rounded shadow-sm text-center">
-                        <div class="h-32 bg-gray-200 mb-2 flex items-center justify-center italic text-xs text-gray-500">[La Mercerie - Rue Gambetta]</div>
-                        <p class="text-xs italic">Lieu de vie et de travail de 1908 à 1938.</p>
-                    </div>
-                    <div class="bg-gray-100 p-2 rounded shadow-sm text-center">
-                        <div class="h-32 bg-gray-200 mb-2 flex items-center justify-center italic text-xs text-gray-500">[Voyage au Mans 1937]</div>
-                        <p class="text-xs italic">Dernières photos de Louise en coiffe avec sa sœur Augustine.</p>
-                    </div>
-                </div>
-            </section>
+            </div>
         </div>
+    </main>
 
-        <footer class="bg-gray-100 p-6 text-center text-sm text-gray-500 border-t">
-            Fiche réalisée par Genelogiste_historien_breiz — D'après les recherches familiales.
-        </footer>
-    </div>
+    <footer class="mt-20 bg-white border-t py-12 text-center">
+        <p class="font-serif text-gray-400 italic">Document rédigé d'après les mémoires familiales</p>
+        <p class="text-[10px] uppercase tracking-widest text-gray-300 mt-4">&copy; 2024 - Archive Marie-Louise Lautrou</p>
+    </footer>
 
 </body>
 </html>
