@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marie-Louise LAUTROU (1878-1938)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700&display=swap');
+        
+        body {
+            font-family: 'Crimson Pro', serif;
+            background-color: #fdfaf6;
+            color: #2d2d2d;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #5d4037;
+        }
+        .ancestor-card {
+            border-left: 4px solid #8d6e63;
+            background: #fff;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #8d6e63;
+        }
+        .badge-sosa {
+            background-color: #8d6e63;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden border border-gray-100">
+        <!-- En-tête -->
+        <header class="bg-[#5d4037] text-white p-8 text-center">
+            <p class="uppercase tracking-widest text-sm mb-2">Génération 2 — Sosa 9</p>
+            <h1 class="text-4xl md:text-5xl mb-2">Marie-Louise LAUTROU</h1>
+            <p class="text-xl italic opacity-90">1878 — 1938</p>
+        </header>
+
+        <div class="p-6 md:p-10">
+            <!-- Résumé Intro -->
+            <div class="flex flex-col md:flex-row gap-8 mb-12 italic text-lg leading-relaxed border-b pb-8">
+                <div class="md:w-2/3">
+                    <p>
+                        "Dans ce petit document, j’ai essayé de retracer la vie de mon ancêtre : la mère de mon Grand-Père Louis TANGUY... Elle voit le jour à Spézet, grandit dans les ruelles de Morlaix et devient une figure commerçante de la rue Gambetta."
+                    </p>
+                </div>
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="w-40 h-40 bg-gray-100 rounded-full border-4 border-[#8d6e63] flex items-center justify-center overflow-hidden">
+                        <!-- Placeholder pour la photo de coiffe "Queue de langouste" -->
+                        <span class="text-gray-400 text-center text-xs p-2">Photo : Marie-Louise en coiffe de Morlaix</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informations clés -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="ancestor-card p-4 shadow-sm">
+                    <h2 class="text-xl font-bold mb-4 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
+                        Naissance & Origines
+                    </h2>
+                    <ul class="space-y-2">
+                        <li><strong>Née le :</strong> 30 janvier 1878</li>
+                        <li><strong>À :</strong> Spézet (29)</li>
+                        <li><strong>Père :</strong> Charles Dieudonné LAUTROU (Forgeron, Chauffeur)</li>
+                        <li><strong>Mère :</strong> Marguerite COCHENNEC</li>
+                    </ul>
+                </div>
+                <div class="ancestor-card p-4 shadow-sm">
+                    <h2 class="text-xl font-bold mb-4 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>
+                        Union & Vie Civile
+                    </h2>
+                    <ul class="space-y-2">
+                        <li><strong>Époux :</strong> Louis TANGUY (Relieur)</li>
+                        <li><strong>Mariage :</strong> 1899 à Morlaix</li>
+                        <li><strong>Profession :</strong> Commerçante (Mercerie)</li>
+                        <li><strong>Domicile :</strong> 89 Rue Gambetta, Morlaix</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chronologie -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 border-b-2 border-[#8d6e63] inline-block pb-1">Chronologie de Vie</h2>
+                <div class="ml-4 border-l-2 border-gray-200 pl-8 space-y-8 relative">
+                    
+                    <div class="timeline-item relative">
+                        <h3 class="font-bold text-[#8d6e63]">1878 — La naissance à Spézet</h3>
+                        <p class="text-gray-600">Naissance chez ses grands-parents maternels. Son père est forgeron, originaire de Plounévézel.</p>
+                    </div>
+
+                    <div class="timeline-item relative">
+                        <h3 class="font-bold text-[#8d6e63]">1880-1890 — L'enfance rue Courte</h3>
+                        <p class="text-gray-600">Grandit à Morlaix. Elle voit naître et mourir plusieurs sœurs (Jeanne-Marie, Augustine). Elle finit par rester fille unique durant 12 ans.</p>
+                    </div>
+
+                    <div class="timeline-item relative">
+                        <h3 class="font-bold text-[#8d6e63]">1891 — Le deuil maternel</h3>
+                        <p class="text-gray-600">Sa mère Marguerite décède alors que Marie-Louise n'a que 13 ans. Elle aide probablement son père à s'occuper de sa jeune sœur Augustine Marie Madeleine.</p>
+                    </div>
+
+                    <div class="timeline-item relative">
+                        <h3 class="font-bold text-[#8d6e63]">1899 — Le mariage avec Louis Tanguy</h3>
+                        <p class="text-gray-600">Épouse son voisin Louis, relieur. Ils s'installent d'abord chez sa belle-mère aubergiste avant de rejoindre la Rue Gambetta.</p>
+                    </div>
+
+                    <div class="timeline-item relative">
+                        <h3 class="font-bold text-[#8d6e63]">1900-1917 — La famille s'agrandit</h3>
+                        <p class="text-gray-600">Naissance de Marguerite, Maurice, Louis-Jean (décédé jeune) et Marie-Louise. En 1917, naissance du "petit dernier", Louis (dit Loulou).</p>
+                    </div>
+
+                    <div class="timeline-item relative">
+                        <h3 class="font-bold text-[#8d6e63]">1914-1918 — La Grande Guerre</h3>
+                        <p class="text-gray-600">Son mari est exempté pour santé fragile. Elle gère la maison et son commerce pendant que les cousins Saluden et Tanguy partent au front (plusieurs n'en reviendront pas).</p>
+                    </div>
+
+                    <div class="timeline-item relative">
+                        <h3 class="font-bold text-[#8d6e63]">1932 — Le veuvage</h3>
+                        <p class="text-gray-600">Décès de Louis d'une crise d'asthme. Elle devient chef de famille et gère la mercerie tandis que son fils Maurice reprend l'atelier de reliure.</p>
+                    </div>
+
+                    <div class="timeline-item relative">
+                        <h3 class="font-bold text-[#8d6e63]">1938 — L'adieu</h3>
+                        <p class="text-gray-600">Elle s'éteint le 1er octobre 1938 à 60 ans, peu après le succès de son fils Louis au baccalauréat.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Arbre simplifié -->
+            <section class="mb-12 bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h2 class="text-2xl font-bold mb-6 text-center">Ascendance Simplifiée</h2>
+                <div class="flex flex-col items-center">
+                    <div class="grid grid-cols-2 gap-4 w-full max-w-2xl text-center">
+                        <div class="p-2 border bg-white shadow-sm rounded">
+                            <p class="text-xs text-gray-500">GP Maternel</p>
+                            <p class="font-bold">François COCHENNEC</p>
+                        </div>
+                        <div class="p-2 border bg-white shadow-sm rounded">
+                            <p class="text-xs text-gray-500">GM Maternelle</p>
+                            <p class="font-bold">Marguerite LE NAOUR</p>
+                        </div>
+                        <div class="col-span-2 flex justify-center py-2">
+                            <div class="w-px h-4 bg-gray-300"></div>
+                        </div>
+                        <div class="col-span-2 p-3 border bg-white shadow-md rounded-lg border-[#8d6e63]">
+                            <p class="text-xs text-gray-500">Mère</p>
+                            <p class="font-bold text-lg">Marguerite COCHENNEC (1854-1891)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Galerie / Photos mentionnées -->
+            <section>
+                <h2 class="text-2xl font-bold mb-6 border-b-2 border-[#8d6e63] inline-block pb-1">Souvenirs Photographiques</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-gray-100 p-2 rounded shadow-sm text-center">
+                        <div class="h-32 bg-gray-200 mb-2 flex items-center justify-center italic text-xs text-gray-500">[Photo de famille 1912]</div>
+                        <p class="text-xs italic">Marie-Louise, Louis et les enfants avec la grand-mère Saluden.</p>
+                    </div>
+                    <div class="bg-gray-100 p-2 rounded shadow-sm text-center">
+                        <div class="h-32 bg-gray-200 mb-2 flex items-center justify-center italic text-xs text-gray-500">[La Mercerie - Rue Gambetta]</div>
+                        <p class="text-xs italic">Lieu de vie et de travail de 1908 à 1938.</p>
+                    </div>
+                    <div class="bg-gray-100 p-2 rounded shadow-sm text-center">
+                        <div class="h-32 bg-gray-200 mb-2 flex items-center justify-center italic text-xs text-gray-500">[Voyage au Mans 1937]</div>
+                        <p class="text-xs italic">Dernières photos de Louise en coiffe avec sa sœur Augustine.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="bg-gray-100 p-6 text-center text-sm text-gray-500 border-t">
+            Fiche réalisée par Genelogiste_historien_breiz — D'après les recherches familiales.
+        </footer>
+    </div>
+
+</body>
+</html>
