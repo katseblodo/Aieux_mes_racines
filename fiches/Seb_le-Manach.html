@@ -13,13 +13,13 @@
         h2 { color: #5d2e0d; font-size: 1.2em; margin-top: 5px; }
         .archive-ref { font-style: italic; color: #666; font-size: 0.85em; }
 
-        /* Arbre Généalogique */
+        /* Arbre Généalogique avec Dates */
         .tree-section { background: #fdfcf9; padding: 20px; border: 1px solid #dcd7ca; margin: 20px 0; overflow-x: auto; }
-        .tree-grid { display: flex; flex-direction: column; align-items: center; min-width: 1000px; }
+        .tree-grid { display: flex; flex-direction: column; align-items: center; min-width: 1050px; }
         .tree-row { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; }
-        .node { border: 1px solid #8b4513; padding: 6px; background: white; text-align: center; font-size: 0.75em; width: 135px; box-shadow: 2px 2px 0px #8b4513; }
+        .node { border: 1px solid #8b4513; padding: 6px; background: white; text-align: center; font-size: 0.75em; width: 150px; box-shadow: 2px 2px 0px #8b4513; }
         .node strong { display: block; color: #8b4513; }
-        .node.main { background: #f9f7f2; border: 2px solid #8b4513; font-weight: bold; width: 160px; }
+        .node.main { background: #f9f7f2; border: 2px solid #8b4513; font-weight: bold; width: 170px; }
         .node.ancestor { background: #fff5e6; border: 2px solid #d9534f; font-weight: bold; }
         .node.deceased { color: #888; border-color: #ccc; box-shadow: 2px 2px 0px #ccc; }
 
@@ -29,9 +29,12 @@
         .biography h3 { color: #8b4513; border-bottom: 1px solid #c0b283; padding-bottom: 5px; margin-top: 30px; }
         
         .highlight { color: #8b4513; font-weight: bold; }
-        .quote { font-style: italic; color: #5d2e0d; background: #fefaf0; padding: 10px; border-radius: 5px; border-left: 3px solid #c0b283; margin: 10px 0; }
+        .quote { font-style: italic; color: #5d2e0d; background: #fefaf0; padding: 12px; border-radius: 5px; border-left: 4px solid #c0b283; margin: 15px 0; font-size: 0.95em; }
 
-        .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9em; }
+        .analysis-box { background: #f9f7f2; border: 1px solid #dcd7ca; padding: 15px; margin: 15px 0; }
+        .analysis-title { color: #8b4513; font-weight: bold; text-transform: uppercase; font-size: 0.85em; margin-bottom: 8px; display: block; border-bottom: 1px solid #8b4513; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.85em; }
         .data-table th, .data-table td { border: 1px solid #dcd7ca; padding: 8px; text-align: left; }
         .data-table th { background: #f9f7f2; color: #8b4513; }
 
@@ -43,122 +46,133 @@
 <div class="container">
     <div class="header-archive">
         <h1>Sébastien LE MANACH (Sosa 146)</h1>
-        <h2>Cultivateur à Poullaouen et Locmaria-Berrien</h2>
-        <p class="archive-ref">Né le 28/11/1757 à Poullaouen — Décédé le 15/01/1824 à Poullaouen</p>
+        <h2>1757 — 1824 | Laboureur de Kermorvan</h2>
+        <p class="archive-ref">Né sous Louis XV | Sénéchaussée de Carhaix | Fin de vie à Poullaouen</p>
     </div>
 
-    <div class="section-title">Lignée & Alliances</div>
+    <div class="section-title">Lignée & Alliances (Arbre des générations 6, 7 et 8)</div>
     <div class="tree-section">
         <div class="tree-grid">
             <div class="tree-row">
-                <div class="node"><span>G-P Pat.</span><strong>Pierre x Geneviève Nicolas</strong><br><small>Trébrivan</small></div>
-                <div class="node"><span>G-P Mat.</span><strong>Yves x Marie Paul</strong><br><small>m. 1721 Poullaouen</small></div>
+                <div class="node"><span>G-P Paternels</span><strong>Pierre x Gen. Nicolas</strong><small>Trébrivan (22)</small></div>
+                <div class="node"><span>G-P Maternels</span><strong>Yves x Marie Paul</strong><small>m. 1721 Poullaouen</small></div>
             </div>
             
             <div class="tree-row">
-                <div style="width:135px"></div>
-                <div class="node"><span>PÈRE</span><strong>Pierre (†1773)</strong></div>
-                <div class="node"><span>MÈRE</span><strong>Marie Le Boult (†1801)</strong></div>
-                <div class="node deceased"><span>Tante (M)</span><strong>Mauricette Le Boult</strong></div>
+                <div style="width:150px"></div>
+                <div class="node"><span>PÈRE</span><strong>Pierre LE MANACH</strong><small>ca 1731 — 1773</small></div>
+                <div class="node"><span>MÈRE</span><strong>Marie LE BOULT</strong><small>1732 — 1801</small></div>
+                <div style="width:150px"></div>
             </div>
 
             <div class="tree-row">
-                <div class="node main"><span>SUJET</span><strong>Sébastien</strong></div>
-                <div class="node"><span>Frère</span><strong>Yves (1759)</strong></div>
-                <div class="node deceased"><span>Frère</span><strong>Yves (†1762)</strong></div>
-                <div class="node"><span>Sœur</span><strong>Anne (1764)</strong></div>
-                <div class="node"><span>Sœur</span><strong>Marie (1767)</strong></div>
+                <div class="node main"><span>SUJET</span><strong>Sébastien (1757-1824)</strong></div>
+                <div class="node"><span>Frère</span><strong>Yves<br>(1759 — ?)</strong></div>
+                <div class="node deceased"><span>Frère</span><strong>Yves<br>(1762 — 1762)</strong></div>
+                <div class="node"><span>Sœur</span><strong>Anne<br>(1764 — ?)</strong></div>
+                <div class="node"><span>Sœur</span><strong>Marie<br>(1767 — ?)</strong></div>
             </div>
 
             <div style="height:20px; width:2px; background:#8b4513;"></div>
 
             <div class="tree-row">
-                <div class="node deceased"><span>Fils</span><strong>Yves (†1780)</strong></div>
-                <div class="node deceased"><span>Fils</span><strong>Pierre Isidore (†1804)</strong></div>
-                <div class="node"><span>Fille</span><strong>Marie (ép. Falchier)</strong></div>
-                <div class="node deceased"><span>Fils</span><strong>Guillaume (†1789)</strong></div>
-                <div class="node ancestor"><span>AÏEULE</span><strong>Marie Anne (ép. Nautrou)</strong></div>
+                <div class="node"><span>Épouse 1 (1779)</span><strong>Marie URVOAS</strong><small>1749 — 1803</small></div>
+                <div class="node"><span>Épouse 2 (1806)</span><strong>Marie Louise LE MEUR</strong><small>1764 — 1828</small></div>
+            </div>
+
+            <div class="tree-row">
+                <div class="node deceased"><span>Fils</span><strong>Yves<br>(1780 — 1780)</strong></div>
+                <div class="node deceased"><span>Fils</span><strong>Pierre Isidore<br>(1782 — 1804)</strong></div>
+                <div class="node"><span>Fille</span><strong>Marie<br>(1786 — 1820)</strong></div>
+                <div class="node deceased"><span>Fils</span><strong>Guillaume<br>(1789 — 1789)</strong></div>
+                <div class="node ancestor"><span>AÏEULE (Sosa 73)</span><strong>Marie Anne<br>(1790 — 1821)</strong></div>
             </div>
         </div>
     </div>
 
     <div class="biography">
-        <h3>🕰️ Un destin entre deux siècles</h3>
-        <p>
-            Sébastien naît sous le règne de <strong>Louis XV</strong> au lieu-dit <span class="highlight">Kermorvan</span>. Son baptême, célébré le 28 novembre 1757, réunit la famille Le Boult, solidement implantée à Poullaouen. Sa marraine, sa tante Mauricette Le Boult, et son parrain Michel Quillerou témoignent de cet ancrage local.
-        </p>
+        <h3>🌳 Génération 6 : La Fratrie de Kermorvan</h3>
+        <p>Sébastien est l'aîné d'une fratrie née et baptisée à Poullaouen, sous le règne de Louis XV. Les parrainages de ces enfants révèlent l'importance des réseaux familiaux dans le Poher :</p>
+        <ul>
+            <li><span class="highlight">Sébastien (1757)</span> : Votre ancêtre.</li>
+            <li><span class="highlight">Yves (1759)</span> : Parrainé par son oncle allié, <strong>Yves Urvoäz</strong>.</li>
+            <li><span class="highlight">Yves (1762 - 1762)</span> : Meurt à 1 mois. Ses parrains sont prestigieux : ses deux grands-parents, <strong>Yves Le Boult</strong> et <strong>Geneviève Nicolas</strong>.</li>
+            <li><span class="highlight">Anne (1764)</span> : Parrainée par son oncle de Carnoët, <strong>Olivier</strong>.</li>
+            <li><span class="highlight">Marie (1767)</span> : Parrainée par un oncle maternel de Plouyé, <strong>Pierre Mat</strong>.</li>
+        </ul>
 
-        <h3>🏠 La vie au Manoir de Kerambellec</h3>
-        <p>
-            Bien que né à Poullaouen, c'est à Locmaria-Berrien que Sébastien fonde son premier foyer en 1779 après avoir obtenu un <strong>décret de justice</strong> (étant orphelin de père et encore mineur selon la coutume). Il s'établit comme cultivateur au <span class="highlight">Manoir de Kerambellec</span>. 
-        </p>
-        <p>
-            L'année 1780 est marquée par un événement poignant révélé par les registres : le décès de son fils aîné Yves. L'acte mentionne la présence simultanée des deux grands-mères au manoir :
-        </p>
-        <div class="quote">
-            "Témoins : Marie Le Goff et Marie Le Boult, ses aïeules."
+        <div class="analysis-box">
+            <span class="analysis-title">Analyse 1 : La migration de Pierre (Le Père)</span>
+            <p>Pierre arrive de <strong>Trébrivan</strong>. L'acte de mariage de 1756 le dit <i>"habitué à Carnoët"</i>. Il est alors veuf d'Anne Thapault. Sébastien est donc issu d'une lignée de laboureurs mobiles entre les Côtes-d'Armor et le Finistère actuels.</p>
         </div>
-        <p>
-            Cette scène illustre la cohésion du clan familial dans l'adversité, au sein de cette grande exploitation agricole.
-        </p>
 
-        <h3>✊ Traverser la tourmente révolutionnaire</h3>
-        <p>
-            Sébastien vit les profonds bouleversements de 1789 en tant que chef de famille à Locmaria-Berrien. S'il n'apparaît pas comme délégué officiel à l'assemblée de la sénéchaussée de Carhaix, il subit, comme tous les laboureurs du Poher, les transformations administratives et fiscales de l'époque. Il voit naître sa fille <span class="highlight">Marie Anne</span> en 1790, l'année de la création des départements, et assiste à la naissance de l'État Civil moderne qui remplace les registres paroissiaux de son enfance.
-        </p>
+        <h3>💍 Alliances et Drames au Manoir de Kerambellec</h3>
+        <p>Le 1er septembre 1779, Sébastien doit obtenir un <strong>décret de justice</strong> pour épouser Marie Urvoas, étant encore mineur et orphelin de père. C'est au Manoir de <span class="highlight">Kerambellec</span> que le couple s'établit. Les archives nous livrent une scène poignante lors du décès de leur premier fils Yves en 1780 :</p>
+        
+        <div class="quote">
+            "Sépulture - 12/06/1780 - Locmaria-Berrien (Kerambelec). Témoins : <strong>Marie Le Goff</strong> et <strong>Marie Le Bout</strong>, ses aïeules."
+        </div>
 
-        <h3>👨‍👩‍👧‍👦 Réseau familial et Parrainages</h3>
+        <p>Cette mention est exceptionnelle : elle montre les deux grands-mères, l'une de Poullaouen et l'autre de Locmaria, réunies au chevet du nourrisson. </p>
+
+        <div class="analysis-box">
+            <span class="analysis-title">Analyse 2 : La seconde famille (Le Meur x Yzaac)</span>
+            <p>En 1806, après le décès de sa première épouse et de son fils aîné Pierre Isidore, Sébastien se remarie avec <strong>Marie Louise Le Meur</strong>. Ce foyer est une véritable famille recomposée à Kermorvan :</p>
+            <ul>
+                <li>Marie Louise apporte ses propres enfants, dont <strong>Louis Coffec</strong> (cité comme témoin à son décès en 1828 sous le nom de Couec).</li>
+                <li>L'histoire de Marie Louise est elle-même marquée par les remariages : sa mère Françoise Yzaac s'était remariée avec Guillaume Le Boulch, le <i>"parâtre"</i> cité au mariage de 1762.</li>
+            </ul>
+        </div>
+
+        <h3>📜 Tableau de la Descendance (Premier Lit)</h3>
         <table class="data-table">
             <thead>
                 <tr>
                     <th>Enfant</th>
-                    <th>Naissance</th>
+                    <th>Dates</th>
                     <th>Parrain / Marraine</th>
-                    <th>Destinée</th>
+                    <th>Lieu de vie</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Yves</td>
-                    <td>1780</td>
-                    <td>Yves Urvoas (Oncle) / Marie Le Boult (Gr-Mère)</td>
-                    <td>† à 6 mois (Man. de Kerambellec).</td>
+                    <td>1780 — 1780</td>
+                    <td>Yves Urvoas / Marie Le Boult</td>
+                    <td>Manoir de Kerambellec</td>
                 </tr>
                 <tr>
                     <td>Pierre Isidore</td>
-                    <td>1782</td>
+                    <td>1782 — 1804</td>
                     <td>Yves le Guern / Marie Kerespers</td>
-                    <td>† en 1804 (An 13).</td>
+                    <td>Kerambellec (Décède à 22 ans)</td>
                 </tr>
                 <tr>
                     <td>Marie</td>
-                    <td>1786</td>
-                    <td>Pierre le Cren / Marie le Goff (Gr-Mère)</td>
-                    <td>Épouse Hervé Falchier en 1805.</td>
+                    <td>1786 — 1820</td>
+                    <td>Pierre le Cren / Marie le Goff</td>
+                    <td>Kerambellec (ép. Falchier)</td>
                 </tr>
                 <tr>
                     <td>Guillaume</td>
-                    <td>1789</td>
+                    <td>1789 — 1789</td>
                     <td>Guillaume Troadec / Anne Urvoas</td>
-                    <td>† à 4 mois (Juin 1789).</td>
+                    <td>Kerambellec (Décède à 4 mois)</td>
                 </tr>
                 <tr>
                     <td class="highlight">Marie Anne</td>
-                    <td>1790</td>
+                    <td>1790 — 1821</td>
                     <td>Pierre le Cam / Anne Urvoas</td>
-                    <td><span class="highlight">VOTRE AÏEULE</span>. Épouse G. Nautrou (1810).</td>
+                    <td><span class="highlight">VOTRE AÏEULE</span> (ép. Nautrou)</td>
                 </tr>
             </tbody>
         </table>
 
-        <h3>🔄 Le retour aux racines</h3>
-        <p>
-            Après avoir perdu sa première épouse en 1803 et son fils aîné en 1804, Sébastien se remarie en 1806 avec Marie Louise Le Meur. Il quitte alors Kerambellec pour revenir s'installer à <span class="highlight">Kermorvan</span> (Poullaouen), là où tout avait commencé. C'est dans ce village qu'il s'éteint en 1824, âgé de 66 ans, sous le règne de Louis XVIII.
-        </p>
+        <p><strong>Note finale :</strong> Sébastien finit ses jours à Kermorvan le 15 janvier 1824. Son inventaire et ses actes témoignent d'une vie de laboureur aisé, capable de s'entourer de notables comme <strong>Jean-Baptiste Pillas</strong> lors de ses démarches juridiques.</p>
     </div>
 
     <footer>
-        Relevés CGF & Archives Familiales | Dossier Sébastien LE MANACH — 2024
+        Relevés CGF & Archives Familiales | Étude Sébastien LE MANACH — 2024
     </footer>
 </div>
 
