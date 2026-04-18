@@ -85,6 +85,45 @@
         color: #8b4513;
         font-weight: bold;
     }
+    /* Style de la frise chronologique */
+.timeline-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 40px 0;
+    padding: 20px 0;
+    border-top: 2px solid #8b4513;
+    border-bottom: 2px solid #8b4513;
+    background: #fdfcf9;
+    overflow-x: auto;
+}
+.timeline-event {
+    flex: 1;
+    text-align: center;
+    padding: 0 10px;
+    position: relative;
+    min-width: 120px;
+}
+.timeline-event:not(:last-child):after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 20px;
+    color: #c0b283;
+}
+.t-year { font-weight: bold; color: #8b4513; display: block; font-size: 1.1em; }
+.t-desc { font-size: 0.85em; font-family: Georgia, serif; line-height: 1.2; }
+
+/* Style du bloc historique en bas */
+.history-footer {
+    margin-top: 50px;
+    padding: 25px;
+    background-color: #f9f7f2;
+    border: 1px solid #dcd7ca;
+    font-family: Georgia, serif;
+}
+.history-footer h3 { color: #8b4513; border-bottom: 1px solid #c0b283; }
+.history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.9em; }
 </style>
 </head>
 <body>
@@ -372,38 +411,52 @@
             <p>La photographie des ruines est la preuve matérielle de cette histoire. Le <span class="highlight-text">pignon de granit</span> encore debout s'aligne exactement sur le tracé du bâtiment principal de 1824. Le chemin creux actuel est le même sentier emprunté par Sébastien.</p>
         </div>
     </div>
-
-1. Le paysage d’hier : Un carrefour du Poher (Carte d'État-major de 1820)
-La carte d'État-major révèle que Kermorvan (orthographié Kmorgan) occupe une position dominante sur un plateau ou un versant marqué par des reliefs accidentés, typiques de la région de Poullaouen.
-
-Un réseau de hameaux : Le document montre que Kermorvan n'est pas isolé. Il s'inscrit dans un maillage serré de lieux-dits comme Trevodec, Roscornoa et Kthomas. Les points rouges indiquent une concentration de bâtis qui témoigne d'une population rurale dense à l'époque où Sébastien y revient pour finir ses jours.
-
-La topographie : Les hachures de la carte suggèrent que le village surplombe une zone de vallons ou de cours d'eau. Cette configuration est stratégique pour un "laboureur" : elle permet de combiner des terres de cultures sur les hauteurs et des zones de pâturage plus humides en bas de pente.
-
-2. La structure de la ferme : Une mosaïque de terres (Cadastre de 1824)
+<br/>
+    <p>
+La carte d'État-major montre que Kermorvan n'est pas isolé. 
+La topographie : Les hachures de la carte suggèrent que le village surplombe une zone de vallons ou de cours d'eau. 
+Cette configuration est stratégique pour un "laboureur" : elle permet de combiner des terres de cultures sur les hauteurs et des zones de pâturage plus humides en bas de pente.
+<br/>
 Le plan cadastral de 1824, réalisé l'année même du décès de Sébastien, offre une vision précise de "l'empire" agricole du foyer.
-
-Un village-rue ou en grappe : Le cœur du hameau apparaît comme un ensemble de bâtiments groupés (parcelles colorées en rouge/rose), entourés d'un parcellaire extrêmement morcelé.
-
-La vie de laboureur : On distingue une multitude de petites parcelles aux formes irrégulières. Pour Sébastien, cela signifiait une gestion complexe : chaque parcelle avait sans doute sa fonction (courtil pour les légumes, champs de céréales, landes). Cette "mosaïque" confirme le statut de laboureur aisé : il ne gère pas un seul grand domaine, mais une multitude de droits sur la terre qui entoure les maisons de Kermorvan.
-
-3. Kermorvan aujourd’hui : Le temps des pierres muettes (Photo actuelle)
+Le cœur du hameau apparaît comme un ensemble de bâtiments groupés (parcelles colorées en rouge/rose), entourés d'un parcellaire extrêmement morcelé.
+On distingue une multitude de petites parcelles aux formes irrégulières. Pour Bastien, cela signifiait une gestion complexe : chaque parcelle avait sans doute sa fonction (courtil pour les légumes, champs de céréales, landes). 
+Cette "mosaïque" confirme le statut de laboureur aisé : il ne gère pas un seul grand domaine, mais une multitude de droits sur la terre qui entoure les maisons de Kermorvan.
+<br/>
 La photo actuelle offre un contraste saisissant avec l'activité suggérée par les cartes anciennes.
-
-Des ruines de granit : On y voit des vestiges de murs en pierres sèches et des pignons mangés par la végétation (lierre et arbustes). Ces pierres sont les témoins directs du XVIIIe siècle ; ce sont probablement les murs que Sébastien a connus, entretenus ou même vus construire.
-
-Le retour de la nature : Là où le cadastre de 1824 montrait des terres parfaitement délimitées et travaillées, la photo montre aujourd'hui un espace où la friche reprend ses droits. Le chemin de terre qui serpente entre les ruines suit pourtant encore, très probablement, le tracé des anciens sentiers qu'empruntaient Sébastien et sa famille pour rejoindre l'église de Poullaouen ou le Manoir de Kerambellec.
-
-Synthèse : Le "Cœur battant" des Le Manach
-Ces trois documents racontent la grandeur et le déclin d'un terroir. Kermorvan était, entre 1820 et 1824, un pôle d'activité humaine intense, une ruche où cohabitaient les familles Le Manach, Urvoas et Le Meur.
-
-Le cadastre de 1824 fixe l'image de ce qu'était le monde de Sébastien à son dernier souffle : un espace ordonné, clos de talus, où chaque m² de terre comptait. Aujourd'hui, les ruines de la photo ne sont pas seulement des débris de pierre ; elles sont le squelette d'une exploitation qui a nourri plusieurs générations et qui a vu naître votre lignée.
-    
+On y voit des vestiges de murs en pierres. Ces pierres sont les témoins directs du XVIIIe siècle ; ce sont probablement les murs que Bastien a connus, 
+entretenus ou même vus construire.
+</p>  
     <div class="footer-note">
         <strong>Note biographique :</strong> Kermorvan est le pivot de la vie de Sébastien. Lieu de naissance, lieu de retour après son veuvage, et lieu de son dernier souffle le 15 janvier 1824.
     </div>
 </div>
-
+<!-- //////////: Timeline ///////////-->
+<div class="timeline-top">
+    <div class="timeline-event">
+        <span class="t-year">1757</span>
+        <span class="t-desc">Naissance à Kermorvan (Louis XV)</span>
+    </div>
+    <div class="timeline-event">
+        <span class="t-year">1773</span>
+        <span class="t-desc">Décès de son père Pierre. Sébastien a 16 ans.</span>
+    </div>
+    <div class="timeline-event">
+        <span class="t-year">1789</span>
+        <span class="t-desc">Assemblée du Tiers-État (Révolution)</span>
+    </div>
+    <div class="timeline-event">
+        <span class="t-year">1804</span>
+        <span class="t-desc">Décès de son fils Pierre Isidore (Empire)</span>
+    </div>
+    <div class="timeline-event">
+        <span class="t-year">1806</span>
+        <span class="t-desc">Mariage avec M.L. Le Meur & Retour à Kermorvan</span>
+    </div>
+    <div class="timeline-event">
+        <span class="t-year">1824</span>
+        <span class="t-desc">Décès à 66 ans (Restauration)</span>
+    </div>
+</div>
 
     <footer>
         Relevés CGF & Archives Familiales | Étude Sébastien LE MANACH — 2024
