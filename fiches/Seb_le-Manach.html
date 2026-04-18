@@ -40,6 +40,52 @@
 
         footer { text-align: center; margin-top: 40px; font-size: 0.8em; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
     </style>
+            <style>
+    .archive-container {
+        max-width: 900px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 20px;
+        border: 1px solid #dcd7ca;
+        font-family: Georgia, serif;
+    }
+
+    .zoom-box {
+        position: relative;
+        width: 100%;
+        max-width: 500px; /* Taille de l'image au repos */
+        margin: 0 auto 20px auto;
+        cursor: zoom-in;
+        transition: transform 0.3s ease;
+        z-index: 1;
+    }
+
+    /* L'image elle-même */
+    .zoom-box img {
+        width: 100%;
+        height: auto;
+        border: 1px solid #8b4513;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Effet au survol : l'image s'agrandit et passe au premier plan */
+    .zoom-box:hover {
+        transform: scale(1.8); /* Facteur d'agrandissement (1.8x) */
+        z-index: 100; /* Passe au-dessus de tout le reste */
+    }
+
+    .archive-text {
+        text-align: justify;
+        padding: 10px 20px;
+        background-color: #fefaf0;
+        border-left: 4px solid #8b4513;
+    }
+
+    .highlight {
+        color: #8b4513;
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
 
@@ -131,15 +177,21 @@
          <div class="quote">
             "Sépulture - 12/06/1780 - Locmaria-Berrien (Kerambelec). Témoins : <strong>Marie Le Goff</strong> et <strong>Marie Le Bout</strong>, ses aïeules."
          </div>
-<h3>Dimanche 29 Mars 1789 : Le Tiers-État s'assemble</h3>
-<p>En ce dimanche <span class="highlight">29 mars 1789</span>, l'effervescence gagne la sacristie de Poullaouen. C'est le <span class="highlight">Tiers-État</span> de la trève de Locmaria-Berrien qui s'assemble "au son de la cloche", répondant à la convocation royale pour les États Généraux.
-</p>
-<p>Sébastien Le Manach est présent. Cité à la ligne 33 sous le nom de <span class="highlight">"Bastien La Manach"</span>, il figure parmi les "habitants compris dans les rôles des impositions", confirmant son statut de chef d'exploitation et de contribuable.
-</p>
-<p>L'assemblée, après avoir pris connaissance des doléances de la communauté, procède à l'étape cruciale : l'élection des délégués. <span class="highlight">Hervé Quéré et Jacques Le Roux</span> sont choisis par Sébastien et ses pairs pour porter leurs voix à l'assemblée de la sénéchaussée de Châteauneuf.
-</p>
-<p>La séance se clôture par la signature du procès-verbal. Si Sébastien, comme beaucoup de laboureurs de l'époque, ne signe pas ("affirmant ne savoir signer"), l'acte est authentifié par le notaire royal <span class="highlight">Lefebvre</span>, marquant l'entrée officielle de ces hommes dans l'histoire de la Révolution.
-</p>
+<!-- /////////// REVOLUTION ///////////// -->
+        <h3>Dimanche 29 Mars 1789 : Le Tiers-État s'assemble</h3>
+        <p>En ce dimanche <span class="highlight">29 mars 1789</span>, l'effervescence gagne la sacristie de Poullaouen. C'est le <span class="highlight">Tiers-État</span> de la trève de Locmaria-Berrien qui s'assemble "au son de la cloche", répondant à la convocation royale pour les États Généraux.</p>
+        <p>Sébastien Le Manach est présent. Cité à la ligne 33 sous le nom de <span class="highlight">"Bastien La Manach"</span>, il figure parmi les "habitants compris dans les rôles des impositions", confirmant son statut de chef d'exploitation et de contribuable.</p>
+        <p>L'assemblée, après avoir pris connaissance des doléances de la communauté, procède à l'étape cruciale : l'élection des délégués. <span class="highlight">Hervé Quéré et Jacques Le Roux</span> sont choisis par Sébastien et ses pairs pour porter leurs voix à l'assemblée de la sénéchaussée de Châteauneuf.</p>
+        <p>La séance se clôture par la signature du procès-verbal. Si Sébastien, comme beaucoup de laboureurs de l'époque, ne signe pas ("affirmant ne savoir signer"), l'acte est authentifié par le notaire royal <span class="highlight">Lefebvre</span>, marquant l'entrée officielle de ces hommes dans l'histoire de la Révolution.</p>
+        <div class="archive-container"><div style="text-align: center; margin-bottom: 20px;">
+        <h3 style="margin: 0; color: #8b4513;">Procès-verbal de l'Assemblée du Tiers-État</h3>
+        <small>Locmaria-Berrien — 29 Mars 1789</small>
+        </div>
+        <div class="zoom-box">
+        <img src="/Aieux_mes_racines/fiches/images/Tiers-etat_Locmaria-Berrien_1789.png" alt="Procès-verbal 1789 - Bastien Le Manach">
+        </div>
+
+<!-- ////////////Second Mariage ///////////// -->
         <div class="analysis-box">
             <span class="analysis-title">Analyse 2 : La seconde famille (Le Meur x Yzaac)</span>
             <p>En 1806, après le décès de sa première épouse (1803) et de son fils aîné Pierre Isidore (1804), Sébastien se remarie avec <strong>Marie Louise Le Meur</strong>. 
@@ -212,36 +264,7 @@
             </p>
     </div>
     <div>
-        L'analyse croisée de la photographie contemporaine, de la carte d'État-major de 1820 et du cadastre napoléonien de 1824 permet de retracer l'évolution physique et l'importance de Kermorvan, le lieu de vie de Sébastien Le Manach.
-
-Voici une synthèse de ce que nous apprennent ces documents sur ce hameau :
-
-1. Le paysage d’hier : Un carrefour du Poher (Carte d'État-major de 1820)
-La carte d'État-major révèle que Kermorvan (orthographié Kmorgan) occupe une position dominante sur un plateau ou un versant marqué par des reliefs accidentés, typiques de la région de Poullaouen.
-
-Un réseau de hameaux : Le document montre que Kermorvan n'est pas isolé. Il s'inscrit dans un maillage serré de lieux-dits comme Trevodec, Roscornoa et Kthomas. Les points rouges indiquent une concentration de bâtis qui témoigne d'une population rurale dense à l'époque où Sébastien y revient pour finir ses jours.
-
-La topographie : Les hachures de la carte suggèrent que le village surplombe une zone de vallons ou de cours d'eau. Cette configuration est stratégique pour un "laboureur" : elle permet de combiner des terres de cultures sur les hauteurs et des zones de pâturage plus humides en bas de pente.
-
-2. La structure de la ferme : Une mosaïque de terres (Cadastre de 1824)
-Le plan cadastral de 1824, réalisé l'année même du décès de Sébastien, offre une vision précise de "l'empire" agricole du foyer.
-
-Un village-rue ou en grappe : Le cœur du hameau apparaît comme un ensemble de bâtiments groupés (parcelles colorées en rouge/rose), entourés d'un parcellaire extrêmement morcelé.
-
-La vie de laboureur : On distingue une multitude de petites parcelles aux formes irrégulières. Pour Sébastien, cela signifiait une gestion complexe : chaque parcelle avait sans doute sa fonction (courtil pour les légumes, champs de céréales, landes). Cette "mosaïque" confirme le statut de laboureur aisé : il ne gère pas un seul grand domaine, mais une multitude de droits sur la terre qui entoure les maisons de Kermorvan.
-
-3. Kermorvan aujourd’hui : Le temps des pierres muettes (Photo actuelle)
-La photo actuelle offre un contraste saisissant avec l'activité suggérée par les cartes anciennes.
-
-Des ruines de granit : On y voit des vestiges de murs en pierres sèches et des pignons mangés par la végétation (lierre et arbustes). Ces pierres sont les témoins directs du XVIIIe siècle ; ce sont probablement les murs que Sébastien a connus, entretenus ou même vus construire.
-
-Le retour de la nature : Là où le cadastre de 1824 montrait des terres parfaitement délimitées et travaillées, la photo montre aujourd'hui un espace où la friche reprend ses droits. Le chemin de terre qui serpente entre les ruines suit pourtant encore, très probablement, le tracé des anciens sentiers qu'empruntaient Sébastien et sa famille pour rejoindre l'église de Poullaouen ou le Manoir de Kerambellec.
-
-Synthèse : Le "Cœur battant" des Le Manach
-Ces trois documents racontent la grandeur et le déclin d'un terroir. Kermorvan était, entre 1820 et 1824, un pôle d'activité humaine intense, une ruche où cohabitaient les familles Le Manach, Urvoas et Le Meur.
-
-Le cadastre de 1824 fixe l'image de ce qu'était le monde de Sébastien à son dernier souffle : un espace ordonné, clos de talus, où chaque m² de terre comptait. Aujourd'hui, les ruines de la photo ne sont pas seulement des débris de pierre ; elles sont le squelette d'une exploitation qui a nourri plusieurs générations et qui a vu naître votre lignée.
-    </div>
+</div>
 <!-- images kermorvan -->
     <style>
     .kermorvan-section {
@@ -327,6 +350,32 @@ Le cadastre de 1824 fixe l'image de ce qu'était le monde de Sébastien à son d
         </div>
     </div>
 
+1. Le paysage d’hier : Un carrefour du Poher (Carte d'État-major de 1820)
+La carte d'État-major révèle que Kermorvan (orthographié Kmorgan) occupe une position dominante sur un plateau ou un versant marqué par des reliefs accidentés, typiques de la région de Poullaouen.
+
+Un réseau de hameaux : Le document montre que Kermorvan n'est pas isolé. Il s'inscrit dans un maillage serré de lieux-dits comme Trevodec, Roscornoa et Kthomas. Les points rouges indiquent une concentration de bâtis qui témoigne d'une population rurale dense à l'époque où Sébastien y revient pour finir ses jours.
+
+La topographie : Les hachures de la carte suggèrent que le village surplombe une zone de vallons ou de cours d'eau. Cette configuration est stratégique pour un "laboureur" : elle permet de combiner des terres de cultures sur les hauteurs et des zones de pâturage plus humides en bas de pente.
+
+2. La structure de la ferme : Une mosaïque de terres (Cadastre de 1824)
+Le plan cadastral de 1824, réalisé l'année même du décès de Sébastien, offre une vision précise de "l'empire" agricole du foyer.
+
+Un village-rue ou en grappe : Le cœur du hameau apparaît comme un ensemble de bâtiments groupés (parcelles colorées en rouge/rose), entourés d'un parcellaire extrêmement morcelé.
+
+La vie de laboureur : On distingue une multitude de petites parcelles aux formes irrégulières. Pour Sébastien, cela signifiait une gestion complexe : chaque parcelle avait sans doute sa fonction (courtil pour les légumes, champs de céréales, landes). Cette "mosaïque" confirme le statut de laboureur aisé : il ne gère pas un seul grand domaine, mais une multitude de droits sur la terre qui entoure les maisons de Kermorvan.
+
+3. Kermorvan aujourd’hui : Le temps des pierres muettes (Photo actuelle)
+La photo actuelle offre un contraste saisissant avec l'activité suggérée par les cartes anciennes.
+
+Des ruines de granit : On y voit des vestiges de murs en pierres sèches et des pignons mangés par la végétation (lierre et arbustes). Ces pierres sont les témoins directs du XVIIIe siècle ; ce sont probablement les murs que Sébastien a connus, entretenus ou même vus construire.
+
+Le retour de la nature : Là où le cadastre de 1824 montrait des terres parfaitement délimitées et travaillées, la photo montre aujourd'hui un espace où la friche reprend ses droits. Le chemin de terre qui serpente entre les ruines suit pourtant encore, très probablement, le tracé des anciens sentiers qu'empruntaient Sébastien et sa famille pour rejoindre l'église de Poullaouen ou le Manoir de Kerambellec.
+
+Synthèse : Le "Cœur battant" des Le Manach
+Ces trois documents racontent la grandeur et le déclin d'un terroir. Kermorvan était, entre 1820 et 1824, un pôle d'activité humaine intense, une ruche où cohabitaient les familles Le Manach, Urvoas et Le Meur.
+
+Le cadastre de 1824 fixe l'image de ce qu'était le monde de Sébastien à son dernier souffle : un espace ordonné, clos de talus, où chaque m² de terre comptait. Aujourd'hui, les ruines de la photo ne sont pas seulement des débris de pierre ; elles sont le squelette d'une exploitation qui a nourri plusieurs générations et qui a vu naître votre lignée.
+    
     <div class="footer-note">
         <strong>Note biographique :</strong> Kermorvan est le pivot de la vie de Sébastien. Lieu de naissance, lieu de retour après son veuvage, et lieu de son dernier souffle le 15 janvier 1824.
     </div>
