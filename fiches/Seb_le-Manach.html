@@ -431,31 +431,231 @@ entretenus ou même vus construire.
     </div>
 </div>
 <!-- //////////: Timeline ///////////-->
-<div class="timeline-top">
-    <div class="timeline-event">
-        <span class="t-year">1757</span>
-        <span class="t-desc">Naissance à Kermorvan (Louis XV)</span>
+<style>
+    .dual-timeline-container {
+        display: grid;
+        grid-template-columns: 1fr 40px 1fr;
+        gap: 0;
+        margin: 40px 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    /* Colonne centrale (Ligne de vie) */
+    .timeline-line {
+        grid-column: 2;
+        background: #8b4513;
+        width: 4px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .timeline-entry {
+        display: contents;
+    }
+
+    /* Boîtes de contenu */
+    .box {
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        position: relative;
+        font-size: 0.95em;
+    }
+
+    /* Côté Gauche : Vie de Sébastien */
+    .left-box {
+        grid-column: 1;
+        background-color: #fdfcf9;
+        border: 1px solid #dcd7ca;
+        text-align: right;
+        margin-right: 15px;
+    }
+
+    /* Côté Droit : Grande Histoire */
+    .right-box {
+        grid-column: 3;
+        background-color: #f0f4f8;
+        border: 1px solid #cfd8dc;
+        margin-left: 15px;
+    }
+
+    .date-label {
+        font-weight: bold;
+        color: #8b4513;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .history-label {
+        color: #2c3e50;
+        font-weight: bold;
+    }
+
+    .climate-event { color: #d35400; font-weight: bold; } /* Couleur pour climat/épidémies */
+    
+    h3.timeline-title {
+        grid-column: 1 / span 3;
+        text-align: center;
+        color: #8b4513;
+        text-transform: uppercase;
+        border-bottom: 2px solid #8b4513;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+    }
+
+    .legend {
+        grid-column: 1 / span 3;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="dual-timeline-container">
+    <h3 class="timeline-title">Parallèle de vie : Sébastien Le Manach vs L'Histoire</h3>
+    
+    <div class="legend">
+        <div style="color: #8b4513;">← SA VIE & SA FAMILLE</div>
+        <div style="color: #2c3e50;">L'HISTOIRE & LE CLIMAT →</div>
     </div>
-    <div class="timeline-event">
-        <span class="t-year">1773</span>
-        <span class="t-desc">Décès de son père Pierre. Sébastien a 16 ans.</span>
+
+    <div class="timeline-line"></div>
+
+    <div class="timeline-entry">
+        <div class="box left-box">
+            <span class="date-label">28 nov. 1757</span>
+            <strong>Naissance de Sébastien</strong> à Kermorvan, Poullaouen.
+        </div>
+        <div class="box right-box">
+            <span class="date-label">1757</span>
+            Règne de <strong>Louis XV</strong>. Attentat de Damiens contre le Roi.
+        </div>
     </div>
-    <div class="timeline-event">
-        <span class="t-year">1789</span>
-        <span class="t-desc">Assemblée du Tiers-État (Révolution)</span>
+
+    <div class="timeline-entry">
+        <div class="box left-box">
+            <span class="date-label">1773</span>
+            <strong>Décès de son père Pierre</strong>. Sébastien est orphelin à 16 ans.
+        </div>
+        <div class="box right-box">
+            <span class="date-label">1774</span>
+            Mort de Louis XV. Avènement de <strong>Louis XVI</strong>.
+        </div>
     </div>
-    <div class="timeline-event">
-        <span class="t-year">1804</span>
-        <span class="t-desc">Décès de son fils Pierre Isidore (Empire)</span>
+
+    <div class="timeline-entry">
+        <div class="box left-box">
+            <span class="date-label">1780</span>
+            <strong>Décès de son fils Sébastien</strong> (4 mois). Premier deuil.
+        </div>
+        <div class="box right-box">
+            <span class="date-label">1779-1780</span>
+            <span class="climate-event">Épidémie de dysenterie</span> majeure en Bretagne (plus de 100 000 morts).
+        </div>
     </div>
-    <div class="timeline-event">
-        <span class="t-year">1806</span>
-        <span class="t-desc">Mariage avec M.L. Le Meur & Retour à Kermorvan</span>
+
+    <div class="timeline-entry">
+        <div class="box left-box">
+            <span class="date-label">1786</span>
+            Naissance de sa fille <strong>Marie</strong> à Locmaria-Berrien.
+        </div>
+        <div class="box right-box">
+            <span class="date-label">1784-1785</span>
+            <span class="climate-event">Hivers volcaniques</span> : Froids extrêmes suite à l'éruption du Laki (Islande). Récoltes catastrophiques.
+        </div>
     </div>
-    <div class="timeline-event">
-        <span class="t-year">1824</span>
-        <span class="t-desc">Décès à 66 ans (Restauration)</span>
+
+    <div class="timeline-entry">
+        <div class="box left-box">
+            <span class="date-label">29 mars 1789</span>
+            Sébastien participe à l'assemblée du <strong>Tiers-État</strong> à Locmaria.
+        </div>
+        <div class="box right-box">
+            <span class="date-label">1789</span>
+            <strong>Prise de la Bastille</strong>. Fin de l'Ancien Régime. Début de la Révolution.
+        </div>
     </div>
+
+    <div class="timeline-entry">
+        <div class="box left-box">
+            <span class="date-label">20 août 1790</span>
+            Naissance de sa fille <strong>Marie-Anne</strong> (Sosa 73).
+        </div>
+        <div class="box right-box">
+            <span class="date-label">1790</span>
+            <strong>Création du département du Finistère</strong>. Nationalisation des Mines de Poullaouen.
+        </div>
+    </div>
+
+    <div class="timeline-entry">
+        <div class="box left-box">
+            <span class="date-label">1792</span>
+            Sébastien est laboureur au Manoir de Kerambellec.
+        </div>
+        <div class="box right-box">
+            <span class="date-label">1793</span>
+            Exécution de Louis XVI. <span class="climate-event">Épidémie de typhus</span> apportée par les troupes en Bretagne.
+        </div>
+    </div>
+
+    <div class="timeline-entry">
+        <div class="box left-box">
+            <span class="date-label">Juin 1804 (An 12)</span>
+            <strong>Décès de sa femme Marie Urvoas</strong>.<br>
+            <strong>Décès de son fils Pierre Isidore</strong> (22 ans).
+        </div>
+        <div class="box right-box">
+            <span class="date-label">1804</span>
+            Sacre de <strong>Napoléon Ier</strong>. Création du Code Civil.
+        </div>
+    </div>
+
+    <div class="timeline-entry">
+        <div class="box left-box">
+            <span class="date-label">Fév. 1805 (An 13)</span>
+            <strong>Mariage de sa fille Marie</strong> avec Hervé Le Falchier.
+        </div>
+        <div class="box right-box">
+            <span class="date-label">1805</span>
+            Bataille de Trafalgar et d'Austerlitz.
+        </div>
+    </div>
+
+    <div class="timeline-entry">
+        <div class="box left-box">
+            <span class="date-label">1815</span>
+            Sébastien gère son exploitation sous la Restauration.
+        </div>
+        <div class="box right-box">
+            <span class="date-label">1816</span>
+            <span class="climate-event">"L'année sans été"</span> : Famine mondiale suite à une éruption. Disette sévère dans le Poher.
+        </div>
+    </div>
+
+    <div class="timeline-entry">
+        <div class="box left-box">
+            <span class="date-label">Août 1820 / Janv. 1821</span>
+            <strong>Décès de sa fille Marie</strong> (34 ans).<br>
+            <strong>Décès de sa fille Anne</strong> (30 ans).
+        </div>
+        <div class="box right-box">
+            <span class="date-label">1821</span>
+            Mort de Napoléon à Sainte-Hélène.
+        </div>
+    </div>
+
+    <div class="timeline-entry">
+        <div class="box left-box">
+            <span class="date-label">15 janv. 1824</span>
+            <strong>Décès de Sébastien</strong> à Kermorvan.
+        </div>
+        <div class="box right-box">
+            <span class="date-label">1824</span>
+            Mort de <strong>Louis XVIII</strong>. Fin de la rédaction du Cadastre de Poullaouen.
+        </div>
+    </div>
+</div>
 </div>
 
     <footer>
