@@ -582,7 +582,7 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 582;G8;TL;ollivier LIJU;;30/11/1690;19/07/1758;Carnoet;Trebrivan;12/02/1714, Carnoet;;Adrien le Liju 1659- et Marie Omnes 1659- | http://gw.geneanet.org/acadiou?lang=fr&iz=6477&p=ollivier&n=le+liju
 583;G8;TL;jeanne ou anne le PAUL;;24/12/1690;12/03/1762;Carnoet;Carnoet;12/02/1714, Carnoet;;Jan le Paul et Marie Prigeant
 584;G8;TL;pierre le MANACH;;11/11/1697;entre le 03/1749 et 05/1750;Plouguernevel;Callac;01/02/1728;Corlay;fils Veuf de : Anne THAPAULT | Pierre B, nï¿½ ï¿½ Plouguernï¿½vel (22220) | enfant de MOIGNE (LE) Isaac et de MERCIER (LE) Franï¿½oise, Identifiant Unique (IU) de l'enregistrement : N 222003540
-585;G8;TL;genevieve NICOLAS;;;;Corlay;;01/02/1728;Corlay;
+585;G8;TL;genevieve NICOLAS;;08/01/1712;01/03/1765;Saint-Corentin, 22;Saint-Corentin, 22;01/02/1728;Corlay;Remariée le 26 avril 1758 à Carnoët avec Guillaume Le Deincuff
 586;G8;TL;yves le BOULT;;;;;;25/02/1721 - Poullaouen;;
 587;G8;TL;marie PAUL;;;avant 1756;;;25/02/1721 - Poullaouen;;
 588;G8;TL;jacques URVOIS;;;11/07/1742;;Poullaouen (Resthervï¿½);06/08/1724 - Poullaouen;;marie le du, ayeule et tutrice, henry et jean urvoaz, oncle et cousin,jean le cam, cousin, du mariï¿½ | Henry frï¿½re
@@ -995,6 +995,8 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 1157;G9;TL;marie le symon ca 1651-1696;;;;;;;;
 1158;G9;TL;yves le goff 1640-1720;;;;;;;;
 1159;G9;TL;marie foucault ca 1642-1712;;;;;;;;
+1171;G9;TL;Pierre NICOLAS;;17/11/1675;28/02/1751;Saint-Corentin;Mael-Carhaix;;;
+1172;G9;TL;Marie CORVELLER;;1693;19/11/1747;Carnoet;Carnoet;;;
 1178;G9;TL;charles CALVEZ;menager/laboureur, dit le jeune;;;;;;fils de charles;
 1179;G9;TL;marie le DU;;;;;;;;
 1180;G9;TL;le GOFF;;;;;;;;
