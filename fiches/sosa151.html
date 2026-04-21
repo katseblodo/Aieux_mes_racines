@@ -3,88 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marie Joseph GUILLERM (1764-1804) - en cours -</title>
+    <title>Marie Joseph GUILLERM (1764-1804) - Dossier Généalogique Sourcé</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f1ea; color: #333; line-height: 1.6; margin: 0; padding: 20px; }
-        .container { max-width: 1100px; margin: 0 auto; background: #fff; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.1); border: 1px solid #dcd7ca; }
-        .header-archive { text-align: center; border-bottom: 2px solid #8b4513; margin-bottom: 30px; padding-bottom: 20px; }
-        h1 { color: #8b4513; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
-        h2 { color: #5d2e0d; font-size: 1.2em; margin-top: 5px; }
-        .section-title { background: #f0ede5; padding: 10px; border-left: 5px solid #8b4513; margin-top: 35px; font-variant: small-caps; font-weight: bold; }
-        .biography { margin-top: 20px; padding: 25px; background: #fdfcf9; border: 1px dashed #c0b283; font-family: Georgia, serif; }
-        .biography h3 { color: #8b4513; border-bottom: 1px solid #c0b283; padding-bottom: 5px; }
-        .tree-section { background: #fdfcf9; padding: 20px; border: 1px solid #dcd7ca; margin: 20px 0; overflow-x: auto; }
-        .tree-grid { display: flex; flex-direction: column; align-items: center; }
-        .tree-row { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; }
-        .node { border: 1px solid #8b4513; padding: 6px; background: white; text-align: center; font-size: 0.75em; width: 160px; box-shadow: 2px 2px 0px #8b4513; }
-        .node strong { display: block; color: #8b4513; }
-        .node.main { background: #f9f7f2; border: 2px solid #8b4513; font-weight: bold; }
-        .highlight { color: #8b4513; font-weight: bold; }
-        footer { text-align: center; margin-top: 40px; font-size: 0.8em; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
+        .container { max-width: 1100px; margin: 0 auto; background: #fff; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.1); border: 1px solid var(--or); }
+        .header-archive { text-align: center; border-bottom: 2px solid var(--sepia); margin-bottom: 30px; padding-bottom: 20px; }
+        .header-archive h2 { color: var(--brique); font-size: 1.2em; margin-top: 5px; font-family: 'Segoe UI', sans-serif; }
+        .section-title { background: var(--creme); padding: 10px; border-left: 5px solid var(--orange-bigouden); margin-top: 35px; font-variant: small-caps; font-weight: bold; color: var(--sepia); }
+        
+        .biography { margin-top: 20px; padding: 25px; background: #fdfcf9; border: 1px dashed var(--or); font-family: Georgia, serif; }
+        .biography h3 { color: var(--brique); border-bottom: 1px solid var(--or); padding-bottom: 5px; margin-top: 20px; font-family: 'Playfair Display', serif; }
+        
+        /* Styles spécifiques pour le sourçage professionnel */
+        .highlight { color: var(--orange-bigouden); font-weight: bold; }
+        .preuve { 
+            display: block; 
+            background: #eef2f7; 
+            padding: 10px 15px; 
+            margin: 10px 0; 
+            border-left: 4px solid #3498db; 
+            font-size: 0.85em; 
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            color: #2c3e50;
+        }
+        .preuve::before { content: "🔎 Preuve documentaire : "; font-weight: bold; color: #2980b9; }
+        
+        .context-hist { background: var(--creme); padding: 15px; border-radius: 5px; margin: 15px 0; border: 1px solid var(--or); font-size: 0.9em; font-style: italic; }
+        
+        .sources-list { font-size: 0.8em; color: #555; margin-top: 40px; background: #f9f9f9; padding: 20px; border-top: 3px double var(--or); }
+        .sources-list ul { list-style-type: square; padding-left: 20px; }
+        .sources-list li { margin-bottom: 8px; }
     </style>
 </head>
 <body>
 
+<header class="header-bigouden">
+    <div class="header-content">
+        <h1>Aïeux, mes racines</h1>
+        <p class="author-signature">par Catherine Tanguy</p>
+        <div class="tagline-frieze">
+            <span class="site-tagline">Généalogie & histoires familiales</span>
+        </div>
+    </div>
+</header>
+
+<div id="menu-container"></div>
+
 <div class="container">
     <div class="header-archive">
-        <h1>Marie Joseph GUILLERM (Sosa 151)</h1>
-        <h2>1764 — 1804 | Cultivatrice</h2>
-        <p class="archive-ref">Née à Motreff | Épouse Calvary | Fin de vie à Saint-Hernin</p>
+        <h1>Dossier : Marie Joseph GUILLERM (Sosa 151)</h1>
+        <h2>1764 — 1804 | Cultivatrice & Fille de Notaire</h2>
+        <p class="archive-ref">Motreff (Lanneval) | Saint-Hernin (Gaouvannec)</p>
     </div>
 
-    <div class="section-title">1) Enfance (1764 - 1783)</div>
+    <div class="section-title">1) Naissance et Origines (Les Poulizac)</div>
     <div class="biography">
-        <h3>Naissance et Origines</h3>
-        <p>Marie Josèphe (citée Marie Joseph dans certains actes) naît le 19 mars 1764 au lieu-dit <span class="highlight">Lanneval</span>, à Motreff[cite: 18, 22]. Elle est baptisée le même jour avec pour parrain Guillaume Le Berre et pour marraine Marie Poulizac[cite: 22].</p>
+        <p>Marie Josèphe naît le 19 mars 1764 au lieu-dit <span class="highlight">Lanneval</span> à Motreff. Elle est baptisée le jour même. Son parrain est Guillaume Le Berre et sa marraine est sa tante, Marie Poulizac.</p>
         
-        <h3>Les Parents et Grands-Parents</h3>
+        <p>Par sa mère, Claudine Thérèse Poulizac, elle est issue d'une famille notable du Poher. Son grand-père maternel, <strong>Jean-René POULIZAC</strong>, exerçait la fonction de Notaire Royal.</p>
+        
+        <div class="preuve">
+            Le statut du grand-père est formellement attesté sur l'acte de fiançailles de sa fille Marie (tante de notre Sosa) le 11/12/1742 à Motreff. L'acte stipule : <em>"fille de Jean René, Notaire Royal, présent et signe"</em>. De plus, son oncle, Pierre Poulizac, a hérité de cette charge puisqu'il est qualifié de <em>"Notaire, de Motreff"</em> lors de son mariage en 1748.
+        </div>
+    </div>
+
+    <div class="section-title">2) Statut Social : Le Domaine Congéable</div>
+    <div class="biography">
+        <p>Son père, <strong>Tanguy GUILLERM</strong>, cultivait les terres de Lanneval. Bien que n'étant pas nobles, les Guillerm possédaient une certaine assise matérielle liée au statut foncier breton de l'époque.</p>
+
+        <div class="preuve">
+            Le métier de Tanguy évolue dans les registres. Lors du baptême de son fils François en 1747, le prêtre le qualifie de <strong>"Ménager"</strong>. Plus instructif encore, lors du baptême de Marguerite en 1753, le curé ajoute une note marginale qualifiant la famille de <strong>"Domaniers"</strong>. 
+        </div>
+
+        <div class="context-hist">
+            <strong>Note d'histoire locale :</strong> Le "domanier" est soumis au domaine congéable (très courant dans le Finistère). Il est propriétaire des "édifices et superficies" (bâtiments, talus, récoltes) mais paie une rente au seigneur foncier propriétaire du sol. Ce statut explique la présence de nombreux parrains et marraines issus de milieux aisés (notaires, familles lettrées) autour du berceau des enfants Guillerm.
+        </div>
+    </div>
+
+    <div class="section-title">3) Une jeunesse endeuillée et l'Orphelinat</div>
+    <div class="biography">
+        <p>La fratrie Guillerm est durement touchée par la mortalité infantile. Marie Joseph voit disparaître au moins sept de ses frères et sœurs en bas âge (François à 12 ans, Marguerite à 7 ans, et les jumeaux François et Gilles à quelques jours en mars 1759).</p>
+
+        <p>Plus grave encore pour son avenir, <strong>elle perd ses deux parents avant d'atteindre la majorité</strong> (fixée à 25 ans à l'époque pour le mariage).</p>
+
+        <div class="preuve">
+            L'analyse croisée des actes de mariage le prouve :<br>
+            - En février 1770, lors du mariage de sa sœur aînée Françoise avec Yves Le Cam, les parents Tanguy et Thérèse Poulizac sont notés <strong>"présents"</strong>. Ils sont donc vivants en 1770.<br>
+            - En octobre 1783, lors de son propre mariage avec Yves Calvary, Marie Joseph est dite <strong>"mineure"</strong> et placée sous <strong>"décret de justice"</strong> (procédure obligatoire pour les orphelins). Son curateur est Yves Le Cam, qui n'est autre que son beau-frère (mari de Françoise depuis 1770). Tanguy Guillerm (décédé en 1775) et Thérèse Poulizac (décédée en 1771) s'étaient donc éteints dans cet intervalle.
+        </div>
+    </div>
+
+    <div class="section-title">4) Vie d'adulte et Décès sous la Révolution</div>
+    <div class="biography">
+        <p>Marie Joseph s'installe à Saint-Hernin après 1783 avec son mari Yves Calvary, qui y deviendra Officier Municipal sous la Révolution.</p>
+<div class="section-title">4) La Descendance : Une nouvelle génération à Saint-Hernin</div>
+    <div class="biography">
+        <p>De l'union avec Yves Calvary à Saint-Hernin naissent plusieurs enfants. Le choix des parrains et marraines reflète le maintien des liens avec la parentèle de Motreff, malgré l'éloignement géographique de quelques kilomètres.</p>
+        
+        <h3>Fratrie identifiée (Sosa 151/2) :</h3>
         <ul>
-            <li><strong>Père :</strong> Tanguy GUILLERM (1706-1775), ménager et domanier à Lanneval[cite: 15, 19].</li>
-            <li><strong>Mère :</strong> Claudine Thérèse POULIZAC (1731-1771).</li>
-            <li><strong>Grands-parents maternels :</strong> Jean-René POULIZAC, Notaire Royal héréditaire de la sénéchaussée de Carhaix, et Marguerite LAUZET[cite: 16, 21].</li>
+            <li><strong>Anne CALVARY (1785 - ...) :</strong> 
+                Baptisée le 19/07/1785 à Saint-Hernin. 
+                <br><span class="act-detail">Parrain : Yves Le Cam (oncle par alliance). Marraine : Anne Le Quenet.</span>
+            </li>
+            <li><strong>Marie CALVARY (1787 - 1856) :</strong> 
+                Baptisée le 15/09/1787. Elle assurera la descendance vers la lignée Tanguy.
+                <br><span class="act-detail">Parrain : Jacques Poulizac (oncle, fils du notaire). Marraine : Marie Le Michen.</span>
+            </li>
+            <li><strong>Jean CALVARY (1790 - ...) :</strong> 
+                Baptisé le 18/06/1790, en pleine période de fermentation révolutionnaire.
+                <br><span class="act-detail">Parrain : Jean-René Poulizac (cousin germain). Marraine : Françoise Guillerm (tante maternelle).</span>
+            </li>
+            <li><strong>Louise CALVARY (1793 - ...) :</strong> 
+                Née le 19 Floréal An I (calendrier républicain).
+                <br><span class="act-detail">Témoin à la naissance : Yves Le Cam (signe), officier public.</span>
+            </li>
         </ul>
 
-        <h3>Une Fratrie marquée par la mortalité</h3>
-        <p>Marie Joseph grandit dans une famille nombreuse où les deuils sont fréquents :</p>
+        <div class="preuve">
+            <strong>Analyse généalogique :</strong> Le réseau de parrainage est exceptionnel. La présence constante des <strong>Poulizac</strong> (Jacques, Jean-René) et de <strong>Marie Le Michen</strong> comme parrains/marraines à Saint-Hernin démontre que Marie Joseph Guillerm, bien qu'orpheline, a bénéficié de la protection et de la reconnaissance de sa famille maternelle "notable" jusqu'à l'âge adulte. 
+            <br><em>Source : Registres paroissiaux de Saint-Hernin (1783-1792) et État-civil (An I - An XII).</em>
+        </div>
+    </div>
+        <p>Leur fin de vie est soudaine et tragique. Yves Calvary s'éteint le 28 Germinal An 12 (18 avril 1804). Son épouse, Marie Joseph, meurt seulement huit jours plus tard, le 6 Floréal An 12 (26 avril 1804) à l'âge de 40 ans. Cette disparition quasi simultanée laisse présumer une maladie foudroyante (fièvre typhoïde, dysenterie), fréquentes dans les campagnes bretonnes en ce début de XIXe siècle.</p>
+    </div>
+
+    <div class="sources-list">
+        <strong>📚 Registre des Preuves (Identifiants CGF) :</strong>
         <ul>
-            <li><strong>Jean-René (1750)</strong> et <strong>Jean (1755-1779)</strong>.</li>
-            <li><strong>Françoise (1770)</strong> qui épouse Yves Le Cam[cite: 23].</li>
-            <li>Plusieurs frères et sœurs décédés en bas âge : François (mort à 2 jours), Gilles (6 jours), Marguerite (7 ans), Marie (1 mois) et Tanguy (7 semaines)[cite: 20, 21, 28].</li>
+            <li><strong>Naissances (Motreff) :</strong> N-1747-2915200-51567-00059 (François), N-1753-2915200-51567-00231 (Marguerite), N-1764-2915200-51567-00639 (Marie Josèphe).</li>
+            <li><strong>Mariages (Motreff) :</strong> M-1742-2915200-62036-00013 (Le Michen/Poulizac - Preuve Notaire Royal), M-1748-2915200-62038-00020 (Poulizac/Clech), M-1770-2915200-62038-00307 (Le Cam/Guillerm - Preuve parents vivants).</li>
+            <li><strong>Sépultures (Motreff) :</strong> D-1759-2915200-71394-00132 (François), D-1759-2915200-71394-00133 (Gilles), D-1759-2915200-71394-00169 (Marguerite).</li>
+            <li><strong>Relevés externes :</strong> Dossier BMS Saint-Hernin et registre d'État-Civil pour l'An 12.</li>
         </ul>
     </div>
-
-    <div class="section-title">2) Mariage (7 Octobre 1783)</div>
-    <div class="biography">
-        <p>Le 7 octobre 1783, Marie Joseph épouse <strong>Yves CALVARY</strong> à Motreff.</p>
-        <ul>
-            <li><strong>L'époux :</strong> Yves Calvary, né en 1757 à Saint-Hernin, est cultivateur et officier municipal. Il est le fils de Louis Philippe Calvary et Marie Riou[cite: 17, 24].</li>
-            <li><strong>Statut :</strong> Marie Joseph est mineure au moment du mariage. Ses deux parents étant décédés, elle agit sous décret de justice et avec le consentement de son curateur, Yves Cam[cite: 25, 27].</li>
-        </ul>
-    </div>
-
-    <div class="section-title">3) Mère et Vie Quotidienne</div>
-    <div class="biography">
-        <p>Après son mariage, elle s'installe à Saint-Hernin, commune d'origine de son mari. Elle y exerce la profession de <span class="highlight">cultivatrice</span>[cite: 18]. Sa vie est celle des travailleuses de la terre en centre-Bretagne à la fin du XVIIIe siècle, rythmée par les travaux agricoles et la gestion du foyer à <strong>Gaouvannec</strong> (Saint-Hernin).</p>
-    </div>
-
-    <div class="section-title">4) La Révolution</div>
-    <div class="biography">
-        <p>Marie Joseph traverse la période révolutionnaire aux côtés de son mari, Yves Calvary. Ce dernier occupe une place notable dans la nouvelle administration locale en tant qu'<strong>Officier Municipal</strong> de Saint-Hernin. Cette fonction indique que la famille est intégrée aux évolutions politiques de l'époque.</p>
-    </div>
-
-    <div class="section-title">5) Fin de Vie (Germinal & Floréal An 12)</div>
-    <div class="biography">
-        <p>Le couple meurt de façon très rapprochée en 1804 :</p>
-        <ul>
-            <li><strong>Son mari :</strong> Yves Calvary décède le 28 germinal an 12 (18 avril 1804) à l'âge de 46 ans.</li>
-            <li><strong>Marie Joseph :</strong> Elle s'éteint seulement huit jours plus tard, le 6 floréal an 12 (26 avril 1804), à l'âge de 40 ans[cite: 18].</li>
-        </ul>
-        <p>Ils laissent derrière eux leurs enfants dans le foyer familial de Gaouvannec, à Saint-Hernin.</p>
-    </div>
-
-    <footer>
-        D'après les relevés du CGF (Centre Généalogique du Finistère) | Dossier Marie Joseph GUILLERM
-    </footer>
 </div>
 
 </body>
