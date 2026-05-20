@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Famille Larzul de Lestriguiou de la Madeleine — Plomeur</title>
+    <style>
+        /* CSS Variables pour un design harmonieux style "Aïeux mes racines" */
+        :root {
+            --bg-color: #fcfaf2; /* Parchemin très clair */
+            --primary-color: #2c4a3e; /* Vert sapin / lierre breton */
+            --secondary-color: #8c6239; /* Terre de Sienne / Cuir */
+            --accent-color: #d1b894; /* Sable d'or */
+            --text-color: #2b2b2b; /* Anthracite doux */
+            --white: #ffffff;
+            --border-color: #e0d9c1;
+            --font-serif: 'Georgia', 'Times New Roman', serif;
+            --font-sans: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-serif);
+            line-height: 1.7;
+            padding: 0;
+        }
+
+        /* En-tête / Fil d'Ariane */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        .breadcrumb {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: var(--font-sans);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #bcccb4;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Layout bi-colonne pour l'identité et la parenté */
+        .grid-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-intro {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Fiches d'identité et parenté */
+        .card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .card h2 {
+            font-family: var(--font-sans);
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table-info {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .table-info td {
+            padding: 8px 5px;
+            border-bottom: 1px dashed var(--border-color);
+            vertical-align: top;
+        }
+
+        .table-info td.label {
+            font-weight: bold;
+            color: var(--secondary-color);
+            width: 35%;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        /* Arbre Généalogique interactif en CSS */
+        .tree-container {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            overflow-x: auto;
+        }
+
+        .tree-scroll {
+            min-width: 900px;
+        }
+
+        .tree-title {
+            text-align: center;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* Représentation visuelle de l'arbre de G11 à G8 */
+        .generation-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+
+        .gen-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            gap: 15px;
+        }
+
+        .gen-header {
+            text-align: center;
+            font-family: var(--font-sans);
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .node {
+            background-color: #faf8f2;
+            border: 1px solid var(--accent-color);
+            border-left: 4px solid var(--secondary-color);
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .node .name {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .node .meta {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        .node.direct {
+            border-left-color: var(--primary-color);
+            background-color: #f2f7f4;
+        }
+
+        .node.highlight {
+            border-left-color: #d9534f;
+            background-color: #fdf5f5;
+        }
+
+        /* Corps du Récit */
+        .narrative-section {
+            margin-bottom: 50px;
+        }
+
+        .narrative-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .narrative-section h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0 auto;
+        }
+
+        .chronique {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .chronique h3 {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .chronique p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        .blockquote {
+            font-style: italic;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        /* Zones d'images */
+        .image-container {
+            margin: 30px 0;
+            text-align: center;
+            background-color: #f5f2e9;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border: 1px solid #ddd;
+            background-color: #e8e4d5;
+            display: inline-block;
+            border-radius: 2px;
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #555;
+            margin-top: 10px;
+            font-family: var(--font-sans);
+        }
+
+        /* Tableaux de relevés matrices */
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: left;
+        }
+
+        .data-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #faf9f5;
+        }
+
+        .data-table tr.highlight-row {
+            background-color: #edf5f0;
+            font-weight: bold;
+        }
+
+        /* Pied de page / Pistes & Webographie */
+        .footer-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            border-top: 2px solid var(--border-color);
+            padding-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-sections {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer-card {
+            background-color: #f3efe3;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 25px;
+        }
+
+        .footer-card h3 {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer-card ul {
+            list-style-type: square;
+            padding-left: 20px;
+            font-size: 0.95rem;
+        }
+
+        .footer-card li {
+            margin-bottom: 10px;
+        }
+
+        .footer-card a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+            background-color: #f5f2e6;
+        }
+
+        /* Éléments de décoration */
+        .separator {
+            text-align: center;
+            margin: 40px 0;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="breadcrumb">
+            <a href="#">Accueil</a> &gt; <a href="#">Fiches Familles</a> &gt; Les Larzul de Lestriguiou
+        </div>
+        <h1>La Famille Larzul de Lestriguiou</h1>
+        <div class="subtitle">Dynastie de laboureurs domaniers au quartier de la Madeleine à Plomeur</div>
+    </header>
+
+    <div class="container">
+
+        <!-- Blocs d'introduction : Identité et Filiation -->
+        <div class="grid-intro">
+            <!-- Bloc 1 : Identité de la branche -->
+            <div class="card">
+                <h2>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Fiche de la Lignée Larzul
+                </h2>
+                <table class="table-info">
+                    <tr>
+                        <td class="label">Patronyme</td>
+                        <td>Larzul / L'Arzul / Arzur (selon l'orthographe paroissiale)</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Origine</td>
+                        <td>Paroisse de Plomeur, Finistère (Pays Bigouden, Cornouaille)</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Berceau principal</td>
+                        <td>Hameau de Lestreguiou de la Madeleine (Plomeur)</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Plus ancien aïeul</td>
+                        <td>Bernard Larzul (G12 - Sosa 13520)</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Statut social</td>
+                        <td>Laboureurs de terre, paysans domaniers sous domaine congéable</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Alliances majeures</td>
+                        <td>Le Guiriec (1632), Drezen (1654), Charlot (1686), Larnicol (1703)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Bloc 2 : Parenté et Alliance Sosa 6767 -->
+            <div class="card">
+                <h2>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    L'Ancre de Catherine Kermeur
+                </h2>
+                <table class="table-info">
+                    <tr>
+                        <td class="label">Sosa Direct</td>
+                        <td><strong>Catherine Kermeur (Sosa 6767)</strong>, épouse de Guillaume Kerno (Sosa 6766)</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Lien avec les Larzul</td>
+                        <td>Leur fille Marguerite Kerneau (3383) épouse Mathieu Charlot (3382). Leur propre fille Catherine Charlot (1691) s'unit à Guillaume Larzul (1690).</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Tissu Territorial</td>
+                        <td>Ce croisement unit la branche terrienne de Plobannalec (Kervadol) aux domaniers de Plomeur (Lestreguiou).</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Signatures & Relevés</td>
+                        <td>Les signatures de ces familles attestent de leur importance au sein des registres paroissiaux bigoudens.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section Arbre Généalogique Visuel -->
+        <div class="tree-container">
+            <div class="tree-title">Arbre Généalogique de G8 à G12 — Dynastie Larzul de Lestriguiou & Alliances</div>
+            <div class="tree-scroll">
+                <div class="generation-grid">
+                    <!-- Colonne G12/G11 -->
+                    <div class="gen-column">
+                        <div class="gen-header">Gén. G11 / G12</div>
+                        <div class="node">
+                            <div class="name">Bernard LARZUL</div>
+                            <div class="meta">G12 - Sosa 13520<br>Plomeur - Présent en 1632</div>
+                        </div>
+                        <div class="node direct">
+                            <div class="name">Guillaume LARZUL</div>
+                            <div class="meta">G11 - Sosa 6760<br>ca. 1587 - † 25/01/1677<br>m. 26/11/1632<br>Lestreguiou (Plomeur)</div>
+                        </div>
+                        <div class="node highlight">
+                            <div class="name">Catherine KERMEUR</div>
+                            <div class="meta">G11 - Sosa 6767<br>Plobannalec</div>
+                        </div>
+                    </div>
+
+                    <!-- Colonne G10 -->
+                    <div class="gen-column">
+                        <div class="gen-header">Génération G10</div>
+                        <div class="node">
+                            <div class="name">Sébastien LARZUL</div>
+                            <div class="meta">Prêtre & Curé de Plomeur<br>† 14/06/1684<br>Oncle & Parrain</div>
+                        </div>
+                        <div class="node direct">
+                            <div class="name">Noel LARZUL</div>
+                            <div class="meta">G10 - Sosa 3380<br>ca. 1635<br>m. 11/02/1654 (La Madeleine)</div>
+                        </div>
+                        <div class="node">
+                            <div class="name">Mathieu CHARLOT</div>
+                            <div class="meta">G10 - Sosa 3382<br>1635 - 1699<br>Kervadol (Plobannalec)</div>
+                        </div>
+                        <div class="node">
+                            <div class="name">Marguerite KERNEAU</div>
+                            <div class="meta">G10 - Sosa 3383<br>1641 - 1714<br>Fille de C. Kermeur (6767)</div>
+                        </div>
+                    </div>
+
+                    <!-- Colonne G9 -->
+                    <div class="gen-column">
+                        <div class="gen-header">Génération G9</div>
+                        <div class="node direct">
+                            <div class="name">Guillaume LARZUL</div>
+                            <div class="meta">G9 - Sosa 1690<br>1653 - 1733<br>Plomeur</div>
+                        </div>
+                        <div class="node">
+                            <div class="name">Catherine CHARLOT</div>
+                            <div class="meta">G9 - Sosa 1691<br>1660 - 1720<br>Plobannalec / Plomeur</div>
+                        </div>
+                    </div>
+
+                    <!-- Colonne G8 -->
+                    <div class="gen-column">
+                        <div class="gen-header">Génération G8</div>
+                        <div class="node direct">
+                            <div class="name">Catherine LARZUL</div>
+                            <div class="meta">G8 - Sosa 845<br>1691 - 1749<br>Domanière à Lestreguiou</div>
+                        </div>
+                        <div class="node">
+                            <div class="name">Pierre LARNICOL</div>
+                            <div class="meta">G8 - Sosa 844<br>1682 - 1724<br>Domanier à Lestreguiou</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="separator">❦ ❦ ❦</div>
+
+        <!-- Section Récit Historique -->
+        <div class="narrative-section">
+            <h2>Chroniques de la Famille Larzul à Lestriguiou</h2>
+
+            <!-- Chapitre I : Les racines de Lestreguiou -->
+            <div class="chronique">
+                <h3>Chronique I. Les fondations de Lestreguiou : de Bernard à Guillaume Larzul</h3>
+                <p>L'histoire de la famille Larzul s'enracine au tout début du XVIIe siècle dans le terroir du Cap Caval (Pays Bigouden). Le plus ancien patriarche connu, <strong>Bernard Larzul (Sosa 13520)</strong>, veille sur les siens à Plomeur. Le 26 novembre 1632, son fils <strong>Guillaume Larzul (Sosa 6760)</strong> prend pour épouse <strong>Marie Le Guiriec (Sosa 6761)</strong> en présence du patriarche Bernard. Ce mariage solennel réunit de prestigieux témoins paroissiaux comme Mire Jan Larzul, prêtre, Mire Jan Collin et Mire Michel Cochou, marquant l'importance de ce clan.</p>
+                <p>La famille s'établit solidement au village de Lestreguiou (ou Lestrugueou), une terre rude marquée par d'anciennes coutumes de tenure. Guillaume y acquiert une longévité exceptionnelle pour son temps : laboureur respecté, il s'éteint le 25 janvier 1677 à l'âge vénérable de 90 ans. Lors de ses funérailles, ses fils Sébastien, Noel et Guillaume, ainsi que son beau-fils Louis Le Brun, l'accompagnent dans son dernier voyage.</p>
+                
+                <div class="image-container">
+                    <img src="image_d80f2f.jpg" alt="Tableau d'assemblage du cadastre de Plomeur de 1833" class="image-placeholder" onerror="this.src='https://placehold.co/800x400/e8e4d5/2c4a3e?text=Tableau+d%27assemblage+de+Plomeur+(1833)'">
+                    <div class="image-caption">Le cadastre de Plomeur de 1833 (3 P 172/1/1) – Le tableau d'assemblage situant le quartier de Lestreguiou en bordure de mer.</div>
+                </div>
+            </div>
+
+            <!-- Chapitre II : Le destin de Noel Larzul, laboureur -->
+            <div class="chronique">
+                <h3>Chronique II. Noel Larzul, la terre et les alliances de la Madeleine</h3>
+                <p>Tandis que son frère Sébastien est appelé au sacerdoce, <strong>Noel Larzul (Sosa 3380)</strong> se consacre pleinement aux travaux de la terre à Lestreguiou. Le 11 février 1654, la chapelle de la Madeleine s'anime pour un événement exceptionnel : Noel y épouse <strong>Jeanne Drezen (Sosa 3381)</strong> lors d'une cérémonie double célébrée en même temps que le mariage de sa sœur Françoise Larzul avec Guillaume Volant.</p>
+                <p>La vie de Noel, rude et laborieuse, est rythmée par les rudes tâches des champs et par les épreuves familiales. Après le décès de Jeanne Drezen, Noel doit se remarier à deux reprises pour maintenir la cohésion de sa ferme de Lestreguiou : d'abord en 1668 avec Jeanne Le Fur, puis en 1672 avec Marguerite Le Cabon. En mars 1673, Noel et son vieux père Guillaume pleurent la perte du petit Jean, âgé de seulement 7 ans. Mais la vie reprend ses droits le mois suivant lorsque sa troisième épouse met au monde un fils, baptisé Sébastien en hommage à son oncle prêtre, qui accepte d'être son parrain.</p>
+            </div>
+
+            <!-- Chapitre III : Messire Sébastien Larzul, le curé -->
+            <div class="chronique">
+                <h3>Chronique III. Messire Sébastien Larzul, curé de Plomeur en temps de tempêtes</h3>
+                <p>Sébastien Larzul, fils de Guillaume et frère de Noel, choisit la voie de l'Église. Devenu prêtre séculier puis <strong>Prêtre et curé de Plomeur</strong>, il est le pivot spirituel et administratif de toute la famille. C'est lui qui célèbre les mariages de la fratrie à la chapelle de la Madeleine en 1654 et qui appose sa signature régulière au bas des registres paroissiaux, garantissant l'état civil du clan.</p>
+                <p>Son sacerdoce est confronté à des heures sombres. En 1675, le Pays Bigouden s'embrase lors de la <strong>Révolte des Bonnets Rouges</strong> contre les nouvelles taxes royales. Plomeur se retrouve au cœur du conflit : c'est à la chapelle de Notre-Dame de Tréminou, toute proche de Lestreguiou, que les paysans rédigent leur "Code Paysan". En tant que pasteur de la paroisse, Sébastien doit naviguer entre sa fidélité à l'Église, l'autorité royale et la misère de ses ouailles durement frappées par la répression du duc de Chaulnes. Il restera auprès de ses fidèles jusqu'à sa mort, survenue le 14 juin 1684.</p>
+                
+                <div class="image-container">
+                    <img src="image_d65b74.jpg" alt="Zoom sur Lestriguiou sur le tableau d'assemblage" class="image-placeholder" onerror="this.src='https://placehold.co/800x450/e8e4d5/2c4a3e?text=Cadastre+de+Lestreguiou+(Section+B)'">
+                    <div class="image-caption">Le quartier de Lestreguiou sur le plan cadastral de 1833 (Section B) — Le cœur du hameau familial.</div>
+                </div>
+            </div>
+
+            <!-- Chapitre IV : L'alliance Charlot-Kerneau et l'héritage de Catherine Kermeur -->
+            <div class="chronique">
+                <h3>Chronique IV. La jonction de Plobannalec et l'héritage de Catherine Kermeur</h3>
+                <p>La survie de la lignée Larzul passe par l'alliance avec la paroisse voisine de Plobannalec. C'est là que réside notre aïeule <strong>Catherine Kermeur (Sosa 6767)</strong>, mariée à Guillaume Kerno. Leur fille Marguerite Kerneau, née en 1641, épouse Mathieu Charlot de Kervadol. C'est leur propre fille, <strong>Catherine Charlot (Sosa 1691)</strong>, qui va sceller l'union des deux terroirs.</p>
+                <p>Le 17 novembre 1686, Catherine Charlot épouse à Plobannalec <strong>Guillaume Larzul (Sosa 1690)</strong>, fils de Noel et Jeanne Drezen. Par ce mariage, l'héritage spirituel des Larzul de Plomeur et la rude paysannerie de Plobannalec fusionnent. De cette union naît en 1691 <strong>Catherine Larzul (Sosa 845)</strong>, future domanière de Lestreguiou.</p>
+            </div>
+
+            <!-- Chapitre V : Les domaniers Larnicol et le cadastre du XIXe siècle -->
+            <div class="chronique">
+                <h3>Chronique V. Les domaniers Larnicol et le cadastre du XIXe siècle</h3>
+                <p>Le 2 juin 1703, Catherine Larzul s'unit à <strong>Pierre Larnicol (Sosa 844)</strong>. Tous deux sont domaniers à Lestreguiou, un statut spécifique au domaine congéable breton : ils possèdent les maisons de pierre et les récoltes (édifices et superficies), mais payent une rente foncière aux grands propriétaires de Quimper ou de Rennes (tels que la famille De Roquefeuille ou Le Moigne).</p>
+                <p>Ce système perdure bien après la Révolution, comme l'attestent les matrices cadastrales de 1833 et 1834. En examinant les parcelles de la Section B, on constate que la famille Larzul est toujours présente à Kergreis et Lestreguiou. <strong>Esprit Larzul</strong> y possède la parcelle n°10, tandis que les parcelles adjacentes appartiennent à leurs voisins et alliés de toujours, les Le Guirriec et Le Drézen.</p>
+                
+                <div class="image-container">
+                    <img src="image_d7aa8c.jpg" alt="Matrice cadastrale de Plomeur en 1833" class="image-placeholder" onerror="this.src='https://placehold.co/800x300/e8e4d5/2c4a3e?text=Matrice+Cadastrale+(1833)'">
+                    <div class="image-caption">Extrait de la Matrice Cadastrale de Plomeur de 1833 — Relevé des domaniers à Lestreguiou et Kergreis, incluant Esprit Larzul sur la parcelle n°10.</div>
+                </div>
+            </div>
+
+            <!-- Relevés matrices cadastrales (Preuve par les documents) -->
+            <div class="chronique">
+                <h3>La preuve par les Textes : Les registres de 1833/1834</h3>
+                <p>Les relevés officiels du cadastre napoléonien révèlent la structure exacte des propriétés à l'époque de la rédaction des plans. Voici les relevés littéraux des parcelles du quartier :</p>
+                
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Ligne</th>
+                                <th>Domanier & Demeure</th>
+                                <th>Propriétaire (Foncier)</th>
+                                <th>N° Parcelle</th>
+                                <th>Nom du lieu-dit / champ</th>
+                                <th>Nature</th>
+                                <th>Contenance</th>
+                                <th>Classe</th>
+                                <th>Revenu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><strong>Le Divanach veuve Sébastien</strong></td>
+                                <td>De Rocfeuille <em>(Quimper)</em></td>
+                                <td>7</td>
+                                <td>Lestruguiou</td>
+                                <td>Terre lab.</td>
+                                <td>8 ares 80 ca</td>
+                                <td>3</td>
+                                <td>1,41 F</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><strong>Le Guirriec Noel</strong>, <em>à Penmarc'h</em></td>
+                                <td>De Rocfeuille</td>
+                                <td>8</td>
+                                <td>Lestruguiou</td>
+                                <td>Terre lab.</td>
+                                <td>13 ares 00 ca</td>
+                                <td>4</td>
+                                <td>1,04 F</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><strong>Le Drézen Pierre</strong></td>
+                                <td>De Rocfeuille</td>
+                                <td>9</td>
+                                <td>Kergreis Ero foen</td>
+                                <td>Terre lab.</td>
+                                <td>6 ares 10 ca</td>
+                                <td>3</td>
+                                <td>0,98 F</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td>4</td>
+                                <td><strong>Larzul Esprit</strong>, <em>à Penmarc'h</em></td>
+                                <td>De Rocfeuille</td>
+                                <td>10</td>
+                                <td>Kergreis</td>
+                                <td>Terre lab.</td>
+                                <td>4 ares 50 ca</td>
+                                <td>3</td>
+                                <td>0,72 F</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><strong>Le Drézen Pierre</strong></td>
+                                <td>Le Moigne <em>(Quimper)</em></td>
+                                <td>13</td>
+                                <td>Kergreis</td>
+                                <td>Terre lab.</td>
+                                <td>16 ares 70 ca</td>
+                                <td>3</td>
+                                <td>2,67 F</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="image-container">
+                    <img src="image_d82cf2.jpg" alt="Ligne de Guillaume Le Pemp dans le registre" class="image-placeholder" onerror="this.src='https://placehold.co/800x400/e8e4d5/2c4a3e?text=Registre+Guillaume+Le+Pemp'">
+                    <div class="image-caption">Extrait de la Matrice (Vue 127/234) — Ligne 5 montrant Guillaume Le Pemp, cultivateur à Penanprat, sur la parcelle n°5 « Ero ar veil » (le sillon du moulin) au lieu-dit Légard.</div>
+                </div>
+            </div>
+
+            <!-- Chapitre VI : Que reste-t-il ? -->
+            <div class="chronique">
+                <h3>Chronique VI. Que reste-t-il de la dynastie Larzul aujourd'hui ?</h3>
+                <p>L'héritage foncier et familial des Larzul se transmet au XVIIIe siècle par leur fille Catherine Larzul, puis par sa descendance Larnicol. Sa petite-fille, Louise Larnicol (G6), épouse en 1772 Henri Morvan, déplaçant l'activité de la famille vers le Manoir de Lesplomeur. À la génération G5, Marie Jeanne Morvan s'allie en 1799 à <strong>Guillaume Le Pemp</strong>, fixant la famille au hameau de Penanprat, juste à côté de Lestreguiou.</p>
+                <p>En 1834, Guillaume Le Pemp est un cultivateur établi, exploitant notamment la parcelle n°5 appelée <em>Ero ar veil</em> ("le sillon du moulin") au lieu-dit Légard. Cette terre était un signe du destin : son fils Pierre Le Pemp (G4) deviendra meunier à Plobannalec, transmettant cette tradition à son fils Noel (G3). Au XXe siècle, la lignée quitte les champs pour la science médicale avec le Docteur <strong>Pierre Marie Quillec (G1)</strong>, médecin à Penmarch, qui scellera l'alliance avec la famille <strong>Le Pajollec</strong> le 31 mai 1946 à Concarneau.</p>
+                <p>Aujourd'hui, les talus de Lestreguiou et la silhouette de la chapelle de la Madeleine témoignent toujours de cette longue lignée de domaniers bigoudens dont le sang coule encore dans nos veines.</p>
+            </div>
+        </div>
+
+        <!-- Sections Inférieures : Pistes et Webographie -->
+        <div class="footer-sections">
+            <!-- Pistes de recherche -->
+            <div class="footer-card">
+                <h3>🔍 Pistes pour continuer les recherches</h3>
+                <ul>
+                    <li><strong>Série B des Archives du Finistère :</strong> Inventorier les actes de la juridiction de Pont-l'Abbé pour localiser le contrat d'achat primitif de la maison domanière de Guillaume Larzul à Lestreguiou (ca. 1650).</li>
+                    <li><strong>Recherche du Testament de Sébastien Larzul :</strong> Étudier les insinuations ecclésiastiques du diocèse de Quimper pour vérifier si le curé a légué des biens mobiliers ou des livres d'heures à ses neveux.</li>
+                    <li><strong>Étude Sanitaire de la Madeleine :</strong> Explorer l'histoire de la chapelle en tant qu'ancienne maladrerie/léproserie de Plomeur afin de comprendre le statut des domaniers de Lestreguiou de la Madeleine.</li>
+                </ul>
+            </div>
+
+            <!-- Webographie & Sources -->
+            <div class="footer-card">
+                <h3>🌐 Webographie & Sources</h3>
+                <ul>
+                    <li><strong>Archives Départementales du Finistère :</strong> <a href="https://recherche.archives.finistere.fr/" target="_blank">Registres Paroissiaux en ligne de Plomeur & Plobannalec</a>.</li>
+                    <li><strong>Cadastre de Plomeur (1833-1834) :</strong> Sections A-G et Tableau indicatif des propriétés foncières (Série 3 P).</li>
+                    <li><strong>Centre de Généalogie du Finistère :</strong> <a href="https://cgf.bzh/" target="_blank">Base de données récif (CGF)</a> pour les actes Larzul, Charlot et Larnicol.</li>
+                    <li><strong>Diocèse de Quimper et Léon :</strong> <a href="https://www.diocese-quimper.fr/wp-content/uploads/2021/01/bdha1940.pdf" target="_blank">Bulletins diocésains d'histoire et d'archéologie</a> (Rectorat d'Abraham à Plomeur).</li>
+                  <li><strong>https://m.shabretagne.com/scripts/files/669ae44ccc5a69.77275869/1962_04.pdf
+                  </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Généalogie et Histoire des Familles du Pays Bigouden — Tous droits réservés.</p>
+        <p>Conçu avec rigueur historique à partir des relevés authentiques des BMS et des matrices cadastrales de Plomeur (1833/1834).</p>
+    </footer>
+
+</body>
+</html>
