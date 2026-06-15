@@ -1403,8 +1403,8 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 2177;G10;TT;francoise BELEC;;;19/07/1673;;Plouvorn (Kerdrein);;;
 2178;G10;TT;jan MORVAN;;;30/05/1670;;Plouvorn (Kerivoas);;;
 2179;G10;TT;marie CLOAREC;;;17/10/1670;;Plouvorn (Kerivoas);;;
-2200;G10;TT;paol SPAGNOL;;27/10/1597;09/04/1656;Saint-martin;Saint-martin;5/2/1692;Morlaix-Saint-Martin;
-2201;G10;TT;joanna ruz ou an DERU;;04/06/1599;;Saint-martin;Saint-martin;5/2/1692;Morlaix-Saint-Martin;Fille de Heguinius et de catherine Kerguellec
+2200;G10;TT;paol SPAGNOL;;27/10/1597;09/04/1656;Saint-martin;Saint-martin;;Morlaix-Saint-Martin;
+2201;G10;TT;joanna ruz ou an DERU;;04/06/1599;;Saint-martin;Saint-martin;Morlaix-Saint-Martin;Fille de Heguinius et de catherine Kerguellec
 2210;G9;TT;jean SPAGNOL;;;;;;24/11/1660;Saint-Pol-de-Leon;
 2211;G9;TT;marie POUBENNEC;;;;;;24/11/1660;Saint-Pol-de-Leon;
 2212;G9;TT;gilles le ROUX;;;;;;;;
