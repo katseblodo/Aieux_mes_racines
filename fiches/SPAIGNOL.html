@@ -16,6 +16,7 @@
             --highlight-color: #eef5fc;
             --ancestor-bg: #fff9e6;
             --ancestor-border: #d9a05b;
+            --sibling-bg: #f0f4f8;
         }
 
         body {
@@ -28,7 +29,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 0 auto;
             background-color: var(--container-bg);
             padding: 40px;
@@ -101,14 +102,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 600px;
+            min-width: 800px;
         }
 
         .tree-row {
             display: flex;
             justify-content: center;
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             position: relative;
         }
 
@@ -127,6 +128,12 @@
             background-color: var(--ancestor-bg);
             border: 1px solid var(--ancestor-border);
             font-weight: bold;
+        }
+        
+        .tree-node.sibling {
+            background-color: var(--sibling-bg);
+            color: #555;
+            font-style: italic;
         }
 
         .tree-node span {
@@ -164,7 +171,6 @@
             background-color: #fffdf3;
         }
 
-        /* Liens de fin */
         .links-section {
             margin-top: 50px;
             padding-top: 20px;
@@ -206,7 +212,7 @@
 <div class="container">
     <header>
         <h1>Saga Familiale : LESPAGNOL x LE RUZ</h1>
-        <div class="subtitle">Trois générations de négoce maritime et d'ascension sociale entre Léon et Trégor (1578 - 1653)</div>
+        <div class="subtitle">Trois générations de négoce maritime et d'ascension sociale entre Léon et Trégor (1572 - 1653)</div>
     </header>
 
     <section>
@@ -214,7 +220,6 @@
         <p>
             Cette chronique reconstitue l'histoire de la famille <strong>Lespagnol</strong> (ou <em>Spaignol</em>), issue d'une lignée de marchands et marins probablement originaires de la péninsule Ibérique, installée en Basse-Bretagne à la fin du XVIe siècle. Entre les rives de <strong>Plouezoc'h</strong> dans le Trégor et les faubourgs industriels de la paroisse <strong>Saint-Martin de Morlaix</strong> dans le Léon, cette dynastie a su traverser les Guerres de la Ligue pour s'élever, en trois générations, jusqu'aux plus hautes sphères du patriciat et de la noblesse de robe armoricaine.
         </p>
-        <p>Ce sont mes ancêtres par ma famille Tanguy.</p>
     </section>
 
     <h2>Ligne Directrice et Filiation</h2>
@@ -223,13 +228,18 @@
             <div class="tree-row">
                 <div class="tree-node">
                     <strong>Frañsez LESPAGNOL & Ameta DERIEN</strong>
-                    <span>Plouezoc'h (Trégor maritime) — v. 1570</span>
+                    <span>Plouezoc'h (Trégor maritime) — Établis v. 1570</span>
                 </div>
+            </div>
+            <div class="tree-row">
+                <div class="tree-node sibling">Philipus SPANOL<span>Baptisé en 1572 à Plouezoc'h</span></div>
+                <div class="tree-node direct"><strong>Youenn (Yvo) EN SPAIGNOL</strong><span>Baptisé en 1578 à Plouezoc'h<br>Direct G2</span></div>
+                <div class="tree-node sibling">Thomas SPAIGNOLL<span>Baptisé en 1585 à Plouezoc'h</span></div>
             </div>
             <div class="tree-row">
                 <div class="tree-node">
                     <strong>Youenn SPAIGNOL & Janed FLOCH</strong>
-                    <span>Baptisé en 1578 à Plouezoc'h | Installés à Morlaix</span>
+                    <span>Mariés à Morlaix | Résidents de Saint-Martin</span>
                 </div>
             </div>
             <div class="tree-row">
@@ -256,13 +266,21 @@
 
     <h2>Chronique des Générations</h2>
 
-    <h3>Génération 1 : L'ancrage au Trégor maritime (Plouezoc'h, 1578)</h3>
+    <h3>Génération 1 : La fratrie du Dourduff (Plouezoc'h, 1572 - 1585)</h3>
     <p>
-        Au cœur de la seconde moitié du XVIe siècle, la baie de Morlaix est une plaque tournante du commerce atlantique. C'est à <strong>Plouezoc'h</strong>, paroisse littorale contrôlant le port de refuge du <em>Dourduff-en-Mer</em>, que s'établit <strong>Frañsez (Franciscus) LESPAGNOL</strong>. Désigné dans les registres par la formule bretonne <em>« En Spaignol »</em>, son nom de famille découle directement de sa patrie d'origine. Il épouse une Bretonne locale, <strong>Ameta DERIEN</strong>. 
+        Au cœur de la seconde moitié du XVIe siècle, la baie de Morlaix est une plaque tournante du commerce atlantique. C'est à <strong>Plouezoc'h</strong>, paroisse littorale contrôlant le port de refuge du <em>Dourduff-en-Mer</em>, que s'établit le foyer de <strong>Frañsez (Franciscus) LESPAGNOL</strong> (ou <em>Spanoil</em>) et de son épouse bretonne <strong>Ameta (ou Anneta) DERIEN</strong>. L'analyse de la fratrie de cette première génération révèle à quel point la famille est connectée au monde ibérique et aux notables locaux :
     </p>
-    <p>
-        Le 5 juin 1578, ils font baptiser leur fils <strong>Youenn (Yvo)</strong>. Le réseau relationnel est alors purement maritime et artisanal : le parrain, Youenn Peleter (dont le nom signifie <em>tanneur/fourreur</em> en breton), témoigne de liens étroits avec le négoce des cuirs, tandis que la marraine, Anna Bolen, appartient aux vieilles familles de gens de mer de l'estuaire.
-    </p>
+    <ul>
+        <li>
+            <strong>Philipus (Filip) – Baptisé le 10 février 1572 :</strong> Le choix de ce prénom est un hommage direct et politique très fort au roi <strong>Philippe II d'Espagne</strong>, qui règne alors sur la Castille et l'Empire colonial espagnol. C'est l'affirmation claire des racines de Frañsez. Le parrain est Philipus Mouster et la marraine Maria Forest, issus de familles estimées de la côte.
+        </li>
+        <li>
+            <strong>Youenn (Yvo) – Baptisé le 5 juin 1578 (Votre ligne directe) :</strong> Désigné par la formule bretonne <em>« En Spaignol »</em>. Son parrain, Youenn Peleter (le tanneur), confirme l'insertion de Frañsez dans le négoce des matières premières (cuirs, peaux) si important entre Bilbao et la Bretagne.
+        </li>
+        <li>
+            <strong>Thomas – Baptisé le 19 mars 1585 :</strong> Le choix du parrain, <strong>Thomas Castell</strong>, fait écho à la puissante et très noble maison du Chastel (ou Castel), ou à une branche de riches marchands de ce nom. La mère est ici notée <em>de Ru?</em> par le prêtre, ce qui pourrait être une confusion avec le patronyme Le Ruz qui entrera plus tard dans la famille, ou une déformation de Derien.
+        </li>
+    </ul>
 
     <h3>Génération 2 : L'installation à Morlaix et l'épreuve des guerres (1597)</h3>
     <p>
@@ -299,11 +317,25 @@
         </thead>
         <tbody>
             <tr>
+                <td><strong>10/02/1572</strong><br>Plouezoc'h</td>
+                <td>Baptême<br><strong>Philipus SPANOL</strong></td>
+                <td>Franciscus & Amata DERIEN</td>
+                <td><strong>P :</strong> Philipus Mouster & Yvo An Guien<br><strong>M :</strong> Maria Forest<br><em>Note : SPANOIL dans l'acte. Prénom en hommage au roi d'Espagne.</em></td>
+                <td><span class="meta-id">N-1572-2918600-50908-00336</span></td>
+            </tr>
+            <tr>
                 <td><strong>05/06/1578</strong><br>Plouezoc'h</td>
                 <td>Baptême<br><strong>Youenn EN SPAIGNOL</strong></td>
                 <td>Franciscus & Ameta DERIEN</td>
-                <td><strong>P :</strong> Yvo Peleter (tanneur)<br><strong>M :</strong> Anna Bolen</td>
+                <td><strong>P :</strong> Yvo Peleter (tanneur)<br><strong>M :</strong> Anna Bolen<br><em>Lignée directe de la branche de Morlaix.</em></td>
                 <td><span class="meta-id">N-1578-2918600-50908-00597</span></td>
+            </tr>
+            <tr>
+                <td><strong>19/03/1585</strong><br>Plouezoc'h</td>
+                <td>Baptême<br><strong>Thomas SPAIGNOLL</strong></td>
+                <td>Franciscus & Anneta DERIEN</td>
+                <td><strong>P :</strong> Thomas Castell<br><strong>M :</strong> Magareta Mazcon<br><em>Note : la mère lue DERU? dans l'acte (variante/erreur).</em></td>
+                <td><span class="meta-id">N-1585-2918600-50908-00927</span></td>
             </tr>
             <tr>
                 <td><strong>27/10/1597</strong><br>Morlaix (St-Martin)</td>
@@ -344,7 +376,7 @@
                 <td><strong>16/05/1641</strong><br>Morlaix (St-Martin)</td>
                 <td>Baptême<br><strong>Kristof ESPAIGNOL</strong><br><span class="badge-ancestor">Votre ancêtre</span></td>
                 <td>Paol & Joanna RUZ</td>
-                <td><strong>P :</strong> Christophorus L'Espaignol<br><strong>M :</strong> Marguerite PINART de QUELENNEC (Haute noblesse)</td>
+                <td><strong>P :</strong> Christophorus L'Espaignol<br><strong>M :</strong> Marguerite PINART de QUELENNEC (Haute noblesse d'extraction)</td>
                 <td><span class="meta-id">N-1641-2915103-51127-02752</span></td>
             </tr>
             <tr>
