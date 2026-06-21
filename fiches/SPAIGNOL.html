@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche Familiale - L'ESPAIGNOL x LE RUZ | Aïeux de Morlaix</title>
+    <style>
+        :root {
+            --bg-color: #f7f5f0;
+            --container-bg: #ffffff;
+            --primary-color: #2b3e50;
+            --secondary-color: #8c6239;
+            --accent-color: #d9a05b;
+            --text-color: #333333;
+            --border-color: #e0dacb;
+            --highlight-color: #eef5fc;
+            --ancestor-bg: #fff9e6;
+            --ancestor-border: #d9a05b;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px double var(--secondary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+            font-weight: normal;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: var(--secondary-color);
+            font-size: 1.1em;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+            font-size: 1.5em;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.2em;
+            margin-top: 25px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        .badge-ancestor {
+            background-color: var(--ancestor-bg);
+            border: 1px solid var(--ancestor-border);
+            color: #b46d12;
+            padding: 2px 8px;
+            font-size: 0.85em;
+            font-weight: bold;
+            border-radius: 3px;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        /* Arbre Généalogique CSS */
+        .tree-container {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #faf9f6;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 600px;
+        }
+
+        .tree-row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .tree-node {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 10px 15px;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            margin: 0 10px;
+            font-size: 0.9em;
+        }
+
+        .tree-node.direct {
+            background-color: var(--ancestor-bg);
+            border: 1px solid var(--ancestor-border);
+            font-weight: bold;
+        }
+
+        .tree-node span {
+            display: block;
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* Tableau des actes */
+        .actes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+        }
+
+        .actes-table th, .actes-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        .actes-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: normal;
+        }
+
+        .actes-table tr:nth-child(even) {
+            background-color: #fdfdfb;
+        }
+
+        .actes-table tr.highlight {
+            background-color: #fffdf3;
+        }
+
+        /* Liens de fin */
+        .links-section {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--secondary-color);
+        }
+
+        .links-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .links-list li {
+            margin-bottom: 10px;
+        }
+
+        .links-list a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--secondary-color);
+        }
+
+        .links-list a:hover {
+            color: var(--primary-color);
+            border-bottom-style: solid;
+        }
+
+        .meta-id {
+            font-family: monospace;
+            font-size: 0.8em;
+            color: #777;
+            background: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Saga Familiale : LESPAGNOL x LE RUZ</h1>
+        <div class="subtitle">Trois générations de négoce maritime et d'ascension sociale entre Léon et Trégor (1578 - 1653)</div>
+    </header>
+
+    <section>
+        <h2>Introduction & Contexte Historique</h2>
+        <p>
+            Cette chronique reconstitue l'histoire de la famille <strong>Lespagnol</strong> (ou <em>Spaignol</em>), issue d'une lignée de marchands et marins probablement originaires de la péninsule Ibérique, installée en Basse-Bretagne à la fin du XVIe siècle. Entre les rives de <strong>Plouezoc'h</strong> dans le Trégor et les faubourgs industriels de la paroisse <strong>Saint-Martin de Morlaix</strong> dans le Léon, cette dynastie a su traverser les Guerres de la Ligue pour s'élever, en trois générations, jusqu'aux plus hautes sphères du patriciat et de la noblesse de robe armoricaine.
+        </p>
+    </section>
+
+    <h2>Ligne Directrice et Filiation</h2>
+    <div class="tree-container">
+        <div class="tree">
+            <div class="tree-row">
+                <div class="tree-node">
+                    <strong>Frañsez LESPAGNOL & Ameta DERIEN</strong>
+                    <span>Plouezoc'h (Trégor maritime) — v. 1570</span>
+                </div>
+            </div>
+            <div class="tree-row">
+                <div class="tree-node">
+                    <strong>Youenn SPAIGNOL & Janed FLOCH</strong>
+                    <span>Baptisé en 1578 à Plouezoc'h | Installés à Morlaix</span>
+                </div>
+            </div>
+            <div class="tree-row">
+                <div class="tree-node">
+                    <strong>Paol LESPAGNOL & Janed LE RUZ</strong>
+                    <span>Mariés en 1632 à Morlaix (Saint-Martin)</span>
+                </div>
+            </div>
+            <div class="tree-row">
+                <div class="tree-node"><span>Marc'harid<br>(1633)</span></div>
+                <div class="tree-node"><span>Pêr<br>(1636)</span></div>
+                <div class="tree-node"><span>Katell<br>(1638)</span></div>
+                <div class="tree-node direct">
+                    <strong>Kristof LESPAGNOL</strong>
+                    <span class="badge-ancestor">Votre Ancêtre Direct</span>
+                    <span>Baptisé en 1641</span>
+                </div>
+                <div class="tree-node"><span>Herve<br>(1644)</span></div>
+                <div class="tree-node"><span>Marzhin<br>(1647)</span></div>
+                <div class="tree-node"><span>Franseza<br>(1653)</span></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Chronique des Générations</h2>
+
+    <h3>Génération 1 : L'ancrage au Trégor maritime (Plouezoc'h, 1578)</h3>
+    <p>
+        Au cœur de la seconde moitié du XVIe siècle, la baie de Morlaix est une plaque tournante du commerce atlantique. C'est à <strong>Plouezoc'h</strong>, paroisse littorale contrôlant le port de refuge du <em>Dourduff-en-Mer</em>, que s'établit <strong>Frañsez (Franciscus) LESPAGNOL</strong>. Désigné dans les registres par la formule bretonne <em>« En Spaignol »</em>, son nom de famille découle directement de sa patrie d'origine. Il épouse une Bretonne locale, <strong>Ameta DERIEN</strong>. 
+    </p>
+    <p>
+        Le 5 juin 1578, ils font baptiser leur fils <strong>Youenn (Yvo)</strong>. Le réseau relationnel est alors purement maritime et artisanal : le parrain, Youenn Peleter (dont le nom signifie <em>tanneur/fourreur</em> en breton), témoigne de liens étroits avec le négoce des cuirs, tandis que la marraine, Anna Bolen, appartient aux vieilles familles de gens de mer de l'estuaire.
+    </p>
+
+    <h3>Génération 2 : L'installation à Morlaix et l'épreuve des guerres (1597)</h3>
+    <p>
+        Devenu adulte, <strong>Youenn</strong> remonte la rivière de Morlaix pour s'implanter durablement en ville clause, choisissant le faubourg industrieux de <strong>Saint-Martin</strong> (côté Léon). Il s'allie à la bourgeoisie locale en épousant <strong>Janed (Johanna) FLOCH</strong>, fille d'une honorable famille d'artisans (le mot <em>Floch</em> renvoyant au terme de "page" ou "jeune écuyer").
+    </p>
+    <p>
+        Leur fils <strong>Paol (Paulus)</strong> naît le 27 octobre 1597 dans un contexte apocalyptique : Morlaix se relève à peine des Guerres de la Ligue, ayant subi un siège sanglant et un pillage en 1594 par les troupes d'Henri IV. Le choix des parrains montre une intégration urbaine réussie : Paol Floch (oncle maternel) et Janed Loscun, issue d'une lignée de notables investis dans les fabriques et les affaires juridiques locales.
+    </p>
+
+    <h3>Génération 3 : L'âge d'or morlaisien de Paol et Janed (1632 - 1653)</h3>
+    <p>
+        C'est sous le règne de Louis XIII que se déploie l'âge d'or de la famille. Le 5 février 1632, <strong>Paol LESPAGNOL</strong> épouse à Saint-Martin <strong>Janed (Joanna) LE RUZ</strong> (ou <em>Le Ru/Rutz</em>, signant « Le Rouge » en breton). Morlaix est alors le premier port d'exportation des toiles de lin du Léon (les <em>crées</em>). Paol et Janed profitent de cette conjoncture économique florissante pour asseoir leur influence.
+    </p>
+    <p>
+        Le couple donne naissance à sept enfants. Si les premiers baptêmes (1633-1638) font appel à des proches et à des prêtres érudits locaux comme Jan Prigent ou Pêr Lozech, les années 1640 marquent l'entrée fracassante de la famille dans l'entourage de la haute noblesse de la région. 
+    </p>
+    <p>
+        Le 16 mai 1641 naît <strong>Kristof (Christoforus) LESPAGNOL</strong>, <strong>votre ancêtre direct</strong>. Signe de la puissance financière et du prestige social acquis par ses parents, le nouveau-né a pour marraine la très haute et puissante dame <strong>Marc'harid (Marguerite) PINART de QUELENNEC</strong>. Les Pinart représentent l'élite absolue de la sénéchaussée et de la Chambre des Comptes, alliés aux Quélennec, lignée chevaleresque d'ancienne extraction. 
+    </p>
+    <p>
+        Cette consécration sociale se poursuit pour les derniers enfants : en 1647, la marraine Katell Le Hir est devenue propriétaire du manoir de <em>Penlan</em>. Enfin, en 1653, la dernière fille, Franseza, est tenue sur les fonts baptismaux par Youenn Moravan, seigneur de <em>Coatgonval</em>, et Franseza de Jauréguy, dame de <em>Lisle</em>, issue d'une riche dynastie de marchands basques naturalisés, anoblis et alliés aux Pinart.
+    </p>
+
+    <h2>Registre Exhaustif des Actes Paroissiaux (CGF)</h2>
+    <table class="actes-table">
+        <thead>
+            <tr>
+                <th>Date & Paroisse</th>
+                <th>Type / Individu</th>
+                <th>Parents / Témoins</th>
+                <th>Parrain (P) & Marraine (M) / Notes</th>
+                <th>Identifiant CGF</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>05/06/1578</strong><br>Plouezoc'h</td>
+                <td>Baptême<br><strong>Youenn EN SPAIGNOL</strong></td>
+                <td>Franciscus & Ameta DERIEN</td>
+                <td><strong>P :</strong> Yvo Peleter (tanneur)<br><strong>M :</strong> Anna Bolen</td>
+                <td><span class="meta-id">N-1578-2918600-50908-00597</span></td>
+            </tr>
+            <tr>
+                <td><strong>27/10/1597</strong><br>Morlaix (St-Martin)</td>
+                <td>Baptême<br><strong>Paol SPANOL</strong></td>
+                <td>Yvon & Johanna FLOCH</td>
+                <td><strong>P :</strong> Paulus Floch<br><strong>M :</strong> Johanna Loscun</td>
+                <td><span class="meta-id">N-1597-2915103-00499-00190</span></td>
+            </tr>
+            <tr>
+                <td><strong>05/02/1632</strong><br>Morlaix (St-Martin)</td>
+                <td>Mariage<br><strong>Paol LESPAGNOL x Janed LE RU</strong></td>
+                <td>—</td>
+                <td><em>Union célébrée au début de l'âge d'or des Crées.</em></td>
+                <td><span class="meta-id">M-1632-2915103-61295-00061</span></td>
+            </tr>
+            <tr>
+                <td><strong>05/02/1633</strong><br>Morlaix (St-Martin)</td>
+                <td>Baptême<br><strong>Marc'harid SPAIGNOL</strong></td>
+                <td>Paulus & Joanna LE RUZ<br>Tém : J. Prigent (vicaire), F. Fouller (prêtre)</td>
+                <td><strong>P :</strong> Joannes Le Chappallain<br><strong>M :</strong> Margareta Jaffretz (fille d'Yvon x J. Miocec). Note : 322 V.</td>
+                <td><span class="meta-id">N-1633-2915103-51127-01693</span></td>
+            </tr>
+            <tr>
+                <td><strong>24/01/1636</strong><br>Morlaix (St-Martin)</td>
+                <td>Baptême<br><strong>Pêr SPAIGNOL</strong></td>
+                <td>Paulus & Joanna LE RUTZ<br>Tém : J. Prigent, G. Merer, Y. Collec (prêtres)</td>
+                <td><strong>P :</strong> Petrus Lozech (s), prêtre<br><strong>M :</strong> Catherine Le Hir (s)</td>
+                <td><span class="meta-id">N-1636-2915103-51127-02067</span></td>
+            </tr>
+            <tr>
+                <td><strong>23/04/1638</strong><br>Morlaix (St-Martin)</td>
+                <td>Baptême<br><strong>Katell L' ESPAIGNOL</strong></td>
+                <td>Paulus & Joanna LE RU<br>Tém : J. Prigent, G. Merer, G. Hamon, Y. Collec</td>
+                <td><strong>P :</strong> Guillelmus Nicolas (s)<br><strong>M :</strong> Catherina Le Ru. <br><em>Note : Bapt. le 24. Katell Le Cozquear (sage-femme).</em></td>
+                <td><span class="meta-id">N-1638-2915103-51127-02353</span></td>
+            </tr>
+            <tr class="highlight">
+                <td><strong>16/05/1641</strong><br>Morlaix (St-Martin)</td>
+                <td>Baptême<br><strong>Kristof ESPAIGNOL</strong><br><span class="badge-ancestor">Votre ancêtre</span></td>
+                <td>Paol & Joanna RUZ</td>
+                <td><strong>P :</strong> Christophorus L'Espaignol<br><strong>M :</strong> Marguerite PINART de QUELENNEC (Haute noblesse)</td>
+                <td><span class="meta-id">N-1641-2915103-51127-02752</span></td>
+            </tr>
+            <tr>
+                <td><strong>07/04/1644</strong><br>Morlaix (St-Martin)</td>
+                <td>Baptême<br><strong>Herve LE SPAIGNOL</strong></td>
+                <td>Paulus & Joanna RUZ</td>
+                <td><strong>P :</strong> Hoerveus Guguen<br><strong>M :</strong> Catherina Kerleau (épouse d'Yvon Gourchant)</td>
+                <td><span class="meta-id">N-1644-2915103-51127-03146</span></td>
+            </tr>
+            <tr>
+                <td><strong>24/02/1647</strong><br>Morlaix (St-Martin)</td>
+                <td>Baptême<br><strong>Marzhin SPAIGNOL</strong></td>
+                <td>Paulus & Joanna LE RUTZ</td>
+                <td><strong>P :</strong> Martinus Bottorell<br><strong>M :</strong> Catherine Le Hir de Penlan (Fief terrien)</td>
+                <td><span class="meta-id">N-1647-2915103-51127-03505</span></td>
+            </tr>
+            <tr>
+                <td><strong>23/06/1653</strong><br>Morlaix (St-Martin)</td>
+                <td>Baptême<br><strong>Franseza SPAINOL</strong></td>
+                <td>Paulus & Joanna RUX</td>
+                <td><strong>P :</strong> Yves Moravan de Coatgonval (s) (Robe)<br><strong>M :</strong> Françoise de Jaureguy de Lisle (Haute bourgeoisie anoblie)</td>
+                <td><span class="meta-id">N-1653-2915103-51127-04260</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <section class="links-section">
+        <h2>Pour aller plus loin : Histoire des lieux et des familles</h2>
+        <p>Afin d'approfondir le cadre de vie de vos ancêtres et l'histoire des prestigieuses lignées qui les ont parrainés, vous pouvez consulter les ressources historiques suivantes :</p>
+        <ul class="links-list">
+            <li><a href="https://www.infobretagne.com/morlaix-saint-martin.htm" target="_blank" rel="noopener"><strong>La paroisse Saint-Martin de Morlaix :</strong> Histoire religieuse, fondation des couvents au XVIIe siècle et architecture des faubourgs.</a></li>
+            <li><a href="https://www.infobretagne.com/plouezoch.htm" target="_blank" rel="noopener"><strong>Histoire et patrimoine de Plouezoc'h :</strong> Notes exhaustives sur le port du Dourduff, la seigneurie de l'Isle et le commerce maritime primitif de la baie.</a></li>
+            <li><a href="https://www.infobretagne.com/famille-pinart.htm" target="_blank" rel="noopener"><strong>La Maison Pinart (du Val, de Cadoalan, de Lisle) :</strong> Filiation, armoiries et preuves de noblesse d'extraction de cette grande famille de magistrats morlaisiens.</a></li>
+            <li><a href="https://www.shabretagne.com/" target="_blank" rel="noopener"><strong>Société d'Histoire et d'Archéologie de Bretagne :</strong> Travaux et articles sur l'impact des marchands espagnols et basques (Jauréguy, Lespagnol) dans les ports bretons sous l'Ancien Régime.</a></li>
+            <li><a href="https://cgf.bzh/" target="_blank" rel="noopener"><strong>Centre de Généalogie du Finistère (CGF) :</strong> Pour retrouver les fratries collatérales et approfondir la base Recif à partir des identifiants d'actes fournis.</a></li>
+        </ul>
+    </section>
+</div>
+
+</body>
+</html>
