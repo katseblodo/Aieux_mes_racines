@@ -1749,9 +1749,11 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 6384;G11;QQ;yvon born ou le BORGNE;;;;;;;;
 G385;G11;QQ;heldrede TREFFRY;;;;;;;;
 6388;G11;QQ;xxx GOURRET;;;;;;;;
-6389;G11;QQ;jeanne le BIHAN;dite Guerannic;14/03/1604;12/11/1657;Plozevet;Plozevet;;;mais ï¿½a marche pas | Notï¿½ Grand mï¿½re dans acte de naissance acte Identifiant CGF de l'acte : N-1645-2921500-50188-00642
+6389;G11;QQ;!jeanne le BIHAN;dite Guerannic;14/03/1604;12/11/1657;Plozevet;Plozevet;;;mais ca marche pas | Notee Grand mere dans acte de naissance acte Identifiant CGF de l'acte : N-1645-2921500-50188-00642
 6390;G11;QQ;yvon MARZIN;;;;;;;;
 6391;G11;QQ;marguerite JANNIC;;;8/08/1651;;Plozevet;;;
+6496;G11;QQ;Herve Le BERRE;;26/05/1633;;Treogat;;12/10/1654;Plovan;fils de Louis LE BERRE et Marguerite GUÉZENNEC;
+6497;G11;QQ;Marie KERVAHU;;;;Plovan;;12/10/1654;Plovan;
 6580;G11;Q;rene le BRUN;;1615;entre 1652 et 1700;;;5/02/1633;Plomeur;
 6581;G11;Q;marie COLIN;;1615;entre 1652 et 1700;Plomeur;;;;
 6592;G11;QP;yvon le PAPE;;1590;1654;;;;;
