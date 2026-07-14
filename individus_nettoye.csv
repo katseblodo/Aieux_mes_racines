@@ -1507,8 +1507,8 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 3229;G10;QQ;constance RIOU;;1642;19/10/1712;;Kerzin, Beuzec-Cap-Caval;vers 1675;;
 3230;G10;QQ;jacques GOURMELEN;;;1706;Treguennec;Treguennec;vers 1665;;
 3231;G10;QQ;marie COIC;;1647;;;Treguennec;vers 1665;;
-3248;G10;QQ;yvon le BERRE;Laboureur de terre;;21/06/1710;;treogat;03/11/1670;Treogat;fils de Herve et de Marie KERVAHU du manoir de lesvenguy
-3249;G10;QQ;marie le ROY;;;17/11/1720;;Treogat, Lesmenguy;;;fille de Rene et de Catharine LOUSSOUARN;Notes epouse : du village de lessaloux
+3248;G10;QQ;yvon le BERRE;Laboureur de terre;10/09/1656;21/06/1710;Treogat;Treogat;03/11/1670;Treogat;fils de Herve et de Marie KERVAHU du manoir de lesvenguy;Parrain : AUTRET Yves. missire, seigneur de lesoual (s) et Marraine : Du MENEZ Françoise. haute et puissante dame du minven (s);
+3249;G10;QQ;marie le ROY;;08/01/1654;17/11/1720;Treogat, Lessalous;Treogat, Lesmenguy;;;fille de Rene et de Catharine LOUSSOUARN;Notes epouse : du village de lessaloux
 3290;G10;QQ;rene le BRUN;;1663;2/03/1735;Penmarch;Penmarch;;;
 3291;G10;QQ;marie RIOUAL;;1673;10/05/1745;Penmarch;Penmarch;;;
 3296;G10;QQ;jean le PAPE;ca 1620-ca 1670;;;;;;;fils de Yvon et de Louise Marchiou 6592-6593
@@ -1753,7 +1753,7 @@ G385;G11;QQ;heldrede TREFFRY;;;;;;;;
 6390;G11;QQ;yvon MARZIN;;;;;;;;
 6391;G11;QQ;marguerite JANNIC;;;8/08/1651;;Plozevet;;;
 6496;G11;QQ;Herve Le BERRE;;26/05/1633;;Treogat;;12/10/1654;Plovan;fils de Louis LE BERRE et Marguerite GUÉZENNEC;
-6497;G11;QQ;Marie KERVAHU;;;;Plovan;;12/10/1654;Plovan;
+6497;G11;QQ;Marie KERVAHU;;;;Plovan;;12/10/1654;Plovan;Temoins : signatures : Pierre Le Berre et Yves Kervahu;
 6580;G11;Q;rene le BRUN;;1615;entre 1652 et 1700;;;5/02/1633;Plomeur;
 6581;G11;Q;marie COLIN;;1615;entre 1652 et 1700;Plomeur;;;;
 6592;G11;QP;yvon le PAPE;;1590;1654;;;;;
