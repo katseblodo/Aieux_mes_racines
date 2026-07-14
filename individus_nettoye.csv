@@ -1142,11 +1142,11 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 1618;G9;QQ;;;;;;;;;
 1619;G9;QQ;;;;;;;;;
 1620;G9;QQ;yves CARIOU;;;;Combrit;31/01/1674 - Plonivel;;;
-1621;G9;QQ;jeanne le BALLACON;;31/12/1654;29/05/1715;Plonivel;Plonivel;31/01/1674 - Plonivel;;Jacques et de Marie FOLGOUAS
+1621;G9;QQ;jeanne le BALLACON;;31/12/1654;29/05/1715;Plonivel;Plonivel;31/01/1674 - Plonivel;;Jacques et de Marie FOLGOUAS;
 1622;G9;QQ;;Menager;;;;;;;
 1623;G9;QQ;;;;;;;;;
-1624;G9;QQ;jean le BERRE;Menager;;;;24/10/1695;Treogat;;Treogat | fils de Yvon et de Marie LE ROY
-1625;G9;QQ;marie le CUNEUDEC;;1678;02/01/1708;Lababan;Treogat;24/10/1695;Treogat;
+1624;G9;QQ;jean le BERRE;Tessier et Menager;;;;24/10/1695;Treogat;;Treogat; reside a Lezvenguy en 1696 et en 1700-fils de Yvon et de Marie LE ROY;
+1625;G9;QQ;marie le CUNEUDEC;Tessier et Menager;1678;02/01/1708;Lababan;Treogat;24/10/1695;Treogat;
 1626;G9;QQ;jean GADONNA;;;12/11/1742;;Plozevet;27/07/1694;Plozevet;
 1627;G9;QQ;catherine PENVEN;;;21/02/1731;;Plozevet;27/07/1694;Plozevet;
 1628;G9;QQ;paul KERVEVAN;;;;;;;;
@@ -1507,8 +1507,8 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 3229;G10;QQ;constance RIOU;;1642;19/10/1712;;Kerzin, Beuzec-Cap-Caval;vers 1675;;
 3230;G10;QQ;jacques GOURMELEN;;;1706;Treguennec;Treguennec;vers 1665;;
 3231;G10;QQ;marie COIC;;1647;;;Treguennec;vers 1665;;
-3248;G10;QQ;yvon le BERRE;Laboureur de terre;;21/06/1710;;treogat;03/11/1670;Treogat;fils de Hervï¿½ et de Marie KERVAHU | du manoir de lesvenguy
-3249;G10;QQ;marie le ROY;;;17/11/1720;;Treogat, Lesmenguy;;;fille de Renï¿½, dï¿½cï¿½dï¿½ et de Catharine LOUSSOUARN | Notes ï¿½pouse : du village de lessaloux
+3248;G10;QQ;yvon le BERRE;Laboureur de terre;;21/06/1710;;treogat;03/11/1670;Treogat;fils de Herve et de Marie KERVAHU du manoir de lesvenguy
+3249;G10;QQ;marie le ROY;;;17/11/1720;;Treogat, Lesmenguy;;;fille de Rene et de Catharine LOUSSOUARN;Notes epouse : du village de lessaloux
 3290;G10;QQ;rene le BRUN;;1663;2/03/1735;Penmarch;Penmarch;;;
 3291;G10;QQ;marie RIOUAL;;1673;10/05/1745;Penmarch;Penmarch;;;
 3296;G10;QQ;jean le PAPE;ca 1620-ca 1670;;;;;;;fils de Yvon et de Louise Marchiou 6592-6593
