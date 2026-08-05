@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur & Gestionnaire JSON Généalogie (Draw.io)</title>
+    <!-- Mermaid CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #334155;
+            --accent: #10b981;
+            --accent-hover: #059669;
+            --danger: #ef4444;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: var(--bg-secondary);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-title h1 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            background-color: #3b82f6;
+        }
+        .btn-secondary:hover {
+            background-color: #2563eb;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        /* Layout Grid */
+        .app-body {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Sidebar Pages */
+        .sidebar {
+            width: 260px;
+            background-color: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+            gap: 12px;
+        }
+
+        .sidebar h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+        }
+
+        .page-item {
+            padding: 10px;
+            background-color: var(--bg-card);
+            border: 1px solid transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-item.active {
+            border-color: var(--accent);
+            background-color: rgba(16, 185, 129, 0.15);
+        }
+
+        /* Main Workspace */
+        .workspace {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .tabs-nav {
+            display: flex;
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 0 16px;
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--accent);
+        }
+
+        .tab-content {
+            flex: 1;
+            overflow: auto;
+            padding: 24px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Form Controls */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card h4 {
+            margin-bottom: 16px;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px 12px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.875rem;
+        }
+
+        th {
+            background-color: var(--bg-card);
+            color: var(--text-secondary);
+
+        }
+
+        textarea.code-editor {
+            width: 100%;
+            height: 350px;
+            background-color: #050811;
+            color: #38bdf8;
+            font-family: monospace;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        /* Initial Drop zone */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-title">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            <h1>Éditeur de Fichier Généalogie JSON</h1>
+        </div>
+        <div class="controls">
+            <label for="file-upload" class="btn btn-secondary">
+                Charger le fichier JSON
+            </label>
+            <input type="file" id="file-upload" accept=".json" style="display:none;">
+
+            <button id="btn-save-json" class="btn" disabled>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                    <polyline points="17 21 17 13 7 13 7 21"/>
+                    <polyline points="7 3 7 8 15 8"/>
+                </svg>
+                Télécharger le JSON mis à jour
+            </button>
+        </div>
+    </header>
+
+    <div class="app-body">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3>Pages / Branches</h3>
+            <div id="page-list">
+                <p style="color:var(--text-secondary); font-size:0.85rem;">Aucun fichier chargé</p>
+            </div>
+            <button id="btn-add-page" class="btn btn-outline" style="margin-top:auto; width:100%;" disabled>
+                + Nouvelle Page
+            </button>
+        </div>
+
+        <!-- Main workspace -->
+        <div class="workspace">
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="tab-forms">Gestion des Personnes</button>
+                <button class="tab-btn" data-tab="tab-mermaid">Éditeur Mermaid</button>
+                <button class="tab-btn" data-tab="tab-json">JSON Brut</button>
+            </div>
+
+            <!-- TAB 1: FORMULAIRES DE PERSONNES & RELATIONS -->
+            <div id="tab-forms" class="tab-content active">
+                <div id="empty-notice" class="empty-state">
+                    <h2>Veuillez charger votre fichier <code>cousin.json</code></h2>
+                    <p style="color:var(--text-secondary);">Vous pourrez ajouter, modifier ou supprimer des membres de la famille facilement.</p>
+                </div>
+
+                <div id="editor-workspace" style="display:none;">
+                    <div class="grid-2">
+                        <!-- Formulaire Ajouter / Modifier -->
+                        <div class="card">
+                            <h4 id="form-title">Ajouter / Modifier un Individu</h4>
+                            <form id="person-form">
+                                <input type="hidden" id="node-id">
+                                <div class="form-group">
+                                    <label for="node-ident">Identifiant unique (ID)</label>
+                                    <input type="text" id="node-ident" class="form-control" placeholder="ex: I_TANG_10" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="node-name">Nom complet ou Prénom / Nom</label>
+                                    <input type="text" id="node-name" class="form-control" placeholder="ex: LÉAUTÉ Pierre, Marie" required>
+                                </div>
+                                <div class="grid-2">
+                                    <div class="form-group">
+                                        <label for="node-birth">Année de naissance</label>
+                                        <input type="text" id="node-birth" class="form-control" placeholder="ex: 1886">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="node-death">Année de décès / Note</label>
+                                        <input type="text" id="node-death" class="form-control" placeholder="ex: 1974">
+                                    </div>
+                                </div>
+                                <div style="display:flex; gap:10px; margin-top:10px;">
+                                    <button type="submit" class="btn">Enregistrer l'Individu</button>
+                                    <button type="button" id="btn-reset-form" class="btn btn-outline">Réinitialiser</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Formulaire Relations -->
+                        <div class="card">
+                            <h4>Ajouter un Lien de Parenté ou Mariage</h4>
+                            <form id="rel-form">
+                                <div class="form-group">
+                                    <label for="rel-source">Personne Origine (Parent / Conjoint 1)</label>
+                                    <select id="rel-source" class="form-control" required></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="rel-type">Type de Relation</label>
+                                    <select id="rel-type" class="form-control">
+                                        <option value="-->">Parent ➔ Enfant (-->)</option>
+                                        <option value="---">Mariage / Conjoint (---)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="rel-target">Personne Cible (Enfant / Conjoint 2)</label>
+                                    <select id="rel-target" class="form-control" required></select>
+                                </div>
+                                <button type="submit" class="btn btn-secondary">Créer le Lien</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Table des Individus -->
+                    <div class="card">
+                        <h4>Liste des Individus sur cette Page</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nom & Prénoms</th>
+                                    <th>Naissance / Décès</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="persons-table-body">
+                                <!-- Tr dynamiques -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: MERMAID CODE -->
+            <div id="tab-mermaid" class="tab-content">
+                <div class="card">
+                    <h4>Code Mermaid de la Page Sélectionnée</h4>
+                    <p style="color:var(--text-secondary); margin-bottom:12px; font-size:0.85rem;">
+                        Vous pouvez modifier directement la syntaxe Mermaid ci-dessous. Les changements seront automatiquement répercutés dans le JSON.
+                    </p>
+                    <textarea id="mermaid-code-editor" class="code-editor"></textarea>
+                    <div style="margin-top:12px; display:flex; gap:12px;">
+                        <button id="btn-apply-mermaid" class="btn">Appliquer les modifications</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>Aperçu du Rendu</h4>
+                    <div id="mermaid-preview" style="background-color:#0b0f19; padding:20px; border-radius:6px; overflow:auto;"></div>
+                </div>
+            </div>
+
+            <!-- TAB 3: JSON BRUT -->
+            <div id="tab-json" class="tab-content">
+                <div class="card">
+                    <h4>Structure JSON Complète</h4>
+                    <textarea id="json-raw-editor" class="code-editor" style="height:450px; color:#a7f3d0;"></textarea>
+                    <div style="margin-top:12px;">
+                        <button id="btn-apply-raw-json" class="btn">Valider le JSON Brut</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: false, theme: 'dark' });
+
+        let fullJson = null;
+        let currentPageIdx = 0;
+        let parsedNodes = {}; // id -> { label, name, birth, death }
+        let parsedEdges = []; // { src, rel, tgt }
+
+        const fileUpload = document.getElementById('file-upload');
+        const btnSaveJson = document.getElementById('btn-save-json');
+        const pageListEl = document.getElementById('page-list');
+        const emptyNotice = document.getElementById('empty-notice');
+        const editorWorkspace = document.getElementById('editor-workspace');
+        const btnAddPage = document.getElementById('btn-add-page');
+
+        fileUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (evt) => {
+                try {
+                    fullJson = JSON.parse(evt.target.result);
+                    initApp();
+                } catch(err) {
+                    alert("JSON invalide : " + err.message);
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        function initApp() {
+            btnSaveJson.disabled = false;
+            btnAddPage.disabled = false;
+            emptyNotice.style.display = 'none';
+            editorWorkspace.style.display = 'block';
+
+            renderPageList();
+            loadPage(0);
+            updateRawJsonTab();
+        }
+
+        function renderPageList() {
+            pageListEl.innerHTML = '';
+            (fullJson.pages || []).forEach((p, idx) => {
+                const div = document.createElement('div');
+                div.className = `page-item ${idx === currentPageIdx ? 'active' : ''}`;
+                div.innerHTML = `<span>${p.name}</span>`;
+                div.onclick = () => loadPage(idx);
+                pageListEl.appendChild(div);
+            });
+        }
+
+        function getMermaidCell(page) {
+            for (let cell of (page.cells || [])) {
+                if (cell.metadata && cell.metadata.mermaidData) {
+                    return cell;
+                }
+            }
+            return null;
+        }
+
+        function getMermaidCode(page) {
+            const cell = getMermaidCell(page);
+            if (cell) {
+                try {
+                    return JSON.parse(cell.metadata.mermaidData).data || "";
+                } catch(e) {}
+            }
+            return "";
+        }
+
+        function setMermaidCode(page, newCode) {
+            let cell = getMermaidCell(page);
+            if (!cell) {
+                // Créer la structure de cellule minimale Draw.io si elle n'existe pas
+                cell = {
+                    id: "cell_mermaid_" + Date.now(),
+                    type: "node",
+                    parent: "1",
+                    metadata: {
+                        mermaidData: JSON.stringify({ data: newCode })
+                    }
+                };
+                if (!page.cells) page.cells = [];
+                page.cells.push(cell);
+            } else {
+                let mObj = {};
+                try { mObj = JSON.parse(cell.metadata.mermaidData); } catch(e){}
+                mObj.data = newCode;
+                cell.metadata.mermaidData = JSON.stringify(mObj);
+            }
+        }
+
+        function parseMermaid(code) {
+            parsedNodes = {};
+            parsedEdges = [];
+
+            const lines = code.split('\n');
+            lines.forEach(line => {
+                line = line.strip ? line.strip() : line.trim();
+                // Nodes
+                const nodeMatch = line.match(/([A-Za-z0-9_]+)\["([^"]+)"\]/);
+                if (nodeMatch) {
+                    const id = nodeMatch[1];
+                    const rawLabel = nodeMatch[2];
+                    parsedNodes[id] = { id, rawLabel, ...parseLabelDetails(rawLabel) };
+                }
+                // Edges
+                const edgeMatch = line.match(/([A-Za-z0-9_]+)\s*(-->|---)\s*([A-Za-z0-9_]+)/);
+                if (edgeMatch) {
+                    parsedEdges.push({ src: edgeMatch[1], rel: edgeMatch[2], tgt: edgeMatch[3] });
+                }
+            });
+        }
+
+        function parseLabelDetails(label) {
+            let clean = label.replace(/<br\s*\/?>/gi, '\n');
+            let parts = clean.split('\n');
+            let name = parts[0] || '';
+            let birth = '', death = '';
+
+            let dateMatch = clean.match(/\((\d{4})[-–]?(\d{4})?\)/);
+            if (dateMatch) {
+                birth = dateMatch[1] || '';
+                death = dateMatch[2] || '';
+            }
+            return { name, birth, death };
+        }
+
+        function loadPage(idx) {
+            currentPageIdx = idx;
+            renderPageList();
+
+            const page = fullJson.pages[idx];
+            const code = getMermaidCode(page);
+            document.getElementById('mermaid-code-editor').value = code;
+
+            parseMermaid(code);
+            renderPersonsTable();
+            populateSelects();
+            renderPreview(code);
+        }
+
+        function renderPersonsTable() {
+            const tbody = document.getElementById('persons-table-body');
+            tbody.innerHTML = '';
+
+            Object.values(parsedNodes).forEach(node => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><code>${node.id}</code></td>
+                    <td><strong>${node.name}</strong></td>
+                    <td>${node.birth ? node.birth : ''} ${node.death ? '- ' + node.death : ''}</td>
+                    <td>
+                        <button class="btn btn-outline" style="padding:4px 8px; font-size:0.75rem;" onclick="editPerson('${node.id}')">Éditer</button>
+                        <button class="btn btn-danger" style="padding:4px 8px; font-size:0.75rem;" onclick="deletePerson('${node.id}')">Supprimer</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function populateSelects() {
+            const srcSel = document.getElementById('rel-source');
+            const tgtSel = document.getElementById('rel-target');
+            srcSel.innerHTML = '';
+            tgtSel.innerHTML = '';
+
+            Object.values(parsedNodes).forEach(n => {
+                let opt1 = new Option(`${n.name} (${n.id})`, n.id);
+                let opt2 = new Option(`${n.name} (${n.id})`, n.id);
+                srcSel.add(opt1);
+                tgtSel.add(opt2);
+            });
+        }
+
+        // Action Éditer Personne dans le formulaire
+        window.editPerson = function(id) {
+            const n = parsedNodes[id];
+            if (!n) return;
+            document.getElementById('node-id').value = n.id;
+            document.getElementById('node-ident').value = n.id;
+            document.getElementById('node-name').value = n.name;
+            document.getElementById('node-birth').value = n.birth;
+            document.getElementById('node-death').value = n.death;
+            document.getElementById('form-title').textContent = "Modifier : " + n.name;
+        };
+
+        window.deletePerson = function(id) {
+            if (!confirm(`Supprimer ${id} et ses relations ?`)) return;
+            delete parsedNodes[id];
+            parsedEdges = parsedEdges.filter(e => e.src !== id && e.tgt !== id);
+            rebuildAndApplyMermaid();
+        };
+
+        document.getElementById('person-form').onsubmit = (e) => {
+            e.preventDefault();
+            const id = document.getElementById('node-ident').value.trim();
+            const name = document.getElementById('node-name').value.trim();
+            const birth = document.getElementById('node-birth').value.trim();
+            const death = document.getElementById('node-death').value.trim();
+
+            let label = name;
+            if (birth || death) {
+                label += `<br>(${birth}${death ? '-' + death : ''})`;
+            }
+
+            parsedNodes[id] = { id, rawLabel: label, name, birth, death };
+            rebuildAndApplyMermaid();
+            resetForm();
+        };
+
+        document.getElementById('rel-form').onsubmit = (e) => {
+            e.preventDefault();
+            const src = document.getElementById('rel-source').value;
+            const rel = document.getElementById('rel-type').value;
+            const tgt = document.getElementById('rel-target').value;
+
+            if (src === tgt) {
+                alert("Impossible de lier une personne à elle-même !");
+                return;
+            }
+            parsedEdges.push({ src, rel, tgt });
+            rebuildAndApplyMermaid();
+        };
+
+        function resetForm() {
+            document.getElementById('person-form').reset();
+            document.getElementById('node-id').value = '';
+            document.getElementById('form-title').textContent = "Ajouter / Modifier un Individu";
+        }
+        document.getElementById('btn-reset-form').onclick = resetForm;
+
+        function rebuildAndApplyMermaid() {
+            let lines = ["graph TD"];
+            lines.push("    %% Généré via l'Éditeur JSON");
+            Object.values(parsedNodes).forEach(n => {
+                lines.push(`    ${n.id}["${n.rawLabel}"]`);
+            });
+            lines.push("");
+            parsedEdges.forEach(e => {
+                lines.push(`    ${e.src} ${e.rel} ${e.tgt}`);
+            });
+
+            const newCode = lines.join("\n");
+            document.getElementById('mermaid-code-editor').value = newCode;
+            setMermaidCode(fullJson.pages[currentPageIdx], newCode);
+            loadPage(currentPageIdx);
+            updateRawJsonTab();
+        }
+
+        // Appliquer le code Mermaid manuellement
+        document.getElementById('btn-apply-mermaid').onclick = () => {
+            const code = document.getElementById('mermaid-code-editor').value;
+            setMermaidCode(fullJson.pages[currentPageIdx], code);
+            loadPage(currentPageIdx);
+            updateRawJsonTab();
+        };
+
+        async function renderPreview(code) {
+            const container = document.getElementById('mermaid-preview');
+            try {
+                container.innerHTML = 'Chargement de l'aperçu...';
+                const { svg } = await mermaid.render('preview-svg-' + Date.now(), code);
+                container.innerHTML = svg;
+            } catch(err) {
+                container.innerHTML = `<span style="color:var(--danger)">Erreur de syntaxe Mermaid : ${err.message}</span>`;
+            }
+        }
+
+        function updateRawJsonTab() {
+            document.getElementById('json-raw-editor').value = JSON.stringify(fullJson, null, 2);
+        }
+
+        document.getElementById('btn-apply-raw-json').onclick = () => {
+            try {
+                fullJson = JSON.parse(document.getElementById('json-raw-editor').value);
+                loadPage(currentPageIdx);
+                alert("Structure JSON mise à jour !");
+            } catch(e) {
+                alert("JSON Erreur : " + e.message);
+            }
+        };
+
+        // Télécharger JSON mis à jour
+        btnSaveJson.onclick = () => {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(fullJson, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "cousin_mis_a_jour.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        };
+
+        // Navigation par onglets
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            };
+        });
+    </script>
+</body>
+</html>

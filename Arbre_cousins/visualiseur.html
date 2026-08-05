@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualiseur d'Arbre Généalogique (Draw.io / JSON)</title>
+    <!-- Mermaid CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #334155;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-secondary);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-title h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .badge {
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 9999px;
+            font-weight: 500;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+            font-size: 0.875rem;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-card);
+        }
+
+        select {
+            background-color: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Sidebar */
+        aside {
+            width: 320px;
+            background-color: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 8px 12px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            outline: none;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent);
+        }
+
+        .page-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px;
+        }
+
+        .page-item {
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: transparent;
+            transition: background 0.15s;
+        }
+
+        .page-item:hover {
+            background-color: var(--bg-card);
+        }
+
+        .page-item.active {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .page-item .node-count {
+            font-size: 0.75rem;
+            opacity: 0.75;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Diagram Canvas */
+        .diagram-viewport {
+            flex: 1;
+            background-color: #0b0f19;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            overflow: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 40px;
+        }
+
+        #mermaid-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #mermaid-container svg {
+            max-width: none !important;
+            height: auto;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+        }
+
+        /* Floating Toolbar */
+        .zoom-toolbar {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 4px;
+            display: flex;
+            gap: 4px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .zoom-btn {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .zoom-btn:hover {
+            background-color: var(--bg-card);
+        }
+
+        /* Drop overlay */
+        .drop-zone {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(15, 23, 42, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            gap: 16px;
+            border: 2px dashed var(--accent);
+            margin: 20px;
+            border-radius: 12px;
+        }
+
+        .drop-zone h2 {
+            font-size: 1.5rem;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Details drawer */
+        .details-drawer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 320px;
+            height: 100%;
+            background-color: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: -4px 0 12px rgba(0,0,0,0.3);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 50;
+        }
+
+        .details-drawer.open {
+            transform: translateX(0);
+        }
+
+        .details-drawer h3 {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-title">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="5" r="3"/>
+                <path d="M12 8v4M6 16c0-2.2 1.8-4 4-4h4c2.2 0 4 1.8 4 4v3H6v-3z"/>
+            </svg>
+            <h1>Visualiseur d'Arbre Généalogique</h1>
+            <span class="badge">Draw.io / JSON</span>
+        </div>
+
+        <div class="controls">
+            <label for="json-input" class="btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                </svg>
+                Charger un fichier JSON
+            </label>
+            <input type="file" id="json-input" accept=".json" style="display: none;">
+
+            <select id="page-select" disabled>
+                <option value="">-- Sélectionner une page --</option>
+            </select>
+
+            <button id="btn-export-svg" class="btn btn-outline" disabled>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                Exporter SVG
+            </button>
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <!-- Zone de glisser-déposer initiale -->
+        <div id="drop-zone" class="drop-zone">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <line x1="9" y1="15" x2="15" y2="15"/>
+            </svg>
+            <h2>Glissez-déposez votre fichier JSON ici</h2>
+            <p style="color: var(--text-secondary);">Compatible avec les exports JSON Draw.io (ex: <code>cousin.json</code>)</p>
+            <label for="json-input-2" class="btn" style="margin-top: 8px;">
+                Parcourir les fichiers
+            </label>
+            <input type="file" id="json-input-2" accept=".json" style="display: none;">
+        </div>
+
+        <!-- Sidebar avec la liste des branches / pages -->
+        <aside id="sidebar" class="hidden">
+            <div class="sidebar-header">
+                <input type="text" id="search-person" class="search-box" placeholder="Rechercher une personne...">
+            </div>
+            <div class="page-list" id="page-list-container">
+                <!-- Les pages seront injectées ici -->
+            </div>
+        </aside>
+
+        <!-- Zone d'affichage du diagramme Mermaid -->
+        <div class="diagram-viewport">
+            <div id="mermaid-container"></div>
+
+            <div class="zoom-toolbar">
+                <button class="zoom-btn" id="zoom-in" title="Zoom avant">+</button>
+                <button class="zoom-btn" id="zoom-out" title="Zoom arrière">−</button>
+                <button class="zoom-btn" id="zoom-reset" title="Réinitialiser">100%</button>
+            </div>
+        </div>
+
+        <!-- Panneau de détails d'une personne -->
+        <div class="details-drawer" id="details-drawer">
+            <button id="close-drawer" class="btn btn-outline" style="align-self: flex-end; padding: 4px 8px;">✕</button>
+            <h3 id="person-name">Nom de la personne</h3>
+            <div id="person-info" style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                <!-- Infos extraites -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+
+        let jsonData = null;
+        let currentScale = 1;
+        let activePageIndex = 0;
+
+        const dropZone = document.getElementById('drop-zone');
+        const jsonInput = document.getElementById('json-input');
+        const jsonInput2 = document.getElementById('json-input-2');
+        const pageSelect = document.getElementById('page-select');
+        const pageListContainer = document.getElementById('page-list-container');
+        const sidebar = document.getElementById('sidebar');
+        const mermaidContainer = document.getElementById('mermaid-container');
+        const btnExportSvg = document.getElementById('btn-export-svg');
+
+        // Événements de chargement de fichier
+        [jsonInput, jsonInput2].forEach(input => {
+            input.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) loadFile(file);
+            });
+        });
+
+        // Drag & Drop
+        window.addEventListener('dragover', (e) => e.preventDefault());
+        window.addEventListener('drop', (e) => {
+            e.preventDefault();
+            if (e.dataTransfer.files.length > 0) {
+                loadFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        function loadFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    jsonData = JSON.parse(e.target.result);
+                    initDiagramView();
+                } catch (err) {
+                    alert("Erreur lors de la lecture du fichier JSON: " + err.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function initDiagramView() {
+            dropZone.classList.add('hidden');
+            sidebar.classList.remove('hidden');
+            pageSelect.disabled = false;
+            btnExportSvg.disabled = false;
+
+            pageSelect.innerHTML = '';
+            pageListContainer.innerHTML = '';
+
+            const pages = jsonData.pages || [];
+
+            pages.forEach((page, index) => {
+                // Recherche de la cellule Mermaid
+                let mermaidCode = extractMermaidData(page);
+                let nodeCount = (mermaidCode.match(/\["[^"]+\"\]/g) || []).length;
+
+                // Option pour la liste déroulante
+                const opt = document.createElement('option');
+                opt.value = index;
+                opt.textContent = `${page.name} (${nodeCount} personnes)`;
+                pageSelect.appendChild(opt);
+
+                // Élément de la liste de la barre latérale
+                const item = document.createElement('div');
+                item.className = `page-item ${index === 0 ? 'active' : ''}`;
+                item.innerHTML = `
+                    <span>${page.name}</span>
+                    <span class="node-count">${nodeCount} ind.</span>
+                `;
+                item.onclick = () => selectPage(index);
+                pageListContainer.appendChild(item);
+            });
+
+            pageSelect.onchange = (e) => selectPage(parseInt(e.target.value));
+
+            selectPage(0);
+        }
+
+        function extractMermaidData(page) {
+            for (let cell of (page.cells || [])) {
+                if (cell.metadata && cell.metadata.mermaidData) {
+                    try {
+                        let mdata = JSON.parse(cell.metadata.mermaidData);
+                        return mdata.data || "";
+                    } catch(e) {}
+                }
+            }
+            return "";
+        }
+
+        async function selectPage(index) {
+            activePageIndex = index;
+            pageSelect.value = index;
+
+            document.querySelectorAll('.page-item').forEach((el, i) => {
+                el.classList.toggle('active', i === index);
+            });
+
+            const page = jsonData.pages[index];
+            let mermaidCode = extractMermaidData(page);
+
+            if (!mermaidCode) {
+                mermaidContainer.innerHTML = `<p style="color:var(--text-secondary)">Aucun schéma Mermaid trouvé sur cette page.</p>`;
+                return;
+            }
+
+            // Nettoyage et rendu Mermaid
+            try {
+                mermaidContainer.innerHTML = '<p style="color:var(--accent)">Génération du schéma en cours...</p>';
+                const id = `mermaid-svg-${Date.now()}`;
+                const { svg } = await mermaid.render(id, mermaidCode);
+                mermaidContainer.innerHTML = svg;
+                resetZoom();
+            } catch (err) {
+                console.error(err);
+                mermaidContainer.innerHTML = `<div style="color:#ef4444; padding:20px;">Erreur de rendu Mermaid: ${err.message}</div>`;
+            }
+        }
+
+        // Gestion du Zoom
+        function setZoom(scale) {
+            currentScale = scale;
+            const svg = mermaidContainer.querySelector('svg');
+            if (svg) {
+                svg.style.transform = `scale(${currentScale})`;
+                svg.style.transformOrigin = 'center center';
+                svg.style.transition = 'transform 0.2s ease';
+            }
+        }
+
+        document.getElementById('zoom-in').onclick = () => setZoom(currentScale * 1.25);
+        document.getElementById('zoom-out').onclick = () => setZoom(currentScale / 1.25);
+        document.getElementById('zoom-reset').onclick = () => resetZoom();
+
+        function resetZoom() {
+            currentScale = 1;
+            setZoom(1);
+        }
+
+        // Export SVG
+        btnExportSvg.onclick = () => {
+            const svgEl = mermaidContainer.querySelector('svg');
+            if (!svgEl) return;
+            const svgData = new XMLSerializer().serializeToString(svgEl);
+            const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `arbre_${jsonData.pages[activePageIndex].name}.svg`;
+            link.click();
+        };
+
+        // Recherche simple
+        document.getElementById('search-person').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            if (!term) return;
+
+            document.querySelectorAll('.page-item').forEach((item, idx) => {
+                const code = extractMermaidData(jsonData.pages[idx]).toLowerCase();
+                item.style.display = code.includes(term) ? 'flex' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
