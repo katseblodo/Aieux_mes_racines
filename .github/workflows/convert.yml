@@ -1,0 +1,30 @@
+name: Conversion automatique GEDCOM
+
+on:
+  push:
+    paths:
+      - 'cousin.json'
+      - 'json_to_gedcom.py'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v3
+
+      - name: Configurer Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Exécuter la conversion
+        run: python json_to_gedcom.py
+
+      - name: Sauvegarder le fichier GEDCOM généré
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add arbre_genealogique.ged
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Mise à jour automatique du GEDCOM" && git push)
