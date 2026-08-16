@@ -100,9 +100,9 @@ def parse_and_generate_mermaid(
 # --- EXEMPLE D'UTILISATION ---
 if __name__ == "__main__":
     # Paramètres de sélection
-    FICHIER_DONNEES = "genealogie.txt"
+    FICHIER_DONNEES = "../individus_nettoye.csv"
     BRANCHE = "LL"
-    NB_GENERATIONS = 5
+    NB_GENERATIONS = 10
 
     # Code Mermaid généré
     mermaid_code = parse_and_generate_mermaid(
