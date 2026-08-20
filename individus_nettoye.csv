@@ -1967,7 +1967,7 @@ G385;G11;QQ;heldrede TREFFRY;;;;;;;;
 15834;G12;PM;pierre BAUDOUIN;noble;1595;1644;Quimper;Coray;;;
 15835;G12;PM;yvoree FORSAN;;1600;;;;;;
 20484;G13;LL;Yvon ALLANO;;;;;;;src https://genearmor.cotesdarmor.fr/;
-20512;G13;LL;jean iv du FOU;chevalier, chatelain de Noyen;1540;1604;;Manoir de la Roche-Guehenneuc, Mur-de-Bretagne;;;
+20514;G13;LL;jean iv du FOU;chevalier, chatelain de Noyen;1540;1604;;Manoir de la Roche-Guehenneuc, Mur-de-Bretagne;;;
 25564;G12;QQ;herve JAHANNIC;;;;;;;;
 25565;G12;QQ;margarite GLAZIEN;;;;;;;;
 25650;G12;QQ;yvon TREFFRY;;;;;;;;
@@ -2020,8 +2020,8 @@ G385;G11;QQ;heldrede TREFFRY;;;;;;;;
 2625799;G22;LL;constance de LÉON;dame de Trémazan;;;;;;;
 5251584;G23;LL;soudan II du FAOU;9e vicomte du Faou;1215;;;;;;Croisé en 1238
 5251585;G23;LL;alix de ROSTRENEN;;1215;;;;;;
-5251592;G23;LL;guillaume Ier de PENHOËT;chevalier, ecuyer, croisé;1190;1249;;;;surnommé « le Boiteux ». C'est ce Guillaume qui, de retour de la septième croisade (vers 1250), fait bâtir la forteresse médiévale de la famille : le château de Penhoët à Saint-Thégonnec, perché au-dessus de la Penzé.;
-5251593;G23;LL;mahotte de KERGOURNADEC'H;;;;;;;;
+5251592;G23;LL;guillaume Ier de PENHOËT;chevalier, ecuyer, croisé;1190;1249;;Damiette-Egypte(possible);;surnommé « le Boiteux ». C'est ce Guillaume qui, de retour de la septième croisade (vers 1250), fait bâtir la forteresse médiévale de la famille : le château de Penhoët à Saint-Thégonnec, perché au-dessus de la Penzé.;
+5251593;G23;LL;mahotte de KERGOURNADEC'H;;;;;;;nom breton signifie littéralement : « Le lieu du village de celui qui ne fuis pas » (Ker = village/lieu, gour = homme, na = ne... pas, dec'h = fuir);
 5251598;G23;LL;hervé III de LÉON;;;;;;;;
 5251599;G23;LL;marguerite de CHÂTEAUNEUF;Dame de Châteauneuf-en-Thymerais;;;;;;;
 10503168;G24;LL;morvan III du FAOU;8e vicomte du Faou;;1248;;Landévennec;;;Sépulture à Landévennec
