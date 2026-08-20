@@ -12,7 +12,7 @@
         body, html {
             margin: 0; padding: 0; width: 100%; height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #f8f9fa;
         }
         #mynetwork {
             width: 100%; height: 100vh; border: none;
@@ -20,26 +20,39 @@
         #instructions {
             position: absolute; top: 20px; left: 20px;
             background: rgba(255, 255, 255, 0.95); padding: 15px;
-            border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 10;
+            border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); z-index: 10;
+            max-width: 280px;
         }
         #family-filter {
-            margin-top: 10px; padding: 5px; font-size: 14px; width: 100%;
+            margin-top: 8px; padding: 6px; font-size: 14px; width: 100%; border-radius: 4px; border: 1px solid #ccc;
+        }
+        .legend {
+            margin-top: 10px; font-size: 12px; line-height: 1.6;
+        }
+        .legend-box {
+            display: inline-block; width: 12px; height: 12px; margin-right: 5px; border-radius: 2px; vertical-align: middle;
         }
     </style>
 </head>
 <body>
     
     <div id="instructions">
-        <h2>Arbre Généalogique</h2>
+        <h3 style="margin-top:0;">Arbre Généalogique</h3>
         
-        <label for="family-filter"><b>Afficher la branche :</b></label>
+        <label for="family-filter"><b>Filtrer par branche :</b></label>
         <select id="family-filter">
             <option value="all">Toutes les branches</option>
         </select>
         
-        <p style="margin-top: 15px;">
-        🖱️/👆 <b>Naviguer :</b> Glissez pour vous déplacer dans l'arbre.<br>
-        🔍 <b>Zoomer :</b> Pincez l'écran ou utilisez la molette.
+        <div class="legend">
+            <div><span class="legend-box" style="background:#e3f2fd; border:1px solid #1565c0;"></span> <b>Bleu :</b> Père (Sosa pair)</div>
+            <div><span class="legend-box" style="background:#fce4ec; border:1px solid #c2185b;"></span> <b>Rose :</b> Mère (Sosa impair)</div>
+            <div><span class="legend-box" style="background:#e8f5e9; border:1px solid #2e7d32;"></span> <b>Vert :</b> Racine (Sosa 1)</div>
+        </div>
+
+        <p style="margin-top: 12px; font-size: 12px; color: #555;">
+        🖱️ <b>Naviguer :</b> Glisser pour déplacer.<br>
+        🔍 <b>Zoomer :</b> Molette du mulot ou pincement.
         </p>
     </div>
 
@@ -79,7 +92,7 @@
                 });
             },
             error: function(err) {
-                console.error("Erreur de lecture du fichier CSV :", err);
+                console.error("Erreur CSV :", err);
                 document.getElementById('mynetwork').innerHTML = "<p style='padding:50px;'>Impossible de charger le fichier CSV.</p>";
             }
         });
@@ -88,7 +101,7 @@
             var nodes = [];
             var edges = [];
             var sosaPresents = new Set();
-            var idsAjoutes = new Set(); // Mémorise les ID déjà créés
+            var idsAjoutes = new Set();
             
             allCsvData.forEach(function(row) {
                 var sosa = parseInt(row.sosa);
@@ -96,17 +109,39 @@
                 
                 if (!isNaN(sosa)) {
                     if (filtreFamille === "all" || idFamille === filtreFamille) {
-                        
-                        // Sécurité : on ignore l'entrée si le Sosa est déjà dans l'arbre
                         if (!idsAjoutes.has(sosa)) {
                             idsAjoutes.add(sosa);
                             
-                            var etiquette = (row.sosa || "") + " " + (row.nom_prenom || "") + "\n" + (row.date_naissance || "") + " - " + (row.date_deces || "");
+                            // Calcul strict de la génération pour l'alignement horizontal
+                            var generation = Math.floor(Math.log2(sosa));
+                            
+                            // Couleurs selon le rôle (Racine / Père / Mère)
+                            var bgColor = "#ffffff";
+                            var borderColor = "#2b7ce9";
+                            
+                            if (sosa === 1) {
+                                bgColor = "#e8f5e9"; // Racine
+                                borderColor = "#2e7d32";
+                            } else if (sosa % 2 === 0) {
+                                bgColor = "#e3f2fd"; // Père
+                                borderColor = "#1565c0";
+                            } else {
+                                bgColor = "#fce4ec"; // Mère
+                                borderColor = "#c2185b";
+                            }
+
+                            var etiquette = row.sosa + " - " + (row.nom_prenom || "") + "\n" + (row.date_naissance || "") + " - " + (row.date_deces || "");
                             
                             nodes.push({
                                 id: sosa,
                                 label: etiquette.trim(),
-                                shape: "box"
+                                shape: "box",
+                                level: generation, // Forcer l'alignement de génération
+                                color: {
+                                    background: bgColor,
+                                    border: borderColor,
+                                    highlight: { background: '#fff9c4', border: '#fbc02d' }
+                                }
                             });
                             sosaPresents.add(sosa);
                         }
@@ -118,9 +153,14 @@
                 if (sosa > 1) {
                     var enfantSosa = Math.floor(sosa / 2);
                     if (sosaPresents.has(enfantSosa)) {
+                        // Couleur du lien selon la branche (Bleu pour père, Rose pour mère)
+                        var edgeColor = (sosa % 2 === 0) ? "#1565c0" : "#c2185b";
+
                         edges.push({
                             from: enfantSosa, 
-                            to: sosa          
+                            to: sosa,
+                            color: { color: edgeColor, highlight: '#fbc02d' },
+                            width: 2
                         });
                     }
                 }
@@ -130,9 +170,31 @@
             var visData = { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) };
             
             var options = {
-                nodes: { font: { size: 16, face: 'Tahoma' }, color: { background: '#ffffff', border: '#2b7ce9' }, borderWidth: 2, margin: 12 },
-                edges: { width: 2, arrows: 'to', smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 }, color: { color: '#848484' } },
-                layout: { hierarchical: { direction: 'UD', sortMethod: 'directed', nodeSpacing: 250, levelSeparation: 150 } },
+                nodes: {
+                    font: { size: 14, face: 'Tahoma', multi: true },
+                    borderWidth: 2,
+                    margin: 10,
+                    shadow: true
+                },
+                edges: {
+                    arrows: 'to',
+                    smooth: {
+                        type: 'cubicBezier',
+                        forceDirection: 'vertical',
+                        roundness: 0.2
+                    }
+                },
+                layout: {
+                    hierarchical: {
+                        direction: 'DU', // DU = Down to Up (Enfant en bas, ascendants vers le haut)
+                        sortMethod: 'directed',
+                        nodeSpacing: 220,     // Espace horizontal entre boîtes
+                        levelSeparation: 140, // Espace vertical entre générations
+                        parentCentralization: true,
+                        blockShifting: true,
+                        edgeMinimization: true
+                    }
+                },
                 physics: false
             };
 
