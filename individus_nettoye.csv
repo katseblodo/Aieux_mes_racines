@@ -1135,8 +1135,8 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 1607;G9;QQ;catherine BILLY;;11/01/1688 ou 13/03/1688;avril 1719;Beuzec-Cap-Caval;Beuzec-Cap-Caval;;;
 1612;G9;QQ;pierre BIRIEN;;24/09/1682;11/04/1714;St Jean Trolimon;St Jean Trolimon;30/10/1707;Plomeur;
 1613;G9;QQ;claude le PICHON;;21/11/1679;31/10/1739;Plomeur;Beuzec-Cap-Caval;30/10/1707;Plomeur;
-1614;G9;QQ;jean RONVARCH;Laboureur de terre;12/04/1683;7/03/1736;Beuzec-Cap-Caval;Beuzec-Cap-Caval;1699;Treguennec;
-1615;G9;QQ;jeanne GOURMELEN;;1676;31/03/1721;Treguennec;Kerzin,Beuzec-Cap-Caval;1699;Treguennec;
+1614;G9;QQ;jean RONVARCH;Laboureur de terre;12/04/1683;7/03/1736;Beuzec-Cap-Caval;Beuzec-Cap-Caval;1699;Treguennec;fils de René et de Constance RIOU;
+1615;G9;QQ;jeanne GOURMELEN;;10/12/1676;31/03/1721;Treguennec;Kerzin,Beuzec-Cap-Caval;1699;Treguennec;
 1616;G9;QQ;LE BERRE;;1635;9/02/1697;Beuzec-Cap-Caval;Kerbascol, Beuzec-Cap-Caval;;;
 1617;G9;QQ;;;;;;;;;
 1618;G9;QQ;;;;;;;;;
@@ -1505,8 +1505,8 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 3211;G10;QQ;constance COIC;;1er/02/1655;14/02/1700;Ploneour;Ploneour;;;
 3228;G10;QQ;rene RONVARCH;;1651;1er/12/1711;;Kerzin, Beuzec-Cap-Caval;vers 1675;;
 3229;G10;QQ;constance RIOU;;1642;19/10/1712;;Kerzin, Beuzec-Cap-Caval;vers 1675;;
-3230;G10;QQ;jacques GOURMELEN;;;1706;Treguennec;Treguennec;vers 1665;;
-3231;G10;QQ;marie COIC;;1647;;;Treguennec;vers 1665;;
+3230;G10;QQ;jacques GOURMELEN;;04/03/1640;09/10/1706;Treguennec;Treguennec;vers 1665;;
+3231;G10;QQ;marie COIC;;07/10/1646;26/11/1680;;Treguennec;vers 1665;; 
 3248;G10;QQ;yvon le BERRE;Laboureur de terre au manoir de Lesvenguy;10/09/1656;21/06/1710;Treogat;Treogat;03/11/1670;Treogat;fils de Herve et de Marie KERVAHU du manoir de lesvenguy;Parrain : AUTRET Yves. missire, seigneur de lesoual (s) et Marraine : Du MENEZ Françoise. haute et puissante dame du minven (s);
 3249;G10;QQ;marie le ROY;;08/01/1654;17/11/1720;Treogat, Lessalous;Treogat, Lesmenguy;;;fille de Rene et de Catharine LOUSSOUARN;Notes epouse : du village de lessaloux
 3290;G10;QQ;rene le BRUN;;1663;2/03/1735;Penmarch;Penmarch;;;
