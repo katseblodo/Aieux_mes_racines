@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Généalogie de la famille</title>
+    
+    <!-- Bibliothèque pour lire le CSV -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <!-- Bibliothèque pour dessiner l'arbre -->
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    
+    <style type="text/css">
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+        }
+        #mynetwork {
+            width: 100%; height: 100vh; border: none;
+        }
+        #instructions {
+            position: absolute; top: 20px; left: 20px;
+            background: rgba(255, 255, 255, 0.95); padding: 15px;
+            border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="instructions">
+        <h2>Arbre Généalogique</h2>
+        <p>🖱️/👆 <b>Naviguer :</b> Glissez pour vous déplacer dans l'arbre.<br>
+        🔍 <b>Zoomer :</b> Pincez l'écran ou utilisez la molette.</p>
+    </div>
+
+    <div id="mynetwork"></div>
+    
+    <script type="text/javascript">
+        // 1. Demander au navigateur de lire le fichier CSV
+        Papa.parse("individus_nettoye (6)_2.csv", {
+            download: true, // Télécharge le fichier hébergé à côté de la page web
+            header: true,   // Utilise la première ligne comme nom de variables
+            skipEmptyLines: true,
+            complete: function(results) {
+                var data = results.data;
+                var nodes = [];
+                var edges = [];
+                
+                // 2. Transformer chaque ligne du CSV en boîte pour l'arbre
+                data.forEach(function(row) {
+                    var sosa = parseInt(row.Sosa);
+                    
+                    if (!isNaN(sosa)) {
+                        // Construire le texte affiché dans la boîte
+                        // Adapte "row.Prenom", "row.Nom" et "row.Dates" selon les en-têtes réels de ton CSV
+                        var etiquette = (row.Prenom || "") + " " + (row.Nom || "") + "\n" + (row.Dates || "");
+                        
+                        nodes.push({
+                            id: sosa,
+                            label: etiquette.trim(),
+                            shape: "box"
+                        });
+                        
+                        // 3. Calculer mathématiquement le lien de filiation (Sauf pour l'individu racine, Sosa 1)
+                        if (sosa > 1) {
+                            var enfantSosa = Math.floor(sosa / 2);
+                            edges.push({
+                                from: enfantSosa, // La flèche part de l'enfant
+                                to: sosa          // Et remonte vers le parent
+                            });
+                        }
+                    }
+                });
+                
+                // 4. Dessiner l'arbre avec Vis.js
+                var container = document.getElementById('mynetwork');
+                var visData = {
+                    nodes: new vis.DataSet(nodes),
+                    edges: new vis.DataSet(edges)
+                };
+                
+                var options = {
+                    nodes: {
+                        font: { size: 16, face: 'Tahoma' },
+                        color: { background: '#ffffff', border: '#2b7ce9' },
+                        borderWidth: 2, margin: 12
+                    },
+                    edges: {
+                        width: 2,
+                        arrows: 'to', // Optionnel : affiche une flèche vers les parents
+                        smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 },
+                        color: { color: '#848484' }
+                    },
+                    layout: {
+                        hierarchical: {
+                            direction: 'UD', // De bas en haut (Bottom-Up) est aussi possible avec 'DU'
+                            sortMethod: 'directed',
+                            nodeSpacing: 250,
+                            levelSeparation: 150
+                        }
+                    },
+                    physics: false
+                };
+
+                new vis.Network(container, visData, options);
+            },
+            error: function(err) {
+                console.error("Erreur de lecture du fichier CSV :", err);
+                document.getElementById('mynetwork').innerHTML = "<p style='padding:50px;'>Impossible de charger le fichier CSV. Assurez-vous qu'il se nomme bien individus_nettoye (6)_2.csv et qu'il est dans le même dossier.</p>";
+            }
+        });
+    </script>
+</body>
+</html>
