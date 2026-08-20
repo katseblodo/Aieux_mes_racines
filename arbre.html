@@ -49,7 +49,6 @@
         var allCsvData = []; 
         var network = null;  
 
-        // 1. Demander au navigateur de lire le fichier CSV
         Papa.parse("individus_nettoye.csv", {
             download: true, 
             header: true,   
@@ -58,7 +57,6 @@
                 allCsvData = results.data;
                 var famillesUniques = new Set();
                 
-                // 2. Extraire les id_famille uniques pour le menu
                 allCsvData.forEach(function(row) {
                     var idFamille = (row.id_famille || "").trim();
                     if (idFamille !== "") {
@@ -66,7 +64,6 @@
                     }
                 });
                 
-                // 3. Remplir le menu déroulant
                 var select = document.getElementById("family-filter");
                 Array.from(famillesUniques).sort().forEach(function(famille) {
                     var option = document.createElement("option");
@@ -75,48 +72,48 @@
                     select.appendChild(option);
                 });
                 
-                // 4. Dessiner l'arbre complet par défaut au chargement
                 drawTree("all");
                 
-                // 5. Mettre à jour l'arbre quand on change le menu
                 select.addEventListener("change", function() {
                     drawTree(this.value);
                 });
             },
             error: function(err) {
                 console.error("Erreur de lecture du fichier CSV :", err);
-                document.getElementById('mynetwork').innerHTML = "<p style='padding:50px;'>Impossible de charger le fichier CSV. Assurez-vous qu'il se nomme bien individus_nettoye.csv et qu'il est dans le même dossier.</p>";
+                document.getElementById('mynetwork').innerHTML = "<p style='padding:50px;'>Impossible de charger le fichier CSV.</p>";
             }
         });
 
-        // Fonction pour filtrer et dessiner l'arbre
         function drawTree(filtreFamille) {
             var nodes = [];
             var edges = [];
             var sosaPresents = new Set();
+            var idsAjoutes = new Set(); // Mémorise les ID déjà créés
             
             allCsvData.forEach(function(row) {
-                var sosa = parseInt(row.sosa); // minuscules selon votre CSV
+                var sosa = parseInt(row.sosa);
                 var idFamille = (row.id_famille || "").trim();
                 
                 if (!isNaN(sosa)) {
-                    // Si on demande "all" OU si la famille correspond au filtre
                     if (filtreFamille === "all" || idFamille === filtreFamille) {
                         
-                        // CORRECTION du "+" manquant :
-                        var etiquette = (row.sosa || "") + " " + (row.nom_prenom || "") + "\n" + (row.date_naissance || "") + " - " + (row.date_deces || "");
-                        
-                        nodes.push({
-                            id: sosa,
-                            label: etiquette.trim(),
-                            shape: "box"
-                        });
-                        sosaPresents.add(sosa);
+                        // Sécurité : on ignore l'entrée si le Sosa est déjà dans l'arbre
+                        if (!idsAjoutes.has(sosa)) {
+                            idsAjoutes.add(sosa);
+                            
+                            var etiquette = (row.sosa || "") + " " + (row.nom_prenom || "") + "\n" + (row.date_naissance || "") + " - " + (row.date_deces || "");
+                            
+                            nodes.push({
+                                id: sosa,
+                                label: etiquette.trim(),
+                                shape: "box"
+                            });
+                            sosaPresents.add(sosa);
+                        }
                     }
                 }
             });
             
-            // Calculer les liens de filiation uniquement pour les boîtes affichées
             sosaPresents.forEach(function(sosa) {
                 if (sosa > 1) {
                     var enfantSosa = Math.floor(sosa / 2);
@@ -139,7 +136,6 @@
                 physics: false
             };
 
-            // Nettoyer l'ancien arbre s'il y en avait un avant d'afficher le nouveau
             if (network !== null) { network.destroy(); }
             network = new vis.Network(container, visData, options);
         }
