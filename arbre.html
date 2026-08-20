@@ -45,16 +45,14 @@
         </select>
         
         <div class="legend">
-            <div><span class="legend-box" style="background:#e3f2fd; border:1px solid #1565c0;"></span> <b>LL: Léauté</b> LP: Perzo (Sosa pair)</div>
-            <div><span class="legend-box" style="background:#fce4ec; border:1px solid #c2185b;"></span> <b> PM: Le Manchec</b> PP: Le Pajollec</div>
-            <div><span class="legend-box" style="background:#fce4ec; border:1px solid #c2185b;"></span> <b> QQ: Quillec</b> QP: Le Pemp</div>
-            <div><span class="legend-box" style="background:#fce4ec; border:1px solid #c2185b;"></span> <b> TT: Tanguy</b> TL: Lautrou</div>
+            <div><span class="legend-box" style="background:#e3f2fd; border:1px solid #1565c0;"></span> <b>Bleu :</b> Père (Sosa pair)</div>
+            <div><span class="legend-box" style="background:#fce4ec; border:1px solid #c2185b;"></span> <b>Rose :</b> Mère (Sosa impair)</div>
             <div><span class="legend-box" style="background:#e8f5e9; border:1px solid #2e7d32;"></span> <b>Vert :</b> Racine (Sosa 1)</div>
         </div>
 
         <p style="margin-top: 12px; font-size: 12px; color: #555;">
         🖱️ <b>Naviguer :</b> Glisser pour déplacer.<br>
-        🔍 <b>Zoomer :</b> Molette du mulot ou pincement.
+        🔍 <b>Zoomer :</b> Molette ou pincement.
         </p>
     </div>
 
@@ -74,7 +72,8 @@
                 
                 allCsvData.forEach(function(row) {
                     var idFamille = (row.id_famille || "").trim();
-                    if (idFamille !== "") {
+                    // Exclusion de "ST" et des chaînes vides
+                    if (idFamille !== "" && idFamille.toUpperCase() !== "ST") {
                         famillesUniques.add(idFamille);
                     }
                 });
@@ -114,21 +113,19 @@
                         if (!idsAjoutes.has(sosa)) {
                             idsAjoutes.add(sosa);
                             
-                            // Calcul strict de la génération pour l'alignement horizontal
                             var generation = Math.floor(Math.log2(sosa));
                             
-                            // Couleurs selon le rôle (Racine / Père / Mère)
                             var bgColor = "#ffffff";
                             var borderColor = "#2b7ce9";
                             
                             if (sosa === 1) {
-                                bgColor = "#e8f5e9"; // Racine
+                                bgColor = "#e8f5e9";
                                 borderColor = "#2e7d32";
                             } else if (sosa % 2 === 0) {
-                                bgColor = "#e3f2fd"; // Père
+                                bgColor = "#e3f2fd";
                                 borderColor = "#1565c0";
                             } else {
-                                bgColor = "#fce4ec"; // Mère
+                                bgColor = "#fce4ec";
                                 borderColor = "#c2185b";
                             }
 
@@ -138,7 +135,7 @@
                                 id: sosa,
                                 label: etiquette.trim(),
                                 shape: "box",
-                                level: generation, // Forcer l'alignement de génération
+                                level: generation,
                                 color: {
                                     background: bgColor,
                                     border: borderColor,
@@ -155,7 +152,6 @@
                 if (sosa > 1) {
                     var enfantSosa = Math.floor(sosa / 2);
                     if (sosaPresents.has(enfantSosa)) {
-                        // Couleur du lien selon la branche (Bleu pour père, Rose pour mère)
                         var edgeColor = (sosa % 2 === 0) ? "#1565c0" : "#c2185b";
 
                         edges.push({
@@ -188,10 +184,10 @@
                 },
                 layout: {
                     hierarchical: {
-                        direction: 'DU', // DU = Down to Up (Enfant en bas, ascendants vers le haut)
+                        direction: 'DU',
                         sortMethod: 'directed',
-                        nodeSpacing: 220,     // Espace horizontal entre boîtes
-                        levelSeparation: 140, // Espace vertical entre générations
+                        nodeSpacing: 220,
+                        levelSeparation: 140,
                         parentCentralization: true,
                         blockShifting: true,
                         edgeMinimization: true
