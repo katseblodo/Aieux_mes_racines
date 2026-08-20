@@ -38,7 +38,7 @@
     
     <script type="text/javascript">
         // 1. Demander au navigateur de lire le fichier CSV
-        Papa.parse("individus_nettoye (6)_2.csv", {
+        Papa.parse("individus_nettoye.csv", {
             download: true, // Télécharge le fichier hébergé à côté de la page web
             header: true,   // Utilise la première ligne comme nom de variables
             skipEmptyLines: true,
@@ -54,7 +54,8 @@
                     if (!isNaN(sosa)) {
                         // Construire le texte affiché dans la boîte
                         // Adapte "row.Prenom", "row.Nom" et "row.Dates" selon les en-têtes réels de ton CSV
-                        var etiquette = (row.Prenom || "") + " " + (row.Nom || "") + "\n" + (row.Dates || "");
+                        // sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;lieu_naissance;lieu_deces;date_mariage;lieu_mariage;infos_complementaires
+                        var etiquette = (row.sosa || "") + " " + (row.nom_prenom || "") + "\n" + (row.date_naissance || "") + "-" (row.date_deces || "")  ;
                         
                         nodes.push({
                             id: sosa,
