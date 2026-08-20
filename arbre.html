@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Généalogie de la famille</title>
     
-    <!-- Bibliothèque pour lire le CSV -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-    <!-- Bibliothèque pour dessiner l'arbre -->
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     
     <style type="text/css">
@@ -24,93 +22,127 @@
             background: rgba(255, 255, 255, 0.95); padding: 15px;
             border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 10;
         }
+        #family-filter {
+            margin-top: 10px; padding: 5px; font-size: 14px; width: 100%;
+        }
     </style>
 </head>
 <body>
     
     <div id="instructions">
         <h2>Arbre Généalogique</h2>
-        <p>🖱️/👆 <b>Naviguer :</b> Glissez pour vous déplacer dans l'arbre.<br>
-        🔍 <b>Zoomer :</b> Pincez l'écran ou utilisez la molette.</p>
+        
+        <label for="family-filter"><b>Afficher la branche :</b></label>
+        <select id="family-filter">
+            <option value="all">Toutes les branches</option>
+        </select>
+        
+        <p style="margin-top: 15px;">
+        🖱️/👆 <b>Naviguer :</b> Glissez pour vous déplacer dans l'arbre.<br>
+        🔍 <b>Zoomer :</b> Pincez l'écran ou utilisez la molette.
+        </p>
     </div>
 
     <div id="mynetwork"></div>
     
     <script type="text/javascript">
+        var allCsvData = []; 
+        var network = null;  
+
         // 1. Demander au navigateur de lire le fichier CSV
         Papa.parse("individus_nettoye.csv", {
-            download: true, // Télécharge le fichier hébergé à côté de la page web
-            header: true,   // Utilise la première ligne comme nom de variables
+            download: true, 
+            header: true,   
             skipEmptyLines: true,
             complete: function(results) {
-                var data = results.data;
-                var nodes = [];
-                var edges = [];
+                allCsvData = results.data;
+                var famillesUniques = new Set();
                 
-                // 2. Transformer chaque ligne du CSV en boîte pour l'arbre
-                data.forEach(function(row) {
-                    var sosa = parseInt(row.Sosa);
-                    
-                    if (!isNaN(sosa)) {
-                        // Construire le texte affiché dans la boîte
-                        // Adapte "row.Prenom", "row.Nom" et "row.Dates" selon les en-têtes réels de ton CSV
-                        // sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;lieu_naissance;lieu_deces;date_mariage;lieu_mariage;infos_complementaires
-                        var etiquette = (row.sosa || "") + " " + (row.nom_prenom || "") + "\n" + (row.date_naissance || "") + "-" (row.date_deces || "")  ;
+                // 2. Extraire les id_famille uniques pour le menu
+                allCsvData.forEach(function(row) {
+                    var idFamille = (row.id_famille || "").trim();
+                    if (idFamille !== "") {
+                        famillesUniques.add(idFamille);
+                    }
+                });
+                
+                // 3. Remplir le menu déroulant
+                var select = document.getElementById("family-filter");
+                Array.from(famillesUniques).sort().forEach(function(famille) {
+                    var option = document.createElement("option");
+                    option.value = famille;
+                    option.text = famille;
+                    select.appendChild(option);
+                });
+                
+                // 4. Dessiner l'arbre complet par défaut au chargement
+                drawTree("all");
+                
+                // 5. Mettre à jour l'arbre quand on change le menu
+                select.addEventListener("change", function() {
+                    drawTree(this.value);
+                });
+            },
+            error: function(err) {
+                console.error("Erreur de lecture du fichier CSV :", err);
+                document.getElementById('mynetwork').innerHTML = "<p style='padding:50px;'>Impossible de charger le fichier CSV. Assurez-vous qu'il se nomme bien individus_nettoye.csv et qu'il est dans le même dossier.</p>";
+            }
+        });
+
+        // Fonction pour filtrer et dessiner l'arbre
+        function drawTree(filtreFamille) {
+            var nodes = [];
+            var edges = [];
+            var sosaPresents = new Set();
+            
+            allCsvData.forEach(function(row) {
+                var sosa = parseInt(row.sosa); // minuscules selon votre CSV
+                var idFamille = (row.id_famille || "").trim();
+                
+                if (!isNaN(sosa)) {
+                    // Si on demande "all" OU si la famille correspond au filtre
+                    if (filtreFamille === "all" || idFamille === filtreFamille) {
+                        
+                        // CORRECTION du "+" manquant :
+                        var etiquette = (row.sosa || "") + " " + (row.nom_prenom || "") + "\n" + (row.date_naissance || "") + " - " + (row.date_deces || "");
                         
                         nodes.push({
                             id: sosa,
                             label: etiquette.trim(),
                             shape: "box"
                         });
-                        
-                        // 3. Calculer mathématiquement le lien de filiation (Sauf pour l'individu racine, Sosa 1)
-                        if (sosa > 1) {
-                            var enfantSosa = Math.floor(sosa / 2);
-                            edges.push({
-                                from: enfantSosa, // La flèche part de l'enfant
-                                to: sosa          // Et remonte vers le parent
-                            });
-                        }
+                        sosaPresents.add(sosa);
                     }
-                });
-                
-                // 4. Dessiner l'arbre avec Vis.js
-                var container = document.getElementById('mynetwork');
-                var visData = {
-                    nodes: new vis.DataSet(nodes),
-                    edges: new vis.DataSet(edges)
-                };
-                
-                var options = {
-                    nodes: {
-                        font: { size: 16, face: 'Tahoma' },
-                        color: { background: '#ffffff', border: '#2b7ce9' },
-                        borderWidth: 2, margin: 12
-                    },
-                    edges: {
-                        width: 2,
-                        arrows: 'to', // Optionnel : affiche une flèche vers les parents
-                        smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 },
-                        color: { color: '#848484' }
-                    },
-                    layout: {
-                        hierarchical: {
-                            direction: 'UD', // De bas en haut (Bottom-Up) est aussi possible avec 'DU'
-                            sortMethod: 'directed',
-                            nodeSpacing: 250,
-                            levelSeparation: 150
-                        }
-                    },
-                    physics: false
-                };
+                }
+            });
+            
+            // Calculer les liens de filiation uniquement pour les boîtes affichées
+            sosaPresents.forEach(function(sosa) {
+                if (sosa > 1) {
+                    var enfantSosa = Math.floor(sosa / 2);
+                    if (sosaPresents.has(enfantSosa)) {
+                        edges.push({
+                            from: enfantSosa, 
+                            to: sosa          
+                        });
+                    }
+                }
+            });
+            
+            var container = document.getElementById('mynetwork');
+            var visData = { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) };
+            
+            var options = {
+                nodes: { font: { size: 16, face: 'Tahoma' }, color: { background: '#ffffff', border: '#2b7ce9' }, borderWidth: 2, margin: 12 },
+                edges: { width: 2, arrows: 'to', smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 }, color: { color: '#848484' } },
+                layout: { hierarchical: { direction: 'UD', sortMethod: 'directed', nodeSpacing: 250, levelSeparation: 150 } },
+                physics: false
+            };
 
-                new vis.Network(container, visData, options);
-            },
-            error: function(err) {
-                console.error("Erreur de lecture du fichier CSV :", err);
-                document.getElementById('mynetwork').innerHTML = "<p style='padding:50px;'>Impossible de charger le fichier CSV. Assurez-vous qu'il se nomme bien individus_nettoye (6)_2.csv et qu'il est dans le même dossier.</p>";
-            }
-        });
+            // Nettoyer l'ancien arbre s'il y en avait un avant d'afficher le nouveau
+            if (network !== null) { network.destroy(); }
+            network = new vis.Network(container, visData, options);
+        }
     </script>
 </body>
 </html>
