@@ -1513,8 +1513,10 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 3291;G10;QQ;marie RIOUAL;;1673;10/05/1745;Penmarch;Penmarch;;;
 3296;G10;QQ;jean le PAPE;ca 1620-ca 1670;;;;;;;fils de Yvon et de Louise Marchiou 6592-6593
 3297;G10;QQ;jeanne le GARREC;ca 1623-/1659;;;;;;;
-3298;G10;QP;yves CLORENNEC;;;;;;;;
-3299;G10;QP;jeanne le BORGNE;;;;;;;;
+3298;G10;QQ;yves CLORENNEC;;;;;;;;
+3299;G10;QQ;jeanne le BORGNE;;;;;;;;
+3302;G10;QQ;Jean Le BUANIC;;;19/12/1716;;Plobannalec;;;
+3303;G10;QQ;Catherine Le FOUILLE;;;19/07/1713;;Plomeur;;;
 3328;G10;QP;guillaume PEMPP;Laboureur;avant 1605;1637;;;;;
 3329;G10;QP;catherine BERREHOUC;;4/03/1603;1638;Combrit;;;;
 3330;G10;QP;tual (tugdual) TALOUARN;;17/06/1618;apres 8/06/1686;Combrit;;;;
