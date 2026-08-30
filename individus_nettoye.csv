@@ -1529,8 +1529,8 @@ sosa;id_generation;id_famille;nom_prenom;profession;date_naissance;date_deces;li
 3337;G10;QP;jeanne le GAUVEC;;1600;1650;;;;;
 3338;G10;QP;yves CLORENNEC;;;;;;;;
 3339;G10;QP;jeanne le BORGNE;;;;;;;;
-3340;G10;QP;herve KERHROM;;;;;;;;
-3341;G10;QP;guyone le FASCHEUX;;;;;;;;
+3340;G10;QP;herve KERHROM;Menager;;;;;;;
+3341;G10;QP;guyone le FASCHEUX;Menager;;;28/09/1677;;Loctudy, Lango;Témoins Fascheux Jacques Cousin Germ.pat. le Bleis Jeanne et René Cousins Germ.mat. kergrom Guillaume et Anne Bfrère et Soeur;
 3342;G10;QP;jean le BUANNIC;Menuisier, Maitre charpentier;janvier 1644;19/12/1716;;Plobannalec;31 janvier 1663, Plomeur,;;fils de Olivier
 3343;G10;QP;catherine le FOUILLE;;1636;19/07/1713;Plomeur;Lesplomeur, plomeur;31 janvier 1663, Plomeur,;;fille de Alain KERFOUILLE et de Catherine Le pape
 3348;G10;QP;jean le MARECHAL;;;;;;;;
@@ -1792,6 +1792,10 @@ G385;G11;QQ;heldrede TREFFRY;;;;;;;;
 6677;G11;QP;;;;;;;;;
 6678;G11;QP;le BORGNE;;;;;;;;
 6679;G11;QP;;;;;;;;;
+6680;G11;QP;KERC’HOM;;;;;;;;
+6681;G11;QP;;;;;;;;;
+6682;G11;QP;LE FACHEUX Jacques;;;15/12/1663;;Plonivel;;;
+6683;G11;QP;CHARUEL Guillemette;;;17/02/1669;;Loctudy;;;
 6714;G11;QP;pierre COUPA;Domanier;1617;15/03/1681;;Plomeur;28/01/1636;Plomeur;
 6715;G11;QP;marguerite le DREAU;;1621;14/04/1681;;Plomeur;28/01/1636;Plomeur;
 6716;G11;QP;guillaume  FOLGOAS;;;;;;;;
